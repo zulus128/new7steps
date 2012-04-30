@@ -13,11 +13,17 @@
 @end
 
 @implementation ViewController
+@synthesize scrollView, scrollView1;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    
+//    self.scrollView.hidden = YES;
+    self.scrollView.contentSize = CGSizeMake(423, 132);
+    self.scrollView1.contentSize = CGSizeMake(423, 132);
+
 }
 
 - (void)viewDidUnload
