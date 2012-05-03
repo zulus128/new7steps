@@ -13,18 +13,34 @@
 @end
 
 @implementation ViewController
-@synthesize scrollView, scrollView1;
 @synthesize vertScrollView;
+@synthesize filePath = _filePath;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
-//    self.scrollView.hidden = YES;
-    self.scrollView.contentSize = CGSizeMake(465, 132);
-    self.scrollView1.contentSize = CGSizeMake(465, 132);
 
+    
+    NSArray* sp = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString* docpath = [sp objectAtIndex: 0];
+    self.filePath = [docpath stringByAppendingPathComponent:@"desc.plist"];
+    BOOL fe = [[NSFileManager defaultManager] fileExistsAtPath:self.filePath];
+    if(!fe) {
+        
+        NSLog(@"NO desc.plist FILE !!! Creating...");
+        NSString *appFile = [[NSBundle mainBundle] pathForResource:@"desc" ofType:@"plist"];
+        NSError *error;
+        NSFileManager *fileManager = [NSFileManager defaultManager];
+        [fileManager copyItemAtPath:appFile toPath:self.filePath error:&error];
+        
+    }
+    
+    favs = [[NSMutableDictionary alloc] initWithContentsOfFile:self.filePath];
+
+    
+    
     int y = 0;
     
     for (int i = 1; i <= 8 ; i++) {
@@ -59,6 +75,14 @@
             imgView2.image = [UIImage imageNamed:[NSString stringWithFormat: @"%d_%d_100.jpg", i,j]];
             [scroll addSubview:imgView2];
             //      [imgView release];
+            
+            UILabel *sLabel = [ [UILabel alloc ] initWithFrame:CGRectMake((j-1) * 115 + 8, 110, 113, 60) ];
+            //        sLabel.textAlignment =  UITextAlignmentCenter;
+            sLabel.textColor = [UIColor redColor];
+            sLabel.backgroundColor = [UIColor clearColor];
+            sLabel.font = [UIFont fontWithName:@"Arial Rounded MT Bold" size:(12.0)];
+            
+            [scroll addSubview:sLabel];
 
         }
 
@@ -73,6 +97,9 @@
 {
     [super viewDidUnload];
     // Release any retained subviews of the main view.
+    
+//    [_filePath release];
+
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

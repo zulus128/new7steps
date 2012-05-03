@@ -8,11 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
-@property (nonatomic, retain) IBOutlet UIScrollView* scrollView;
-@property (nonatomic, retain) IBOutlet UIScrollView* scrollView1;
+@interface ViewController : UIViewController {
+    
+        NSMutableDictionary* favs;
+}
 
 @property (nonatomic, retain) IBOutlet UIScrollView* vertScrollView;
+@property (nonatomic, retain) NSString* filePath;
+
 
 @end
