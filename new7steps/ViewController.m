@@ -14,6 +14,7 @@
 
 @implementation ViewController
 @synthesize scrollView, scrollView1;
+@synthesize vertScrollView;
 
 - (void)viewDidLoad
 {
@@ -23,6 +24,8 @@
 //    self.scrollView.hidden = YES;
     self.scrollView.contentSize = CGSizeMake(465, 132);
     self.scrollView1.contentSize = CGSizeMake(465, 132);
+
+    self.vertScrollView.contentSize = CGSizeMake(320, 600);
 
 }
 

@@ -13,4 +13,6 @@
 @property (nonatomic, retain) IBOutlet UIScrollView* scrollView;
 @property (nonatomic, retain) IBOutlet UIScrollView* scrollView1;
 
+@property (nonatomic, retain) IBOutlet UIScrollView* vertScrollView;
+
 @end
