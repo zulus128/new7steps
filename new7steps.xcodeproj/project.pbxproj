@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DD998C36155208A50089BDB9 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = DD998C35155208A50089BDB9 /* background.png */; };
 		DDCEA859154E41D20089A98F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDCEA858154E41D20089A98F /* UIKit.framework */; };
 		DDCEA85B154E41D20089A98F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDCEA85A154E41D20089A98F /* Foundation.framework */; };
 		DDCEA85D154E41D20089A98F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDCEA85C154E41D20089A98F /* CoreGraphics.framework */; };
@@ -36,6 +37,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DD998C35155208A50089BDB9 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
 		DDCEA854154E41D20089A98F /* new7steps.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = new7steps.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDCEA858154E41D20089A98F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		DDCEA85A154E41D20089A98F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -149,6 +151,7 @@
 				DDCEA885154E45980089A98F /* spisok_on.png */,
 				DDCEA887154E45A10089A98F /* spisok_top_toolbar.png */,
 				DDCEA889154E4E7F0089A98F /* square_for_picture_.png */,
+				DD998C35155208A50089BDB9 /* background.png */,
 			);
 			name = Interface;
 			sourceTree = "<group>";
@@ -238,6 +241,7 @@
 				DDEBE2D8154E5A8A008F4BF8 /* 6_2_100.jpg in Resources */,
 				DDEBE2DA154E5A92008F4BF8 /* 6_3_100.jpg in Resources */,
 				DDEBE2DC154E5A9A008F4BF8 /* 6_4_100.jpg in Resources */,
+				DD998C36155208A50089BDB9 /* background.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

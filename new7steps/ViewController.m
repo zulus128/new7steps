@@ -21,8 +21,8 @@
 	// Do any additional setup after loading the view, typically from a nib.
     
 //    self.scrollView.hidden = YES;
-    self.scrollView.contentSize = CGSizeMake(423, 132);
-    self.scrollView1.contentSize = CGSizeMake(423, 132);
+    self.scrollView.contentSize = CGSizeMake(465, 132);
+    self.scrollView1.contentSize = CGSizeMake(465, 132);
 
 }
 
@@ -34,11 +34,13 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-        return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
-    } else {
-        return YES;
-    }
+//    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
+//        return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
+//    } else {
+//        return YES;
+//    }
+    
+    return NO;
 }
 
 @end
