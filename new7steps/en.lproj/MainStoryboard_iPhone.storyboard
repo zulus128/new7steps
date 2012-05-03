@@ -70,144 +70,14 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="tXF-wL-ofH">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" id="tXF-wL-ofH">
                                 <rect key="frame" x="0.0" y="39" width="320" height="374"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <subviews>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="КУРС 5" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="nPx-ql-x9F">
-                                        <rect key="frame" x="15" y="15" width="42" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                        <color key="textColor" red="1" green="0.16078431904315948" blue="0.054901964962482452" alpha="1" colorSpace="deviceRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="header_line.png" id="WlA-WR-Ml3">
-                                        <rect key="frame" x="0.0" y="171" width="320" height="33"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="header_line.png" id="zLf-KB-rhS">
-                                        <rect key="frame" x="0.0" y="560" width="320" height="33"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="КУРС 6" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="Afx-TV-EPM">
-                                        <rect key="frame" x="15" y="171" width="42" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                        <color key="textColor" red="1" green="0.16078431900000001" blue="0.054901964960000001" alpha="1" colorSpace="deviceRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                            </scrollView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="header_line.png" id="Cgc-3j-uWX">
-                                <rect key="frame" x="0.0" y="380" width="320" height="33"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="КУРС 7" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="ovf-f8-p7f">
-                                <rect key="frame" x="15" y="384" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                <color key="textColor" red="1" green="0.16078431900000001" blue="0.054901964960000001" alpha="1" colorSpace="deviceRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" id="TcI-FL-baj">
-                                <rect key="frame" x="5" y="244" width="320" height="137"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="square_for_picture_.png" id="jpT-Be-99v">
-                                        <rect key="frame" x="0.0" y="0.0" width="113" height="132"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                    </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="6_1_100.jpg" id="H5Z-xG-z1t">
-                                        <rect key="frame" x="2" y="2" width="108" height="72"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="square_for_picture_.png" id="q0p-LY-ZOI">
-                                        <rect key="frame" x="115" y="0.0" width="113" height="132"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                    </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="6_2_100.jpg" id="Xjm-0h-WMR">
-                                        <rect key="frame" x="118" y="2" width="108" height="72"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="square_for_picture_.png" id="2zr-Ib-yAm">
-                                        <rect key="frame" x="230" y="0.0" width="113" height="132"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                    </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="6_3_100.jpg" id="H58-4S-QdI">
-                                        <rect key="frame" x="233" y="2" width="108" height="72"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="square_for_picture_.png" id="Q3Y-TJ-qqg">
-                                        <rect key="frame" x="345" y="0.0" width="113" height="132"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                    </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="6_4_100.jpg" id="091-rI-y5o">
-                                        <rect key="frame" x="348" y="2" width="108" height="72"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="СУП-ПЮРЕ ИЗ ЗАПЕЧЕННЫХ ПОМИДОРОВ" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="10" id="5sm-TU-hIf">
-                                        <rect key="frame" x="7" y="73" width="100" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="DevanagariSangamMN-Bold" family="Devanagari Sangam MN" pointSize="7"/>
-                                        <color key="textColor" red="0.52156865600000002" green="0.231372565" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="В любое время года, когда хочется как-то разнообразить свое меню, вы можете..." lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumFontSize="10" id="bLC-tz-b5L">
-                                        <rect key="frame" x="7" y="96" width="100" height="31"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="6"/>
-                                        <color key="textColor" red="0.52156865600000002" green="0.231372565" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="СУП-ПЮРЕ ИЗ ЗАПЕЧЕННЫХ ПОМИДОРОВ" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="10" id="POh-3v-Cq8">
-                                        <rect key="frame" x="122" y="73" width="100" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="DevanagariSangamMN-Bold" family="Devanagari Sangam MN" pointSize="7"/>
-                                        <color key="textColor" red="0.52156865600000002" green="0.231372565" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="В любое время года, когда хочется как-то разнообразить свое меню, вы можете..." lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumFontSize="10" id="mzF-Ds-5sf">
-                                        <rect key="frame" x="122" y="96" width="100" height="31"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="6"/>
-                                        <color key="textColor" red="0.52156865600000002" green="0.231372565" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="СУП-ПЮРЕ ИЗ ЗАПЕЧЕННЫХ ПОМИДОРОВ" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="10" id="38n-4a-xs5">
-                                        <rect key="frame" x="237" y="73" width="100" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="DevanagariSangamMN-Bold" family="Devanagari Sangam MN" pointSize="7"/>
-                                        <color key="textColor" red="0.52156865600000002" green="0.231372565" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="В любое время года, когда хочется как-то разнообразить свое меню, вы можете..." lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumFontSize="10" id="d81-1k-CNu">
-                                        <rect key="frame" x="237" y="96" width="100" height="31"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="6"/>
-                                        <color key="textColor" red="0.52156865600000002" green="0.231372565" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="СУП-ПЮРЕ ИЗ ЗАПЕЧЕННЫХ ПОМИДОРОВ" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="10" id="86S-uo-cge">
-                                        <rect key="frame" x="352" y="73" width="100" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="DevanagariSangamMN-Bold" family="Devanagari Sangam MN" pointSize="7"/>
-                                        <color key="textColor" red="0.52156865600000002" green="0.231372565" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="В любое время года, когда хочется как-то разнообразить свое меню, вы можете..." lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumFontSize="10" id="eUr-rz-Sbr">
-                                        <rect key="frame" x="352" y="96" width="100" height="31"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="6"/>
-                                        <color key="textColor" red="0.52156865600000002" green="0.231372565" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <outlet property="scrollView1" destination="TcI-FL-baj" id="eQd-CS-xT4"/>
                         <outlet property="vertScrollView" destination="tXF-wL-ofH" id="2un-hs-mV4"/>
                     </connections>
                 </viewController>
@@ -215,15 +85,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="6_1_100.jpg" width="216" height="144"/>
-        <image name="6_2_100.jpg" width="216" height="144"/>
-        <image name="6_3_100.jpg" width="216" height="144"/>
-        <image name="6_4_100.jpg" width="216" height="144"/>
         <image name="background.png" width="640" height="960"/>
-        <image name="header_line.png" width="640" height="65"/>
         <image name="spisok_on.png" width="48" height="63"/>
         <image name="spisok_top_toolbar.png" width="69" height="53"/>
-        <image name="square_for_picture_.png" width="225" height="264"/>
         <image name="star_off.png" width="56" height="56"/>
         <image name="star_on.png" width="56" height="56"/>
         <image name="toolbar_bottom.png" width="640" height="99"/>

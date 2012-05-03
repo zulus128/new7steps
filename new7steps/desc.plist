@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>1_1</key>
+	<string>Салат с хрустящими креветками, фенхелем и молодым шпинатом</string>
+	<key>1_2</key>
+	<string>Домашние феттучини с белыми грибами</string>
+	<key>1_3</key>
+	<string>Филе говядины с бальзамической карамелью и румяным картофелем</string>
+	<key>1_4</key>
+	<string>Семифредо с миндалем</string>
+	<key>2_1</key>
+	<string>Салат с осьминогом и картофелем</string>
+	<key>2_2</key>
+	<string>Ньекки с цукини и креветками</string>
+	<key>2_3</key>
+	<string>Запеченая дорадо с овощами по-деревенски</string>
+	<key>2_4</key>
+	<string>Лимонный мусс с клубничным соусом</string>
+	<key>3_1</key>
+	<string>Карпаччо из дорадо</string>
+	<key>3_2</key>
+	<string>Домашние спагетти алла неаполитана с моцарелой ди буффало</string>
+	<key>3_3</key>
+	<string>Тунец по-сицилийски</string>
+	<key>3_4</key>
+	<string>Тирамису classico</string>
+	<key>4_1</key>
+	<string>Салат ростбиф
+Салат ростбиф
+Салат ростбиф</string>
+	<key>4_2</key>
+	<string>Спагетти в соусе Болоньезе</string>
+	<key>4_3</key>
+	<string>Говядина в соусе &quot;зеленый перец&quot;</string>
+	<key>4_4</key>
+	<string>Шоколадный флан с ванильным мороженным</string>
+	<key>5_1</key>
+	<string>Вителло тоннато</string>
+	<key>5_2</key>
+	<string>Ригатони алла норма с баклажанами и рикоттой</string>
+	<key>5_3</key>
+	<string>Каре ягненка с ароматными травами</string>
+	<key>5_4</key>
+	<string>Яблочный штрудель с ванильным мороженым</string>
+	<key>6_1</key>
+	<string>Пармижана из баклажанов</string>
+	<key>6_2</key>
+	<string>Спагетти алла путанеска</string>
+	<key>6_3</key>
+	<string>Цыпленок алла дьявола с печеным болгарским перцем</string>
+	<key>6_4</key>
+	<string>Профитроли с шоколадным соусом и ванильным мороженым </string>
+	<key>7_1</key>
+	<string>Карпаччо - дуэт из лосося и тунца</string>
+	<key>7_2</key>
+	<string>Ризотто с морепродуктами</string>
+	<key>7_3</key>
+	<string>Темпура в итальянском стиле</string>
+	<key>7_4</key>
+	<string>Цитрусовая Крема Каталана</string>
+	<key>8_1</key>
+	<string>Пармский салат</string>
+	<key>8_2</key>
+	<string>Равиоли с рикоттой и шпинатом в сырном соусе</string>
+	<key>8_3</key>
+	<string>Голень ягненка, фаршированная грудинкой и шампиньонами</string>
+	<key>8_4</key>
+	<string>Кофейный баварский мусс</string>
+</dict>
+</plist>
