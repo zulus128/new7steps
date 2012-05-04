@@ -15,6 +15,8 @@
 @implementation ViewController
 @synthesize vertScrollView;
 @synthesize filePath = _filePath;
+//@synthesize panelbut;
+@synthesize panel1;
 
 - (void)viewDidLoad
 {
@@ -46,7 +48,7 @@
         
         UIScrollView *scroll = [[UIScrollView alloc] initWithFrame:CGRectMake(0, y+33, 320, 162)];
         scroll.scrollEnabled = YES;
-        scroll.contentSize = CGSizeMake(720, 162);
+        scroll.contentSize = CGSizeMake(740, 162);
         scroll.showsHorizontalScrollIndicator = NO;
         scroll.directionalLockEnabled = YES;
         [self.vertScrollView addSubview:scroll];
@@ -104,5 +106,39 @@
     
     return NO;
 }
+
+- (IBAction)panelButtonClick:(id)sender{
+    
+//    NSLog(@"panel button click");
+    
+    
+    if(!panelhide) {
+        
+    f = self.panel1.frame;
+    [UIView animateWithDuration:0.5 
+                             animations:^{
+                                 [self.panel1 setFrame:CGRectMake(f.origin.x - 250, f.origin.y, f.size.width, f.size.height)];
+                             }
+                             completion:^(BOOL finished){ if(finished) {
+//                [[self ShowHideButton] setTitle:@"Show Panel" forState:UIControlStateNormal];
+//                [self setCurrentState:kHidden];
+            }
+                             }];
+    }
+    else {
+        [UIView animateWithDuration:0.5 
+                         animations:^{
+                             [self.panel1 setFrame:CGRectMake(f.origin.x, f.origin.y, f.size.width, f.size.height)];
+                         }
+                         completion:^(BOOL finished){ if(finished) {
+            //                [[self ShowHideButton] setTitle:@"Show Panel" forState:UIControlStateNormal];
+            //                [self setCurrentState:kHidden];
+        }
+                         }];
+    }
+    
+    panelhide = !panelhide;
+}
+
 
 @end

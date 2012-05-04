@@ -10,11 +10,19 @@
 
 @interface ViewController : UIViewController {
     
-        NSMutableDictionary* favs;
+    NSMutableDictionary* favs;
+    BOOL panelhide;
+    CGRect f;
 }
 
 @property (nonatomic, retain) IBOutlet UIScrollView* vertScrollView;
 @property (nonatomic, retain) NSString* filePath;
+//@property (nonatomic, retain) IBOutlet UIButton* panelbut;
 
+
+- (IBAction)panelButtonClick:(id)sender;
+
+
+@property (nonatomic, retain) IBOutlet UIView* panel1;
 
 @end
