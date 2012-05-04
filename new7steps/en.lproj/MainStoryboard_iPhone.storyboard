@@ -71,7 +71,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" id="tXF-wL-ofH">
-                                <rect key="frame" x="0.0" y="39" width="320" height="374"/>
+                                <rect key="frame" x="0.0" y="42" width="320" height="368"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             </scrollView>
                         </subviews>
@@ -97,8 +97,6 @@
         <class className="ViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
             <relationships>
-                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
-                <relationship kind="outlet" name="scrollView1" candidateClass="UIScrollView"/>
                 <relationship kind="outlet" name="vertScrollView" candidateClass="UIScrollView"/>
             </relationships>
         </class>
