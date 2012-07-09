@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "Common.h"
 
 @interface ViewController ()
 
@@ -84,6 +85,8 @@
     }
 
     self.vertScrollView.contentSize = CGSizeMake(320, y);
+    
+    [[Common instance] addRecipes];
 
 }
 
