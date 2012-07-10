@@ -19,6 +19,7 @@
 	self = [super init];
     
     itype = type;
+    categ = 0;
     
 	return self;
 }
@@ -27,18 +28,18 @@
   namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qualifiedName
 	attributes:(NSDictionary *)attributeDict {
 	
-  //  NSLog(@"Start Element");
-   
-//    if(itype == TYPE_BANNERS)
-//        return;
-    
 	if([elementName isEqualToString:RECIPE_TAG]) {
 
 		self.item = [[Item alloc] init];
+        self.item.category = categ;
         
         NSLog(@"Item alloc type = %i", itype);
 	}
-	
+    else
+        if([elementName isEqualToString:CATEGORY_TAG])
+            categ++;
+
+        
 }
 
 - (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string {
@@ -68,6 +69,9 @@
     else
         if([elementName isEqualToString:NAME_TAG])
             item.name = trimedStr;
+        else
+            if([elementName isEqualToString:IMAGE_TAG])
+                item.image = trimedStr;
 
 //	[currentElementValue release];
 	currentElementValue = nil;

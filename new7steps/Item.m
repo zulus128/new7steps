@@ -11,20 +11,14 @@
 
 @implementation Item
 
-//@synthesize type, title, link, date, description, full_text;
 @synthesize name;
+@synthesize image;
+@synthesize category;
 
 - (void) dealloc {
 	
-    //	NSLog(@"Item dealloc");
  	self.name = nil;
-//	self.link = nil;
-////	self.ituneslink = nil;
-////	self.rubric = nil;
-////	self.full_text = nil;
-//	self.date = nil;
-////    self.image = nil;
-//    self.description = nil;
+ 	self.image = nil;
 	
 //	[super dealloc];
 }

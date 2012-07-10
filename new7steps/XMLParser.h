@@ -14,9 +14,11 @@
 
 	NSMutableString* currentElementValue;
     int itype;
+    int categ;
 }
 
 - (XMLParser *) initXMLParser: (int) type;
+
 - (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName
   namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qualifiedName
 	attributes:(NSDictionary *)attributeDict;

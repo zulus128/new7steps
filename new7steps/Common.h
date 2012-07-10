@@ -14,6 +14,7 @@
 #define RECIPE_TAG @"recipe"
 #define NAME_TAG @"name"
 #define IMAGE_TAG @"image"
+#define CATEGORY_TAG @"category"
 
 enum item_types {
     
@@ -34,5 +35,8 @@ enum item_types {
 - (int) getRecipesCount;
 - (Item*) getRecipeAt: (int)num;
 - (BOOL)addRecipes;
+- (int) getMaxCategory;
+- (int) getMaxRecipesForCategory:(int) cat;
+- (Item*) getRecipe: (int) num forCategory:(int) cat;
 
 @end

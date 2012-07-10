@@ -53,6 +53,42 @@
     return [recipes count];
 }
 
+- (int) getMaxCategory {
+    
+    int m = 0;
+    for (Item* i in recipes)
+        if(i.category > m)
+            m = i.category;
+    
+    return m;
+}
+
+- (int) getMaxRecipesForCategory:(int) cat {
+    
+    int m = 0;
+    for (Item* i in recipes)
+        if(i.category == cat)
+            m++;
+    
+    return m;
+}
+
+- (Item*) getRecipe: (int) num forCategory:(int) cat {
+    
+    int m = 0;
+    Item* r = nil;
+    for (Item* i in recipes)
+        if(i.category == cat) {
+            m++;
+            if(m == num) {
+                r = i;
+                break;
+            }
+        }
+    
+    return r;
+}
+
 - (Item*) getRecipeAt: (int)num {
     
     return [recipes objectAtIndex:num];
