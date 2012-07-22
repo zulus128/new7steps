@@ -13,6 +13,7 @@
     NSMutableDictionary* favs;
     BOOL panelhide;
     CGRect f;
+    int buttag;
 }
 
 @property (nonatomic, retain) IBOutlet UIScrollView* vertScrollView;

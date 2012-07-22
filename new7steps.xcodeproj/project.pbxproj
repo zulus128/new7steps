@@ -13,6 +13,7 @@
 		36D50F3215AAA16900D53641 /* Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 36D50F3115AAA16800D53641 /* Common.m */; };
 		36D50F3A15AAD8F700D53641 /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 36D50F2E15AAA0C400D53641 /* Item.m */; };
 		36FA183B1553935800F1F703 /* square_for_picture_new.png in Resources */ = {isa = PBXBuildFile; fileRef = 36FA183A1553935800F1F703 /* square_for_picture_new.png */; };
+		DD2DA18815BBADFA0074493F /* ViewController2.m in Sources */ = {isa = PBXBuildFile; fileRef = DD2DA18715BBADFA0074493F /* ViewController2.m */; };
 		DD998C36155208A50089BDB9 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = DD998C35155208A50089BDB9 /* background.png */; };
 		DDCEA859154E41D20089A98F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDCEA858154E41D20089A98F /* UIKit.framework */; };
 		DDCEA85B154E41D20089A98F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDCEA85A154E41D20089A98F /* Foundation.framework */; };
@@ -44,6 +45,8 @@
 		36D50F3015AAA16800D53641 /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
 		36D50F3115AAA16800D53641 /* Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Common.m; sourceTree = "<group>"; };
 		36FA183A1553935800F1F703 /* square_for_picture_new.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = square_for_picture_new.png; sourceTree = "<group>"; };
+		DD2DA18615BBADFA0074493F /* ViewController2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController2.h; sourceTree = "<group>"; };
+		DD2DA18715BBADFA0074493F /* ViewController2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController2.m; sourceTree = "<group>"; };
 		DD998C35155208A50089BDB9 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
 		DDCEA854154E41D20089A98F /* new7steps.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = new7steps.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDCEA858154E41D20089A98F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -84,6 +87,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DD2DA18515BBACB70074493F /* 2nd */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = 2nd;
+			sourceTree = "<group>";
+		};
 		DDCEA849154E41D20089A98F = {
 			isa = PBXGroup;
 			children = (
@@ -122,6 +132,8 @@
 				DDCEA86D154E41D20089A98F /* MainStoryboard_iPad.storyboard */,
 				DDCEA870154E41D20089A98F /* ViewController.h */,
 				DDCEA871154E41D20089A98F /* ViewController.m */,
+				DD2DA18615BBADFA0074493F /* ViewController2.h */,
+				DD2DA18715BBADFA0074493F /* ViewController2.m */,
 				36D50F2D15AAA0C400D53641 /* Item.h */,
 				36D50F2E15AAA0C400D53641 /* Item.m */,
 				36D50F3015AAA16800D53641 /* Common.h */,
@@ -147,6 +159,7 @@
 		DDCEA878154E41F10089A98F /* Interface */ = {
 			isa = PBXGroup;
 			children = (
+				DD2DA18515BBACB70074493F /* 2nd */,
 				DDCEA879154E420B0089A98F /* toolbar_bottom.png */,
 				DDCEA87B154E42160089A98F /* toolbar_top.png */,
 				DDCEA87D154E45190089A98F /* star_on.png */,
@@ -253,6 +266,7 @@
 				DDCEA872154E41D20089A98F /* ViewController.m in Sources */,
 				3661C75515AAA009007B5C56 /* XMLParser.m in Sources */,
 				36D50F3215AAA16900D53641 /* Common.m in Sources */,
+				DD2DA18815BBADFA0074493F /* ViewController2.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -343,13 +357,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer: VADIM KASSIN (BT4MEDVR32)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: VADIM KASSIN (BT4MEDVR32)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "new7steps/new7steps-Prefix.pch";
 				INFOPLIST_FILE = "new7steps/new7steps-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "A7E3A7A2-2738-4A5A-A5DC-2D4AE1046E10";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "A7E3A7A2-2738-4A5A-A5DC-2D4AE1046E10";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;

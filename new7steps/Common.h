@@ -16,6 +16,8 @@
 #define IMAGE_TAG @"image"
 #define CATEGORY_TAG @"category"
 
+#define  CAT_MULT 10000
+
 enum item_types {
     
     TYPE_NONE,

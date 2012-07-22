@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "Common.h"
+#import "ViewController2.h"
 
 @interface ViewController ()
 
@@ -59,9 +60,20 @@
 
             Item* it = [[Common instance] getRecipe:j forCategory:i];
             
-            UIImageView *imgView1 = [[UIImageView alloc] initWithFrame:CGRectMake((j-1) * 183 + 5, 0, 180, 161)];
-            imgView1.image = [UIImage imageNamed:@"square_for_picture_new.png"];
-            [scroll addSubview:imgView1];
+            
+            UIButton *but = [UIButton buttonWithType:UIButtonTypeCustom];
+            but.frame = CGRectMake((j-1) * 183 + 5, 0, 180, 161);
+            [but setImage:[UIImage imageNamed:@"square_for_picture_new.png"] forState:UIControlStateNormal];
+            but.tag = i * CAT_MULT + j;
+            [but addTarget:self action:@selector(buttonEvent:) forControlEvents:UIControlEventTouchUpInside];
+            [scroll addSubview:but];
+
+
+            
+//            UIImageView *imgView1 = [[UIImageView alloc] initWithFrame:CGRectMake((j-1) * 183 + 5, 0, 180, 161)];
+//            imgView1.image = [UIImage imageNamed:@"square_for_picture_new.png"];
+//            [scroll addSubview:imgView1];
+            
             //      [imgView release];
             UIImageView *imgView2 = [[UIImageView alloc] initWithFrame:CGRectMake((j-1) * 183 + 8, 2, 175, 116)];
 //            imgView2.image = [UIImage imageNamed:[NSString stringWithFormat: @"%d_%d_100.jpg", i,j]];
@@ -112,6 +124,26 @@
 //    }
     
     return NO;
+}
+
+- (void)buttonEvent:(id)sender {
+    
+    buttag = ((UIButton*)sender).tag;
+    NSLog(@" button %d clicked!!!", buttag);
+    
+
+    [self performSegueWithIdentifier: @"2ndSegue" sender: self];
+
+}
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    NSLog(@"prepareForSegue");
+    
+    if ([segue.identifier isEqualToString:@"2ndSegue"]) {
+
+        ViewController2* detailViewController = (ViewController2*)segue.destinationViewController;
+        detailViewController.itemtag = buttag;
+    }
 }
 
 - (IBAction)panelButtonClick:(id)sender{
