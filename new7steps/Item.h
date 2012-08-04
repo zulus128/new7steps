@@ -14,6 +14,10 @@
 
 @property (nonatomic, retain) NSString* name;
 @property (nonatomic, retain) NSString* image;
+@property (nonatomic, retain) NSString* ingrid_image;
 @property (assign, readwrite) int category;
+
+//@property (nonatomic, retain) NSMutableArray* ingrids;
+@property (nonatomic, retain) NSMutableDictionary* ingrids;
 
 @end

@@ -20,6 +20,7 @@
     
     itype = type;
     categ = 0;
+    ingrid = NO;
     
 	return self;
 }
@@ -28,16 +29,24 @@
   namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qualifiedName
 	attributes:(NSDictionary *)attributeDict {
 	
+    
+//    NSLog(@"+++ begin: %@ %d", elementName, ingrid);
+
 	if([elementName isEqualToString:RECIPE_TAG]) {
 
 		self.item = [[Item alloc] init];
         self.item.category = categ;
         
-        NSLog(@"Item alloc type = %i", itype);
+//        NSLog(@"Item alloc type = %i", itype);
 	}
     else
         if([elementName isEqualToString:CATEGORY_TAG])
             categ++;
+        else
+            if([elementName isEqualToString:INGRIDS_TAG]) {
+                ingrid = YES;
+//                NSLog(@"--- ingrid begin");
+            }
 
         
 }
@@ -60,6 +69,30 @@
 						   [NSCharacterSet whitespaceAndNewlineCharacterSet]];
 
 
+//    NSLog(@"+++ end: %@ %d", elementName, ingrid);
+    
+    if(ingrid) {
+
+        if([elementName isEqualToString:NAME_TAG]) {
+
+            name = trimedStr;
+//            NSLog(@"ingridient name : %@", name);
+
+        }
+            else
+                if([elementName isEqualToString:QUANTITY_TAG]) {
+                    [item.ingrids setObject:trimedStr forKey:name];
+//                    NSLog(@"ingridient %@ : %@", name, trimedStr);
+                }
+                else
+                    if([elementName isEqualToString:INGRIDS_TAG]) {
+                        ingrid = NO;
+//                                                NSLog(@"--- ingrid end");
+                    }
+
+        
+    }
+    else
     if([elementName isEqualToString:RECIPE_TAG]) {
 			
         [[Common instance] addRecipe:item];                
@@ -72,6 +105,9 @@
         else
             if([elementName isEqualToString:IMAGE_TAG])
                 item.image = trimedStr;
+            else
+                if([elementName isEqualToString:INGRID_IMAGE_TAG])
+                    item.ingrid_image = trimedStr;
 
 //	[currentElementValue release];
 	currentElementValue = nil;

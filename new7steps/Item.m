@@ -11,14 +11,26 @@
 
 @implementation Item
 
-@synthesize name;
-@synthesize image;
-@synthesize category;
+- (id) init {
+	
+	self = [super init];
+    
+    if( self != nil ) {
+    
+//        self.ingrids = [NSMutableArray array];
+
+        self.ingrids = [NSMutableDictionary dictionary];
+
+    }
+    
+    return self;
+}
 
 - (void) dealloc {
 	
  	self.name = nil;
  	self.image = nil;
+    self.ingrid_image = nil;
 	
 //	[super dealloc];
 }

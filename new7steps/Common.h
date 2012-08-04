@@ -14,6 +14,9 @@
 #define RECIPE_TAG @"recipe"
 #define NAME_TAG @"name"
 #define IMAGE_TAG @"image"
+#define INGRID_IMAGE_TAG @"ingridients_image"
+#define INGRIDS_TAG @"ingridients"
+#define QUANTITY_TAG @"quantity"
 #define CATEGORY_TAG @"category"
 
 #define CAT_MULT 10000

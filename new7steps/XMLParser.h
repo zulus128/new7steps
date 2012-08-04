@@ -15,6 +15,8 @@
 	NSMutableString* currentElementValue;
     int itype;
     int categ;
+    BOOL ingrid;
+    NSString* name;
 }
 
 - (XMLParser *) initXMLParser: (int) type;

@@ -12,4 +12,6 @@
 
 @property (readwrite, assign) int itemtag;
 
+@property (nonatomic, retain) IBOutlet UIScrollView* vertScrollView2;
+
 @end
