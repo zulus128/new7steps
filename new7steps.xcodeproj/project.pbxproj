@@ -14,6 +14,7 @@
 		36D50F3A15AAD8F700D53641 /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 36D50F2E15AAA0C400D53641 /* Item.m */; };
 		36FA183B1553935800F1F703 /* square_for_picture_new.png in Resources */ = {isa = PBXBuildFile; fileRef = 36FA183A1553935800F1F703 /* square_for_picture_new.png */; };
 		DD2DA18815BBADFA0074493F /* ViewController2.m in Sources */ = {isa = PBXBuildFile; fileRef = DD2DA18715BBADFA0074493F /* ViewController2.m */; };
+		DD53C7F915CE2B8000884D9C /* place2_under_picture.png in Resources */ = {isa = PBXBuildFile; fileRef = DD53C7F815CE2B8000884D9C /* place2_under_picture.png */; };
 		DD998C36155208A50089BDB9 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = DD998C35155208A50089BDB9 /* background.png */; };
 		DDCEA859154E41D20089A98F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDCEA858154E41D20089A98F /* UIKit.framework */; };
 		DDCEA85B154E41D20089A98F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDCEA85A154E41D20089A98F /* Foundation.framework */; };
@@ -47,6 +48,7 @@
 		36FA183A1553935800F1F703 /* square_for_picture_new.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = square_for_picture_new.png; sourceTree = "<group>"; };
 		DD2DA18615BBADFA0074493F /* ViewController2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController2.h; sourceTree = "<group>"; };
 		DD2DA18715BBADFA0074493F /* ViewController2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController2.m; sourceTree = "<group>"; };
+		DD53C7F815CE2B8000884D9C /* place2_under_picture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = place2_under_picture.png; sourceTree = "<group>"; };
 		DD998C35155208A50089BDB9 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
 		DDCEA854154E41D20089A98F /* new7steps.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = new7steps.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDCEA858154E41D20089A98F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -90,6 +92,7 @@
 		DD2DA18515BBACB70074493F /* 2nd */ = {
 			isa = PBXGroup;
 			children = (
+				DD53C7F815CE2B8000884D9C /* place2_under_picture.png */,
 			);
 			name = 2nd;
 			sourceTree = "<group>";
@@ -250,6 +253,7 @@
 				36C0C5741552984D0087EEAA /* desc.plist in Resources */,
 				36FA183B1553935800F1F703 /* square_for_picture_new.png in Resources */,
 				364003751553E9BC00C4725D /* FACEBOOK_back.png in Resources */,
+				DD53C7F915CE2B8000884D9C /* place2_under_picture.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

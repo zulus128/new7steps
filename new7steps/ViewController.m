@@ -137,13 +137,13 @@
 }
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
-    NSLog(@"prepareForSegue");
-    
-    if ([segue.identifier isEqualToString:@"2ndSegue"]) {
-
-        ViewController2* detailViewController = (ViewController2*)segue.destinationViewController;
-        detailViewController.itemtag = buttag;
-    }
+//    NSLog(@"prepareForSegue");
+//    
+//    if ([segue.identifier isEqualToString:@"2ndSegue"]) {
+//
+//        ViewController2* detailViewController = (ViewController2*)segue.destinationViewController;
+//        detailViewController.itemtag = buttag;
+//    }
 }
 
 - (IBAction)panelButtonClick:(id)sender{

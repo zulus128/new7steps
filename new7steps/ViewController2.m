@@ -26,15 +26,19 @@
     
     Item* it = [[Common instance] getRecipe:j forCategory:i];
     
-    int y = 200;
+    int y = 160;
     
     UIImageView *imgView2 = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, y)];
     imgView2.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:it.ingrid_image]]];
     [self.vertScrollView2 addSubview:imgView2];
 
+    UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, y, 320, 32)];
+    imgView.image = [UIImage imageNamed:@"place2_under_picture.png"];
+    [self.vertScrollView2 addSubview:imgView];
+        
+    y += 32;
     
-    
-    self.vertScrollView2.contentSize = CGSizeMake(320, 1500);
+    self.vertScrollView2.contentSize = CGSizeMake(320, y);
 
 }
 
