@@ -16,6 +16,12 @@
 @property (nonatomic, retain) NSString* image;
 @property (nonatomic, retain) NSString* ingrid_image;
 @property (assign, readwrite) int category;
+@property (nonatomic, retain) NSString* type;
+@property (nonatomic, retain) NSString* time;
+@property (nonatomic, retain) NSString* calories;
+@property (nonatomic, retain) NSString* proteins;
+@property (nonatomic, retain) NSString* fats;
+@property (nonatomic, retain) NSString* carbos;
 
 //@property (nonatomic, retain) NSMutableArray* ingrids;
 @property (nonatomic, retain) NSMutableDictionary* ingrids;

@@ -18,6 +18,12 @@
 #define INGRIDS_TAG @"ingridients"
 #define QUANTITY_TAG @"quantity"
 #define CATEGORY_TAG @"category"
+#define TYPE_TAG @"type"
+#define TIME_TAG @"cooking_time"
+#define CALORIES_TAG @"calories"
+#define PROTEINS_TAG @"proteins"
+#define FATS_TAG @"fats"
+#define CARBO_TAG @"carbohydrates"
 
 #define CAT_MULT 10000
 

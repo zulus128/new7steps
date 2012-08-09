@@ -26,6 +26,9 @@
 	// Do any additional setup after loading the view, typically from a nib.
     
 
+    if(again)
+        return;
+    again = YES;
     
     NSString *appFile = [[NSBundle mainBundle] pathForResource:@"desc" ofType:@"plist"];
     favs = [[NSMutableDictionary alloc] initWithContentsOfFile:appFile];
@@ -139,11 +142,11 @@
     
 //    NSLog(@"prepareForSegue");
 //    
-//    if ([segue.identifier isEqualToString:@"2ndSegue"]) {
-//
-//        ViewController2* detailViewController = (ViewController2*)segue.destinationViewController;
-//        detailViewController.itemtag = buttag;
-//    }
+    if ([segue.identifier isEqualToString:@"2ndSegue"]) {
+
+        ViewController2* detailViewController = (ViewController2*)segue.destinationViewController;
+        detailViewController.itemtag = buttag;
+    }
 }
 
 - (IBAction)panelButtonClick:(id)sender{

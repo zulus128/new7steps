@@ -14,6 +14,7 @@
     BOOL panelhide;
     CGRect f;
     int buttag;
+    BOOL again;
 }
 
 @property (nonatomic, retain) IBOutlet UIScrollView* vertScrollView;

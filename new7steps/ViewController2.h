@@ -11,7 +11,9 @@
 @interface ViewController2 : UIViewController
 
 @property (readwrite, assign) int itemtag;
-
 @property (nonatomic, retain) IBOutlet UIScrollView* vertScrollView2;
+
+- (IBAction) exit;
+- (void)buttonEvent:(id)sender;
 
 @end
