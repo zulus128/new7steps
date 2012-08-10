@@ -20,6 +20,7 @@
 @property (nonatomic, retain) IBOutlet UIScrollView* vertScrollView;
 @property (nonatomic, retain) NSString* filePath;
 //@property (nonatomic, retain) IBOutlet UIButton* panelbut;
+@property (nonatomic, retain) IBOutlet UILabel* titleLabel;
 
 
 - (IBAction)panelButtonClick:(id)sender;

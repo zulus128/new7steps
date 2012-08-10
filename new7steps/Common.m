@@ -97,8 +97,8 @@
 - (BOOL)addRecipes {
     
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
-    [request setURL:[NSURL URLWithString:XML_URL]];
-    
+//    [request setURL:[NSURL URLWithString:XML_URL]];
+    [request setURL:[NSURL URLWithString:NSLocalizedString(@"URL", nil)]];
     NSHTTPURLResponse* urlResponse = nil;
     NSError *error = nil;//[[NSError alloc] init];
     NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&urlResponse error:&error];

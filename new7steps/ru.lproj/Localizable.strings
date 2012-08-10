@@ -1,0 +1,17 @@
+/* 
+  Localizable.strings
+  new7steps
+
+  Created by vadim on 8/10/12.
+
+*/
+
+"TITLE" = "7 Шагов";
+"COURSE" = "КУРС";
+"RECIPE_TYPE" = "Тип рецепта";
+"RECIPE_TIME" = "Время приготовления";
+"CALORIES" = "Калорий на 100 грамм";
+"PROTEINS" = "Белки";
+"FATS" = "Жиры";
+"CARBOS" = "Углеводы";
+"URL" = "http://customs.joomsport.com/7steps/index.php?option=com_recipes&lang=ru";

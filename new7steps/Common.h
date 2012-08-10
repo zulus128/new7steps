@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "Item.h"
 
-#define XML_URL @"http://customs.joomsport.com/7steps/index.php?option=com_recipes"
+//#define XML_URL @"http://customs.joomsport.com/7steps/index.php?option=com_recipes"
 
 #define RECIPE_TAG @"recipe"
 #define NAME_TAG @"name"

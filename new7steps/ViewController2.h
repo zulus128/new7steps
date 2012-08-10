@@ -7,8 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Common.h"
 
-@interface ViewController2 : UIViewController
+@interface ViewController2 : UIViewController {
+    
+    Item* it;
+    UIImageView *imgView2;
+}
 
 @property (readwrite, assign) int itemtag;
 @property (nonatomic, retain) IBOutlet UIScrollView* vertScrollView2;

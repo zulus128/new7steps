@@ -1,0 +1,16 @@
+/* 
+  Localizable.strings
+  new7steps
+
+  Created by vadim on 8/10/12.
+
+*/
+
+"TITLE" = "7 Steps";
+"COURSE" = "COURSE";
+"RECIPE_TYPE" = "Recipe type";
+"RECIPE_TIME" = "Recipe time";
+"CALORIES" = "Calories on 100 grams";
+"FATS" = "Fats";
+"CARBOS" = "Carbohydrates";
+"URL" = "http://customs.joomsport.com/7steps/index.php?option=com_recipes&lang=en";

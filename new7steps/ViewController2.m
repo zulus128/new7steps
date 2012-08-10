@@ -7,7 +7,6 @@
 //
 
 #import "ViewController2.h"
-#import "Common.h"
 
 @interface ViewController2 ()
 
@@ -24,12 +23,12 @@
     int i = itemtag / CAT_MULT;
     int j = itemtag - i * CAT_MULT;
     
-    Item* it = [[Common instance] getRecipe:j forCategory:i];
+    it = [[Common instance] getRecipe:j forCategory:i];
     
     int y = 160;
     
-    UIImageView *imgView2 = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, y)];
-    imgView2.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:it.ingrid_image]]];
+    imgView2 = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, y)];
+//    imgView2.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:it.ingrid_image]]];
 //    NSLog(@"image = %@", it.ingrid_image);
     [self.vertScrollView2 addSubview:imgView2];
 
@@ -57,9 +56,9 @@
 
     for (int i = 0; i < 40; i++) {
 
-        UIImageView *imgView2 = [[UIImageView alloc] initWithFrame:CGRectMake(0, y, 320, 3)];
-        imgView2.image = [UIImage imageNamed:@"center_place.png"];
-        [self.vertScrollView2 addSubview:imgView2];
+        UIImageView *imgView21 = [[UIImageView alloc] initWithFrame:CGRectMake(0, y, 320, 3)];
+        imgView21.image = [UIImage imageNamed:@"center_place.png"];
+        [self.vertScrollView2 addSubview:imgView21];
         
         y += 3;
 
@@ -88,7 +87,7 @@
     sLabel1.backgroundColor = [UIColor clearColor];
     sLabel1.font = [UIFont fontWithName:@"Thonburi-Bold" size:10.0];
     sLabel1.textColor = [UIColor colorWithRed:105/255.0 green:76/255.0 blue:56/255.0 alpha:1.0];
-    sLabel1.text = @"Тип рецепта";
+    sLabel1.text = NSLocalizedString(@"RECIPE_TYPE", nil);//@"Тип рецепта";
     [self.vertScrollView2 addSubview:sLabel1];
     UILabel *sLabel11 = [ [UILabel alloc ] initWithFrame:CGRectMake(170, y1, 150, 20) ];
     sLabel11.textAlignment =  UITextAlignmentLeft;
@@ -105,7 +104,7 @@
     sLabel2.backgroundColor = [UIColor clearColor];
     sLabel2.font = [UIFont fontWithName:@"Thonburi-Bold" size:10.0];
     sLabel2.textColor = [UIColor colorWithRed:105/255.0 green:76/255.0 blue:56/255.0 alpha:1.0];
-    sLabel2.text = @"Время приготовления";
+    sLabel2.text = NSLocalizedString(@"RECIPE_TIME", nil);//@"Время приготовления";
     [self.vertScrollView2 addSubview:sLabel2];
     UILabel *sLabel21 = [ [UILabel alloc ] initWithFrame:CGRectMake(170, y1, 150, 20) ];
     sLabel21.textAlignment =  UITextAlignmentLeft;
@@ -122,7 +121,7 @@
     sLabel3.backgroundColor = [UIColor clearColor];
     sLabel3.font = [UIFont fontWithName:@"Thonburi-Bold" size:10.0];
     sLabel3.textColor = [UIColor colorWithRed:105/255.0 green:76/255.0 blue:56/255.0 alpha:1.0];
-    sLabel3.text = @"Калорий на 100 грамм";
+    sLabel3.text = NSLocalizedString(@"CALORIES", nil);//@"Калорий на 100 грамм";
     [self.vertScrollView2 addSubview:sLabel3];
     UILabel *sLabel31 = [ [UILabel alloc ] initWithFrame:CGRectMake(170, y1, 150, 20) ];
     sLabel31.textAlignment =  UITextAlignmentLeft;
@@ -139,7 +138,7 @@
     sLabel4.backgroundColor = [UIColor clearColor];
     sLabel4.font = [UIFont fontWithName:@"Thonburi-Bold" size:10.0];
     sLabel4.textColor = [UIColor colorWithRed:105/255.0 green:76/255.0 blue:56/255.0 alpha:1.0];
-    sLabel4.text = @"Белки";
+    sLabel4.text = NSLocalizedString(@"PROTEINS", nil);//@"Белки";
     [self.vertScrollView2 addSubview:sLabel4];
     UILabel *sLabel41 = [ [UILabel alloc ] initWithFrame:CGRectMake(170, y1, 150, 20) ];
     sLabel41.textAlignment =  UITextAlignmentLeft;
@@ -156,7 +155,7 @@
     sLabel5.backgroundColor = [UIColor clearColor];
     sLabel5.font = [UIFont fontWithName:@"Thonburi-Bold" size:10.0];
     sLabel5.textColor = [UIColor colorWithRed:105/255.0 green:76/255.0 blue:56/255.0 alpha:1.0];
-    sLabel5.text = @"Жиры";
+    sLabel5.text = NSLocalizedString(@"FATS", nil);//@"Жиры";
     [self.vertScrollView2 addSubview:sLabel5];
     UILabel *sLabel51 = [ [UILabel alloc ] initWithFrame:CGRectMake(170, y1, 150, 20) ];
     sLabel51.textAlignment =  UITextAlignmentLeft;
@@ -173,7 +172,7 @@
     sLabel6.backgroundColor = [UIColor clearColor];
     sLabel6.font = [UIFont fontWithName:@"Thonburi-Bold" size:10.0];
     sLabel6.textColor = [UIColor colorWithRed:105/255.0 green:76/255.0 blue:56/255.0 alpha:1.0];
-    sLabel6.text = @"Углеводы";
+    sLabel6.text = NSLocalizedString(@"CARBOS", nil);//@"Углеводы";
     [self.vertScrollView2 addSubview:sLabel6];
     UILabel *sLabel61 = [ [UILabel alloc ] initWithFrame:CGRectMake(170, y1, 150, 20) ];
     sLabel61.textAlignment =  UITextAlignmentLeft;
@@ -195,9 +194,9 @@
     int count = it.ingrids.count;
     for (int i = 0; i <  (count * 4 + 5) ; i++) {
         
-        UIImageView *imgView2 = [[UIImageView alloc] initWithFrame:CGRectMake(0, y, 320, 3)];
-        imgView2.image = [UIImage imageNamed:@"center_place.png"];
-        [self.vertScrollView2 addSubview:imgView2];
+        UIImageView *imgView22 = [[UIImageView alloc] initWithFrame:CGRectMake(0, y, 320, 3)];
+        imgView22.image = [UIImage imageNamed:@"center_place.png"];
+        [self.vertScrollView2 addSubview:imgView22];
         
         y += 3;
         
@@ -233,6 +232,12 @@
     }
     
     self.vertScrollView2.contentSize = CGSizeMake(320, y);
+
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+
+    imgView2.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:it.ingrid_image]]];
 
 }
 

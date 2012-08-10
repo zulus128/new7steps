@@ -99,6 +99,7 @@
                     </view>
                     <connections>
                         <outlet property="panel1" destination="W0Y-iG-ZCI" id="e3R-sc-sU3"/>
+                        <outlet property="titleLabel" destination="uuB-oX-NRi" id="K5x-Uh-j0A"/>
                         <outlet property="vertScrollView" destination="tXF-wL-ofH" id="2un-hs-mV4"/>
                         <segue destination="BfP-xd-1fy" kind="modal" identifier="2ndSegue" modalTransitionStyle="flipHorizontal" id="3Ty-zP-TgR"/>
                     </connections>
