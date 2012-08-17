@@ -24,6 +24,8 @@
 #define PROTEINS_TAG @"proteins"
 #define FATS_TAG @"fats"
 #define CARBO_TAG @"carbohydrates"
+#define STEPS_TAG @"steps"
+#define DESCRIPTION_TAG @"description"
 
 #define CAT_MULT 10000
 

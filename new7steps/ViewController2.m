@@ -7,6 +7,7 @@
 //
 
 #import "ViewController2.h"
+#import "Transit.h"
 
 @interface ViewController2 ()
 
@@ -25,12 +26,21 @@
     
     it = [[Common instance] getRecipe:j forCategory:i];
     
-    int y = 160;
     
+
+    int y = 160;
     imgView2 = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, y)];
-//    imgView2.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:it.ingrid_image]]];
-//    NSLog(@"image = %@", it.ingrid_image);
     [self.vertScrollView2 addSubview:imgView2];
+    imgView2_1 = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, y)];
+    [self.vertScrollView3 addSubview:imgView2_1];
+
+    queue = [NSOperationQueue new];
+    NSInvocationOperation *operation = [[NSInvocationOperation alloc]
+                                        initWithTarget:self
+                                        selector:@selector(loadImage)
+                                        object:nil];
+
+    [queue addOperation:operation];
 
     UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, y, 320, 32)];
     imgView.image = [UIImage imageNamed:@"place2_under_picture.png"];
@@ -206,11 +216,6 @@
     imgView31.image = [UIImage imageNamed:@"bottom_place.png"];
     [self.vertScrollView2 addSubview:imgView31];
 
-//    NSEnumerator *keyEnumerator = [[mainDictionary objectForKey:@"L"] keyEnumerator];
-//    while (NSString *currentKey = [keyEnumerator nextObject])
-//    {
-//        NSLog(@"%@", currentKey);
-//    }
     for (NSString* i in [it.ingrids allKeys]) {
         
         UILabel *sLabel6 = [ [UILabel alloc ] initWithFrame:CGRectMake(0, y1, 150, 20) ];
@@ -233,11 +238,94 @@
     
     self.vertScrollView2.contentSize = CGSizeMake(320, y);
 
+    [self createSteps];
+}
+
+- (void)createSteps {
+    
+    int y = 160;
+    
+//    [self.vertScrollView3 addSubview:imgView2];
+    
+    UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, y, 320, 32)];
+    imgView.image = [UIImage imageNamed:@"place2_under_picture.png"];
+    [self.vertScrollView3 addSubview:imgView];
+    
+    y += 32;
+    
+    UIButton *but = [UIButton buttonWithType:UIButtonTypeCustom];
+    but.frame = CGRectMake(84, y - 30, 155, 24);
+    [but setImage:[UIImage imageNamed:@"opisanie-gotovka-2.png"] forState:UIControlStateNormal];
+    [but addTarget:self action:@selector(buttonEvent:) forControlEvents:UIControlEventTouchUpInside];
+    [self.vertScrollView3 addSubview:but];
+    
+    
+    y += 20;
+    
+
+    for (NSString* i in [it.steps allKeys]) {
+        
+        UIImageView *imgView1 = [[UIImageView alloc] initWithFrame:CGRectMake(19, y, 282, 190)];
+        imgView1.image = [UIImage imageNamed:@"bottom_pict_place1.png"];
+        [self.vertScrollView3 addSubview:imgView1];
+
+        UIImageView *imgV = [[UIImageView alloc] initWithFrame:CGRectMake(24, y + 5, 272, 180)];
+        [self.vertScrollView3 addSubview:imgV];
+
+        y += 190;
+     
+        UILabel *sLabel6 = [ [UILabel alloc ] initWithFrame:CGRectMake(0, y, 282, 50) ];
+//        sLabel6.textAlignment =  UITextAlignmentRight;
+        sLabel6.backgroundColor = [UIColor clearColor];
+        sLabel6.font = [UIFont fontWithName:@"Thonburi-Bold" size:10.0];
+        sLabel6.textColor = [UIColor colorWithRed:105/255.0 green:76/255.0 blue:56/255.0 alpha:1.0];
+        sLabel6.text = i;
+        [self.vertScrollView3 addSubview:sLabel6];
+
+        Transit* tr = [[Transit alloc] init];
+        tr.view = imgV;
+        tr.url = [it.steps objectForKey:i];
+        NSInvocationOperation *operation = [[NSInvocationOperation alloc]
+                                            initWithTarget:self
+                                            selector:@selector(loadStepImage:)
+                                            object:tr];
+        [queue addOperation:operation];
+        
+        y += 50;
+    }
+
+    self.vertScrollView3.contentSize = CGSizeMake(320, y);
+
+}
+
+- (void)loadImage {
+    
+    NSData* imageData = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:it.ingrid_image]];
+    UIImage* image = [[UIImage alloc] initWithData:imageData];
+    [self performSelectorOnMainThread:@selector(displayImage:) withObject:image waitUntilDone:NO];
+}
+
+- (void)displayImage:(UIImage *)image {
+    
+    [imgView2 setImage:image]; //UIImageView
+    [imgView2_1 setImage:image]; //UIImageView
+}
+
+- (void)loadStepImage:(Transit*) tr {
+    
+    NSData* imageData = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:tr.url]];
+    tr.image = [[UIImage alloc] initWithData:imageData];
+    [self performSelectorOnMainThread:@selector(displayStepImage:) withObject:tr waitUntilDone:NO];
+}
+
+- (void)displayStepImage:(Transit*)tr {
+
+    [tr.view setImage:tr.image];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
 
-    imgView2.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:it.ingrid_image]]];
+//    imgView2.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:it.ingrid_image]]];
 
 }
 
@@ -248,6 +336,10 @@
 }
 
 - (void)buttonEvent:(id)sender {
+
+    b = !b;
+    self.vertScrollView2.hidden = b;
+    self.vertScrollView3.hidden = !b;
 }
 
 - (IBAction) exit {

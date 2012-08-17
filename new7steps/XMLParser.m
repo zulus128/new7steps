@@ -21,6 +21,7 @@
     itype = type;
     categ = 0;
     ingrid = NO;
+    steps = NO;
     
 	return self;
 }
@@ -47,6 +48,11 @@
                 ingrid = YES;
 //                NSLog(@"--- ingrid begin");
             }
+            else
+                if([elementName isEqualToString:STEPS_TAG]) {
+                    steps = YES;
+                    //                NSLog(@"--- steps begin");
+                }
 
         
 }
@@ -93,6 +99,28 @@
         
     }
     else
+        if(steps) {
+            
+            if([elementName isEqualToString:IMAGE_TAG]) {
+                
+                name = trimedStr;
+                //            NSLog(@"step image : %@", name);
+                
+            }
+            else
+                if([elementName isEqualToString:DESCRIPTION_TAG]) {
+                    [item.steps setObject:name forKey:trimedStr];
+                    //                    NSLog(@"ingridient %@ : %@", name, trimedStr);
+                }
+                else
+                    if([elementName isEqualToString:STEPS_TAG]) {
+                        steps = NO;
+                        //                                                NSLog(@"--- steps end");
+                    }
+            
+            
+        }
+        else
     if([elementName isEqualToString:RECIPE_TAG]) {
 			
         [[Common instance] addRecipe:item];                
