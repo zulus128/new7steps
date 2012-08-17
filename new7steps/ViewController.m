@@ -73,27 +73,16 @@
 
 
             
-//            UIImageView *imgView1 = [[UIImageView alloc] initWithFrame:CGRectMake((j-1) * 183 + 5, 0, 180, 161)];
-//            imgView1.image = [UIImage imageNamed:@"square_for_picture_new.png"];
-//            [scroll addSubview:imgView1];
-            
-            //      [imgView release];
             UIImageView *imgView2 = [[UIImageView alloc] initWithFrame:CGRectMake((j-1) * 183 + 8, 2, 175, 116)];
-//            imgView2.image = [UIImage imageNamed:[NSString stringWithFormat: @"%d_%d_100.jpg", i,j]];
             imgView2.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:it.image]]];
             [scroll addSubview:imgView2];
-            //      [imgView release];
             
             UILabel *sLabel = [ [UILabel alloc ] initWithFrame:CGRectMake((j-1) * 183 + 10, 110, 170, 50) ];
-            //        sLabel.textAlignment =  UITextAlignmentCenter;
             sLabel.textColor = [UIColor redColor];
             sLabel.backgroundColor = [UIColor clearColor];
-//            sLabel.font = [UIFont fontWithName:@"DevanagariSangamMN-Bold" size:10.0];
             sLabel.font = [UIFont fontWithName:@"Thonburi-Bold" size:12.0];
             sLabel.textColor = [UIColor colorWithRed:105/255.0 green:76/255.0 blue:56/255.0 alpha:1.0];
             sLabel.numberOfLines = 2;
-//            NSString *s = [favs objectForKey:[NSString stringWithFormat: @"%d_%d", i,j]];
-//            sLabel.text = s;
             sLabel.text = it.name;
             [scroll addSubview:sLabel];
             

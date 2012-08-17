@@ -81,7 +81,7 @@
     y += 7;
 
     
-    UILabel *sLabel = [ [UILabel alloc ] initWithFrame:CGRectMake(0, y1 + 5, 320, 20) ];
+    UILabel *sLabel = [ [UILabel alloc ] initWithFrame:CGRectMake(10, y1 + 5, 300, 20) ];
     sLabel.textAlignment =  UITextAlignmentCenter;
     sLabel.backgroundColor = [UIColor clearColor];
     //            sLabel.font = [UIFont fontWithName:@"DevanagariSangamMN-Bold" size:10.0];
@@ -89,6 +89,8 @@
     sLabel.textColor = [UIColor colorWithRed:205/255.0 green:76/255.0 blue:56/255.0 alpha:1.0];
 //    sLabel.numberOfLines = 2;
     sLabel.text = it.name;
+    sLabel.adjustsFontSizeToFitWidth = YES;
+    sLabel.minimumFontSize = 5.0;
     [self.vertScrollView2 addSubview:sLabel];
     y1 += 30;
     
@@ -262,7 +264,7 @@
     
     y += 20;
     
-
+    int k = 1;
     for (NSString* i in [it.steps allKeys]) {
         
         UIImageView *imgView1 = [[UIImageView alloc] initWithFrame:CGRectMake(19, y, 282, 190)];
@@ -274,12 +276,14 @@
 
         y += 190;
      
-        UILabel *sLabel6 = [ [UILabel alloc ] initWithFrame:CGRectMake(0, y, 282, 50) ];
+        UILabel *sLabel6 = [ [UILabel alloc ] initWithFrame:CGRectMake(24, y, 272, 50) ];
 //        sLabel6.textAlignment =  UITextAlignmentRight;
         sLabel6.backgroundColor = [UIColor clearColor];
         sLabel6.font = [UIFont fontWithName:@"Thonburi-Bold" size:10.0];
         sLabel6.textColor = [UIColor colorWithRed:105/255.0 green:76/255.0 blue:56/255.0 alpha:1.0];
         sLabel6.text = i;
+        sLabel6.numberOfLines = 0;
+        [sLabel6 sizeToFit];
         [self.vertScrollView3 addSubview:sLabel6];
 
         Transit* tr = [[Transit alloc] init];
@@ -291,7 +295,12 @@
                                             object:tr];
         [queue addOperation:operation];
         
-        y += 50;
+        UIImageView *imgView8 = [[UIImageView alloc] initWithFrame:CGRectMake(0, y, 21, 23)];
+        imgView8.image = [UIImage imageNamed:[NSString stringWithFormat:@"step_%d.png", k++]];
+        [self.vertScrollView3 addSubview:imgView8];
+
+//        NSLog(@"sLabel6.frame.size.height = %f", sLabel6.frame.size.height);
+        y += ((sLabel6.frame.size.height < 30)?30:sLabel6.frame.size.height);
     }
 
     self.vertScrollView3.contentSize = CGSizeMake(320, y);
