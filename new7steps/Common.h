@@ -52,4 +52,7 @@ enum item_types {
 - (int) getMaxRecipesForCategory:(int) cat;
 - (Item*) getRecipe: (int) num forCategory:(int) cat;
 
+@property (nonatomic, retain) NSMutableDictionary* cats;
+
+
 @end

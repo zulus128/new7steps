@@ -22,6 +22,7 @@
     categ = 0;
     ingrid = NO;
     steps = NO;
+    recipe = NO;
     
 	return self;
 }
@@ -37,6 +38,7 @@
 
 		self.item = [[Item alloc] init];
         self.item.category = categ;
+        recipe = YES;
         
 //        NSLog(@"Item alloc type = %i", itype);
 	}
@@ -120,44 +122,51 @@
             
             
         }
-        else
-    if([elementName isEqualToString:RECIPE_TAG]) {
-			
-        [[Common instance] addRecipe:item];                
-        
-        self.item = nil;
-    }
+    else
+        if(recipe) {
+            
+            if([elementName isEqualToString:NAME_TAG])
+                item.name = trimedStr;
+            else
+                if([elementName isEqualToString:IMAGE_TAG])
+                    item.image = trimedStr;
+                else
+                    if([elementName isEqualToString:INGRID_IMAGE_TAG]) {
+
+                        item.ingrid_image = trimedStr;
+    //                    NSLog(@"image1 = %@", item.ingrid_image);
+
+                    }
+                    else
+                        if([elementName isEqualToString:TYPE_TAG])
+                            item.type = trimedStr;
+                        else
+                            if([elementName isEqualToString:TIME_TAG])
+                                item.time = trimedStr;
+                            else
+                                if([elementName isEqualToString:CALORIES_TAG])
+                                    item.calories = trimedStr;
+                                else
+                                    if([elementName isEqualToString:PROTEINS_TAG])
+                                        item.proteins = trimedStr;
+                                    else
+                                        if([elementName isEqualToString:FATS_TAG])
+                                            item.fats = trimedStr;
+                                        else
+                                            if([elementName isEqualToString:CARBO_TAG])
+                                                item.carbos = trimedStr;
+                                            else
+                                                if([elementName isEqualToString:RECIPE_TAG]) {
+                                                    
+                                                    [[Common instance] addRecipe:item];
+                                                    self.item = nil;
+                                                    recipe = NO;
+                                                }
+
+        }
     else
         if([elementName isEqualToString:NAME_TAG])
-            item.name = trimedStr;
-        else
-            if([elementName isEqualToString:IMAGE_TAG])
-                item.image = trimedStr;
-            else
-                if([elementName isEqualToString:INGRID_IMAGE_TAG]) {
-
-                    item.ingrid_image = trimedStr;
-//                    NSLog(@"image1 = %@", item.ingrid_image);
-
-                }
-                else
-                    if([elementName isEqualToString:TYPE_TAG])
-                        item.type = trimedStr;
-                    else
-                        if([elementName isEqualToString:TIME_TAG])
-                            item.time = trimedStr;
-                        else
-                            if([elementName isEqualToString:CALORIES_TAG])
-                                item.calories = trimedStr;
-                            else
-                                if([elementName isEqualToString:PROTEINS_TAG])
-                                    item.proteins = trimedStr;
-                                else
-                                    if([elementName isEqualToString:FATS_TAG])
-                                        item.fats = trimedStr;
-                                    else
-                                        if([elementName isEqualToString:CARBO_TAG])
-                                            item.carbos = trimedStr;
+            [[Common instance].cats setObject:trimedStr forKey:[NSNumber numberWithInt:categ]];
 
 //	[currentElementValue release];
 	currentElementValue = nil;

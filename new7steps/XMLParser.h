@@ -16,6 +16,7 @@
     int itype;
     int categ;
     BOOL ingrid;
+    BOOL recipe;
     BOOL steps;
     NSString* name;
 }

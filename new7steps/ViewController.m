@@ -50,7 +50,8 @@
         sLabel.backgroundColor = [UIColor clearColor];
         sLabel.font = [UIFont fontWithName:@"Arial Rounded MT Bold" size:(12.0)];
         [self.vertScrollView addSubview:sLabel];
-        sLabel.text = [NSString stringWithFormat: @"%@ %d", NSLocalizedString(@"COURSE", nil), i];
+//        sLabel.text = [NSString stringWithFormat: @"%@ %d", NSLocalizedString(@"COURSE", nil), i];
+        sLabel.text = [[Common instance].cats objectForKey:[NSNumber numberWithInt:i]];
         
         UIScrollView *scroll = [[UIScrollView alloc] initWithFrame:CGRectMake(0, y+33, 320, 162)];
         scroll.scrollEnabled = YES;

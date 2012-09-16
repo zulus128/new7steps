@@ -33,6 +33,7 @@
         
         recipes = [[NSMutableArray alloc] init];
 
+        self.cats = [[NSMutableDictionary alloc] init];
 	}
 	return self;	
 }
