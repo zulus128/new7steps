@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2549" systemVersion="12A269" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="2">
     <dependencies>
-        <deployment defaultVersion="1296" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1498"/>
     </dependencies>
     <scenes>
@@ -29,7 +28,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="background.png" id="HA5-cJ-44T">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="background.jpg" id="HA5-cJ-44T">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
@@ -116,7 +115,7 @@
                         <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="background.png" id="4oJ-QV-xKU">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="background.jpg" id="4oJ-QV-xKU">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -173,7 +172,7 @@
     </scenes>
     <resources>
         <image name="FACEBOOK_back.png" width="520" height="919"/>
-        <image name="background.png" width="640" height="960"/>
+        <image name="background.jpg" width="640" height="960"/>
         <image name="spisok_on.png" width="48" height="63"/>
         <image name="spisok_top_toolbar.png" width="69" height="53"/>
         <image name="star_off.png" width="56" height="56"/>
