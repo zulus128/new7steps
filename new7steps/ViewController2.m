@@ -42,15 +42,17 @@
 
     [queue addOperation:operation];
 
-    UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, y, 320, 32)];
-    imgView.image = [UIImage imageNamed:@"place2_under_picture.png"];
+    UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, y, 320, 45)];
+//    imgView.image = [UIImage imageNamed:@"place2_under_picture.png"];
+    imgView.image = [UIImage imageNamed:@"back_for_button.png"];
     [self.vertScrollView2 addSubview:imgView];
         
     y += 32;
     
     UIButton *but = [UIButton buttonWithType:UIButtonTypeCustom];
-    but.frame = CGRectMake(84, y - 30, 155, 24);
-    [but setImage:[UIImage imageNamed:@"opisanie-gotovka-1.png"] forState:UIControlStateNormal];
+    but.frame = CGRectMake(56, y - 24, 208, 29);
+//    [but setImage:[UIImage imageNamed:@"opisanie-gotovka-1.png"] forState:UIControlStateNormal];
+    [but setImage:[UIImage imageNamed:@"button_position1.png"] forState:UIControlStateNormal];
     [but addTarget:self action:@selector(buttonEvent:) forControlEvents:UIControlEventTouchUpInside];
     [self.vertScrollView2 addSubview:but];
 
@@ -249,15 +251,17 @@
     
 //    [self.vertScrollView3 addSubview:imgView2];
     
-    UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, y, 320, 32)];
-    imgView.image = [UIImage imageNamed:@"place2_under_picture.png"];
+    UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, y, 320, 45)];
+//    imgView.image = [UIImage imageNamed:@"place2_under_picture.png"];
+    imgView.image = [UIImage imageNamed:@"back_for_button.png"];
     [self.vertScrollView3 addSubview:imgView];
     
     y += 32;
     
     UIButton *but = [UIButton buttonWithType:UIButtonTypeCustom];
-    but.frame = CGRectMake(84, y - 30, 155, 24);
-    [but setImage:[UIImage imageNamed:@"opisanie-gotovka-2.png"] forState:UIControlStateNormal];
+    but.frame = CGRectMake(56, y - 24, 208, 29);
+//    [but setImage:[UIImage imageNamed:@"opisanie-gotovka-2.png"] forState:UIControlStateNormal];
+    [but setImage:[UIImage imageNamed:@"button_position2.png"] forState:UIControlStateNormal];
     [but addTarget:self action:@selector(buttonEvent:) forControlEvents:UIControlEventTouchUpInside];
     [self.vertScrollView3 addSubview:but];
     

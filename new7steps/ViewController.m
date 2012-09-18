@@ -39,59 +39,79 @@
 
     for (int i = 1; i <= [[Common instance] getMaxCategory]/*8*/ ; i++) {
     
-        UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, y, 320, 33)];
-        imgView.image = [UIImage imageNamed:@"header_line.png"];
+        UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, y, 320, 30)];
+        imgView.image = [UIImage imageNamed:@"plase_for_header.png"];
         [self.vertScrollView addSubview:imgView];
-//      [imgView release];
-        
-        UILabel *sLabel = [ [UILabel alloc ] initWithFrame:CGRectMake(21, y + 5, 150, 20) ];
+
+        UIImageView *imgView1 = [[UIImageView alloc] initWithFrame:CGRectMake(0, y + 28, 320, 301)];
+        imgView1.image = [UIImage imageNamed:@"back-place2.png"];
+        [self.vertScrollView addSubview:imgView1];
+
+        UILabel *sLabel = [ [UILabel alloc ] initWithFrame:CGRectMake(10, y + 3, 150, 20) ];
 //        sLabel.textAlignment =  UITextAlignmentCenter;
-        sLabel.textColor = [UIColor redColor];
+//        sLabel.textColor = [UIColor redColor];
+        sLabel.textColor = [UIColor colorWithRed:105/255.0 green:76/255.0 blue:56/255.0 alpha:1.0];
         sLabel.backgroundColor = [UIColor clearColor];
-        sLabel.font = [UIFont fontWithName:@"Arial Rounded MT Bold" size:(12.0)];
+        sLabel.font = [UIFont fontWithName:@"Arial Rounded MT Bold" size:(14.0)];
         [self.vertScrollView addSubview:sLabel];
 //        sLabel.text = [NSString stringWithFormat: @"%@ %d", NSLocalizedString(@"COURSE", nil), i];
         sLabel.text = [[Common instance].cats objectForKey:[NSNumber numberWithInt:i]];
         
-        UIScrollView *scroll = [[UIScrollView alloc] initWithFrame:CGRectMake(0, y+33, 320, 162)];
+        UIScrollView *scroll = [[UIScrollView alloc] initWithFrame:CGRectMake(0, y+33, 320, 301)];
         scroll.scrollEnabled = YES;
-        scroll.contentSize = CGSizeMake(740, 162);
+        scroll.contentSize = CGSizeMake([[Common instance] getMaxRecipesForCategory:i] * 160 / 2 + 20, 301);
         scroll.showsHorizontalScrollIndicator = NO;
         scroll.directionalLockEnabled = YES;
         [self.vertScrollView addSubview:scroll];
 
+//        NSLog(@"fff %d, %d, %d, %d", 1%2, 2%2, 3%2, 4%2);
+//        BOOL row = NO;
+        int jj = 0;
         for (int j = 1; j <= [[Common instance] getMaxRecipesForCategory:i]/*4*/ ; j++) {
 
             Item* it = [[Common instance] getRecipe:j forCategory:i];
-            
-            
+            int yy;
+            int xx;
             UIButton *but = [UIButton buttonWithType:UIButtonTypeCustom];
-            but.frame = CGRectMake((j-1) * 183 + 5, 0, 180, 161);
-            [but setImage:[UIImage imageNamed:@"square_for_picture_new.png"] forState:UIControlStateNormal];
+            if(j%2) {
+                
+                yy = 0;
+                xx = jj * 160 + 10;
+            }
+            else {
+             
+                yy = 145;
+                xx = jj * 160 + 10;
+                jj++;
+            }
+            but.frame = CGRectMake(xx, yy, 160, 106);
+            [but setImage:[UIImage imageNamed:@"background_for_photo.png"] forState:UIControlStateNormal];
             but.tag = i * CAT_MULT + j;
             [but addTarget:self action:@selector(buttonEvent:) forControlEvents:UIControlEventTouchUpInside];
             [scroll addSubview:but];
-
-
             
-            UIImageView *imgView2 = [[UIImageView alloc] initWithFrame:CGRectMake((j-1) * 183 + 8, 2, 175, 116)];
+//            UIImageView *imgView2 = [[UIImageView alloc] initWithFrame:CGRectMake((j-1) * 183 + 8, 2, 175, 116)];
+            UIImageView *imgView2 = [[UIImageView alloc] initWithFrame:CGRectMake(xx + 2, yy + 2, 156, 102)];
             imgView2.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:it.image]]];
             [scroll addSubview:imgView2];
             
-            UILabel *sLabel = [ [UILabel alloc ] initWithFrame:CGRectMake((j-1) * 183 + 10, 110, 170, 50) ];
+//            UILabel *sLabel = [ [UILabel alloc ] initWithFrame:CGRectMake((j-1) * 183 + 10, 110, 170, 50) ];
+            UILabel *sLabel = [ [UILabel alloc ] initWithFrame:CGRectMake(xx + 5, yy + 100, 140, 40) ];
             sLabel.textColor = [UIColor redColor];
             sLabel.backgroundColor = [UIColor clearColor];
-            sLabel.font = [UIFont fontWithName:@"Thonburi-Bold" size:12.0];
+            sLabel.font = [UIFont fontWithName:@"Thonburi-Bold" size:11.0];
             sLabel.textColor = [UIColor colorWithRed:105/255.0 green:76/255.0 blue:56/255.0 alpha:1.0];
             sLabel.numberOfLines = 2;
             sLabel.text = it.name;
             [scroll addSubview:sLabel];
             
 //            NSLog(@"%d, %d, %@",i,j,s);
+//            row =b !row;
+            
 
         }
 
-        y+= 198;
+        y+= 340;
     }
 
     self.vertScrollView.contentSize = CGSizeMake(320, y);

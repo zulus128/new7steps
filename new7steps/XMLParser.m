@@ -43,8 +43,10 @@
 //        NSLog(@"Item alloc type = %i", itype);
 	}
     else
-        if([elementName isEqualToString:CATEGORY_TAG])
+        if([elementName isEqualToString:CATEGORY_TAG]) {
             categ++;
+            NSLog(@"Category %d", categ);
+        }
         else
             if([elementName isEqualToString:INGRIDS_TAG]) {
                 ingrid = YES;
