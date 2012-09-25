@@ -34,7 +34,7 @@
     favs = [[NSMutableDictionary alloc] initWithContentsOfFile:appFile];
     
     
-    int y = 0;
+    int y = 0;//
     [[Common instance] addRecipes];
 
     for (int i = 1; i <= [[Common instance] getMaxCategory]/*8*/ ; i++) {
