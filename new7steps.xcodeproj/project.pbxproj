@@ -13,6 +13,7 @@
 		36D50F3215AAA16900D53641 /* Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 36D50F3115AAA16800D53641 /* Common.m */; };
 		36D50F3A15AAD8F700D53641 /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 36D50F2E15AAA0C400D53641 /* Item.m */; };
 		36FA183B1553935800F1F703 /* square_for_picture_new.png in Resources */ = {isa = PBXBuildFile; fileRef = 36FA183A1553935800F1F703 /* square_for_picture_new.png */; };
+		9C1490371611CFFB0016A83E /* AboutController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C1490361611CFFB0016A83E /* AboutController.m */; };
 		DD1FE1D415E5E10B001A1736 /* BarbutoIcon_114.png in Resources */ = {isa = PBXBuildFile; fileRef = DD1FE1D315E5E10B001A1736 /* BarbutoIcon_114.png */; };
 		DD1FE1D715E5E128001A1736 /* BarbutoIcon-57.png in Resources */ = {isa = PBXBuildFile; fileRef = DD1FE1D615E5E128001A1736 /* BarbutoIcon-57.png */; };
 		DD1FE1D915E5E1F0001A1736 /* BarbutoIcon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = DD1FE1D815E5E1F0001A1736 /* BarbutoIcon-72.png */; };
@@ -67,6 +68,8 @@
 		36D50F3015AAA16800D53641 /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
 		36D50F3115AAA16800D53641 /* Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Common.m; sourceTree = "<group>"; };
 		36FA183A1553935800F1F703 /* square_for_picture_new.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = square_for_picture_new.png; sourceTree = "<group>"; };
+		9C1490351611CFFB0016A83E /* AboutController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutController.h; sourceTree = "<group>"; };
+		9C1490361611CFFB0016A83E /* AboutController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutController.m; sourceTree = "<group>"; };
 		DD1FE1D315E5E10B001A1736 /* BarbutoIcon_114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BarbutoIcon_114.png; sourceTree = "<group>"; };
 		DD1FE1D615E5E128001A1736 /* BarbutoIcon-57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BarbutoIcon-57.png"; sourceTree = "<group>"; };
 		DD1FE1D815E5E1F0001A1736 /* BarbutoIcon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BarbutoIcon-72.png"; sourceTree = "<group>"; };
@@ -204,6 +207,8 @@
 				3661C75315AAA009007B5C56 /* XMLParser.h */,
 				3661C75415AAA009007B5C56 /* XMLParser.m */,
 				DDCEA85F154E41D20089A98F /* Supporting Files */,
+				9C1490351611CFFB0016A83E /* AboutController.h */,
+				9C1490361611CFFB0016A83E /* AboutController.m */,
 			);
 			path = new7steps;
 			sourceTree = "<group>";
@@ -374,6 +379,7 @@
 				36D50F3215AAA16900D53641 /* Common.m in Sources */,
 				DD2DA18815BBADFA0074493F /* ViewController2.m in Sources */,
 				DD51459D15DDD01200388BF6 /* Transit.m in Sources */,
+				9C1490371611CFFB0016A83E /* AboutController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
