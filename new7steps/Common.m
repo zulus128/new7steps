@@ -97,26 +97,45 @@
 
 - (BOOL)addRecipes {
     
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
-//    [request setURL:[NSURL URLWithString:XML_URL]];
-    [request setURL:[NSURL URLWithString:NSLocalizedString(@"URL", nil)]];
-    NSHTTPURLResponse* urlResponse = nil;
-    NSError *error = nil;//[[NSError alloc] init];
-    NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&urlResponse error:&error];
-    //        [error release];
-    if (responseData == nil) {
-        // Check for problems
-        if (error != nil) {
-            
-            UIAlertView* dialog = [[UIAlertView alloc] init];
-            [dialog setTitle:@"Ошибка Интернет-подключения"];
-            [dialog setMessage:[error localizedDescription]];
-            [dialog addButtonWithTitle:@"OK"];
-            [dialog show];
-//            [dialog release];
-            return NO;
+    
+    NSArray* sp = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString* docpath = [sp objectAtIndex: 0];
+    NSString* filePath = [docpath stringByAppendingPathComponent:@"xml.txt"];
+
+    NSData* responseData = [NSData dataWithContentsOfFile:filePath];
+    
+    if(responseData == nil) {
+
+        NSLog(@"No XML data stored");
+        
+        NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+        [request setURL:[NSURL URLWithString:NSLocalizedString(@"URL", nil)]];
+        NSHTTPURLResponse* urlResponse = nil;
+        NSError *error = nil;//[[NSError alloc] init];
+        responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&urlResponse error:&error];
+        //        [error release];
+        if (responseData == nil) {
+            // Check for problems
+            if (error != nil) {
+                
+                UIAlertView* dialog = [[UIAlertView alloc] init];
+                [dialog setTitle:@"Ошибка Интернет-подключения"];
+//                [dialog setMessage:[error localizedDescription]];
+                [dialog setMessage:@"Данные будут загружены из локальной копии"];
+                [dialog addButtonWithTitle:@"OK"];
+                [dialog show];
+    //            [dialog release];
+//                return NO;
+            }
         }
     }
+    else {
+
+        NSLog(@"Stored XML data is loaded");
+
+    }
+    
+    [responseData writeToFile:filePath atomically:YES];
     
     BOOL success = YES;
     
@@ -148,6 +167,24 @@
     }
     
     return success;
+}
+
+- (UIImage*) getImage: (NSString*) name {
+    
+    NSString* n = [name lastPathComponent];
+    NSArray* sp = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString* docpath = [sp objectAtIndex: 0];
+    NSString* filePath = [docpath stringByAppendingPathComponent:n];
+//    NSLog(@"filepath for image = %@", filePath);
+    UIImage* im = [UIImage imageWithContentsOfFile:filePath];
+    if(im == nil) {
+
+        im = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:name]]];
+        NSData *imgData = UIImagePNGRepresentation(im);
+        [imgData writeToFile:filePath atomically:YES];
+    }
+    return im;
+
 }
 
 
