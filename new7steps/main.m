@@ -14,7 +14,7 @@ int main(int argc, char *argv[])
 {
  
     int l = [[NSUserDefaults standardUserDefaults] integerForKey:@"language"];
-    NSLog(@"lang = %d", l);
+    NSLog(@"lang = %d", l); //
 
     switch (l) {
         case 0:
