@@ -92,6 +92,8 @@
             [but addTarget:self action:@selector(buttonEvent:) forControlEvents:UIControlEventTouchUpInside];
             [scroll addSubview:but];
             
+            
+            
             UIImageView *imgView2 = [[UIImageView alloc] initWithFrame:CGRectMake(xx + 2, yy + 2, 156, 102)];
             imgView2.image = [[Common instance] getImage:it.image];
             [scroll addSubview:imgView2];
@@ -102,9 +104,21 @@
 
             if(imgView2.image == nil) {
             
+                
                 Transit* tr = [[Transit alloc] init];
                 tr.view = imgView2;
                 tr.url = it.image;
+
+                UIActivityIndicatorView *activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+                activityIndicator.alpha = 1.0;
+                activityIndicator.center = CGPointMake(79, 52);
+                activityIndicator.hidesWhenStopped = YES;
+                [tr.view addSubview:activityIndicator];
+                [activityIndicator startAnimating];
+                tr.activInd = activityIndicator;
+
+                
+                
                 NSInvocationOperation *operation = [[NSInvocationOperation alloc]
                                                     initWithTarget:self
                                                     selector:@selector(loadImage:)
@@ -139,21 +153,22 @@
     
     NSData* imageData = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:tr.url]];
     tr.image = [[UIImage alloc] initWithData:imageData];
-    UIActivityIndicatorView *activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-    activityIndicator.alpha = 1.0;
-    activityIndicator.center = CGPointMake(79, 52);
-    activityIndicator.hidesWhenStopped = YES;
-    [tr.view addSubview:activityIndicator];
-    [activityIndicator startAnimating];
-    tr.activInd = activityIndicator;
 
-    [self performSelectorOnMainThread:@selector(displayImage:) withObject:tr waitUntilDone:NO];
+    [self performSelectorOnMainThread:@selector(displayImage:) withObject:tr waitUntilDone:YES];
 }
 
 - (void)displayImage:(Transit*)tr {
     
     [tr.view setImage:tr.image];
-    [tr.activInd stopAnimating];
+    
+    NSString* n = [tr.url lastPathComponent];
+    NSArray* sp = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString* docpath = [sp objectAtIndex: 0];
+    NSString* filePath = [docpath stringByAppendingPathComponent:n];
+    NSData *imgData = UIImagePNGRepresentation(tr.image);
+    [imgData writeToFile:filePath atomically:YES];
+    
+//    [tr.activInd stopAnimating];
 }
 
 - (void)viewDidUnload
