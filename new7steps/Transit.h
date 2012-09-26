@@ -13,5 +13,5 @@
 @property (nonatomic, retain) UIImageView* view;
 @property (nonatomic, retain) NSString* url;
 @property (nonatomic, retain) UIImage* image;
-
+@property (nonatomic, retain) UIActivityIndicatorView* activInd;
 @end

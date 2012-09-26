@@ -15,6 +15,7 @@
     CGRect f;
     int buttag;
     BOOL again;
+    NSOperationQueue *queue;
 }
 
 @property (nonatomic, retain) IBOutlet UIScrollView* vertScrollView;

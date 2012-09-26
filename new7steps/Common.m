@@ -135,7 +135,8 @@
 
     }
     
-    [responseData writeToFile:filePath atomically:YES];
+    if(responseData != nil)
+        [responseData writeToFile:filePath atomically:YES];
     
     BOOL success = YES;
     
@@ -177,12 +178,12 @@
     NSString* filePath = [docpath stringByAppendingPathComponent:n];
 //    NSLog(@"filepath for image = %@", filePath);
     UIImage* im = [UIImage imageWithContentsOfFile:filePath];
-    if(im == nil) {
-
-        im = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:name]]];
-        NSData *imgData = UIImagePNGRepresentation(im);
-        [imgData writeToFile:filePath atomically:YES];
-    }
+//    if(im == nil) {
+//
+//        im = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:name]]];
+//        NSData *imgData = UIImagePNGRepresentation(im);
+//        [imgData writeToFile:filePath atomically:YES];
+//    }
     return im;
 
 }

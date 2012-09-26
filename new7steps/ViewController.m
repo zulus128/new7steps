@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "Common.h"
 #import "ViewController2.h"
+#import "Transit.h"
 
 @interface ViewController ()
 
@@ -33,6 +34,7 @@
     NSString *appFile = [[NSBundle mainBundle] pathForResource:@"desc" ofType:@"plist"];
     favs = [[NSMutableDictionary alloc] initWithContentsOfFile:appFile];
     
+    queue = [NSOperationQueue new];
     
     int y = 0;//
     [[Common instance] addRecipes];
@@ -90,13 +92,25 @@
             [but addTarget:self action:@selector(buttonEvent:) forControlEvents:UIControlEventTouchUpInside];
             [scroll addSubview:but];
             
-//            UIImageView *imgView2 = [[UIImageView alloc] initWithFrame:CGRectMake((j-1) * 183 + 8, 2, 175, 116)];
             UIImageView *imgView2 = [[UIImageView alloc] initWithFrame:CGRectMake(xx + 2, yy + 2, 156, 102)];
-//            imgView2.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:it.image]]];
             imgView2.image = [[Common instance] getImage:it.image];
             [scroll addSubview:imgView2];
+
+//            UIProgressView* progressView = [[UIProgressView alloc]initWithProgressViewStyle:UIProgressViewStyleDefault];
+//            progressView.frame = CGRectMake(0, 0, 20, 20);
+//            [scroll addSubview: progressView];
+
+            if(imgView2.image == nil) {
             
-//            UILabel *sLabel = [ [UILabel alloc ] initWithFrame:CGRectMake((j-1) * 183 + 10, 110, 170, 50) ];
+                Transit* tr = [[Transit alloc] init];
+                tr.view = imgView2;
+                tr.url = it.image;
+                NSInvocationOperation *operation = [[NSInvocationOperation alloc]
+                                                    initWithTarget:self
+                                                    selector:@selector(loadImage:)
+                                                    object:tr];
+                [queue addOperation:operation];
+            }
             UILabel *sLabel = [ [UILabel alloc ] initWithFrame:CGRectMake(xx + 5, yy + 100, 140, 40) ];
             sLabel.textColor = [UIColor redColor];
             sLabel.backgroundColor = [UIColor clearColor];
@@ -119,6 +133,27 @@
     
 
     self.titleLabel.text = NSLocalizedString(@"TITLE", nil);
+}
+
+- (void)loadImage:(Transit*) tr {
+    
+    NSData* imageData = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:tr.url]];
+    tr.image = [[UIImage alloc] initWithData:imageData];
+    UIActivityIndicatorView *activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    activityIndicator.alpha = 1.0;
+    activityIndicator.center = CGPointMake(79, 52);
+    activityIndicator.hidesWhenStopped = YES;
+    [tr.view addSubview:activityIndicator];
+    [activityIndicator startAnimating];
+    tr.activInd = activityIndicator;
+
+    [self performSelectorOnMainThread:@selector(displayImage:) withObject:tr waitUntilDone:NO];
+}
+
+- (void)displayImage:(Transit*)tr {
+    
+    [tr.activInd stopAnimating];
+    [tr.view setImage:tr.image];
 }
 
 - (void)viewDidUnload

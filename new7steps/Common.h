@@ -29,6 +29,8 @@
 
 #define CAT_MULT 10000
 
+#define FIRSTLOAD_IMAGES_CNT 4
+
 enum item_types {
     
     TYPE_NONE,
