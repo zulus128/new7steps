@@ -152,8 +152,8 @@
 
 - (void)displayImage:(Transit*)tr {
     
-    [tr.activInd stopAnimating];
     [tr.view setImage:tr.image];
+    [tr.activInd stopAnimating];
 }
 
 - (void)viewDidUnload
