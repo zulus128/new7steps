@@ -66,80 +66,9 @@
         scroll.directionalLockEnabled = YES;
         [self.vertScrollView addSubview:scroll];
 
-//        NSLog(@"fff %d, %d, %d, %d", 1%2, 2%2, 3%2, 4%2);
-//        BOOL row = NO;
-        int jj = 0;
-        for (int j = 1; j <= [[Common instance] getMaxRecipesForCategory:i]/*4*/ ; j++) {
 
-            Item* it = [[Common instance] getRecipe:j forCategory:i];
-            int yy;
-            int xx;
-            UIButton *but = [UIButton buttonWithType:UIButtonTypeCustom];
-            if(j%2) {
-                
-                yy = 0;
-                xx = jj * 160 + 10;
-            }
-            else {
-             
-                yy = 145;
-                xx = jj * 160 + 10;
-                jj++;
-            }
-            but.frame = CGRectMake(xx, yy, 160, 106);
-            [but setImage:[UIImage imageNamed:@"background_for_photo.png"] forState:UIControlStateNormal];
-            but.tag = i * CAT_MULT + j;
-            [but addTarget:self action:@selector(buttonEvent:) forControlEvents:UIControlEventTouchUpInside];
-            [scroll addSubview:but];
-            
-            
-            
-            UIImageView *imgView2 = [[UIImageView alloc] initWithFrame:CGRectMake(xx + 2, yy + 2, 156, 102)];
-            imgView2.image = [[Common instance] getImage:it.image];
-            [scroll addSubview:imgView2];
-
-//            UIProgressView* progressView = [[UIProgressView alloc]initWithProgressViewStyle:UIProgressViewStyleDefault];
-//            progressView.frame = CGRectMake(0, 0, 20, 20);
-//            [scroll addSubview: progressView];
-
-            if(imgView2.image == nil) {
-            
-                
-                Transit* tr = [[Transit alloc] init];
-                tr.view = imgView2;
-                tr.url = it.image;
-
-                UIActivityIndicatorView *activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-                activityIndicator.alpha = 1.0;
-                activityIndicator.center = CGPointMake(79, 52);
-                activityIndicator.hidesWhenStopped = YES;
-                [tr.view addSubview:activityIndicator];
-                [activityIndicator startAnimating];
-                tr.activInd = activityIndicator;
-
-                
-                
-                NSInvocationOperation *operation = [[NSInvocationOperation alloc]
-                                                    initWithTarget:self
-                                                    selector:@selector(loadImage:)
-                                                    object:tr];
-                [queue addOperation:operation];
-            }
-            UILabel *sLabel = [ [UILabel alloc ] initWithFrame:CGRectMake(xx + 5, yy + 100, 140, 40) ];
-            sLabel.textColor = [UIColor redColor];
-            sLabel.backgroundColor = [UIColor clearColor];
-            sLabel.font = [UIFont fontWithName:@"Thonburi-Bold" size:11.0];
-            sLabel.textColor = [UIColor colorWithRed:105/255.0 green:76/255.0 blue:56/255.0 alpha:1.0];
-            sLabel.numberOfLines = 2;
-            sLabel.text = it.name;
-            [scroll addSubview:sLabel];
-            
-//            NSLog(@"%d, %d, %@",i,j,s);
-//            row =b !row;
-            
-
-        }
-
+        [self refreshImages:scroll cnt1:3 cat:i];
+        
         y+= 340;
     }
 
@@ -147,6 +76,78 @@
     
 
     self.titleLabel.text = NSLocalizedString(@"TITLE", nil);
+}
+
+- (void)refreshImages: (UIView*) scroll cnt1:(int) cnt1 cat:(int)i {
+    
+    int jj = 0;
+    int cnt = 0;
+    for (int j = 1; j <= [[Common instance] getMaxRecipesForCategory:i]/*4*/ ; j++) {
+        
+        Item* it = [[Common instance] getRecipe:j forCategory:i];
+        int yy;
+        int xx;
+        UIButton *but = [UIButton buttonWithType:UIButtonTypeCustom];
+        if(j%2) {
+            
+            yy = 0;
+            xx = jj * 160 + 10;
+        }
+        else {
+            
+            yy = 145;
+            xx = jj * 160 + 10;
+            jj++;
+        }
+        but.frame = CGRectMake(xx, yy, 160, 106);
+        [but setImage:[UIImage imageNamed:@"background_for_photo.png"] forState:UIControlStateNormal];
+        but.tag = i * CAT_MULT + j;
+        [but addTarget:self action:@selector(buttonEvent:) forControlEvents:UIControlEventTouchUpInside];
+        [scroll addSubview:but];
+        
+        if(cnt > cnt1)
+            continue;
+        
+        UIImageView *imgView2 = [[UIImageView alloc] initWithFrame:CGRectMake(xx + 2, yy + 2, 156, 102)];
+        imgView2.image = [[Common instance] getImage:it.image];
+        //            if(imgView2.image == nil)
+        //                imgView2.image = [UIImage imageNamed:@"background_for_photo.png"];
+        [scroll addSubview:imgView2];
+        
+        cnt++;
+        
+        if(imgView2.image == nil) {
+            
+            Transit* tr = [[Transit alloc] init];
+            tr.view = imgView2;
+            tr.url = it.image;
+            
+            UIActivityIndicatorView *activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+            activityIndicator.alpha = 1.0;
+            activityIndicator.center = CGPointMake(79, 52);
+            activityIndicator.hidesWhenStopped = YES;
+            [tr.view addSubview:activityIndicator];
+            [activityIndicator startAnimating];
+            tr.activInd = activityIndicator;
+            
+            NSInvocationOperation *operation = [[NSInvocationOperation alloc]
+                                                initWithTarget:self
+                                                selector:@selector(loadImage:)
+                                                object:tr];
+            [queue addOperation:operation];
+        }
+        
+        UILabel *sLabel = [ [UILabel alloc ] initWithFrame:CGRectMake(xx + 5, yy + 100, 140, 40) ];
+        sLabel.textColor = [UIColor redColor];
+        sLabel.backgroundColor = [UIColor clearColor];
+        sLabel.font = [UIFont fontWithName:@"Thonburi-Bold" size:11.0];
+        sLabel.textColor = [UIColor colorWithRed:105/255.0 green:76/255.0 blue:56/255.0 alpha:1.0];
+        sLabel.numberOfLines = 2;
+        sLabel.text = it.name;
+        [scroll addSubview:sLabel];
+
+    }
+
 }
 
 - (void)loadImage:(Transit*) tr {
@@ -168,7 +169,7 @@
     NSData *imgData = UIImagePNGRepresentation(tr.image);
     [imgData writeToFile:filePath atomically:YES];
     
-//    [tr.activInd stopAnimating];
+    [tr.activInd stopAnimating];
 }
 
 - (void)viewDidUnload

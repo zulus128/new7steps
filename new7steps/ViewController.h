@@ -25,7 +25,7 @@
 
 
 - (IBAction)panelButtonClick:(id)sender;
-
+- (void)refreshImages: (UIView*) scroll cnt1:(int) cnt1 cat:(int)i;
 
 @property (nonatomic, retain) IBOutlet UIView* panel1;
 
