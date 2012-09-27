@@ -29,7 +29,10 @@
 
     if(again)
         return;
+    
     again = YES;
+    
+    self.imgdict = [[NSMutableDictionary alloc] init];
     
     NSString *appFile = [[NSBundle mainBundle] pathForResource:@"desc" ofType:@"plist"];
     favs = [[NSMutableDictionary alloc] initWithContentsOfFile:appFile];
@@ -60,13 +63,48 @@
         sLabel.text = [[Common instance].cats objectForKey:[NSNumber numberWithInt:i]];
         
         UIScrollView *scroll = [[UIScrollView alloc] initWithFrame:CGRectMake(0, y+33, 320, 301)];
+        scroll.tag = i;
+        scroll.delegate = self;
         scroll.scrollEnabled = YES;
         scroll.contentSize = CGSizeMake([[Common instance] getMaxRecipesForCategory:i] * 160 / 2 + 20, 301);
         scroll.showsHorizontalScrollIndicator = NO;
         scroll.directionalLockEnabled = YES;
         [self.vertScrollView addSubview:scroll];
 
+        int jj = 0;
+        for (int j = 1; j <= [[Common instance] getMaxRecipesForCategory:i]/*4*/ ; j++) {
+            
+            Item* it = [[Common instance] getRecipe:j forCategory:i];
+            int yy;
+            int xx;
+            UIButton *but = [UIButton buttonWithType:UIButtonTypeCustom];
+            if(j%2) {
+                
+                yy = 0;
+                xx = jj * 160 + 10;
+            }
+            else {
+                
+                yy = 145;
+                xx = jj * 160 + 10;
+                jj++;
+            }
+            but.frame = CGRectMake(xx, yy, 160, 106);
+            [but setImage:[UIImage imageNamed:@"background_for_photo.png"] forState:UIControlStateNormal];
+            but.tag = i * CAT_MULT + j;
+            [but addTarget:self action:@selector(buttonEvent:) forControlEvents:UIControlEventTouchUpInside];
+            [scroll addSubview:but];
 
+            UILabel *sLabel = [ [UILabel alloc ] initWithFrame:CGRectMake(xx + 5, yy + 100, 140, 40) ];
+            sLabel.textColor = [UIColor redColor];
+            sLabel.backgroundColor = [UIColor clearColor];
+            sLabel.font = [UIFont fontWithName:@"Thonburi-Bold" size:11.0];
+            sLabel.textColor = [UIColor colorWithRed:105/255.0 green:76/255.0 blue:56/255.0 alpha:1.0];
+            sLabel.numberOfLines = 2;
+            sLabel.text = it.name;
+            [scroll addSubview:sLabel];
+        }
+        
         [self refreshImages:scroll cnt1:3 cat:i];
         
         y+= 340;
@@ -78,6 +116,16 @@
     self.titleLabel.text = NSLocalizedString(@"TITLE", nil);
 }
 
+//- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+//- (void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView {
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+
+//    NSLog(@"Scroll");
+
+    [self refreshImages:scrollView cnt1:1e5 cat:scrollView.tag];
+
+}
+
 - (void)refreshImages: (UIView*) scroll cnt1:(int) cnt1 cat:(int)i {
     
     int jj = 0;
@@ -87,7 +135,7 @@
         Item* it = [[Common instance] getRecipe:j forCategory:i];
         int yy;
         int xx;
-        UIButton *but = [UIButton buttonWithType:UIButtonTypeCustom];
+//        UIButton *but = [UIButton buttonWithType:UIButtonTypeCustom];
         if(j%2) {
             
             yy = 0;
@@ -99,23 +147,31 @@
             xx = jj * 160 + 10;
             jj++;
         }
-        but.frame = CGRectMake(xx, yy, 160, 106);
-        [but setImage:[UIImage imageNamed:@"background_for_photo.png"] forState:UIControlStateNormal];
-        but.tag = i * CAT_MULT + j;
-        [but addTarget:self action:@selector(buttonEvent:) forControlEvents:UIControlEventTouchUpInside];
-        [scroll addSubview:but];
+//        but.frame = CGRectMake(xx, yy, 160, 106);
+//        [but setImage:[UIImage imageNamed:@"background_for_photo.png"] forState:UIControlStateNormal];
+//        but.tag = i * CAT_MULT + j;
+//        [but addTarget:self action:@selector(buttonEvent:) forControlEvents:UIControlEventTouchUpInside];
+//        [scroll addSubview:but];
         
-        if(cnt > cnt1)
+        int t = i * CAT_MULT + j;
+        if([self.imgdict objectForKey:[NSNumber numberWithInt:t]] != nil)
             continue;
         
+        UIImage* img = [[Common instance] getImage:it.image];
+           
+        if((cnt > cnt1) && (img == nil))
+        continue;
+                        
         UIImageView *imgView2 = [[UIImageView alloc] initWithFrame:CGRectMake(xx + 2, yy + 2, 156, 102)];
-        imgView2.image = [[Common instance] getImage:it.image];
+        imgView2.image = img;
+        imgView2.tag = t;
         //            if(imgView2.image == nil)
         //                imgView2.image = [UIImage imageNamed:@"background_for_photo.png"];
         [scroll addSubview:imgView2];
-        
+        [self.imgdict setObject:imgView2 forKey:[NSNumber numberWithInt:t]];
+
         cnt++;
-        
+
         if(imgView2.image == nil) {
             
             Transit* tr = [[Transit alloc] init];
@@ -137,14 +193,14 @@
             [queue addOperation:operation];
         }
         
-        UILabel *sLabel = [ [UILabel alloc ] initWithFrame:CGRectMake(xx + 5, yy + 100, 140, 40) ];
-        sLabel.textColor = [UIColor redColor];
-        sLabel.backgroundColor = [UIColor clearColor];
-        sLabel.font = [UIFont fontWithName:@"Thonburi-Bold" size:11.0];
-        sLabel.textColor = [UIColor colorWithRed:105/255.0 green:76/255.0 blue:56/255.0 alpha:1.0];
-        sLabel.numberOfLines = 2;
-        sLabel.text = it.name;
-        [scroll addSubview:sLabel];
+//        UILabel *sLabel = [ [UILabel alloc ] initWithFrame:CGRectMake(xx + 5, yy + 100, 140, 40) ];
+//        sLabel.textColor = [UIColor redColor];
+//        sLabel.backgroundColor = [UIColor clearColor];
+//        sLabel.font = [UIFont fontWithName:@"Thonburi-Bold" size:11.0];
+//        sLabel.textColor = [UIColor colorWithRed:105/255.0 green:76/255.0 blue:56/255.0 alpha:1.0];
+//        sLabel.numberOfLines = 2;
+//        sLabel.text = it.name;
+//        [scroll addSubview:sLabel];
 
     }
 

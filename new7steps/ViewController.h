@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController {
+@interface ViewController : UIViewController <UIScrollViewDelegate> {
     
     NSMutableDictionary* favs;
     BOOL panelhide;
@@ -28,5 +28,6 @@
 - (void)refreshImages: (UIView*) scroll cnt1:(int) cnt1 cat:(int)i;
 
 @property (nonatomic, retain) IBOutlet UIView* panel1;
+@property (nonatomic, retain) NSMutableDictionary* imgdict;
 
 @end
