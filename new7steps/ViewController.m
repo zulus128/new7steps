@@ -27,10 +27,10 @@
 	// Do any additional setup after loading the view, typically from a nib.
     
 
-    if(again)
-        return;
-    
-    again = YES;
+//    if([Common instance].again)
+//        return;
+//    
+//    [Common instance].again = YES;
     
     self.imgdict = [[NSMutableDictionary alloc] init];
     

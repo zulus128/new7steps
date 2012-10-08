@@ -9,11 +9,13 @@
 #import <UIKit/UIKit.h>
 
 #import "AppDelegate.h"
+#import "Common.h"
 
 int main(int argc, char *argv[])
 {
  
     int l = [[NSUserDefaults standardUserDefaults] integerForKey:@"language"];
+
     NSLog(@"lang = %d", l); //
 
     switch (l) {
@@ -43,6 +45,13 @@ int main(int argc, char *argv[])
         default:
             break;
     }
+
+    NSString * langu = [[NSLocale preferredLanguages] objectAtIndex:0];
+    NSString* prev = [[NSUserDefaults standardUserDefaults] stringForKey:@"curlang"];
+    NSLog(@"Cur lang = %@, Prev lang = %@", langu, prev);
+    [Common instance].langChanged = ![langu isEqualToString:prev];
+    [[NSUserDefaults standardUserDefaults] setObject:langu forKey:@"curlang"];
+    
     
     @autoreleasepool {
         return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));

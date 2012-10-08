@@ -56,6 +56,8 @@ enum item_types {
 - (UIImage*) getImage: (NSString*) name;
 
 @property (nonatomic, retain) NSMutableDictionary* cats;
+//@property (assign) BOOL again;
+@property (assign) BOOL langChanged;
 
 
 @end

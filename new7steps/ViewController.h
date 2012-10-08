@@ -14,7 +14,7 @@
     BOOL panelhide;
     CGRect f;
     int buttag;
-    BOOL again;
+//    BOOL again;
     NSOperationQueue *queue;
 }
 

@@ -104,7 +104,7 @@
 
     NSData* responseData = [NSData dataWithContentsOfFile:filePath];
     
-    if(responseData == nil) {
+    if((responseData == nil) || [Common instance].langChanged) {
 
         NSLog(@"No XML data stored");
         

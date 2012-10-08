@@ -283,8 +283,8 @@
         UILabel *sLabel6 = [ [UILabel alloc ] initWithFrame:CGRectMake(24, y, 272, 50) ];
 //        sLabel6.textAlignment =  UITextAlignmentRight;
         sLabel6.backgroundColor = [UIColor clearColor];
-        sLabel6.font = [UIFont fontWithName:@"Thonburi-Bold" size:10.0];
-        sLabel6.textColor = [UIColor colorWithRed:105/255.0 green:76/255.0 blue:56/255.0 alpha:1.0];
+        sLabel6.font = [UIFont fontWithName:@"Thonburi-Bold" size:12.0];
+        sLabel6.textColor = [UIColor whiteColor];//[UIColor colorWithRed:105/255.0 green:76/255.0 blue:56/255.0 alpha:1.0];
         sLabel6.text = i;
         sLabel6.numberOfLines = 0;
         [sLabel6 sizeToFit];
