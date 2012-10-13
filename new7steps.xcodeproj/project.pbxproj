@@ -33,6 +33,9 @@
 		DD51459D15DDD01200388BF6 /* Transit.m in Sources */ = {isa = PBXBuildFile; fileRef = DD51459C15DDD01100388BF6 /* Transit.m */; };
 		DD6E856F15D4DCE2008052EC /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DD6E857115D4DCE2008052EC /* Localizable.strings */; };
 		DD9D659315D511D0004B6EA7 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = DD9D659215D511D0004B6EA7 /* Settings.bundle */; };
+		DDCABA371628FDBD001DEBA1 /* Good-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = DDCABA341628FDBD001DEBA1 /* Good-Black.otf */; };
+		DDCABA381628FDBD001DEBA1 /* Good-Book.otf in Resources */ = {isa = PBXBuildFile; fileRef = DDCABA351628FDBD001DEBA1 /* Good-Book.otf */; };
+		DDCABA391628FDBD001DEBA1 /* Good-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = DDCABA361628FDBD001DEBA1 /* Good-Light.otf */; };
 		DDCEA859154E41D20089A98F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDCEA858154E41D20089A98F /* UIKit.framework */; };
 		DDCEA85B154E41D20089A98F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDCEA85A154E41D20089A98F /* Foundation.framework */; };
 		DDCEA85D154E41D20089A98F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDCEA85C154E41D20089A98F /* CoreGraphics.framework */; };
@@ -105,6 +108,9 @@
 		DD6E857315D4DCEB008052EC /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		DD6E857415D4DCED008052EC /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		DD9D659215D511D0004B6EA7 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		DDCABA341628FDBD001DEBA1 /* Good-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Good-Black.otf"; sourceTree = "<group>"; };
+		DDCABA351628FDBD001DEBA1 /* Good-Book.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Good-Book.otf"; sourceTree = "<group>"; };
+		DDCABA361628FDBD001DEBA1 /* Good-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Good-Light.otf"; sourceTree = "<group>"; };
 		DDCEA854154E41D20089A98F /* new7steps.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = new7steps.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDCEA858154E41D20089A98F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		DDCEA85A154E41D20089A98F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -164,6 +170,16 @@
 			name = 2nd;
 			sourceTree = "<group>";
 		};
+		DDCABA331628FDBC001DEBA1 /* fwdgoodfont */ = {
+			isa = PBXGroup;
+			children = (
+				DDCABA341628FDBD001DEBA1 /* Good-Black.otf */,
+				DDCABA351628FDBD001DEBA1 /* Good-Book.otf */,
+				DDCABA361628FDBD001DEBA1 /* Good-Light.otf */,
+			);
+			path = fwdgoodfont;
+			sourceTree = "<group>";
+		};
 		DDCEA849154E41D20089A98F = {
 			isa = PBXGroup;
 			children = (
@@ -198,6 +214,7 @@
 		DDCEA85E154E41D20089A98F /* new7steps */ = {
 			isa = PBXGroup;
 			children = (
+				DDCABA331628FDBC001DEBA1 /* fwdgoodfont */,
 				DDCEA88B154E501D0089A98F /* Meals */,
 				DDCEA878154E41F10089A98F /* Interface */,
 				DDCEA867154E41D20089A98F /* AppDelegate.h */,
@@ -375,6 +392,9 @@
 				DDFD8A841607EB6D007A60CA /* plase_for_header.png in Resources */,
 				9C73DDC216228E2C004B42C9 /* spisok_new_ON.png in Resources */,
 				9C73DDC316228E2C004B42C9 /* spisok_new.png in Resources */,
+				DDCABA371628FDBD001DEBA1 /* Good-Black.otf in Resources */,
+				DDCABA381628FDBD001DEBA1 /* Good-Book.otf in Resources */,
+				DDCABA391628FDBD001DEBA1 /* Good-Light.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

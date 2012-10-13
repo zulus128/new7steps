@@ -32,6 +32,8 @@
 //    
 //    [Common instance].again = YES;
     
+    self.titleLabel.font = [UIFont fontWithName:@"Good-Black" size:18.0];
+    
     self.imgdict = [[NSMutableDictionary alloc] init];
     
     NSString *appFile = [[NSBundle mainBundle] pathForResource:@"desc" ofType:@"plist"];
@@ -52,14 +54,13 @@
         imgView1.image = [UIImage imageNamed:@"back-place2.png"];
         [self.vertScrollView addSubview:imgView1];
 
-        UILabel *sLabel = [ [UILabel alloc ] initWithFrame:CGRectMake(10, y + 3, 150, 20) ];
-//        sLabel.textAlignment =  UITextAlignmentCenter;
-//        sLabel.textColor = [UIColor redColor];
+//        UILabel *sLabel = [ [UILabel alloc ] initWithFrame:CGRectMake(10, y + 3, 150, 20) ];
+        UILabel *sLabel = [ [UILabel alloc ] initWithFrame:CGRectMake(10, y + 6, 150, 20) ];
         sLabel.textColor = [UIColor colorWithRed:105/255.0 green:76/255.0 blue:56/255.0 alpha:1.0];
         sLabel.backgroundColor = [UIColor clearColor];
-        sLabel.font = [UIFont fontWithName:@"Arial Rounded MT Bold" size:(14.0)];
+//        sLabel.font = [UIFont fontWithName:@"Arial Rounded MT Bold" size:(14.0)];
+        sLabel.font = [UIFont fontWithName:@"Good-Black" size:(14.0)];
         [self.vertScrollView addSubview:sLabel];
-//        sLabel.text = [NSString stringWithFormat: @"%@ %d", NSLocalizedString(@"COURSE", nil), i];
         sLabel.text = [[Common instance].cats objectForKey:[NSNumber numberWithInt:i]];
         
         UIScrollView *scroll = [[UIScrollView alloc] initWithFrame:CGRectMake(0, y+33, 320, 301)];
@@ -95,10 +96,12 @@
             [but addTarget:self action:@selector(buttonEvent:) forControlEvents:UIControlEventTouchUpInside];
             [scroll addSubview:but];
 
-            UILabel *sLabel = [ [UILabel alloc ] initWithFrame:CGRectMake(xx + 5, yy + 100, 140, 40) ];
+//            UILabel *sLabel = [ [UILabel alloc ] initWithFrame:CGRectMake(xx + 5, yy + 100, 140, 40) ];
+            UILabel *sLabel = [ [UILabel alloc ] initWithFrame:CGRectMake(xx + 5, yy + 105, 140, 40) ];
             sLabel.textColor = [UIColor redColor];
             sLabel.backgroundColor = [UIColor clearColor];
-            sLabel.font = [UIFont fontWithName:@"Thonburi-Bold" size:11.0];
+//            sLabel.font = [UIFont fontWithName:@"Thonburi-Bold" size:11.0];
+            sLabel.font = [UIFont fontWithName:@"Good-Book" size:11.0];
             sLabel.textColor = [UIColor colorWithRed:105/255.0 green:76/255.0 blue:56/255.0 alpha:1.0];
             sLabel.numberOfLines = 2;
             sLabel.text = it.name;
