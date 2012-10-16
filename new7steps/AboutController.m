@@ -23,6 +23,11 @@
     return self;
 }
 
+- (IBAction) back {
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];

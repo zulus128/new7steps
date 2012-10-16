@@ -25,41 +25,46 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    
 
-//    if([Common instance].again)
-//        return;
-//    
-//    [Common instance].again = YES;
-    
-    self.titleLabel.font = [UIFont fontWithName:@"Good-Black" size:18.0];
+    self.titleLabel.font = [UIFont fontWithName:@"Good-Black" size:22.0];
     
     self.imgdict = [[NSMutableDictionary alloc] init];
     
-    NSString *appFile = [[NSBundle mainBundle] pathForResource:@"desc" ofType:@"plist"];
-    favs = [[NSMutableDictionary alloc] initWithContentsOfFile:appFile];
+    //    NSString *appFile = [[NSBundle mainBundle] pathForResource:@"desc" ofType:@"plist"];
+    //    favs = [[NSMutableDictionary alloc] initWithContentsOfFile:appFile];
     
     queue = [NSOperationQueue new];
-    
-    int y = 0;//
+    self.titleLabel.text = NSLocalizedString(@"TITLE", nil);
     [[Common instance] addRecipes];
 
-    for (int i = 1; i <= [[Common instance] getMaxCategory]/*8*/ ; i++) {
+    [self setup];
+
+}
+
+- (void) viewDidAppear:(BOOL)animated {
     
+}
+
+- (void) setup {
+    
+    int y = 0;//
+    
+    for (int i = 1; i <= [[Common instance] getMaxCategory]/*8*/ ; i++) {
+        
         UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, y, 320, 30)];
         imgView.image = [UIImage imageNamed:@"plase_for_header.png"];
         [self.vertScrollView addSubview:imgView];
-
+        
         UIImageView *imgView1 = [[UIImageView alloc] initWithFrame:CGRectMake(0, y + 28, 320, 301)];
         imgView1.image = [UIImage imageNamed:@"back-place2.png"];
         [self.vertScrollView addSubview:imgView1];
-
-//        UILabel *sLabel = [ [UILabel alloc ] initWithFrame:CGRectMake(10, y + 3, 150, 20) ];
-        UILabel *sLabel = [ [UILabel alloc ] initWithFrame:CGRectMake(10, y + 6, 150, 20) ];
+        
+        //        UILabel *sLabel = [ [UILabel alloc ] initWithFrame:CGRectMake(10, y + 3, 150, 20) ];
+        UILabel *sLabel = [ [UILabel alloc ] initWithFrame:CGRectMake(10, y + 5, 150, 24) ];
         sLabel.textColor = [UIColor colorWithRed:105/255.0 green:76/255.0 blue:56/255.0 alpha:1.0];
         sLabel.backgroundColor = [UIColor clearColor];
-//        sLabel.font = [UIFont fontWithName:@"Arial Rounded MT Bold" size:(14.0)];
-        sLabel.font = [UIFont fontWithName:@"Good-Black" size:(14.0)];
+        //        sLabel.font = [UIFont fontWithName:@"Arial Rounded MT Bold" size:(14.0)];
+        sLabel.font = [UIFont fontWithName:@"Good-Black" size:(18.0)];
         [self.vertScrollView addSubview:sLabel];
         sLabel.text = [[Common instance].cats objectForKey:[NSNumber numberWithInt:i]];
         
@@ -71,7 +76,7 @@
         scroll.showsHorizontalScrollIndicator = NO;
         scroll.directionalLockEnabled = YES;
         [self.vertScrollView addSubview:scroll];
-
+        
         int jj = 0;
         for (int j = 1; j <= [[Common instance] getMaxRecipesForCategory:i]/*4*/ ; j++) {
             
@@ -95,15 +100,15 @@
             but.tag = i * CAT_MULT + j;
             [but addTarget:self action:@selector(buttonEvent:) forControlEvents:UIControlEventTouchUpInside];
             [scroll addSubview:but];
-
-//            UILabel *sLabel = [ [UILabel alloc ] initWithFrame:CGRectMake(xx + 5, yy + 100, 140, 40) ];
-            UILabel *sLabel = [ [UILabel alloc ] initWithFrame:CGRectMake(xx + 5, yy + 105, 140, 40) ];
+            
+            //            UILabel *sLabel = [ [UILabel alloc ] initWithFrame:CGRectMake(xx + 5, yy + 100, 140, 40) ];
+            UILabel *sLabel = [ [UILabel alloc ] initWithFrame:CGRectMake(xx + 5, yy + 105, 140, 45) ];
             sLabel.textColor = [UIColor redColor];
             sLabel.backgroundColor = [UIColor clearColor];
-//            sLabel.font = [UIFont fontWithName:@"Thonburi-Bold" size:11.0];
-            sLabel.font = [UIFont fontWithName:@"Good-Book" size:11.0];
+            //            sLabel.font = [UIFont fontWithName:@"Thonburi-Bold" size:11.0];
+            sLabel.font = [UIFont fontWithName:@"Good-Book" size:12.0];
             sLabel.textColor = [UIColor colorWithRed:105/255.0 green:76/255.0 blue:56/255.0 alpha:1.0];
-            sLabel.numberOfLines = 2;
+            sLabel.numberOfLines = 3;
             sLabel.text = it.name;
             [scroll addSubview:sLabel];
         }
@@ -112,11 +117,9 @@
         
         y+= 340;
     }
-
+    
     self.vertScrollView.contentSize = CGSizeMake(320, y);
     
-
-    self.titleLabel.text = NSLocalizedString(@"TITLE", nil);
 }
 
 //- (void)scrollViewDidScroll:(UIScrollView *)scrollView {

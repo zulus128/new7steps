@@ -10,7 +10,7 @@
 
 @interface ViewController : UIViewController <UIScrollViewDelegate> {
     
-    NSMutableDictionary* favs;
+//    NSMutableDictionary* favs;
     BOOL panelhide;
     CGRect f;
     int buttag;

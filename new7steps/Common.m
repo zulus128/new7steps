@@ -128,6 +128,7 @@
 //                return NO;
             }
         }
+        
     }
     else {
 
@@ -135,8 +136,11 @@
 
     }
     
-    if(responseData != nil)
+    if(responseData != nil) {
+        
         [responseData writeToFile:filePath atomically:YES];
+        [Common instance].langChanged = NO;
+    }
     
     BOOL success = YES;
     

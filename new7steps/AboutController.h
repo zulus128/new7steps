@@ -10,4 +10,6 @@
 
 @interface AboutController : UIViewController
 
+- (IBAction) back;
+
 @end

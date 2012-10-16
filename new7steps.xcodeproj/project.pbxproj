@@ -13,6 +13,9 @@
 		36D50F3215AAA16900D53641 /* Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 36D50F3115AAA16800D53641 /* Common.m */; };
 		36D50F3A15AAD8F700D53641 /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 36D50F2E15AAA0C400D53641 /* Item.m */; };
 		36FA183B1553935800F1F703 /* square_for_picture_new.png in Resources */ = {isa = PBXBuildFile; fileRef = 36FA183A1553935800F1F703 /* square_for_picture_new.png */; };
+		9C02B599162D13EC00FAE4B5 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C02B598162D13EC00FAE4B5 /* Default@2x.png */; };
+		9C02B59C162D13F200FAE4B5 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C02B59B162D13F200FAE4B5 /* Default-568h@2x.png */; };
+		9C02B59F162D1C9F00FAE4B5 /* FlipTopPopToRoot.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C02B59E162D1C9F00FAE4B5 /* FlipTopPopToRoot.m */; };
 		9C1490371611CFFB0016A83E /* AboutController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C1490361611CFFB0016A83E /* AboutController.m */; };
 		9C73DDB416228545004B42C9 /* button_position1.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C73DDB616228545004B42C9 /* button_position1.png */; };
 		9C73DDB716228551004B42C9 /* button_position2.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C73DDB916228551004B42C9 /* button_position2.png */; };
@@ -73,6 +76,10 @@
 		36D50F3015AAA16800D53641 /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
 		36D50F3115AAA16800D53641 /* Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Common.m; sourceTree = "<group>"; };
 		36FA183A1553935800F1F703 /* square_for_picture_new.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = square_for_picture_new.png; sourceTree = "<group>"; };
+		9C02B598162D13EC00FAE4B5 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		9C02B59B162D13F200FAE4B5 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		9C02B59D162D1C9F00FAE4B5 /* FlipTopPopToRoot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlipTopPopToRoot.h; sourceTree = "<group>"; };
+		9C02B59E162D1C9F00FAE4B5 /* FlipTopPopToRoot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlipTopPopToRoot.m; sourceTree = "<group>"; };
 		9C1490351611CFFB0016A83E /* AboutController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutController.h; sourceTree = "<group>"; };
 		9C1490361611CFFB0016A83E /* AboutController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutController.m; sourceTree = "<group>"; };
 		9C73DDB516228545004B42C9 /* ru */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ru; path = ru.lproj/button_position1.png; sourceTree = "<group>"; };
@@ -183,6 +190,8 @@
 		DDCEA849154E41D20089A98F = {
 			isa = PBXGroup;
 			children = (
+				9C02B59B162D13F200FAE4B5 /* Default-568h@2x.png */,
+				9C02B598162D13EC00FAE4B5 /* Default@2x.png */,
 				DD1FE1D815E5E1F0001A1736 /* BarbutoIcon-72.png */,
 				DD1FE1D615E5E128001A1736 /* BarbutoIcon-57.png */,
 				DD1FE1D315E5E10B001A1736 /* BarbutoIcon_114.png */,
@@ -236,6 +245,8 @@
 				3661C75315AAA009007B5C56 /* XMLParser.h */,
 				3661C75415AAA009007B5C56 /* XMLParser.m */,
 				DDCEA85F154E41D20089A98F /* Supporting Files */,
+				9C02B59D162D1C9F00FAE4B5 /* FlipTopPopToRoot.h */,
+				9C02B59E162D1C9F00FAE4B5 /* FlipTopPopToRoot.m */,
 			);
 			path = new7steps;
 			sourceTree = "<group>";
@@ -395,6 +406,8 @@
 				DDCABA371628FDBD001DEBA1 /* Good-Black.otf in Resources */,
 				DDCABA381628FDBD001DEBA1 /* Good-Book.otf in Resources */,
 				DDCABA391628FDBD001DEBA1 /* Good-Light.otf in Resources */,
+				9C02B599162D13EC00FAE4B5 /* Default@2x.png in Resources */,
+				9C02B59C162D13F200FAE4B5 /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -414,6 +427,7 @@
 				DD2DA18815BBADFA0074493F /* ViewController2.m in Sources */,
 				DD51459D15DDD01200388BF6 /* Transit.m in Sources */,
 				9C1490371611CFFB0016A83E /* AboutController.m in Sources */,
+				9C02B59F162D1C9F00FAE4B5 /* FlipTopPopToRoot.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
