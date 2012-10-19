@@ -401,6 +401,11 @@
 //    return UIInterfaceOrientationLandscapeLeft;
 //}
 
+- (BOOL)shouldAutorotate {
+    
+    return NO;
+}
+
 - (void)awakeFromNib
 {
     isShowingLandscapeView = NO;

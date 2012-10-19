@@ -192,5 +192,23 @@
 
 }
 
+//- (UIImage*) getImageForStep: (NSString*) name {
+//    
+//    NSString* n = [name lastPathComponent];
+//    NSArray* sp = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+//    NSString* docpath = [sp objectAtIndex: 0];
+//    NSString* filePath = [docpath stringByAppendingPathComponent:n];
+//    //    NSLog(@"filepath for image = %@", filePath);
+//    UIImage* im = [UIImage imageWithContentsOfFile:filePath];
+//    if(im == nil) {
+//
+//        im = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:name]]];
+//        NSData *imgData = UIImagePNGRepresentation(im);
+//        [imgData writeToFile:filePath atomically:YES];
+//    }
+//    return im;
+//    
+//}
+
 
 @end

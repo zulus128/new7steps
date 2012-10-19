@@ -55,6 +55,7 @@
 //        [viewControllers addObject:controller];
 //    }
     
+    [[UIApplication sharedApplication] setStatusBarHidden:YES animated:NO];
     
     NSMutableArray *viewControllers = [NSMutableArray array];
 //        UIImageView *imgView8 = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 480, 320)];
