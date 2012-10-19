@@ -18,7 +18,8 @@
     if( self != nil ) {
     
         self.ingrids = [NSMutableDictionary dictionary];
-        self.steps = [NSMutableDictionary dictionary];
+//        self.steps = [NSMutableDictionary dictionary];
+        self.steps = [NSMutableArray array];
 
     }
     

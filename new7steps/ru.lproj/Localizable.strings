@@ -7,6 +7,7 @@
 */
 
 "TITLE" = "Barbuto";
+"MAINBUTTON" = "Рецепты";
 "COURSE" = "КУРС";
 "RECIPE_TYPE" = "Тип рецепта";
 "RECIPE_TIME" = "Время приготовления";

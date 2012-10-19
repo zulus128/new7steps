@@ -9,6 +9,7 @@
 #import "Common.h"
 #import "XMLParser.h"
 #import "Item.h"
+#import "Step.h"
 
 @implementation XMLParser
 
@@ -34,6 +35,12 @@
     
 //    NSLog(@"+++ begin: %@ %d", elementName, ingrid);
 
+    if([elementName isEqualToString:RECIPES_TAG]) {
+
+        NSString* n = [attributeDict objectForKey:@"version"];
+        [Common instance].versionXML = n.doubleValue;
+    }
+    
 	if([elementName isEqualToString:RECIPE_TAG]) {
 
 		self.item = [[Item alloc] init];
@@ -108,13 +115,17 @@
             if([elementName isEqualToString:IMAGE_TAG]) {
                 
                 name = trimedStr;
-                //            NSLog(@"step image : %@", name);
+//                            NSLog(@"step image : %@", name);
                 
             }
             else
                 if([elementName isEqualToString:DESCRIPTION_TAG]) {
-                    [item.steps setObject:name forKey:trimedStr];
-                    //                    NSLog(@"ingridient %@ : %@", name, trimedStr);
+//                    [item.steps setObject:name forKey:trimedStr];
+                    Step* step = [[Step alloc] init];
+                    step.path = name;
+                    step.text = trimedStr;
+                    [item.steps addObject:step];
+//                                        NSLog(@"ingridient %@ : %@", name, trimedStr);
                 }
                 else
                     if([elementName isEqualToString:STEPS_TAG]) {

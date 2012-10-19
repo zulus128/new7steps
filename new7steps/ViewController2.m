@@ -8,6 +8,7 @@
 
 #import "ViewController2.h"
 #import "Transit.h"
+#import "Step.h"
 
 @interface ViewController2 ()
 
@@ -26,7 +27,7 @@
     
     it = [[Common instance] getRecipe:j forCategory:i];
     
-    
+    self.goRecipes.titleLabel.text = NSLocalizedString(@"MAINBUTTON", nil);
 
     int y = 160;
     imgView2 = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, y)];
@@ -275,8 +276,9 @@
     y += 20;
     
     int k = 1;
-    for (NSString* i in [it.steps allKeys]) {
-        
+//    for (NSString* i in [it.steps allKeys]) {
+    for (Step* st in it.steps) {
+    
         UIImageView *imgView1 = [[UIImageView alloc] initWithFrame:CGRectMake(19, y, 282, 190)];
         imgView1.image = [UIImage imageNamed:@"bottom_pict_place1.png"];
         [self.vertScrollView3 addSubview:imgView1];
@@ -291,14 +293,16 @@
         sLabel6.backgroundColor = [UIColor clearColor];
         sLabel6.font = [UIFont fontWithName:@"Thonburi-Bold" size:14.0];
         sLabel6.textColor = [UIColor colorWithRed:227/255.0 green:213/255.0 blue:192/255.0 alpha:1.0];
-        sLabel6.text = i;
+//        sLabel6.text = i;
+        sLabel6.text = st.text;
         sLabel6.numberOfLines = 0;
         [sLabel6 sizeToFit];
         [self.vertScrollView3 addSubview:sLabel6];
 
         Transit* tr = [[Transit alloc] init];
         tr.view = imgV;
-        tr.url = [it.steps objectForKey:i];
+//        tr.url = [it.steps objectForKey:i];
+        tr.url = st.path;
         NSInvocationOperation *operation = [[NSInvocationOperation alloc]
                                             initWithTarget:self
                                             selector:@selector(loadStepImage:)
@@ -319,7 +323,7 @@
 
 - (void)loadImage {
     
-    NSData* imageData = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:it.image]];
+    NSData* imageData = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:it.ingrid_image]];
     UIImage* image = [[UIImage alloc] initWithData:imageData];
     [self performSelectorOnMainThread:@selector(displayImage:) withObject:image waitUntilDone:NO];
 }
@@ -332,7 +336,7 @@
 
 - (void)loadImage1 {
     
-    NSData* imageData = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:it.ingrid_image]];
+    NSData* imageData = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:it.image]];
     UIImage* image = [[UIImage alloc] initWithData:imageData];
     [self performSelectorOnMainThread:@selector(displayImage1:) withObject:image waitUntilDone:NO];
 }

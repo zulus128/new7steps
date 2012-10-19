@@ -12,6 +12,7 @@
 //#define XML_URL @"http://customs.joomsport.com/7steps/index.php?option=com_recipes"
 
 #define RECIPE_TAG @"recipe"
+#define RECIPES_TAG @"recipes"
 #define NAME_TAG @"name"
 #define IMAGE_TAG @"image"
 #define INGRID_IMAGE_TAG @"ingridients_image"
@@ -58,6 +59,7 @@ enum item_types {
 @property (nonatomic, retain) NSMutableDictionary* cats;
 //@property (assign) BOOL again;
 @property (assign) BOOL langChanged;
+@property (assign) double versionXML;
 
 
 @end

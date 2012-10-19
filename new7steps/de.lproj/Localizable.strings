@@ -7,6 +7,7 @@
 */
 
 "TITLE" = "Barbuto";
+"MAINBUTTON" = "Main menu";
 "COURSE" = "Kurs";
 "RECIPE_TYPE" = "Rezept-Typ";
 "RECIPE_TIME" = "Rezept-Zeit";

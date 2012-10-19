@@ -19,8 +19,31 @@ int main(int argc, char *argv[])
     NSLog(@"lang = %d", l); //
 
     switch (l) {
-        case 0:
+        case 0: {
+            NSString* def = [[NSUserDefaults standardUserDefaults] stringForKey:@"deflang"];
+            NSLog(@"deflang = %@", def); //
+            NSString* dLanguage = [[NSLocale preferredLanguages] objectAtIndex:0];
+            NSLog(@"dLanguage = %@", dLanguage); //
+//            if((def != nil) && (![def isEqualToString:dLanguage])) {
+//
+//                def = nil;
+//            }
+            if(def == nil) {
+            
+                def = dLanguage;
+                [[NSUserDefaults standardUserDefaults] setObject:dLanguage forKey:@"deflang"];
+                NSLog(@"store deflang = %@", dLanguage); //
+            }
+//            else {
+
+//                def = dLanguage;
+                [[NSUserDefaults standardUserDefaults] setObject:[NSArray arrayWithObjects:def, nil]
+                                                          forKey:@"AppleLanguages"];
+                [[NSUserDefaults standardUserDefaults] synchronize];
+//            }
+
             break;
+        }
         case 1:
             [[NSUserDefaults standardUserDefaults] setObject:[NSArray arrayWithObjects:@"en_US", nil]
                                                       forKey:@"AppleLanguages"];

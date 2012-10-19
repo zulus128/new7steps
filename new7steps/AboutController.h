@@ -10,6 +10,9 @@
 
 @interface AboutController : UIViewController
 
+@property (nonatomic, retain) IBOutlet UILabel* xmlver;
+
 - (IBAction) back;
+
 
 @end

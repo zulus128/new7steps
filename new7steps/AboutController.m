@@ -7,6 +7,7 @@
 //
 
 #import "AboutController.h"
+#import "Common.h"
 
 @interface AboutController ()
 
@@ -32,6 +33,8 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
+    self.xmlver.text = [NSString stringWithFormat:@"XML version = %.1f", [Common instance].versionXML];
 }
 
 - (void)didReceiveMemoryWarning
