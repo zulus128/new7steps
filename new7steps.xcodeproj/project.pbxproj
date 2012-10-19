@@ -21,6 +21,7 @@
 		9C73DDB716228551004B42C9 /* button_position2.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C73DDB916228551004B42C9 /* button_position2.png */; };
 		9C73DDC216228E2C004B42C9 /* spisok_new_ON.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C73DDC016228E2B004B42C9 /* spisok_new_ON.png */; };
 		9C73DDC316228E2C004B42C9 /* spisok_new.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C73DDC116228E2C004B42C9 /* spisok_new.png */; };
+		9CE3E17A16318D5B00325DFB /* StepViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CE3E17916318D5B00325DFB /* StepViewController.m */; };
 		9CFA90E31631623500FC4EA3 /* HorizontalController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CFA90E21631623500FC4EA3 /* HorizontalController.m */; };
 		9CFCFB331631027300F555DD /* Step.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CFCFB321631027300F555DD /* Step.m */; };
 		DD1FE1D415E5E10B001A1736 /* BarbutoIcon_114.png in Resources */ = {isa = PBXBuildFile; fileRef = DD1FE1D315E5E10B001A1736 /* BarbutoIcon_114.png */; };
@@ -94,6 +95,8 @@
 		9C73DDBF16228577004B42C9 /* es */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = es; path = es.lproj/button_position2.png; sourceTree = "<group>"; };
 		9C73DDC016228E2B004B42C9 /* spisok_new_ON.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spisok_new_ON.png; sourceTree = "<group>"; };
 		9C73DDC116228E2C004B42C9 /* spisok_new.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spisok_new.png; sourceTree = "<group>"; };
+		9CE3E17816318D5B00325DFB /* StepViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StepViewController.h; sourceTree = "<group>"; };
+		9CE3E17916318D5B00325DFB /* StepViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StepViewController.m; sourceTree = "<group>"; };
 		9CFA90E11631623500FC4EA3 /* HorizontalController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HorizontalController.h; sourceTree = "<group>"; };
 		9CFA90E21631623500FC4EA3 /* HorizontalController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HorizontalController.m; sourceTree = "<group>"; };
 		9CFCFB311631027300F555DD /* Step.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Step.h; sourceTree = "<group>"; };
@@ -242,6 +245,8 @@
 				DD2DA18715BBADFA0074493F /* ViewController2.m */,
 				9CFA90E11631623500FC4EA3 /* HorizontalController.h */,
 				9CFA90E21631623500FC4EA3 /* HorizontalController.m */,
+				9CE3E17816318D5B00325DFB /* StepViewController.h */,
+				9CE3E17916318D5B00325DFB /* StepViewController.m */,
 				9C1490351611CFFB0016A83E /* AboutController.h */,
 				9C1490361611CFFB0016A83E /* AboutController.m */,
 				DD51459B15DDD01100388BF6 /* Transit.h */,
@@ -440,6 +445,7 @@
 				9C02B59F162D1C9F00FAE4B5 /* FlipTopPopToRoot.m in Sources */,
 				9CFCFB331631027300F555DD /* Step.m in Sources */,
 				9CFA90E31631623500FC4EA3 /* HorizontalController.m in Sources */,
+				9CE3E17A16318D5B00325DFB /* StepViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -309,5 +309,9 @@
     panelhide = !panelhide;
 }
 
+- (BOOL)shouldAutorotate {
+    
+    return NO;
+}
 
 @end
