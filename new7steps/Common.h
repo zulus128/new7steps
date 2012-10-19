@@ -61,5 +61,6 @@ enum item_types {
 @property (assign) BOOL langChanged;
 @property (assign) double versionXML;
 
+@property (readwrite, assign) int itemtag;
 
 @end

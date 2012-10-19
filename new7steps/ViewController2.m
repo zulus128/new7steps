@@ -15,15 +15,14 @@
 @end
 
 @implementation ViewController2
-@synthesize itemtag;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-    int i = itemtag / CAT_MULT;
-    int j = itemtag - i * CAT_MULT;
+    int i = [Common instance].itemtag / CAT_MULT;
+    int j = [Common instance].itemtag - i * CAT_MULT;
     
     it = [[Common instance] getRecipe:j forCategory:i];
     

@@ -269,8 +269,10 @@
 //    
     if ([segue.identifier isEqualToString:@"2ndSegue"]) {
 
-        ViewController2* detailViewController = (ViewController2*)segue.destinationViewController;
-        detailViewController.itemtag = buttag;
+//        ViewController2* detailViewController = (ViewController2*)segue.destinationViewController;
+//        detailViewController.itemtag = buttag;
+        [Common instance].itemtag = buttag;
+        
     }
 }
 

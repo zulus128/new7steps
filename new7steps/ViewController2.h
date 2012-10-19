@@ -20,7 +20,7 @@
 
 }
 
-@property (readwrite, assign) int itemtag;
+//@property (readwrite, assign) int itemtag;
 @property (nonatomic, retain) IBOutlet UIScrollView* vertScrollView2;
 @property (nonatomic, retain) IBOutlet UIScrollView* vertScrollView3;
 @property (nonatomic, retain) IBOutlet UIButton* goRecipes;
