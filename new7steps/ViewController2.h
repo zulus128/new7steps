@@ -16,6 +16,8 @@
     UIImageView *imgView2_1;
     BOOL b;
     NSOperationQueue *queue;
+    BOOL isShowingLandscapeView;
+
 }
 
 @property (readwrite, assign) int itemtag;

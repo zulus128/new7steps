@@ -385,7 +385,48 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
+    NSLog(@"shouldAutorotate called");
+
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+//- (NSUInteger)supportedInterfaceOrientations {
+//    NSLog(@"supported called");
+////    return UIInterfaceOrientationMaskAll;//Which is actually a default value
+//    return UIInterfaceOrientationMaskPortrait | UIInterfaceOrientationMaskLandscapeLeft;
+//}
+//
+//- (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation {
+//    NSLog(@" preferred called");//This method is never called. WHY?
+////    return UIInterfaceOrientationLandscapeRight;
+//    return UIInterfaceOrientationLandscapeLeft;
+//}
+
+- (void)awakeFromNib
+{
+    isShowingLandscapeView = NO;
+    [[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(orientationChanged:)
+                                                 name:UIDeviceOrientationDidChangeNotification
+                                               object:nil];
+}
+
+- (void)orientationChanged:(NSNotification *)notification
+{
+    UIDeviceOrientation deviceOrientation = [UIDevice currentDevice].orientation;
+    if (UIDeviceOrientationIsLandscape(deviceOrientation) &&
+        !isShowingLandscapeView)
+    {
+        [self performSegueWithIdentifier:@"DisplayHorizontalView" sender:self];
+        isShowingLandscapeView = YES;
+    }
+    else if (UIDeviceOrientationIsPortrait(deviceOrientation) &&
+             isShowingLandscapeView)
+    {
+        [self dismissViewControllerAnimated:YES completion:nil];
+        isShowingLandscapeView = NO;
+    }
 }
 
 @end
