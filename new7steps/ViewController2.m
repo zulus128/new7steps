@@ -21,6 +21,8 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
+    [[UIApplication sharedApplication] setStatusBarHidden:YES animated:NO];
+
     int i = [Common instance].itemtag / CAT_MULT;
     int j = [Common instance].itemtag - i * CAT_MULT;
     
@@ -348,6 +350,15 @@
 
 - (void)loadStepImage:(Transit*) tr {
     
+    tr.image = [[Common instance] getImage:tr.url];
+    if(tr.image != nil) {
+        
+        NSLog(@"Step image found %@", tr.url);
+        [self displayStepImage:tr];
+        
+        return;
+    }
+    
     NSData* imageData = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:tr.url]];
     tr.image = [[UIImage alloc] initWithData:imageData];
     [self performSelectorOnMainThread:@selector(displayStepImage:) withObject:tr waitUntilDone:NO];
@@ -356,6 +367,13 @@
 - (void)displayStepImage:(Transit*)tr {
 
     [tr.view setImage:tr.image];
+    
+    NSString* n = [tr.url lastPathComponent];
+    NSArray* sp = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString* docpath = [sp objectAtIndex: 0];
+    NSString* filePath = [docpath stringByAppendingPathComponent:n];
+    NSData *imgData = UIImagePNGRepresentation(tr.image);
+    [imgData writeToFile:filePath atomically:YES];
 }
 
 - (void)viewDidAppear:(BOOL)animated {

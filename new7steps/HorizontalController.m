@@ -58,14 +58,20 @@
     [[UIApplication sharedApplication] setStatusBarHidden:YES animated:NO];
     
     NSMutableArray *viewControllers = [NSMutableArray array];
-//        UIImageView *imgView8 = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 480, 320)];
-//        imgView8.image = [UIImage imageNamed:[NSString stringWithFormat:@"step_%d.png", 1]];
+
     Step* s = [it.steps objectAtIndex:index];
-    NSData* imageData = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:s.path]];
-    UIImageView *imgV = [[UIImageView alloc] initWithFrame:CGRectMake(150, 150, screenBounds.size.height, screenBounds.size.width)];
-    imgV.image = [[UIImage alloc] initWithData:imageData];
-    
-//    UIViewController *controller = [[StepViewController alloc] initWithImage:[[UIImage alloc] initWithData:imageData]];
+    UIImageView *imgV = [[UIImageView alloc] initWithFrame:screenBounds];
+    UIImage* iii = [[Common instance] getImage:s.path];
+    if(iii != nil) {
+        
+        NSLog(@"Step image found %@", s.path);
+        imgV.image = iii;
+    }
+    else {
+        
+        NSData* imageData = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:s.path]];
+        imgV.image = [[UIImage alloc] initWithData:imageData];
+    }
   
     UIViewController *controller = [[UIViewController alloc] init];
     controller.view = imgV;
@@ -87,9 +93,18 @@
     NSLog(@"indexBefore = %d", index);
 
     Step* s = [it.steps objectAtIndex:index];
-    NSData* imageData = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:s.path]];
     UIImageView *imgV = [[UIImageView alloc] initWithFrame:screenBounds];
-    imgV.image = [[UIImage alloc] initWithData:imageData];
+    UIImage* iii = [[Common instance] getImage:s.path];
+    if(iii != nil) {
+        
+        NSLog(@"Step image found %@", s.path);
+        imgV.image = iii;
+    }
+    else {
+        
+        NSData* imageData = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:s.path]];
+        imgV.image = [[UIImage alloc] initWithData:imageData];
+    }
     
     UIViewController *controller = [[UIViewController alloc] init];
     controller.view = imgV;
@@ -105,9 +120,18 @@
     NSLog(@"indexAfter = %d", index);
     
     Step* s = [it.steps objectAtIndex:index];
-    NSData* imageData = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:s.path]];
     UIImageView *imgV = [[UIImageView alloc] initWithFrame:screenBounds];
-    imgV.image = [[UIImage alloc] initWithData:imageData];
+    UIImage* iii = [[Common instance] getImage:s.path];
+    if(iii != nil) {
+        
+        NSLog(@"Step image found %@", s.path);
+        imgV.image = iii;
+    }
+    else {
+    
+        NSData* imageData = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:s.path]];
+        imgV.image = [[UIImage alloc] initWithData:imageData];
+    }
     
     UIViewController *controller = [[UIViewController alloc] init];
     controller.view = imgV;
