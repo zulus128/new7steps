@@ -26,6 +26,8 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
 
+    [[UIApplication sharedApplication] setStatusBarHidden:YES animated:NO];
+
     self.titleLabel.font = [UIFont fontWithName:@"Good-Black" size:22.0];
     
     self.imgdict = [[NSMutableDictionary alloc] init];

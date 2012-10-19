@@ -12,17 +12,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" id="G4b-wg-tt1">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="FACEBOOK_back.png" id="NXL-Sw-UiF">
-                                        <rect key="frame" x="60" y="0.0" width="320" height="460"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                    </imageView>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                            </view>
                             <view contentMode="scaleToFill" id="W0Y-iG-ZCI">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -36,11 +25,11 @@
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="toolbar_bottom.png" id="OYu-jX-O71">
-                                        <rect key="frame" x="0.0" y="410" width="320" height="50"/>
+                                        <rect key="frame" x="0.0" y="430" width="320" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="KDF-fA-Ug4">
-                                        <rect key="frame" x="14" y="420" width="28" height="28"/>
+                                        <rect key="frame" x="14" y="436" width="28" height="28"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" image="star_on.png" backgroundImage="star_off.png">
@@ -52,7 +41,7 @@
                                         </state>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="U87-ox-rGA">
-                                        <rect key="frame" x="276" y="419" width="24" height="32"/>
+                                        <rect key="frame" x="276" y="437" width="24" height="32"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" image="spisok_on.png">
@@ -87,7 +76,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" id="tXF-wL-ofH">
-                                        <rect key="frame" x="0.0" y="41" width="320" height="371"/>
+                                        <rect key="frame" x="0.0" y="41" width="320" height="388"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     </scrollView>
                                 </subviews>
@@ -121,7 +110,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="toolbar_bottom.png" id="BKy-Al-iKS">
-                                <rect key="frame" x="0.0" y="429" width="320" height="50"/>
+                                <rect key="frame" x="0.0" y="430" width="320" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="NeO-np-yEF">
@@ -149,28 +138,26 @@
                                 </state>
                             </button>
                             <scrollView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="Ujs-MC-kqX">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="428"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="429"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <subviews>
-                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="GJa-RH-WUq">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="300"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                    </scrollView>
-                                </subviews>
                             </scrollView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="clip" id="ZEc-04-Qjd">
-                                <rect key="frame" x="66" y="432" width="189" height="44"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="GJa-RH-WUq">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="429"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            </scrollView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="clip" id="C2i-Jj-HPq">
+                                <rect key="frame" x="66" y="433" width="188" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
-                                <state key="normal" title="Рецепты">
-                                    <color key="titleColor" red="0.85111667798913038" green="0.67058006725597663" blue="0.40669592090005191" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleColor" red="0.85111667800000002" green="0.67058006729999997" blue="0.40669592090000001" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="exit" destination="BfP-xd-1fy" eventType="touchUpInside" id="CH2-zy-scg"/>
+                                    <action selector="exit" destination="BfP-xd-1fy" eventType="touchUpInside" id="uNj-1p-cAo"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -178,7 +165,7 @@
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>
                     <connections>
-                        <outlet property="goRecipes" destination="ZEc-04-Qjd" id="SS6-Ua-Xjp"/>
+                        <outlet property="goRecipes" destination="C2i-Jj-HPq" id="Xbx-fo-BAP"/>
                         <outlet property="vertScrollView2" destination="GJa-RH-WUq" id="Qag-iG-dFN"/>
                         <outlet property="vertScrollView3" destination="Ujs-MC-kqX" id="cye-2W-Qwu"/>
                         <segue destination="Hf5-cY-6Zs" kind="modal" identifier="DisplayHorizontalView" modalTransitionStyle="flipHorizontal" id="V4S-K3-DFx"/>
@@ -256,7 +243,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="FACEBOOK_back.png" width="520" height="919"/>
         <image name="background.jpg" width="640" height="960"/>
         <image name="spisok_new.png" width="38" height="39"/>
         <image name="spisok_new_ON.png" width="38" height="39"/>
@@ -266,6 +252,39 @@
         <image name="toolbar_bottom.png" width="640" height="99"/>
         <image name="toolbar_top.png" width="640" height="84"/>
     </resources>
+    <classes>
+        <class className="AboutController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AboutController.h"/>
+            <relationships>
+                <relationship kind="action" name="back"/>
+                <relationship kind="outlet" name="xmlver" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="HorizontalController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/HorizontalController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="horizScrollView" candidateClass="UIScrollView"/>
+            </relationships>
+        </class>
+        <class className="ViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="panelButtonClick:"/>
+                <relationship kind="outlet" name="panel1" candidateClass="UIView"/>
+                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="vertScrollView" candidateClass="UIScrollView"/>
+            </relationships>
+        </class>
+        <class className="ViewController2" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController2.h"/>
+            <relationships>
+                <relationship kind="action" name="exit"/>
+                <relationship kind="outlet" name="goRecipes" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="vertScrollView2" candidateClass="UIScrollView"/>
+                <relationship kind="outlet" name="vertScrollView3" candidateClass="UIScrollView"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

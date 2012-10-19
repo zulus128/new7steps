@@ -28,7 +28,11 @@
     
     it = [[Common instance] getRecipe:j forCategory:i];
     
-    self.goRecipes.titleLabel.text = NSLocalizedString(@"MAINBUTTON", nil);
+    NSString* s = NSLocalizedString(@"MAINBUTTON", nil);
+//    NSLog(@"str = %@", s);
+//    self.goRecipes.titleLabel.text = s;
+//    self.goRecipes.frame = CGRectMake(66, 432, 189, 44);
+    [self.goRecipes setTitle:s forState:UIControlStateNormal];
 
     int y = 160;
     imgView2 = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, y)];
