@@ -16,6 +16,8 @@
     int buttag;
 //    BOOL again;
     NSOperationQueue *queue;
+    UIActivityIndicatorView *sIndicator;
+    UIImageView *sView;
 }
 
 @property (nonatomic, retain) IBOutlet UIScrollView* vertScrollView;

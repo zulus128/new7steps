@@ -23,6 +23,21 @@
 
 - (void)viewDidLoad
 {
+
+    NSLog(@"EEEEEEEEEEEE");
+    
+    sView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, 480)];
+    sView.image = [UIImage imageNamed:@"Default.png"];
+    [self.view addSubview:sView];
+    
+    sIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    sIndicator.alpha = 1.0;
+    sIndicator.center = CGPointMake(160, 280);
+    sIndicator.hidesWhenStopped = YES;
+    [sIndicator setColor:[UIColor grayColor]];
+    [self.view addSubview:sIndicator];
+    [sIndicator startAnimating];
+
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
 
@@ -37,14 +52,28 @@
     
     queue = [NSOperationQueue new];
     self.titleLabel.text = NSLocalizedString(@"TITLE", nil);
-    [[Common instance] addRecipes];
+//    [[Common instance] addRecipes];
 
-    [self setup];
+//    [self setup];
 
 }
 
+//- (void)viewWillAppear:(BOOL)animated {
+//
+//    NSLog(@"SSSSSSSSSSSS");
+//    
+//}
+
 - (void) viewDidAppear:(BOOL)animated {
+
+    [[Common instance] addRecipes];
+    [self setup];
+
+    NSLog(@"SSSSSSSSSSSS1");
+    [sIndicator stopAnimating];
     
+    [sView removeFromSuperview];
+
 }
 
 - (void) setup {

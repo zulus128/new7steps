@@ -17,6 +17,9 @@
 		9C02B59C162D13F200FAE4B5 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C02B59B162D13F200FAE4B5 /* Default-568h@2x.png */; };
 		9C02B59F162D1C9F00FAE4B5 /* FlipTopPopToRoot.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C02B59E162D1C9F00FAE4B5 /* FlipTopPopToRoot.m */; };
 		9C1490371611CFFB0016A83E /* AboutController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C1490361611CFFB0016A83E /* AboutController.m */; };
+		9C4E941F1636EBBD009EB95C /* back_place_izbrannoe.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C4E941D1636EBBD009EB95C /* back_place_izbrannoe.png */; };
+		9C4E94201636EBBD009EB95C /* krest_IZBRANNOE.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C4E941E1636EBBD009EB95C /* krest_IZBRANNOE.png */; };
+		9C4E94231636EC76009EB95C /* FavViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C4E94221636EC76009EB95C /* FavViewController.m */; };
 		9C73DDB416228545004B42C9 /* button_position1.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C73DDB616228545004B42C9 /* button_position1.png */; };
 		9C73DDB716228551004B42C9 /* button_position2.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C73DDB916228551004B42C9 /* button_position2.png */; };
 		9C73DDC216228E2C004B42C9 /* spisok_new_ON.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C73DDC016228E2B004B42C9 /* spisok_new_ON.png */; };
@@ -85,6 +88,10 @@
 		9C02B59E162D1C9F00FAE4B5 /* FlipTopPopToRoot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlipTopPopToRoot.m; sourceTree = "<group>"; };
 		9C1490351611CFFB0016A83E /* AboutController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutController.h; sourceTree = "<group>"; };
 		9C1490361611CFFB0016A83E /* AboutController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutController.m; sourceTree = "<group>"; };
+		9C4E941D1636EBBD009EB95C /* back_place_izbrannoe.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back_place_izbrannoe.png; sourceTree = "<group>"; };
+		9C4E941E1636EBBD009EB95C /* krest_IZBRANNOE.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = krest_IZBRANNOE.png; sourceTree = "<group>"; };
+		9C4E94211636EC76009EB95C /* FavViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavViewController.h; sourceTree = "<group>"; };
+		9C4E94221636EC76009EB95C /* FavViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavViewController.m; sourceTree = "<group>"; };
 		9C73DDB516228545004B42C9 /* ru */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ru; path = ru.lproj/button_position1.png; sourceTree = "<group>"; };
 		9C73DDB816228551004B42C9 /* ru */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ru; path = ru.lproj/button_position2.png; sourceTree = "<group>"; };
 		9C73DDBA16228563004B42C9 /* en */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = en; path = en.lproj/button_position1.png; sourceTree = "<group>"; };
@@ -173,6 +180,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9C4E941B1636EBA0009EB95C /* 4th */ = {
+			isa = PBXGroup;
+			children = (
+				9C4E941D1636EBBD009EB95C /* back_place_izbrannoe.png */,
+				9C4E941E1636EBBD009EB95C /* krest_IZBRANNOE.png */,
+			);
+			name = 4th;
+			sourceTree = "<group>";
+		};
 		DD2DA18515BBACB70074493F /* 2nd */ = {
 			isa = PBXGroup;
 			children = (
@@ -243,6 +259,8 @@
 				DDCEA871154E41D20089A98F /* ViewController.m */,
 				DD2DA18615BBADFA0074493F /* ViewController2.h */,
 				DD2DA18715BBADFA0074493F /* ViewController2.m */,
+				9C4E94211636EC76009EB95C /* FavViewController.h */,
+				9C4E94221636EC76009EB95C /* FavViewController.m */,
 				9CFA90E11631623500FC4EA3 /* HorizontalController.h */,
 				9CFA90E21631623500FC4EA3 /* HorizontalController.m */,
 				9CE3E17816318D5B00325DFB /* StepViewController.h */,
@@ -281,6 +299,7 @@
 		DDCEA878154E41F10089A98F /* Interface */ = {
 			isa = PBXGroup;
 			children = (
+				9C4E941B1636EBA0009EB95C /* 4th */,
 				DDF2565315DB8F39001A3177 /* 3d */,
 				DD2DA18515BBACB70074493F /* 2nd */,
 				DDCEA879154E420B0089A98F /* toolbar_bottom.png */,
@@ -423,6 +442,8 @@
 				DDCABA391628FDBD001DEBA1 /* Good-Light.otf in Resources */,
 				9C02B599162D13EC00FAE4B5 /* Default@2x.png in Resources */,
 				9C02B59C162D13F200FAE4B5 /* Default-568h@2x.png in Resources */,
+				9C4E941F1636EBBD009EB95C /* back_place_izbrannoe.png in Resources */,
+				9C4E94201636EBBD009EB95C /* krest_IZBRANNOE.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -446,6 +467,7 @@
 				9CFCFB331631027300F555DD /* Step.m in Sources */,
 				9CFA90E31631623500FC4EA3 /* HorizontalController.m in Sources */,
 				9CE3E17A16318D5B00325DFB /* StepViewController.m in Sources */,
+				9C4E94231636EC76009EB95C /* FavViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
