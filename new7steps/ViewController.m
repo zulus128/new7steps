@@ -21,8 +21,7 @@
 //@synthesize panelbut;
 @synthesize panel1;
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
 
     NSLog(@"EEEEEEEEEEEE");
     
@@ -66,6 +65,11 @@
 
 - (void) viewDidAppear:(BOOL)animated {
 
+   if(again)
+       return;
+    
+    again = YES;
+    
     [[Common instance] addRecipes];
     [self setup];
 

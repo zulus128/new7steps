@@ -8,6 +8,7 @@
 
 "TITLE" = "Barbuto";
 "MAINBUTTON" = "Рецепты";
+"FAVMESSAGE" = "Рецепт сохранен в Избранном";
 "COURSE" = "КУРС";
 "RECIPE_TYPE" = "Тип рецепта";
 "RECIPE_TIME" = "Время приготовления";

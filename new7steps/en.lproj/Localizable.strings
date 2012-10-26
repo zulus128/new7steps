@@ -8,6 +8,7 @@
 
 "TITLE" = "Barbuto";
 "MAINBUTTON" = "Main menu";
+"FAVMESSAGE" = "Saved to Favourites";
 "COURSE" = "COURSE";
 "RECIPE_TYPE" = "Recipe type";
 "RECIPE_TIME" = "Recipe time";

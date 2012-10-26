@@ -32,8 +32,29 @@
 	if(self !=nil) {
         
         recipes = [[NSMutableArray alloc] init];
+//        favrecipes = [[NSMutableArray alloc] init];
 
         self.cats = [[NSMutableDictionary alloc] init];
+        
+        
+        NSArray* sp = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+        NSString* docpath = [sp objectAtIndex: 0];
+        NSString* favPath = [docpath stringByAppendingPathComponent:@"favrecipe"];
+
+
+        if (self.favrecipes == nil) {
+            
+//            self.favrecipes = [[NSMutableArray alloc] initWithContentsOfFile:favPath];
+//            self.favrecipes = [[NSUserDefaults standardUserDefaults] objectForKey:@"favrecipes"];
+            
+//            favs = [[NSMutableDictionary alloc] initWithContentsOfFile:favPath];
+
+            if (self.favrecipes == nil) {
+                
+                self.favrecipes = [[NSMutableArray alloc] init];
+            }
+        }
+
 	}
 	return self;	
 }
@@ -47,6 +68,46 @@
     
     [recipes addObject:item];
     NSLog(@"Recipe added, title: %@", item.name);
+}
+
+- (void)addFavRecipe: (Item*)item {
+
+    NSArray* sp = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString* docpath = [sp objectAtIndex: 0];
+    NSString* favPath = [docpath stringByAppendingPathComponent:@"favrecipe"];
+
+    [self.favrecipes addObject:item];
+    
+//    NSDictionary *f = [NSDictionary dictionaryWithObjects: [NSArray arrayWithObjects:
+//                                                            
+//                                                            [NSNumber numberWithInt:item.type],
+//                                                            
+//                                                            item.title == nil?@"":item.title,
+//                                                            item.link == nil?@"":item.link,
+//                                                            item.ituneslink == nil?@"":item.ituneslink,
+//                                                            item.rubric == nil?@"":item.rubric,
+//                                                            item.full_text == nil?@"":item.full_text,
+//                                                            item.date == nil?@"":item.date,
+//                                                            item.image == nil?@"":item.image,
+//                                                            item.description == nil?@"":item.description,
+//                                                            nil]
+//                                                  forKeys:[NSArray arrayWithObjects:
+//                                                           @"Type",
+//                                                           @"Title",
+//                                                           @"Link",
+//                                                           @"Ituneslink",
+//                                                           @"Rubric",
+//                                                           @"Fulltext",
+//                                                           @"Date",
+//                                                           @"Image",
+//                                                           @"Descr",
+//                                                           nil]];
+
+    BOOL b = [self.favrecipes writeToFile:favPath atomically:YES];
+//    BOOL b = [NSKeyedArchiver archiveRootObject:self.favrecipes toFile:favPath];
+    NSLog(@"Recipe added to favourites, title: %@, PATH = %@, result = %d", item.name, favPath, b);
+    
+//    [[NSUserDefaults standardUserDefaults] setObject:self.favrecipes forKey:@"favrecipes"];
 }
 
 - (int) getRecipesCount {

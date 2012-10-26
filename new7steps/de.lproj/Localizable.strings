@@ -8,6 +8,7 @@
 
 "TITLE" = "Barbuto";
 "MAINBUTTON" = "Main menu";
+"FAVMESSAGE" = "Saved to Favourites";
 "COURSE" = "Kurs";
 "RECIPE_TYPE" = "Rezept-Typ";
 "RECIPE_TIME" = "Rezept-Zeit";

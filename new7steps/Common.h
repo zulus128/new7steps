@@ -41,10 +41,12 @@ enum item_types {
 @interface Common : NSObject <UITabBarControllerDelegate> {
     
     NSMutableArray* recipes;
-
+    NSMutableDictionary* favs;
 }
 
 + (Common*) instance;
+
+- (void)addFavRecipe: (Item*)item;
 
 - (void)clearRecipes;
 - (void)addRecipe: (Item*)item;
@@ -63,5 +65,6 @@ enum item_types {
 @property (assign) double versionXML;
 
 @property (readwrite, assign) int itemtag;
+@property (nonatomic, retain) NSMutableArray* favrecipes;
 
 @end

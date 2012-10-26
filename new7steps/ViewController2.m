@@ -209,6 +209,14 @@
     [self.vertScrollView2 addSubview:sLabel61];
     
     y += 5;
+    
+    UIButton *fav = [UIButton buttonWithType:UIButtonTypeCustom];
+    fav.frame = CGRectMake(290, y - 30, 20, 20);
+    [fav setImage:[UIImage imageNamed:@"add_izbrannoe.png"] forState:UIControlStateNormal];
+    [fav addTarget:self action:@selector(buttonFav:) forControlEvents:UIControlEventTouchUpInside];
+    [self.vertScrollView2 addSubview:fav];
+
+    
     y1 = y + 5;
     
     UIImageView *imgView11 = [[UIImageView alloc] initWithFrame:CGRectMake(0, y, 320, 6)];
@@ -390,6 +398,21 @@
 {
     [super viewDidUnload];
     // Release any retained subviews of the main view.
+}
+
+- (void)buttonFav:(id)sender {
+
+//    NSLog(@"addFav");
+    
+    NSString* s = NSLocalizedString(@"FAVMESSAGE", nil);
+    UIAlertView* dialog = [[UIAlertView alloc] init];
+    [dialog setTitle:@""];
+    [dialog setMessage:s];
+    [dialog addButtonWithTitle:@"OK"];
+    [dialog show];
+    
+    [[Common instance] addFavRecipe:it];
+
 }
 
 - (void)buttonEvent:(id)sender {

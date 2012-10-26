@@ -11,5 +11,8 @@
 @interface FavViewController : UIViewController
 
 @property (nonatomic, retain) IBOutlet UILabel* titleLabel;
+@property (nonatomic, retain) IBOutlet UIButton* goRecipes;
+@property (nonatomic, retain) IBOutlet UIScrollView* vertScrollView;
+- (IBAction) exit;
 
 @end
