@@ -10,6 +10,7 @@
 #import "Common.h"
 #import "ViewController2.h"
 #import "Transit.h"
+#import "MSLabel.h"
 
 @interface ViewController ()
 
@@ -64,6 +65,8 @@
 //}
 
 - (void) viewDidAppear:(BOOL)animated {
+
+   [Common instance].prev_window = WT_MAIN;
 
    if(again)
        return;
@@ -137,8 +140,10 @@
             [scroll addSubview:but];
             
             //            UILabel *sLabel = [ [UILabel alloc ] initWithFrame:CGRectMake(xx + 5, yy + 100, 140, 40) ];
-            UILabel *sLabel = [ [UILabel alloc ] initWithFrame:CGRectMake(xx + 5, yy + 105, 140, 45) ];
+//            UILabel *sLabel = [ [UILabel alloc ] initWithFrame:CGRectMake(xx + 5, yy + 105, 140, 45) ];
+            MSLabel *sLabel = [ [MSLabel alloc ] initWithFrame:CGRectMake(xx + 5, yy + 107, 140, 45) ];
             sLabel.textColor = [UIColor redColor];
+            sLabel.lineHeight = 13;
             sLabel.backgroundColor = [UIColor clearColor];
             //            sLabel.font = [UIFont fontWithName:@"Thonburi-Bold" size:11.0];
             sLabel.font = [UIFont fontWithName:@"Good-Book" size:12.0];
@@ -294,7 +299,6 @@
     buttag = ((UIButton*)sender).tag;
     NSLog(@" button %d clicked!!!", buttag);
     
-
     [self performSegueWithIdentifier: @"2ndSegue" sender: self];
 
 }
@@ -308,6 +312,11 @@
 //        detailViewController.itemtag = buttag;
         [Common instance].itemtag = buttag;
         
+        int i = [Common instance].itemtag / CAT_MULT;
+        int j = [Common instance].itemtag - i * CAT_MULT;
+        
+        [Common instance].curitem = [[Common instance] getRecipe:j forCategory:i];
+
     }
 }
 

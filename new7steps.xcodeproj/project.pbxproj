@@ -43,6 +43,9 @@
 		DD51459915DDBB4900388BF6 /* step_7.png in Resources */ = {isa = PBXBuildFile; fileRef = DD51459115DDBB4900388BF6 /* step_7.png */; };
 		DD51459D15DDD01200388BF6 /* Transit.m in Sources */ = {isa = PBXBuildFile; fileRef = DD51459C15DDD01100388BF6 /* Transit.m */; };
 		DD6E856F15D4DCE2008052EC /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DD6E857115D4DCE2008052EC /* Localizable.strings */; };
+		DD7C9D81163AB9B9008BA1AC /* MSLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = DD7C9D80163AB9B9008BA1AC /* MSLabel.m */; };
+		DD7C9D84163ABDF0008BA1AC /* back_100procentov_for_text.png in Resources */ = {isa = PBXBuildFile; fileRef = DD7C9D83163ABDF0008BA1AC /* back_100procentov_for_text.png */; };
+		DD7C9D86163AC163008BA1AC /* back_1px_for_text.png in Resources */ = {isa = PBXBuildFile; fileRef = DD7C9D85163AC163008BA1AC /* back_1px_for_text.png */; };
 		DD9D659315D511D0004B6EA7 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = DD9D659215D511D0004B6EA7 /* Settings.bundle */; };
 		DDCABA371628FDBD001DEBA1 /* Good-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = DDCABA341628FDBD001DEBA1 /* Good-Black.otf */; };
 		DDCABA381628FDBD001DEBA1 /* Good-Book.otf in Resources */ = {isa = PBXBuildFile; fileRef = DDCABA351628FDBD001DEBA1 /* Good-Book.otf */; };
@@ -134,6 +137,10 @@
 		DD6E857215D4DCEA008052EC /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		DD6E857315D4DCEB008052EC /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		DD6E857415D4DCED008052EC /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
+		DD7C9D7F163AB9B9008BA1AC /* MSLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSLabel.h; sourceTree = "<group>"; };
+		DD7C9D80163AB9B9008BA1AC /* MSLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSLabel.m; sourceTree = "<group>"; };
+		DD7C9D83163ABDF0008BA1AC /* back_100procentov_for_text.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back_100procentov_for_text.png; sourceTree = "<group>"; };
+		DD7C9D85163AC163008BA1AC /* back_1px_for_text.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back_1px_for_text.png; sourceTree = "<group>"; };
 		DD9D659215D511D0004B6EA7 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		DDCABA341628FDBD001DEBA1 /* Good-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Good-Black.otf"; sourceTree = "<group>"; };
 		DDCABA351628FDBD001DEBA1 /* Good-Book.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Good-Book.otf"; sourceTree = "<group>"; };
@@ -196,6 +203,8 @@
 		DD2DA18515BBACB70074493F /* 2nd */ = {
 			isa = PBXGroup;
 			children = (
+				DD7C9D83163ABDF0008BA1AC /* back_100procentov_for_text.png */,
+				DD7C9D85163AC163008BA1AC /* back_1px_for_text.png */,
 				DDFD8A761607E665007A60CA /* back_for_button.png */,
 				9C73DDB616228545004B42C9 /* button_position1.png */,
 				9C73DDB916228551004B42C9 /* button_position2.png */,
@@ -261,6 +270,8 @@
 				DDCEA86D154E41D20089A98F /* MainStoryboard_iPad.storyboard */,
 				DDCEA870154E41D20089A98F /* ViewController.h */,
 				DDCEA871154E41D20089A98F /* ViewController.m */,
+				DD7C9D7F163AB9B9008BA1AC /* MSLabel.h */,
+				DD7C9D80163AB9B9008BA1AC /* MSLabel.m */,
 				DD2DA18615BBADFA0074493F /* ViewController2.h */,
 				DD2DA18715BBADFA0074493F /* ViewController2.m */,
 				9C4E94211636EC76009EB95C /* FavViewController.h */,
@@ -452,6 +463,8 @@
 				9C4E94201636EBBD009EB95C /* krest_IZBRANNOE.png in Resources */,
 				DD3C90F6163A3D97006D1B78 /* add_izbrannoe.png in Resources */,
 				DD3C90F7163A3D97006D1B78 /* add_spisok.png in Resources */,
+				DD7C9D84163ABDF0008BA1AC /* back_100procentov_for_text.png in Resources */,
+				DD7C9D86163AC163008BA1AC /* back_1px_for_text.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -476,6 +489,7 @@
 				9CFA90E31631623500FC4EA3 /* HorizontalController.m in Sources */,
 				9CE3E17A16318D5B00325DFB /* StepViewController.m in Sources */,
 				9C4E94231636EC76009EB95C /* FavViewController.m in Sources */,
+				DD7C9D81163AB9B9008BA1AC /* MSLabel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -38,15 +38,26 @@ enum item_types {
     TYPE_RECIPE
 };
 
+enum window_types {
+    
+    WT_NONE,
+    WT_MAIN,
+    WT_RECIPE,
+    WT_FAVOURITES
+};
+
 @interface Common : NSObject <UITabBarControllerDelegate> {
     
     NSMutableArray* recipes;
-    NSMutableDictionary* favs;
+    NSMutableArray* favs;
 }
 
 + (Common*) instance;
 
 - (void)addFavRecipe: (Item*)item;
+- (int) getFavRecipeCnt;
+- (Item*) getFavRecipe: (int) i;
+- (void) delFavRecipe: (int) i;
 
 - (void)clearRecipes;
 - (void)addRecipe: (Item*)item;
@@ -65,6 +76,8 @@ enum item_types {
 @property (assign) double versionXML;
 
 @property (readwrite, assign) int itemtag;
-@property (nonatomic, retain) NSMutableArray* favrecipes;
+@property (readwrite, assign) int prev_window;
+
+@property (nonatomic, retain) Item* curitem;
 
 @end

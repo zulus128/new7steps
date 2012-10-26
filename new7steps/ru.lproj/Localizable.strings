@@ -7,7 +7,9 @@
 */
 
 "TITLE" = "Barbuto";
-"MAINBUTTON" = "Рецепты";
+"MAINBUTTON" = "Главное меню";
+"MAINBUTTONFAV" = "Избранное";
+"MAINBUTTONREC" = "Рецепт";
 "FAVMESSAGE" = "Рецепт сохранен в Избранном";
 "COURSE" = "КУРС";
 "RECIPE_TYPE" = "Тип рецепта";

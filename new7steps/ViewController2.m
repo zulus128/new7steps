@@ -9,12 +9,19 @@
 #import "ViewController2.h"
 #import "Transit.h"
 #import "Step.h"
+#import "MSLabel.h"
+#import "Common.h"
 
 @interface ViewController2 ()
 
 @end
 
 @implementation ViewController2
+
+- (void)viewDidAppear:(BOOL)animated {
+    
+    [Common instance].prev_window = WT_RECIPE;
+}
 
 - (void)viewDidLoad
 {
@@ -23,15 +30,27 @@
     
     [[UIApplication sharedApplication] setStatusBarHidden:YES animated:NO];
 
-    int i = [Common instance].itemtag / CAT_MULT;
-    int j = [Common instance].itemtag - i * CAT_MULT;
+//    int i = [Common instance].itemtag / CAT_MULT;
+//    int j = [Common instance].itemtag - i * CAT_MULT;
+//    
+//    it = [[Common instance] getRecipe:j forCategory:i];
     
-    it = [[Common instance] getRecipe:j forCategory:i];
+    it = [Common instance].curitem;
     
-    NSString* s = NSLocalizedString(@"MAINBUTTON", nil);
-//    NSLog(@"str = %@", s);
-//    self.goRecipes.titleLabel.text = s;
-//    self.goRecipes.frame = CGRectMake(66, 432, 189, 44);
+    NSString* s;
+    switch ([Common instance].prev_window) {
+        case WT_NONE:
+        case WT_MAIN:
+        default:
+            s = NSLocalizedString(@"MAINBUTTON", nil);
+            break;
+        case WT_FAVOURITES:
+            s = NSLocalizedString(@"MAINBUTTONFAV", nil);
+            break;
+        case WT_RECIPE:
+            s = NSLocalizedString(@"MAINBUTTONREC", nil);
+            break;
+    }
     [self.goRecipes setTitle:s forState:UIControlStateNormal];
 
     int y = 160;
@@ -71,14 +90,23 @@
     
     y += 20;
     int y1 = y;
-    
+
+//    UIImageView *imgView1 = [[UIImageView alloc] initWithFrame:CGRectMake(4, y, 310, 152)];
+//    imgView1.image = [UIImage imageNamed:@"back_100procentov_for_text.png"];
+//    [self.vertScrollView2 addSubview:imgView1];
+//
+//    UIImageView *imgView21 = [[UIImageView alloc] initWithFrame:CGRectMake(4, y + 160, 310, 152)];
+//    imgView21.image = [UIImage imageNamed:@"back_100procentov_for_text.png"];
+//    [self.vertScrollView2 addSubview:imgView21];
+
+//    y += 160;
     UIImageView *imgView1 = [[UIImageView alloc] initWithFrame:CGRectMake(0, y, 320, 6)];
     imgView1.image = [UIImage imageNamed:@"top_place.png"];
     [self.vertScrollView2 addSubview:imgView1];
     
     y += 6;
 
-    for (int i = 0; i < 40; i++) {
+    for (int i = 0; i < 45; i++) {
 
         UIImageView *imgView21 = [[UIImageView alloc] initWithFrame:CGRectMake(0, y, 320, 3)];
         imgView21.image = [UIImage imageNamed:@"center_place.png"];
@@ -95,18 +123,19 @@
     y += 7;
 
     
-    UILabel *sLabel = [ [UILabel alloc ] initWithFrame:CGRectMake(10, y1 + 5, 300, 20) ];
+    MSLabel *sLabel = [ [MSLabel alloc ] initWithFrame:CGRectMake(10, y1 + 5, 300, 40) ];
     sLabel.textAlignment =  UITextAlignmentCenter;
     sLabel.backgroundColor = [UIColor clearColor];
     //            sLabel.font = [UIFont fontWithName:@"DevanagariSangamMN-Bold" size:10.0];
-    sLabel.font = [UIFont fontWithName:@"Thonburi-Bold" size:12.0];
+    sLabel.font = [UIFont fontWithName:@"Thonburi-Bold" size:16.0];
     sLabel.textColor = [UIColor colorWithRed:205/255.0 green:76/255.0 blue:56/255.0 alpha:1.0];
-//    sLabel.numberOfLines = 2;
+    sLabel.numberOfLines = 2;
+    sLabel.lineHeight = 13;
     sLabel.text = it.name;
     sLabel.adjustsFontSizeToFitWidth = YES;
     sLabel.minimumFontSize = 5.0;
     [self.vertScrollView2 addSubview:sLabel];
-    y1 += 30;
+    y1 += 40;
     
 //    UILabel *sLabel1 = [ [UILabel alloc ] initWithFrame:CGRectMake(0, y1, 150, 20) ];
 //    sLabel1.textAlignment =  UITextAlignmentRight;
@@ -128,82 +157,82 @@
     UILabel *sLabel2 = [ [UILabel alloc ] initWithFrame:CGRectMake(0, y1, 150, 20) ];
     sLabel2.textAlignment =  UITextAlignmentRight;
     sLabel2.backgroundColor = [UIColor clearColor];
-    sLabel2.font = [UIFont fontWithName:@"Thonburi-Bold" size:12.0];
+    sLabel2.font = [UIFont fontWithName:@"Thonburi-Bold" size:14.0];
     sLabel2.textColor = [UIColor colorWithRed:105/255.0 green:76/255.0 blue:56/255.0 alpha:1.0];
     sLabel2.text = NSLocalizedString(@"RECIPE_TIME", nil);//@"Время приготовления";
     [self.vertScrollView2 addSubview:sLabel2];
     UILabel *sLabel21 = [ [UILabel alloc ] initWithFrame:CGRectMake(170, y1, 150, 20) ];
     sLabel21.textAlignment =  UITextAlignmentLeft;
     sLabel21.backgroundColor = [UIColor clearColor];
-    sLabel21.font = [UIFont fontWithName:@"Thonburi-Bold" size:12.0];
+    sLabel21.font = [UIFont fontWithName:@"Thonburi-Bold" size:14.0];
     sLabel21.textColor = [UIColor colorWithRed:205/255.0 green:76/255.0 blue:56/255.0 alpha:1.0];
     sLabel21.text = it.time;
     [self.vertScrollView2 addSubview:sLabel21];
     
-    y1 += 20;
+    y1 += 22;
     
     UILabel *sLabel3 = [ [UILabel alloc ] initWithFrame:CGRectMake(0, y1, 150, 20) ];
     sLabel3.textAlignment =  UITextAlignmentRight;
     sLabel3.backgroundColor = [UIColor clearColor];
-    sLabel3.font = [UIFont fontWithName:@"Thonburi-Bold" size:12.0];
+    sLabel3.font = [UIFont fontWithName:@"Thonburi-Bold" size:14.0];
     sLabel3.textColor = [UIColor colorWithRed:105/255.0 green:76/255.0 blue:56/255.0 alpha:1.0];
     sLabel3.text = NSLocalizedString(@"CALORIES", nil);//@"Калорий на 100 грамм";
     [self.vertScrollView2 addSubview:sLabel3];
     UILabel *sLabel31 = [ [UILabel alloc ] initWithFrame:CGRectMake(170, y1, 150, 20) ];
     sLabel31.textAlignment =  UITextAlignmentLeft;
     sLabel31.backgroundColor = [UIColor clearColor];
-    sLabel31.font = [UIFont fontWithName:@"Thonburi-Bold" size:12.0];
+    sLabel31.font = [UIFont fontWithName:@"Thonburi-Bold" size:14.0];
     sLabel31.textColor = [UIColor colorWithRed:205/255.0 green:76/255.0 blue:56/255.0 alpha:1.0];
     sLabel31.text = it.calories;
     [self.vertScrollView2 addSubview:sLabel31];
     
-    y1 += 13;
+    y1 += 15;
 
     UILabel *sLabel4 = [ [UILabel alloc ] initWithFrame:CGRectMake(0, y1, 150, 20) ];
     sLabel4.textAlignment =  UITextAlignmentRight;
     sLabel4.backgroundColor = [UIColor clearColor];
-    sLabel4.font = [UIFont fontWithName:@"Thonburi-Bold" size:12.0];
+    sLabel4.font = [UIFont fontWithName:@"Thonburi-Bold" size:14.0];
     sLabel4.textColor = [UIColor colorWithRed:105/255.0 green:76/255.0 blue:56/255.0 alpha:1.0];
     sLabel4.text = NSLocalizedString(@"PROTEINS", nil);//@"Белки";
     [self.vertScrollView2 addSubview:sLabel4];
     UILabel *sLabel41 = [ [UILabel alloc ] initWithFrame:CGRectMake(170, y1, 150, 20) ];
     sLabel41.textAlignment =  UITextAlignmentLeft;
     sLabel41.backgroundColor = [UIColor clearColor];
-    sLabel41.font = [UIFont fontWithName:@"Thonburi-Bold" size:12.0];
+    sLabel41.font = [UIFont fontWithName:@"Thonburi-Bold" size:14.0];
     sLabel41.textColor = [UIColor colorWithRed:205/255.0 green:76/255.0 blue:56/255.0 alpha:1.0];
     sLabel41.text = it.proteins;
     [self.vertScrollView2 addSubview:sLabel41];
     
-    y1 += 13;
+    y1 += 15;
 
     UILabel *sLabel5 = [ [UILabel alloc ] initWithFrame:CGRectMake(0, y1, 150, 20) ];
     sLabel5.textAlignment =  UITextAlignmentRight;
     sLabel5.backgroundColor = [UIColor clearColor];
-    sLabel5.font = [UIFont fontWithName:@"Thonburi-Bold" size:12.0];
+    sLabel5.font = [UIFont fontWithName:@"Thonburi-Bold" size:14.0];
     sLabel5.textColor = [UIColor colorWithRed:105/255.0 green:76/255.0 blue:56/255.0 alpha:1.0];
     sLabel5.text = NSLocalizedString(@"FATS", nil);//@"Жиры";
     [self.vertScrollView2 addSubview:sLabel5];
     UILabel *sLabel51 = [ [UILabel alloc ] initWithFrame:CGRectMake(170, y1, 150, 20) ];
     sLabel51.textAlignment =  UITextAlignmentLeft;
     sLabel51.backgroundColor = [UIColor clearColor];
-    sLabel51.font = [UIFont fontWithName:@"Thonburi-Bold" size:12.0];
+    sLabel51.font = [UIFont fontWithName:@"Thonburi-Bold" size:14.0];
     sLabel51.textColor = [UIColor colorWithRed:205/255.0 green:76/255.0 blue:56/255.0 alpha:1.0];
     sLabel51.text = it.fats;
     [self.vertScrollView2 addSubview:sLabel51];
     
-    y1 += 13;
+    y1 += 15;
 
     UILabel *sLabel6 = [ [UILabel alloc ] initWithFrame:CGRectMake(0, y1, 150, 20) ];
     sLabel6.textAlignment =  UITextAlignmentRight;
     sLabel6.backgroundColor = [UIColor clearColor];
-    sLabel6.font = [UIFont fontWithName:@"Thonburi-Bold" size:12.0];
+    sLabel6.font = [UIFont fontWithName:@"Thonburi-Bold" size:14.0];
     sLabel6.textColor = [UIColor colorWithRed:105/255.0 green:76/255.0 blue:56/255.0 alpha:1.0];
     sLabel6.text = NSLocalizedString(@"CARBOS", nil);//@"Углеводы";
     [self.vertScrollView2 addSubview:sLabel6];
     UILabel *sLabel61 = [ [UILabel alloc ] initWithFrame:CGRectMake(170, y1, 150, 20) ];
     sLabel61.textAlignment =  UITextAlignmentLeft;
     sLabel61.backgroundColor = [UIColor clearColor];
-    sLabel61.font = [UIFont fontWithName:@"Thonburi-Bold" size:12.0];
+    sLabel61.font = [UIFont fontWithName:@"Thonburi-Bold" size:14.0];
     sLabel61.textColor = [UIColor colorWithRed:205/255.0 green:76/255.0 blue:56/255.0 alpha:1.0];
     sLabel61.text = it.carbos;
     [self.vertScrollView2 addSubview:sLabel61];
@@ -226,7 +255,7 @@
     y += 6;
     
     int count = it.ingrids.count;
-    for (int i = 0; i <  (count * 4 + 5) ; i++) {
+    for (int i = 0; i <  (count * 7 + 3) ; i++) {
         
         UIImageView *imgView22 = [[UIImageView alloc] initWithFrame:CGRectMake(0, y, 320, 3)];
         imgView22.image = [UIImage imageNamed:@"center_place.png"];
@@ -240,24 +269,28 @@
     imgView31.image = [UIImage imageNamed:@"bottom_place.png"];
     [self.vertScrollView2 addSubview:imgView31];
 
+//    y += 140;
+    
     for (NSString* i in [it.ingrids allKeys]) {
         
-        UILabel *sLabel6 = [ [UILabel alloc ] initWithFrame:CGRectMake(0, y1, 150, 20) ];
+        MSLabel *sLabel6 = [ [MSLabel alloc ] initWithFrame:CGRectMake(10, y1, 140, 35) ];
         sLabel6.textAlignment =  UITextAlignmentRight;
         sLabel6.backgroundColor = [UIColor clearColor];
-        sLabel6.font = [UIFont fontWithName:@"Thonburi-Bold" size:12.0];
+        sLabel6.font = [UIFont fontWithName:@"Thonburi-Bold" size:14.0];
+        sLabel6.numberOfLines = 2;
+        sLabel6.lineHeight = 10;
         sLabel6.textColor = [UIColor colorWithRed:105/255.0 green:76/255.0 blue:56/255.0 alpha:1.0];
         sLabel6.text = i;
         [self.vertScrollView2 addSubview:sLabel6];
-        UILabel *sLabel61 = [ [UILabel alloc ] initWithFrame:CGRectMake(170, y1, 150, 20) ];
+        UILabel *sLabel61 = [ [UILabel alloc ] initWithFrame:CGRectMake(170, y1, 150, 35) ];
         sLabel61.textAlignment =  UITextAlignmentLeft;
         sLabel61.backgroundColor = [UIColor clearColor];
-        sLabel61.font = [UIFont fontWithName:@"Thonburi-Bold" size:12.0];
+        sLabel61.font = [UIFont fontWithName:@"Thonburi-Bold" size:14.0];
         sLabel61.textColor = [UIColor colorWithRed:205/255.0 green:76/255.0 blue:56/255.0 alpha:1.0];
         sLabel61.text = [it.ingrids objectForKey:i];
         [self.vertScrollView2 addSubview:sLabel61];
         
-        y1 += 13;
+        y1 += 20;
     }
     
     self.vertScrollView2.contentSize = CGSizeMake(320, y);
@@ -288,8 +321,6 @@
     
     y += 20;
     
-    int k = 1;
-//    for (NSString* i in [it.steps allKeys]) {
     for (Step* st in it.steps) {
     
         UIImageView *imgView1 = [[UIImageView alloc] initWithFrame:CGRectMake(19, y, 282, 190)];
@@ -322,9 +353,9 @@
                                             object:tr];
         [queue addOperation:operation];
         
-        UIImageView *imgView8 = [[UIImageView alloc] initWithFrame:CGRectMake(0, y, 21, 23)];
-        imgView8.image = [UIImage imageNamed:[NSString stringWithFormat:@"step_%d.png", k++]];
-        [self.vertScrollView3 addSubview:imgView8];
+//        UIImageView *imgView8 = [[UIImageView alloc] initWithFrame:CGRectMake(0, y, 21, 23)];
+//        imgView8.image = [UIImage imageNamed:[NSString stringWithFormat:@"step_%d.png", k++]];
+//        [self.vertScrollView3 addSubview:imgView8];
 
 //        NSLog(@"sLabel6.frame.size.height = %f", sLabel6.frame.size.height);
         y += ((sLabel6.frame.size.height < 30)?30:sLabel6.frame.size.height);
@@ -388,14 +419,8 @@
     [imgData writeToFile:filePath atomically:YES];
 }
 
-- (void)viewDidAppear:(BOOL)animated {
-
-//    imgView2.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:it.ingrid_image]]];
-
-}
-
-- (void)viewDidUnload
-{
+- (void)viewDidUnload {
+    
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }

@@ -29,7 +29,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="KDF-fA-Ug4">
-                                        <rect key="frame" x="14" y="436" width="28" height="28"/>
+                                        <rect key="frame" x="14" y="437" width="28" height="28"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" image="star_on.png" backgroundImage="star_off.png">
@@ -44,7 +44,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="U87-ox-rGA">
-                                        <rect key="frame" x="276" y="437" width="24" height="32"/>
+                                        <rect key="frame" x="277" y="437" width="24" height="32"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" image="spisok_on.png">
@@ -117,7 +117,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="NeO-np-yEF">
-                                <rect key="frame" x="276" y="437" width="24" height="32"/>
+                                <rect key="frame" x="277" y="437" width="24" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" image="spisok_on.png">
@@ -129,7 +129,7 @@
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="jZ0-qP-c7U">
-                                <rect key="frame" x="14" y="436" width="28" height="28"/>
+                                <rect key="frame" x="14" y="437" width="28" height="28"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" image="star_on.png" backgroundImage="star_off.png">
@@ -139,6 +139,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="zF2-UT-wQg" kind="modal" modalTransitionStyle="flipHorizontal" id="SCq-aC-MHV"/>
+                                </connections>
                             </button>
                             <scrollView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="Ujs-MC-kqX">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="429"/>
@@ -210,6 +213,21 @@
                                 <state key="highlighted" image="spisok_new.png">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="hTb-VO-hDS" kind="modal" modalTransitionStyle="flipHorizontal" id="eIO-vr-xh2"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="y8l-dL-o0g">
+                                <rect key="frame" x="276" y="437" width="24" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" image="spisok_on.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="o8W-L4-pMH">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="42"/>
@@ -245,6 +263,7 @@
                         <outlet property="goRecipes" destination="jIA-Ah-gWr" id="PMm-SV-lJl"/>
                         <outlet property="titleLabel" destination="o8W-L4-pMH" id="bfe-lf-ibb"/>
                         <outlet property="vertScrollView" destination="k0J-an-pK1" id="7Jn-uB-rsm"/>
+                        <segue destination="BfP-xd-1fy" kind="modal" identifier="2ndSegue" modalTransitionStyle="flipHorizontal" id="dYY-pp-VSR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uG0-0c-Ppa" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -264,7 +283,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="toolbar_top.png" id="7b4-E6-6Yo">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="62"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="42"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="2tw-Ug-JBr">
@@ -298,7 +317,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nOf-Ix-dyY" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="481" y="817"/>
+            <point key="canvasLocation" x="537" y="1117"/>
         </scene>
         <!--Horizontal Controller-->
         <scene sceneID="JDV-kO-G52">
@@ -375,4 +394,9 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="3Ty-zP-TgR"/>
+        <segue reference="SCq-aC-MHV"/>
+        <segue reference="eIO-vr-xh2"/>
+    </inferredMetricsTieBreakers>
 </document>

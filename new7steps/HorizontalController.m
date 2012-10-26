@@ -39,10 +39,13 @@
     screenBounds = [[UIScreen mainScreen] bounds];
 //    NSLog(@"screenBounds w = %f, h = %f", screenBounds.size.width, screenBounds.size.height);
     
-    int i = [Common instance].itemtag / CAT_MULT;
-    int j = [Common instance].itemtag - i * CAT_MULT;
+//    int i = [Common instance].itemtag / CAT_MULT;
+//    int j = [Common instance].itemtag - i * CAT_MULT;
+//
+//    it = [[Common instance] getRecipe:j forCategory:i];
 
-    it = [[Common instance] getRecipe:j forCategory:i];
+    it = [Common instance].curitem;
+
     index = 0;
 //    NSMutableArray *viewControllers = [NSMutableArray array];
 //    int k = 1;
