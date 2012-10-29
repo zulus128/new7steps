@@ -38,6 +38,7 @@
     if([elementName isEqualToString:RECIPES_TAG]) {
 
         NSString* n = [attributeDict objectForKey:@"version"];
+        NSLog(@"XML version = %@", n);
         [Common instance].versionXML = n.doubleValue;
     }
     

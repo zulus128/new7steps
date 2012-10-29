@@ -84,10 +84,14 @@
         [self.vertScrollView addSubview:but];
         
         UIButton *but1 = [UIButton buttonWithType:UIButtonTypeCustom];
-        but1.frame = CGRectMake(292, y + 10, 15, 15);
+//        but1.frame = CGRectMake(292, y + 10, 15, 15);
         [but1 setImage:[UIImage imageNamed:@"krest_IZBRANNOE.png"] forState:UIControlStateNormal];
         but1.tag = 10000 + i;
         [but1 addTarget:self action:@selector(buttonDelEvent:) forControlEvents:UIControlEventTouchUpInside];
+        [but1 setFrame: CGRectMake(284, y + 2, 31, 31)];
+        [but1 setImageEdgeInsets:UIEdgeInsetsMake(8, 8, 8, 8)];
+
+
 //        but1.tag = TAG;
         [self.vertScrollView addSubview:but1];
         
@@ -155,6 +159,16 @@
     
     [self setup];
     
+}
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
+
+    return NO;
+}
+
+- (BOOL)shouldAutorotate {
+    
+    return NO;
 }
 
 - (IBAction) exit {
