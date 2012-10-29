@@ -264,7 +264,9 @@
     
     [tr.view setImage:tr.image];
     
-    NSString* n = [tr.url lastPathComponent];
+    NSString* n1 = [tr.url stringByReplacingOccurrencesOfString:@":" withString:@"-"];//[tr.url lastPathComponent];
+    NSString* n = [n1 stringByReplacingOccurrencesOfString:@"/" withString:@"-"];
+//    NSLog(@"url = %@", n);
     NSArray* sp = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString* docpath = [sp objectAtIndex: 0];
     NSString* filePath = [docpath stringByAppendingPathComponent:n];

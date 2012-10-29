@@ -309,12 +309,19 @@
 
 - (UIImage*) getImage: (NSString*) name {
     
-    NSString* n = [name lastPathComponent];
+//    NSString* n = [name lastPathComponent];
+    NSString* n1 = [name stringByReplacingOccurrencesOfString:@":" withString:@"-"];//[tr.url lastPathComponent];
+    NSString* n = [n1 stringByReplacingOccurrencesOfString:@"/" withString:@"-"];
+//    NSLog(@"url = %@", n);
+
     NSArray* sp = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString* docpath = [sp objectAtIndex: 0];
     NSString* filePath = [docpath stringByAppendingPathComponent:n];
 //    NSLog(@"filepath for image = %@", filePath);
     UIImage* im = [UIImage imageWithContentsOfFile:filePath];
+//    if(im != nil)
+//        NSLog(@"Local image found: %@", filePath);
+
 //    if(im == nil) {
 //
 //        im = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:name]]];

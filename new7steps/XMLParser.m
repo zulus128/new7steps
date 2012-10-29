@@ -141,8 +141,10 @@
             if([elementName isEqualToString:NAME_TAG])
                 item.name = trimedStr;
             else
-                if([elementName isEqualToString:IMAGE_TAG])
+                if([elementName isEqualToString:IMAGE_TAG]) {
                     item.image = trimedStr;
+//                    NSLog(@"image : %@", trimedStr);
+                }
                 else
                     if([elementName isEqualToString:INGRID_IMAGE_TAG]) {
 
