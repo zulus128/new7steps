@@ -14,7 +14,7 @@
     Item* it;
     UIImageView *imgView2;
     UIImageView *imgView2_1;
-    BOOL b;
+//    BOOL b;
     NSOperationQueue *queue;
     BOOL isShowingLandscapeView;
 

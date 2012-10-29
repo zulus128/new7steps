@@ -17,6 +17,12 @@
 		9C02B59C162D13F200FAE4B5 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C02B59B162D13F200FAE4B5 /* Default-568h@2x.png */; };
 		9C02B59F162D1C9F00FAE4B5 /* FlipTopPopToRoot.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C02B59E162D1C9F00FAE4B5 /* FlipTopPopToRoot.m */; };
 		9C1490371611CFFB0016A83E /* AboutController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C1490361611CFFB0016A83E /* AboutController.m */; };
+		9C200820163E75D900139A34 /* Spisok_Icons.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C20081B163E75D900139A34 /* Spisok_Icons.png */; };
+		9C200821163E75D900139A34 /* STAR_Icons.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C20081C163E75D900139A34 /* STAR_Icons.png */; };
+		9C20082C163E7CF300139A34 /* button01.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C20082E163E7CF300139A34 /* button01.png */; };
+		9C200832163E7D0500139A34 /* button02.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C200834163E7D0500139A34 /* button02.png */; };
+		9C200838163E7D1000139A34 /* button03.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C20083A163E7D1000139A34 /* button03.png */; };
+		9C20083E163E7D1A00139A34 /* button04.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C200840163E7D1A00139A34 /* button04.png */; };
 		9C4E941F1636EBBD009EB95C /* back_place_izbrannoe.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C4E941D1636EBBD009EB95C /* back_place_izbrannoe.png */; };
 		9C4E94201636EBBD009EB95C /* krest_IZBRANNOE.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C4E941E1636EBBD009EB95C /* krest_IZBRANNOE.png */; };
 		9C4E94231636EC76009EB95C /* FavViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C4E94221636EC76009EB95C /* FavViewController.m */; };
@@ -93,6 +99,24 @@
 		9C02B59E162D1C9F00FAE4B5 /* FlipTopPopToRoot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlipTopPopToRoot.m; sourceTree = "<group>"; };
 		9C1490351611CFFB0016A83E /* AboutController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutController.h; sourceTree = "<group>"; };
 		9C1490361611CFFB0016A83E /* AboutController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutController.m; sourceTree = "<group>"; };
+		9C20081B163E75D900139A34 /* Spisok_Icons.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Spisok_Icons.png; sourceTree = "<group>"; };
+		9C20081C163E75D900139A34 /* STAR_Icons.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = STAR_Icons.png; sourceTree = "<group>"; };
+		9C20082D163E7CF300139A34 /* en */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = en; path = en.lproj/button01.png; sourceTree = "<group>"; };
+		9C20082F163E7CFC00139A34 /* ru */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ru; path = ru.lproj/button01.png; sourceTree = "<group>"; };
+		9C200830163E7CFD00139A34 /* de */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = de; path = de.lproj/button01.png; sourceTree = "<group>"; };
+		9C200831163E7CFD00139A34 /* es */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = es; path = es.lproj/button01.png; sourceTree = "<group>"; };
+		9C200833163E7D0500139A34 /* en */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = en; path = en.lproj/button02.png; sourceTree = "<group>"; };
+		9C200835163E7D0A00139A34 /* ru */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ru; path = ru.lproj/button02.png; sourceTree = "<group>"; };
+		9C200836163E7D0A00139A34 /* de */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = de; path = de.lproj/button02.png; sourceTree = "<group>"; };
+		9C200837163E7D0B00139A34 /* es */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = es; path = es.lproj/button02.png; sourceTree = "<group>"; };
+		9C200839163E7D1000139A34 /* en */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = en; path = en.lproj/button03.png; sourceTree = "<group>"; };
+		9C20083B163E7D1300139A34 /* ru */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ru; path = ru.lproj/button03.png; sourceTree = "<group>"; };
+		9C20083C163E7D1400139A34 /* de */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = de; path = de.lproj/button03.png; sourceTree = "<group>"; };
+		9C20083D163E7D1500139A34 /* es */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = es; path = es.lproj/button03.png; sourceTree = "<group>"; };
+		9C20083F163E7D1A00139A34 /* en */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = en; path = en.lproj/button04.png; sourceTree = "<group>"; };
+		9C200841163E7D1E00139A34 /* ru */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ru; path = ru.lproj/button04.png; sourceTree = "<group>"; };
+		9C200842163E7D1F00139A34 /* de */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = de; path = de.lproj/button04.png; sourceTree = "<group>"; };
+		9C200843163E7D2000139A34 /* es */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = es; path = es.lproj/button04.png; sourceTree = "<group>"; };
 		9C4E941D1636EBBD009EB95C /* back_place_izbrannoe.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back_place_izbrannoe.png; sourceTree = "<group>"; };
 		9C4E941E1636EBBD009EB95C /* krest_IZBRANNOE.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = krest_IZBRANNOE.png; sourceTree = "<group>"; };
 		9C4E94211636EC76009EB95C /* FavViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavViewController.h; sourceTree = "<group>"; };
@@ -208,6 +232,12 @@
 				DDFD8A761607E665007A60CA /* back_for_button.png */,
 				9C73DDB616228545004B42C9 /* button_position1.png */,
 				9C73DDB916228551004B42C9 /* button_position2.png */,
+				9C20082E163E7CF300139A34 /* button01.png */,
+				9C200834163E7D0500139A34 /* button02.png */,
+				9C20083A163E7D1000139A34 /* button03.png */,
+				9C200840163E7D1A00139A34 /* button04.png */,
+				9C20081B163E75D900139A34 /* Spisok_Icons.png */,
+				9C20081C163E75D900139A34 /* STAR_Icons.png */,
 				DDD9FA4C15D3342900680C79 /* bottom_place.png */,
 				DDD9FA4D15D3342900680C79 /* center_place.png */,
 				DDD9FA4E15D3342900680C79 /* top_place.png */,
@@ -465,6 +495,12 @@
 				DD3C90F7163A3D97006D1B78 /* add_spisok.png in Resources */,
 				DD7C9D84163ABDF0008BA1AC /* back_100procentov_for_text.png in Resources */,
 				DD7C9D86163AC163008BA1AC /* back_1px_for_text.png in Resources */,
+				9C200820163E75D900139A34 /* Spisok_Icons.png in Resources */,
+				9C200821163E75D900139A34 /* STAR_Icons.png in Resources */,
+				9C20082C163E7CF300139A34 /* button01.png in Resources */,
+				9C200832163E7D0500139A34 /* button02.png in Resources */,
+				9C200838163E7D1000139A34 /* button03.png in Resources */,
+				9C20083E163E7D1A00139A34 /* button04.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -496,6 +532,50 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		9C20082E163E7CF300139A34 /* button01.png */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9C20082D163E7CF300139A34 /* en */,
+				9C20082F163E7CFC00139A34 /* ru */,
+				9C200830163E7CFD00139A34 /* de */,
+				9C200831163E7CFD00139A34 /* es */,
+			);
+			name = button01.png;
+			sourceTree = "<group>";
+		};
+		9C200834163E7D0500139A34 /* button02.png */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9C200833163E7D0500139A34 /* en */,
+				9C200835163E7D0A00139A34 /* ru */,
+				9C200836163E7D0A00139A34 /* de */,
+				9C200837163E7D0B00139A34 /* es */,
+			);
+			name = button02.png;
+			sourceTree = "<group>";
+		};
+		9C20083A163E7D1000139A34 /* button03.png */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9C200839163E7D1000139A34 /* en */,
+				9C20083B163E7D1300139A34 /* ru */,
+				9C20083C163E7D1400139A34 /* de */,
+				9C20083D163E7D1500139A34 /* es */,
+			);
+			name = button03.png;
+			sourceTree = "<group>";
+		};
+		9C200840163E7D1A00139A34 /* button04.png */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9C20083F163E7D1A00139A34 /* en */,
+				9C200841163E7D1E00139A34 /* ru */,
+				9C200842163E7D1F00139A34 /* de */,
+				9C200843163E7D2000139A34 /* es */,
+			);
+			name = button04.png;
+			sourceTree = "<group>";
+		};
 		9C73DDB616228545004B42C9 /* button_position1.png */ = {
 			isa = PBXVariantGroup;
 			children = (
