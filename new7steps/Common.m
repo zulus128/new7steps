@@ -42,28 +42,35 @@
         NSArray* sp = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
         NSString* docpath = [sp objectAtIndex: 0];
         NSString* favPath = [docpath stringByAppendingPathComponent:@"favourites.plist"];
+        NSString* spsPath = [docpath stringByAppendingPathComponent:@"spisok.plist"];
 
         favs = [[NSMutableArray alloc] initWithContentsOfFile:favPath];
-        
         if(favs == nil)
             favs = [[NSMutableArray alloc] init];
 
-//        if (self.favrecipes == nil) {
-//            
-////            self.favrecipes = [[NSMutableArray alloc] initWithContentsOfFile:favPath];
-////            self.favrecipes = [[NSUserDefaults standardUserDefaults] objectForKey:@"favrecipes"];
-//            
-////            favs = [[NSMutableDictionary alloc] initWithContentsOfFile:favPath];
-//
-//            if (self.favrecipes == nil) {
-//                
-//                self.favrecipes = [[NSMutableArray alloc] init];
-//            }
-//        }
+        sps = [[NSMutableArray alloc] initWithContentsOfFile:spsPath];
+        if(sps == nil)
+            sps = [[NSMutableArray alloc] init];
+
+//        self.spsingrids = [[NSMutableDictionary alloc] initWithContentsOfFile:spsPath];
+//        if(self.spsingrids == nil)
+//            self.spsingrids = [[NSMutableDictionary alloc] init];
+        
 
 	}
 	return self;	
 }
+
+//- (void) saveSpisokIngrids {
+//
+//    NSArray* sp = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+//    NSString* docpath = [sp objectAtIndex: 0];
+//    NSString* spsPath = [docpath stringByAppendingPathComponent:@"spisok.plist"];
+//
+//    BOOL b = [self.spsingrids writeToFile:spsPath atomically:YES];
+//    NSLog(@"Spisok ingrids saved PATH = %@, result = %d", spsPath, b);
+//
+//}
 
 - (void)clearRecipes {
     
@@ -180,6 +187,110 @@
 
     BOOL b = [favs writeToFile:favPath atomically:YES];
     NSLog(@"Recipe added to favourites, title: %@, PATH = %@, result = %d", item.name, favPath, b);
+}
+
+- (int) getSpsRecipeCnt {
+    
+    return sps.count;
+}
+
+- (void) delSpsRecipe: (int) i {
+    
+    NSArray* sp = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString* docpath = [sp objectAtIndex: 0];
+    NSString* spsPath = [docpath stringByAppendingPathComponent:@"spisok.plist"];
+    
+    NSMutableIndexSet *itemsToRemove = [NSMutableIndexSet new];
+    [itemsToRemove addIndex:i];
+    [sps removeObjectsAtIndexes:itemsToRemove];
+    
+    BOOL b = [sps writeToFile:spsPath atomically:YES];
+    
+    NSLog(@"Recipe deleted from Spisok, result = %d", b);
+    
+}
+
+- (Item*) getSpsRecipe: (int) i {
+    
+    NSDictionary* obj = [sps objectAtIndex:i];
+    Item* it = [[Item alloc] init];
+    it.name = [obj objectForKey:@"Name"];
+    it.image = [obj objectForKey:@"Image"];
+    it.ingrid_image = [obj objectForKey:@"IngridImage"];
+    it.category = [[obj objectForKey:@"Category"] intValue];
+    it.type = [obj objectForKey:@"Type"];
+    it.time = [obj objectForKey:@"Time"];
+    it.calories = [obj objectForKey:@"Calories"];
+    it.proteins = [obj objectForKey:@"Proteins"];
+    it.fats = [obj objectForKey:@"Fats"];
+    it.carbos = [obj objectForKey:@"Carbos"];
+    it.ingrids = [obj objectForKey:@"Ingrids"];
+    
+    NSMutableArray* path = [obj objectForKey:@"Steps_path"];
+    NSMutableArray* text = [obj objectForKey:@"Steps_text"];
+    for (int i = 0; i < path.count; i++) {
+        
+        Step* s = [[Step alloc] init];
+        s.path = [path objectAtIndex:i];
+        s.text = [text objectAtIndex:i];
+        
+        [it.steps addObject:s];
+    }
+    
+    return it;
+}
+
+- (void) addSpsRecipe: (Item*)item {
+    
+    NSArray* sp = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString* docpath = [sp objectAtIndex: 0];
+    NSString* spsPath = [docpath stringByAppendingPathComponent:@"spisok.plist"];
+    
+    NSMutableArray* path = [[NSMutableArray alloc] init];
+    NSMutableArray* text = [[NSMutableArray alloc] init];
+    for (Step* st in item.steps) {
+        
+        [path addObject:st.path];
+        [text addObject:st.text];
+    }
+    
+    NSDictionary *f = [NSDictionary dictionaryWithObjects: [NSArray arrayWithObjects:
+                                                            
+                                                            item.name == nil?@"":item.name,
+                                                            item.image == nil?@"":item.image,
+                                                            item.ingrid_image == nil?@"":item.ingrid_image,
+                                                            [NSNumber numberWithInt:item.category],
+                                                            item.type == nil?@"":item.type,
+                                                            item.time == nil?@"":item.time,
+                                                            item.calories == nil?@"":item.calories,
+                                                            item.proteins == nil?@"":item.proteins,
+                                                            item.fats == nil?@"":item.fats,
+                                                            item.carbos == nil?@"":item.carbos,
+                                                            item.ingrids,
+                                                            path,
+                                                            text,
+                                                            nil]
+                                                  forKeys:[NSArray arrayWithObjects:
+                                                           @"Name",
+                                                           @"Image",
+                                                           @"IngridImage",
+                                                           @"Category",
+                                                           @"Type",
+                                                           @"Time",
+                                                           @"Calories",
+                                                           @"Proteins",
+                                                           @"Fats",
+                                                           @"Carbos",
+                                                           @"Ingrids",
+                                                           @"Steps_path",
+                                                           @"Steps_text",
+                                                           nil]];
+    
+    
+    [sps addObject:f];
+    
+    BOOL b = [sps writeToFile:spsPath atomically:YES];
+    NSLog(@"Recipe added to Spisok, title: %@, PATH = %@, result = %d", item.name, spsPath, b);
 }
 
 - (int) getRecipesCount {

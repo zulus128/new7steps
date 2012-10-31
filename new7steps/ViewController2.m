@@ -452,13 +452,28 @@
 
 - (void)buttonSps:(id)sender {
     
-    NSLog(@"Spisok");
+//    NSLog(@"Spisok");
+    
+//    [[Common instance].spsingrids addEntriesFromDictionary:it.ingrids];
+//    [[Common instance] saveSpisokIngrids];
+    
+    [[Common instance] addSpsRecipe:it];
+    
+    NSString* s = NSLocalizedString(@"SPSMESSAGE", nil);
+    UIAlertView* dialog = [[UIAlertView alloc] init];
+    [dialog setTitle:@""];
+    [dialog setMessage:s];
+    [dialog addButtonWithTitle:@"OK"];
+    [dialog show];
+
 }
 
 - (void)buttonFav:(id)sender {
 
 //    NSLog(@"addFav");
     
+    [[Common instance] addFavRecipe:it];
+
     NSString* s = NSLocalizedString(@"FAVMESSAGE", nil);
     UIAlertView* dialog = [[UIAlertView alloc] init];
     [dialog setTitle:@""];
@@ -466,7 +481,6 @@
     [dialog addButtonWithTitle:@"OK"];
     [dialog show];
     
-    [[Common instance] addFavRecipe:it];
 
 }
 

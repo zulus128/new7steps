@@ -11,6 +11,7 @@
 "MAINBUTTONFAV" = "Избранное";
 "MAINBUTTONREC" = "Рецепт";
 "FAVMESSAGE" = "Рецепт сохранен в Избранном";
+"SPSMESSAGE" = "Рецепт сохранен в Cписке покупок";
 "COURSE" = "КУРС";
 "RECIPE_TYPE" = "Тип рецепта";
 "RECIPE_TIME" = "Время приготовления";

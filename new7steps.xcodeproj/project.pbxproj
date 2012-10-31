@@ -23,6 +23,13 @@
 		9C200832163E7D0500139A34 /* button02.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C200834163E7D0500139A34 /* button02.png */; };
 		9C200838163E7D1000139A34 /* button03.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C20083A163E7D1000139A34 /* button03.png */; };
 		9C20083E163E7D1A00139A34 /* button04.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C200840163E7D1A00139A34 /* button04.png */; };
+		9C2FC11D1640D57600A99CD6 /* HEADER1_SPISOK.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C2FC1171640D57600A99CD6 /* HEADER1_SPISOK.png */; };
+		9C2FC11E1640D57600A99CD6 /* krest_SPISOK.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C2FC1181640D57600A99CD6 /* krest_SPISOK.png */; };
+		9C2FC11F1640D57600A99CD6 /* off_SPISOK.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C2FC1191640D57600A99CD6 /* off_SPISOK.png */; };
+		9C2FC1201640D57600A99CD6 /* on_SPISOK.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C2FC11A1640D57600A99CD6 /* on_SPISOK.png */; };
+		9C2FC1211640D57600A99CD6 /* table_SPISOK.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C2FC11B1640D57600A99CD6 /* table_SPISOK.png */; };
+		9C2FC1221640D57600A99CD6 /* zacherkivanie_SPISOK.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C2FC11C1640D57600A99CD6 /* zacherkivanie_SPISOK.png */; };
+		9C2FC1251640E66300A99CD6 /* SpsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C2FC1241640E66300A99CD6 /* SpsController.m */; };
 		9C4E941F1636EBBD009EB95C /* back_place_izbrannoe.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C4E941D1636EBBD009EB95C /* back_place_izbrannoe.png */; };
 		9C4E94201636EBBD009EB95C /* krest_IZBRANNOE.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C4E941E1636EBBD009EB95C /* krest_IZBRANNOE.png */; };
 		9C4E94231636EC76009EB95C /* FavViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C4E94221636EC76009EB95C /* FavViewController.m */; };
@@ -117,6 +124,14 @@
 		9C200841163E7D1E00139A34 /* ru */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ru; path = ru.lproj/button04.png; sourceTree = "<group>"; };
 		9C200842163E7D1F00139A34 /* de */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = de; path = de.lproj/button04.png; sourceTree = "<group>"; };
 		9C200843163E7D2000139A34 /* es */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = es; path = es.lproj/button04.png; sourceTree = "<group>"; };
+		9C2FC1171640D57600A99CD6 /* HEADER1_SPISOK.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HEADER1_SPISOK.png; sourceTree = "<group>"; };
+		9C2FC1181640D57600A99CD6 /* krest_SPISOK.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = krest_SPISOK.png; sourceTree = "<group>"; };
+		9C2FC1191640D57600A99CD6 /* off_SPISOK.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = off_SPISOK.png; sourceTree = "<group>"; };
+		9C2FC11A1640D57600A99CD6 /* on_SPISOK.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = on_SPISOK.png; sourceTree = "<group>"; };
+		9C2FC11B1640D57600A99CD6 /* table_SPISOK.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = table_SPISOK.png; sourceTree = "<group>"; };
+		9C2FC11C1640D57600A99CD6 /* zacherkivanie_SPISOK.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = zacherkivanie_SPISOK.png; sourceTree = "<group>"; };
+		9C2FC1231640E66200A99CD6 /* SpsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpsController.h; sourceTree = "<group>"; };
+		9C2FC1241640E66300A99CD6 /* SpsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpsController.m; sourceTree = "<group>"; };
 		9C4E941D1636EBBD009EB95C /* back_place_izbrannoe.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back_place_izbrannoe.png; sourceTree = "<group>"; };
 		9C4E941E1636EBBD009EB95C /* krest_IZBRANNOE.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = krest_IZBRANNOE.png; sourceTree = "<group>"; };
 		9C4E94211636EC76009EB95C /* FavViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavViewController.h; sourceTree = "<group>"; };
@@ -215,6 +230,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9C2FC1151640D54A00A99CD6 /* 5th */ = {
+			isa = PBXGroup;
+			children = (
+				9C2FC1171640D57600A99CD6 /* HEADER1_SPISOK.png */,
+				9C2FC1181640D57600A99CD6 /* krest_SPISOK.png */,
+				9C2FC1191640D57600A99CD6 /* off_SPISOK.png */,
+				9C2FC11A1640D57600A99CD6 /* on_SPISOK.png */,
+				9C2FC11B1640D57600A99CD6 /* table_SPISOK.png */,
+				9C2FC11C1640D57600A99CD6 /* zacherkivanie_SPISOK.png */,
+			);
+			name = 5th;
+			sourceTree = "<group>";
+		};
 		9C4E941B1636EBA0009EB95C /* 4th */ = {
 			isa = PBXGroup;
 			children = (
@@ -306,6 +334,8 @@
 				DD2DA18715BBADFA0074493F /* ViewController2.m */,
 				9C4E94211636EC76009EB95C /* FavViewController.h */,
 				9C4E94221636EC76009EB95C /* FavViewController.m */,
+				9C2FC1231640E66200A99CD6 /* SpsController.h */,
+				9C2FC1241640E66300A99CD6 /* SpsController.m */,
 				9CFA90E11631623500FC4EA3 /* HorizontalController.h */,
 				9CFA90E21631623500FC4EA3 /* HorizontalController.m */,
 				9CE3E17816318D5B00325DFB /* StepViewController.h */,
@@ -344,6 +374,7 @@
 		DDCEA878154E41F10089A98F /* Interface */ = {
 			isa = PBXGroup;
 			children = (
+				9C2FC1151640D54A00A99CD6 /* 5th */,
 				9C4E941B1636EBA0009EB95C /* 4th */,
 				DDF2565315DB8F39001A3177 /* 3d */,
 				DD2DA18515BBACB70074493F /* 2nd */,
@@ -501,6 +532,12 @@
 				9C200832163E7D0500139A34 /* button02.png in Resources */,
 				9C200838163E7D1000139A34 /* button03.png in Resources */,
 				9C20083E163E7D1A00139A34 /* button04.png in Resources */,
+				9C2FC11D1640D57600A99CD6 /* HEADER1_SPISOK.png in Resources */,
+				9C2FC11E1640D57600A99CD6 /* krest_SPISOK.png in Resources */,
+				9C2FC11F1640D57600A99CD6 /* off_SPISOK.png in Resources */,
+				9C2FC1201640D57600A99CD6 /* on_SPISOK.png in Resources */,
+				9C2FC1211640D57600A99CD6 /* table_SPISOK.png in Resources */,
+				9C2FC1221640D57600A99CD6 /* zacherkivanie_SPISOK.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -526,6 +563,7 @@
 				9CE3E17A16318D5B00325DFB /* StepViewController.m in Sources */,
 				9C4E94231636EC76009EB95C /* FavViewController.m in Sources */,
 				DD7C9D81163AB9B9008BA1AC /* MSLabel.m in Sources */,
+				9C2FC1251640E66300A99CD6 /* SpsController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

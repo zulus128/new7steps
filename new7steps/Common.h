@@ -50,6 +50,7 @@ enum window_types {
     
     NSMutableArray* recipes;
     NSMutableArray* favs;
+    NSMutableArray* sps;
 }
 
 + (Common*) instance;
@@ -59,6 +60,12 @@ enum window_types {
 - (Item*) getFavRecipe: (int) i;
 - (void) delFavRecipe: (int) i;
 
+- (void)addSpsRecipe: (Item*)item;
+- (int) getSpsRecipeCnt;
+- (Item*) getSpsRecipe: (int) i;
+- (void) delSpsRecipe: (int) i;
+
+//- (void) saveSpisokIngrids;
 - (void)clearRecipes;
 - (void)addRecipe: (Item*)item;
 - (int) getRecipesCount;
@@ -79,5 +86,7 @@ enum window_types {
 @property (readwrite, assign) int prev_window;
 
 @property (nonatomic, retain) Item* curitem;
+
+//@property (nonatomic, retain) NSMutableDictionary* spsingrids;
 
 @end
