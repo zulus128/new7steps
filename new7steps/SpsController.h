@@ -8,7 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SpsController : UIViewController
+@interface SpsController : UIViewController {
+    
+//    UIImageView *polosa;
+}
 
 @property (nonatomic, retain) IBOutlet UILabel* titleLabel;
 @property (nonatomic, retain) IBOutlet UIButton* goRecipes;

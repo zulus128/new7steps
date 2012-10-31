@@ -20,6 +20,7 @@
         self.ingrids = [NSMutableDictionary dictionary];
 //        self.steps = [NSMutableDictionary dictionary];
         self.steps = [NSMutableArray array];
+        self.ingrids_checked = [NSMutableDictionary dictionary];
 
     }
     

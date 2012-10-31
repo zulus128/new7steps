@@ -24,6 +24,7 @@
 @property (nonatomic, retain) NSString* carbos;
 
 @property (nonatomic, retain) NSMutableDictionary* ingrids;
+@property (nonatomic, retain) NSMutableDictionary* ingrids_checked;
 @property (nonatomic, retain) NSMutableArray* steps;
 
 @end

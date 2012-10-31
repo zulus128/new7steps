@@ -64,6 +64,7 @@ enum window_types {
 - (int) getSpsRecipeCnt;
 - (Item*) getSpsRecipe: (int) i;
 - (void) delSpsRecipe: (int) i;
+- (void) saveSpsRecipes;
 
 //- (void) saveSpisokIngrids;
 - (void)clearRecipes;

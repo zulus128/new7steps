@@ -8,6 +8,7 @@
 
 #import "SpsController.h"
 #import "Common.h"
+#import "MSLabel.h"
 
 #define TAG 42
 
@@ -62,22 +63,26 @@
         }
     }
     
+    
     int y = 20;
     
     for (int i = 0; i < [[Common instance] getSpsRecipeCnt]; i++) {
         
-        Item* it = [[Common instance] getFavRecipe:i];
+        Item* it = [[Common instance] getSpsRecipe:i];
         
-        UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, y + 8, 320, 40)];
+        UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, y, 320, 40)];
         imgView.image = [UIImage imageNamed:@"HEADER1_SPISOK.png"];
         imgView.tag = TAG;
         [self.vertScrollView addSubview:imgView];
         
-        UILabel *sLabel = [ [UILabel alloc ] initWithFrame:CGRectMake(100, y + 5, 150, 24) ];
+        MSLabel *sLabel = [[MSLabel alloc] initWithFrame:CGRectMake(20, y + 7, 280, 34) ];
         sLabel.textColor = [UIColor colorWithRed:105/255.0 green:76/255.0 blue:56/255.0 alpha:1.0];
         sLabel.backgroundColor = [UIColor clearColor];
+        sLabel.textAlignment = UITextAlignmentLeft;
         sLabel.font = [UIFont fontWithName:@"Good-Black" size:(12.0)];
         sLabel.tag = TAG;
+        sLabel.numberOfLines = 2;
+        sLabel.lineHeight = 13;
         [self.vertScrollView addSubview:sLabel];
         sLabel.text = it.name;
         
@@ -85,43 +90,63 @@
         [but1 setImage:[UIImage imageNamed:@"krest_SPISOK.png"] forState:UIControlStateNormal];
         but1.tag = 10000 + i;
         [but1 addTarget:self action:@selector(buttonDelEvent:) forControlEvents:UIControlEventTouchUpInside];
-        [but1 setFrame: CGRectMake(284, y + 2, 31, 31)];
+        [but1 setFrame: CGRectMake(282, y + 3, 31, 31)];
         [but1 setImageEdgeInsets:UIEdgeInsetsMake(8, 8, 8, 8)];
+        [self.vertScrollView addSubview:but1];
 
+        y += 35;
+        
         for (int j = 0; j < it.ingrids.count; j++) {
 
-            UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(10, y + 8, 293, 25)];
+            UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(15, y, 293, 25)];
             imgView.image = [UIImage imageNamed:@"table_SPISOK.png"];
             imgView.tag = TAG;
             [self.vertScrollView addSubview:imgView];
 
-            UIButton *but1 = [UIButton buttonWithType:UIButtonTypeCustom];
-            [but1 setImage:[UIImage imageNamed:@"on_SPISOK.png"] forState:UIControlStateNormal];
-            but1.tag = i * CAT_MULT + j;
-            [but1 addTarget:self action:@selector(buttonCheckEvent:) forControlEvents:UIControlEventTouchUpInside];
-            [but1 setFrame: CGRectMake(15, y + 2, 20, 22)];
-            [but1 setImageEdgeInsets:UIEdgeInsetsMake(8, 8, 8, 8)];
-
-            UILabel *sLabel = [ [UILabel alloc ] initWithFrame:CGRectMake(100, y + 5, 150, 24) ];
+            UILabel *sLabel = [ [UILabel alloc ] initWithFrame:CGRectMake(45, y + 3, 150, 24) ];
             sLabel.textColor = [UIColor colorWithRed:105/255.0 green:76/255.0 blue:56/255.0 alpha:1.0];
             sLabel.backgroundColor = [UIColor clearColor];
             sLabel.font = [UIFont fontWithName:@"Good-Book" size:(12.0)];
             sLabel.tag = TAG;
+            sLabel.textAlignment = UITextAlignmentLeft;
             [self.vertScrollView addSubview:sLabel];
             sLabel.text = [it.ingrids.allKeys objectAtIndex:j];
 
-            UILabel *sLabel1 = [ [UILabel alloc ] initWithFrame:CGRectMake(150, y + 5, 150, 24) ];
+            UILabel *sLabel1 = [ [UILabel alloc ] initWithFrame:CGRectMake(150, y + 3, 150, 24) ];
             sLabel1.textColor = [UIColor colorWithRed:105/255.0 green:76/255.0 blue:56/255.0 alpha:1.0];
             sLabel1.backgroundColor = [UIColor clearColor];
             sLabel1.font = [UIFont fontWithName:@"Good-Book" size:(12.0)];
             sLabel1.tag = TAG;
+            sLabel1.textAlignment = UITextAlignmentRight;
             [self.vertScrollView addSubview:sLabel1];
             sLabel1.text = [it.ingrids.allValues objectAtIndex:j];
+
+            BOOL b = NO;
+            NSString* key = [it.ingrids.allKeys objectAtIndex:j];
+            NSString* checked = [it.ingrids_checked objectForKey:key];
+            if(checked != nil)
+                if([checked isEqualToString:@"YES"]) {
+
+                    UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(43, y + 12, 260, 1)];
+                    imgView.image = [UIImage imageNamed:@"zacherkivanie_SPISOK.png"];
+                    imgView.tag = TAG;
+                    [self.vertScrollView addSubview:imgView];
+                    b = YES;
+                    
+                }
+
+            UIButton *but1 = [UIButton buttonWithType:UIButtonTypeCustom];
+            [but1 setImage:[UIImage imageNamed:b?@"off_SPISOK.png":@"on_SPISOK.png"] forState:UIControlStateNormal];
+            but1.tag = i * CAT_MULT + j;
+            [but1 addTarget:self action:@selector(buttonCheckEvent:) forControlEvents:UIControlEventTouchUpInside];
+            [but1 setFrame: CGRectMake(15, y - 2, 28, 29)];
+            [but1 setImageEdgeInsets:UIEdgeInsetsMake(8, 8, 8, 8)];
+            [self.vertScrollView addSubview:but1];
 
             y += 25;
         }
         
-        y += 75;
+        y += 25;
     }
     
     self.vertScrollView.contentSize = CGSizeMake(320, y);
@@ -131,7 +156,39 @@
 - (void)buttonCheckEvent:(id)sender {
     
     int buttag = ((UIButton*)sender).tag;
-    NSLog(@"Spisok check button %d clicked!!!", buttag);
+
+    float x = ((UIButton*)sender).frame.origin.x;
+    float y = ((UIButton*)sender).frame.origin.y;
+
+    NSLog(@"Spisok check button %d clicked!!! x = %f, y = %f", buttag, x, y);
+
+    float a = 28;
+    float b = 14;
+    UIImageView *polosa = [[UIImageView alloc] initWithFrame:CGRectMake(x + a, y + b, /*260*/2, 1)];
+    polosa.image = [UIImage imageNamed:@"zacherkivanie_SPISOK.png"];
+    polosa.tag = TAG;
+    [self.vertScrollView addSubview:polosa];
+
+    [UIView animateWithDuration:0.3f delay:0.0f options:UIViewAnimationOptionBeginFromCurrentState
+                     animations:^{
+                         polosa.frame = CGRectMake(x + a, y + b, 260, 1);
+                     }
+                     completion:^(BOOL finished) {
+                         
+                     }
+     ];
+    
+    int i = buttag / CAT_MULT;
+    int j = buttag - i * CAT_MULT;
+    
+    Item* it = [[Common instance] getSpsRecipe:i];
+    NSString* key = [it.ingrids.allKeys objectAtIndex:j];
+    [it.ingrids_checked setObject:@"YES" forKey:key];
+    NSLog(@"Checked i = %d, j = %d, key = %@", i, j, key);
+    [[Common instance] saveSpsRecipes];
+    
+    [((UIButton*)sender) setImage:[UIImage imageNamed:@"off_SPISOK.png"] forState:UIControlStateNormal];
+
 }
 
 - (void)buttonDelEvent:(id)sender {

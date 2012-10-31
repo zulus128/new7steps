@@ -119,6 +119,7 @@
     it.fats = [obj objectForKey:@"Fats"];
     it.carbos = [obj objectForKey:@"Carbos"];
     it.ingrids = [obj objectForKey:@"Ingrids"];
+    it.ingrids_checked = [obj objectForKey:@"Ingrids_checked"];
 
     NSMutableArray* path = [obj objectForKey:@"Steps_path"];
     NSMutableArray* text = [obj objectForKey:@"Steps_text"];
@@ -163,6 +164,7 @@
                                                             item.fats == nil?@"":item.fats,
                                                             item.carbos == nil?@"":item.carbos,
                                                             item.ingrids,
+                                                            item.ingrids_checked,
                                                             path,
                                                             text,
                                                             nil]
@@ -178,6 +180,7 @@
                                                            @"Fats",
                                                            @"Carbos",
                                                            @"Ingrids",
+                                                           @"Ingrids_checked",
                                                            @"Steps_path",
                                                            @"Steps_text",
                                                            nil]];
@@ -225,6 +228,7 @@
     it.fats = [obj objectForKey:@"Fats"];
     it.carbos = [obj objectForKey:@"Carbos"];
     it.ingrids = [obj objectForKey:@"Ingrids"];
+    it.ingrids_checked = [obj objectForKey:@"Ingrids_checked"];
     
     NSMutableArray* path = [obj objectForKey:@"Steps_path"];
     NSMutableArray* text = [obj objectForKey:@"Steps_text"];
@@ -238,6 +242,18 @@
     }
     
     return it;
+}
+
+- (void) saveSpsRecipes {
+
+    NSArray* sp = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString* docpath = [sp objectAtIndex: 0];
+    NSString* spsPath = [docpath stringByAppendingPathComponent:@"spisok.plist"];
+
+    BOOL b = [sps writeToFile:spsPath atomically:YES];
+    NSLog(@"Spisok saved PATH = %@, result = %d", spsPath, b);
+
+
 }
 
 - (void) addSpsRecipe: (Item*)item {
@@ -267,6 +283,7 @@
                                                             item.fats == nil?@"":item.fats,
                                                             item.carbos == nil?@"":item.carbos,
                                                             item.ingrids,
+                                                            item.ingrids_checked,
                                                             path,
                                                             text,
                                                             nil]
@@ -282,6 +299,7 @@
                                                            @"Fats",
                                                            @"Carbos",
                                                            @"Ingrids",
+                                                           @"Ingrids_checked",
                                                            @"Steps_path",
                                                            @"Steps_text",
                                                            nil]];
