@@ -52,6 +52,8 @@ enum window_types {
     NSMutableArray* recipes;
     NSMutableArray* favs;
     NSMutableArray* sps;
+    NSString* docpath;
+
 }
 
 + (Common*) instance;
@@ -79,17 +81,15 @@ enum window_types {
 - (UIImage*) getImage: (NSString*) name;
 //- (UIImage*) getImageForStep: (NSString*) name;
 
+//- (void) loadAllImages;
+
 @property (nonatomic, retain) NSMutableDictionary* cats;
-//@property (assign) BOOL again;
 @property (assign) BOOL langChanged;
 @property (assign) double versionXML;
-
 @property (readwrite, assign) int itemtag;
 @property (readwrite, assign) int prev_window;
-
 @property (nonatomic, retain) Item* curitem;
 @property (nonatomic, retain) ViewController* mainController;
-
-//@property (nonatomic, retain) NSMutableDictionary* spsingrids;
+@property (nonatomic, retain) NSMutableArray* allImages;
 
 @end

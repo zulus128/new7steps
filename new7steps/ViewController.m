@@ -58,6 +58,65 @@
 
 //    [self setup];
 
+
+}
+
+//- (void) loadAllImages {
+//
+//    NSOperationQueue* queue1 = [NSOperationQueue new];
+//
+//    for(NSString* name in [Common instance].allImages) {
+//
+//        NSInvocationOperation *operation = [[NSInvocationOperation alloc]
+//                                            initWithTarget:self
+//                                            selector:@selector(loadImage5:)
+//                                            object:name];
+//        [queue1 addOperation:operation];
+//    }
+//
+//}
+//
+//- (void)loadImage5:(NSString*) name {
+//
+//    NSArray* sp = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+//    NSString* docpath = [sp objectAtIndex: 0];
+//    NSString* n1 = [name stringByReplacingOccurrencesOfString:@":" withString:@"-"];//[tr.url lastPathComponent];
+//    NSString* n = [n1 stringByReplacingOccurrencesOfString:@"/" withString:@"-"];
+//    NSString* filePath = [docpath stringByAppendingPathComponent:n];
+//
+//    if([[NSFileManager defaultManager] fileExistsAtPath:filePath])
+//        return;
+//
+//    NSData* imageData = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:name]];
+//    NSData *imgData = UIImagePNGRepresentation([[UIImage alloc] initWithData:imageData]);
+//    [imgData writeToFile:filePath atomically:YES];
+//    NSLog(@"file loaded");
+////    sleep(0.5f);
+////    [NSThread sleepForTimeInterval:0.5f];
+//
+//}
+
+- (void) loadAllImages {
+    
+    NSArray* sp = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString* docpath = [sp objectAtIndex: 0];
+
+    for(NSString* name in [Common instance].allImages) {
+        
+        NSString* n1 = [name stringByReplacingOccurrencesOfString:@":" withString:@"-"];
+        NSString* n = [n1 stringByReplacingOccurrencesOfString:@"/" withString:@"-"];
+        NSString* filePath = [docpath stringByAppendingPathComponent:n];
+        
+        if([[NSFileManager defaultManager] fileExistsAtPath:filePath])
+            continue;
+        
+        NSData* imageData = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:name]];
+        NSData *imgData = UIImagePNGRepresentation([[UIImage alloc] initWithData:imageData]);
+        [imgData writeToFile:filePath atomically:YES];
+        NSLog(@"file loaded");
+        
+    }
+    
 }
 
 //- (void)viewWillAppear:(BOOL)animated {
@@ -82,6 +141,11 @@
     [sIndicator stopAnimating];
     
     [sView removeFromSuperview];
+    
+//    [[Common instance] loadAllImages];
+
+    [self performSelectorInBackground:@selector(loadAllImages) withObject:nil];
+//    [self performSelectorOnMainThread:@selector(loadAllImages) withObject:nil waitUntilDone:YES];
 
 }
 
@@ -183,7 +247,7 @@
         Item* it = [[Common instance] getRecipe:j forCategory:i];
         int yy;
         int xx;
-//        UIButton *but = [UIButton buttonWithType:UIButtonTypeCustom];
+
         if(j%2) {
             
             yy = 0;
@@ -195,12 +259,7 @@
             xx = jj * 160 + 10;
             jj++;
         }
-//        but.frame = CGRectMake(xx, yy, 160, 106);
-//        [but setImage:[UIImage imageNamed:@"background_for_photo.png"] forState:UIControlStateNormal];
-//        but.tag = i * CAT_MULT + j;
-//        [but addTarget:self action:@selector(buttonEvent:) forControlEvents:UIControlEventTouchUpInside];
-//        [scroll addSubview:but];
-        
+
         int t = i * CAT_MULT + j;
         if([self.imgdict objectForKey:[NSNumber numberWithInt:t]] != nil)
             continue;
@@ -241,15 +300,6 @@
             [queue addOperation:operation];
         }
         
-//        UILabel *sLabel = [ [UILabel alloc ] initWithFrame:CGRectMake(xx + 5, yy + 100, 140, 40) ];
-//        sLabel.textColor = [UIColor redColor];
-//        sLabel.backgroundColor = [UIColor clearColor];
-//        sLabel.font = [UIFont fontWithName:@"Thonburi-Bold" size:11.0];
-//        sLabel.textColor = [UIColor colorWithRed:105/255.0 green:76/255.0 blue:56/255.0 alpha:1.0];
-//        sLabel.numberOfLines = 2;
-//        sLabel.text = it.name;
-//        [scroll addSubview:sLabel];
-
     }
 
 }
@@ -259,7 +309,10 @@
     NSData* imageData = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:tr.url]];
     tr.image = [[UIImage alloc] initWithData:imageData];
 
-    [self performSelectorOnMainThread:@selector(displayImage:) withObject:tr waitUntilDone:YES];
+//    [self performSelectorOnMainThread:@selector(displayImage:) withObject:tr waitUntilDone:YES];
+    [self performSelectorInBackground:@selector(displayImage:) withObject:tr];
+
+
 }
 
 - (void)displayImage:(Transit*)tr {

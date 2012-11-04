@@ -122,6 +122,7 @@
             if([elementName isEqualToString:IMAGE_TAG]) {
                 
                 name = trimedStr;
+                [[Common instance].allImages addObject:trimedStr];
 //                            NSLog(@"step image : %@", name);
                 
             }
@@ -150,12 +151,16 @@
             else
                 if([elementName isEqualToString:IMAGE_TAG]) {
                     item.image = trimedStr;
+                    [[Common instance].allImages addObject:trimedStr];
+
 //                    NSLog(@"image : %@", trimedStr);
                 }
                 else
                     if([elementName isEqualToString:INGRID_IMAGE_TAG]) {
 
                         item.ingrid_image = trimedStr;
+                        [[Common instance].allImages addObject:trimedStr];
+
     //                    NSLog(@"image1 = %@", item.ingrid_image);
 
                     }

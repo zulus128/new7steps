@@ -7,6 +7,7 @@
 */
 
 "TITLE" = "Barbuto";
+"SLEEPLABEL" = "No sleep";
 "MAINBUTTON" = "Main menu";
 "MAINBUTTONFAV" = "Favourites";
 "MAINBUTTONREC" = "Recipe";

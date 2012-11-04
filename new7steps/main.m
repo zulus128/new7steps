@@ -14,6 +14,9 @@
 int main(int argc, char *argv[])
 {
  
+    BOOL sl = [[NSUserDefaults standardUserDefaults] boolForKey:@"sleep"];
+    [UIApplication sharedApplication].idleTimerDisabled = sl;
+
     int l = [[NSUserDefaults standardUserDefaults] integerForKey:@"language"];
 
     NSLog(@"lang = %d", l); //

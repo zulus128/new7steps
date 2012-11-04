@@ -11,6 +11,10 @@
 @interface AboutController : UIViewController
 
 @property (nonatomic, retain) IBOutlet UILabel* xmlver;
+@property (nonatomic, retain) IBOutlet UILabel* sleepLab;
+@property (nonatomic, retain) IBOutlet UISwitch* sleepSw;
+
+- (IBAction) swich;
 
 - (IBAction) back;
 

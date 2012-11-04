@@ -23,6 +23,12 @@
 - (void)viewDidAppear:(BOOL)animated {
     
     [Common instance].prev_window = WT_RECIPE;
+    
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    
+    
 }
 
 - (void)viewDidLoad
@@ -56,42 +62,62 @@
     [self.goRecipes setTitle:s forState:UIControlStateNormal];
     self.goRecipes.titleLabel.font = [UIFont fontWithName:@"Good-Book" size:20.0];
 
+    [self setup];
+
+}
+
+- (void)setup {
+
     int y = 160;
     imgView2 = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, y)];
     [self.vertScrollView2 addSubview:imgView2];
     imgView2_1 = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, y)];
     [self.vertScrollView3 addSubview:imgView2_1];
-
-    queue = [NSOperationQueue new];
-    NSInvocationOperation *operation = [[NSInvocationOperation alloc]
-                                        initWithTarget:self
-                                        selector:@selector(loadImage)
-                                        object:nil];
-
-    [queue addOperation:operation];
-    NSInvocationOperation *operation1 = [[NSInvocationOperation alloc]
-                                        initWithTarget:self
-                                        selector:@selector(loadImage1)
-                                        object:nil];
     
-    [queue addOperation:operation1];
-
+    UIImage* img = [[Common instance] getImage:it.image];
+    UIImage* img1 = [[Common instance] getImage:it.ingrid_image];
+    
+    queue = [NSOperationQueue new];
+    
+    if(img1 != nil)
+        [imgView2 setImage:img1];
+    else {
+        NSInvocationOperation *operation = [[NSInvocationOperation alloc]
+                                            initWithTarget:self
+                                            selector:@selector(loadImage)
+                                            object:nil];
+        
+        [queue addOperation:operation];
+    }
+    
+    if(img != nil)
+        [imgView2_1 setImage:img];
+    else {
+        
+        NSInvocationOperation *operation1 = [[NSInvocationOperation alloc]
+                                             initWithTarget:self
+                                             selector:@selector(loadImage1)
+                                             object:nil];
+        
+        [queue addOperation:operation1];
+    }
+    
     UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, y, 320, 45)];
     imgView.image = [UIImage imageNamed:@"back_for_button.png"];
     [self.vertScrollView2 addSubview:imgView];
-        
+    
     y += 32;
     
-//    UIButton *but = [UIButton buttonWithType:UIButtonTypeCustom];
-//    but.frame = CGRectMake(56, y - 24, 208, 29);
-//    [but setImage:[UIImage imageNamed:@"button_position1.png"] forState:UIControlStateNormal];
-//    [but addTarget:self action:@selector(buttonEvent:) forControlEvents:UIControlEventTouchUpInside];
-//    [self.vertScrollView2 addSubview:but];
-
+    //    UIButton *but = [UIButton buttonWithType:UIButtonTypeCustom];
+    //    but.frame = CGRectMake(56, y - 24, 208, 29);
+    //    [but setImage:[UIImage imageNamed:@"button_position1.png"] forState:UIControlStateNormal];
+    //    [but addTarget:self action:@selector(buttonEvent:) forControlEvents:UIControlEventTouchUpInside];
+    //    [self.vertScrollView2 addSubview:but];
+    
     UIImageView *imgBut = [[UIImageView alloc] initWithFrame:CGRectMake(56, y - 24, 104, 29)];
     imgBut.image = [UIImage imageNamed:@"button01.png"];
     [self.vertScrollView2 addSubview:imgBut];
-
+    
     UIButton *but = [UIButton buttonWithType:UIButtonTypeCustom];
     but.frame = CGRectMake(160, y - 24, 104, 29);
     [but setImage:[UIImage imageNamed:@"button02.png"] forState:UIControlStateNormal];
@@ -101,38 +127,38 @@
     
     y += 20;
     int y1 = y;
-
-//    UIImageView *imgView1 = [[UIImageView alloc] initWithFrame:CGRectMake(4, y, 310, 152)];
-//    imgView1.image = [UIImage imageNamed:@"back_100procentov_for_text.png"];
-//    [self.vertScrollView2 addSubview:imgView1];
-//
-//    UIImageView *imgView21 = [[UIImageView alloc] initWithFrame:CGRectMake(4, y + 160, 310, 152)];
-//    imgView21.image = [UIImage imageNamed:@"back_100procentov_for_text.png"];
-//    [self.vertScrollView2 addSubview:imgView21];
-
-//    y += 160;
+    
+    //    UIImageView *imgView1 = [[UIImageView alloc] initWithFrame:CGRectMake(4, y, 310, 152)];
+    //    imgView1.image = [UIImage imageNamed:@"back_100procentov_for_text.png"];
+    //    [self.vertScrollView2 addSubview:imgView1];
+    //
+    //    UIImageView *imgView21 = [[UIImageView alloc] initWithFrame:CGRectMake(4, y + 160, 310, 152)];
+    //    imgView21.image = [UIImage imageNamed:@"back_100procentov_for_text.png"];
+    //    [self.vertScrollView2 addSubview:imgView21];
+    
+    //    y += 160;
     UIImageView *imgView1 = [[UIImageView alloc] initWithFrame:CGRectMake(0, y, 320, 6)];
     imgView1.image = [UIImage imageNamed:@"top_place.png"];
     [self.vertScrollView2 addSubview:imgView1];
     
     y += 6;
-
+    
     for (int i = 0; i < 45; i++) {
-
+        
         UIImageView *imgView21 = [[UIImageView alloc] initWithFrame:CGRectMake(0, y, 320, 3)];
         imgView21.image = [UIImage imageNamed:@"center_place.png"];
         [self.vertScrollView2 addSubview:imgView21];
         
         y += 3;
-
+        
     }
-
+    
     UIImageView *imgView3 = [[UIImageView alloc] initWithFrame:CGRectMake(0, y, 320, 7)];
     imgView3.image = [UIImage imageNamed:@"bottom_place.png"];
     [self.vertScrollView2 addSubview:imgView3];
     
     y += 7;
-
+    
     
     MSLabel *sLabel = [ [MSLabel alloc ] initWithFrame:CGRectMake(10, y1 + 5, 300, 40) ];
     sLabel.textAlignment =  UITextAlignmentCenter;
@@ -148,22 +174,22 @@
     [self.vertScrollView2 addSubview:sLabel];
     y1 += 38;
     
-//    UILabel *sLabel1 = [ [UILabel alloc ] initWithFrame:CGRectMake(0, y1, 150, 20) ];
-//    sLabel1.textAlignment =  UITextAlignmentRight;
-//    sLabel1.backgroundColor = [UIColor clearColor];
-//    sLabel1.font = [UIFont fontWithName:@"Thonburi-Bold" size:10.0];
-//    sLabel1.textColor = [UIColor colorWithRed:105/255.0 green:76/255.0 blue:56/255.0 alpha:1.0];
-//    sLabel1.text = NSLocalizedString(@"RECIPE_TYPE", nil);//@"Тип рецепта";
-//    [self.vertScrollView2 addSubview:sLabel1];
-//    UILabel *sLabel11 = [ [UILabel alloc ] initWithFrame:CGRectMake(170, y1, 150, 20) ];
-//    sLabel11.textAlignment =  UITextAlignmentLeft;
-//    sLabel11.backgroundColor = [UIColor clearColor];
-//    sLabel11.font = [UIFont fontWithName:@"Thonburi-Bold" size:10.0];
-//    sLabel11.textColor = [UIColor colorWithRed:205/255.0 green:76/255.0 blue:56/255.0 alpha:1.0];
-//    sLabel11.text = it.type;
-//    [self.vertScrollView2 addSubview:sLabel11];
-//
-//    y1 += 10;
+    //    UILabel *sLabel1 = [ [UILabel alloc ] initWithFrame:CGRectMake(0, y1, 150, 20) ];
+    //    sLabel1.textAlignment =  UITextAlignmentRight;
+    //    sLabel1.backgroundColor = [UIColor clearColor];
+    //    sLabel1.font = [UIFont fontWithName:@"Thonburi-Bold" size:10.0];
+    //    sLabel1.textColor = [UIColor colorWithRed:105/255.0 green:76/255.0 blue:56/255.0 alpha:1.0];
+    //    sLabel1.text = NSLocalizedString(@"RECIPE_TYPE", nil);//@"Тип рецепта";
+    //    [self.vertScrollView2 addSubview:sLabel1];
+    //    UILabel *sLabel11 = [ [UILabel alloc ] initWithFrame:CGRectMake(170, y1, 150, 20) ];
+    //    sLabel11.textAlignment =  UITextAlignmentLeft;
+    //    sLabel11.backgroundColor = [UIColor clearColor];
+    //    sLabel11.font = [UIFont fontWithName:@"Thonburi-Bold" size:10.0];
+    //    sLabel11.textColor = [UIColor colorWithRed:205/255.0 green:76/255.0 blue:56/255.0 alpha:1.0];
+    //    sLabel11.text = it.type;
+    //    [self.vertScrollView2 addSubview:sLabel11];
+    //
+    //    y1 += 10;
     
     UILabel *sLabel2 = [ [UILabel alloc ] initWithFrame:CGRectMake(5, y1, 145, 20) ];
     sLabel2.textAlignment =  UITextAlignmentRight;
@@ -200,7 +226,7 @@
     [self.vertScrollView2 addSubview:sLabel31];
     
     y1 += 17;
-
+    
     UILabel *sLabel4 = [ [UILabel alloc ] initWithFrame:CGRectMake(5, y1, 145, 20) ];
     sLabel4.textAlignment =  UITextAlignmentRight;
     sLabel4.backgroundColor = [UIColor clearColor];
@@ -217,7 +243,7 @@
     [self.vertScrollView2 addSubview:sLabel41];
     
     y1 += 17;
-
+    
     UILabel *sLabel5 = [ [UILabel alloc ] initWithFrame:CGRectMake(5, y1, 145, 20) ];
     sLabel5.textAlignment =  UITextAlignmentRight;
     sLabel5.backgroundColor = [UIColor clearColor];
@@ -234,7 +260,7 @@
     [self.vertScrollView2 addSubview:sLabel51];
     
     y1 += 17;
-
+    
     UILabel *sLabel6 = [ [UILabel alloc ] initWithFrame:CGRectMake(5, y1, 145, 20) ];
     sLabel6.textAlignment =  UITextAlignmentRight;
     sLabel6.backgroundColor = [UIColor clearColor];
@@ -257,7 +283,7 @@
     [fav setImage:[UIImage imageNamed:@"STAR_Icons.png"] forState:UIControlStateNormal];
     [fav addTarget:self action:@selector(buttonFav:) forControlEvents:UIControlEventTouchUpInside];
     [self.vertScrollView2 addSubview:fav];
-
+    
     y1 = y + 5;
     
     UIImageView *imgView11 = [[UIImageView alloc] initWithFrame:CGRectMake(0, y, 320, 6)];
@@ -280,18 +306,18 @@
     UIImageView *imgView31 = [[UIImageView alloc] initWithFrame:CGRectMake(0, y, 320, 7)];
     imgView31.image = [UIImage imageNamed:@"bottom_place.png"];
     [self.vertScrollView2 addSubview:imgView31];
-
-//    y += 140;
+    
+    //    y += 140;
     
     UIButton *sps = [UIButton buttonWithType:UIButtonTypeCustom];
     sps.frame = CGRectMake(285, y1 + 20, 20, 25);
     [sps setImage:[UIImage imageNamed:@"Spisok_Icons.png"] forState:UIControlStateNormal];
     [sps addTarget:self action:@selector(buttonSps:) forControlEvents:UIControlEventTouchUpInside];
     [self.vertScrollView2 addSubview:sps];
-
-//    for (NSString* i in [it.ingrids allKeys]) {
-    for (Ingridient* ing in it.ingrids) {
     
+    //    for (NSString* i in [it.ingrids allKeys]) {
+    for (Ingridient* ing in it.ingrids) {
+        
         MSLabel *sLabel6 = [ [MSLabel alloc ] initWithFrame:CGRectMake(10, y1, 140, 35) ];
         sLabel6.textAlignment =  UITextAlignmentRight;
         sLabel6.backgroundColor = [UIColor clearColor];
@@ -311,10 +337,11 @@
         
         y1 += 20;
     }
-
+    
     self.vertScrollView2.contentSize = CGSizeMake(320, y);
+    
+//    [self createSteps];
 
-    [self createSteps];
 }
 
 - (void)createSteps {
@@ -375,12 +402,23 @@
         tr.view = imgV;
 //        tr.url = [it.steps objectForKey:i];
         tr.url = st.path;
+
+        tr.image = [[Common instance] getImage:tr.url];
+        if(tr.image != nil) {
+            
+            NSLog(@"Step image found %@", tr.url);
+            //        [self displayStepImage:tr];
+            [tr.view setImage:tr.image];
+            
+//            return;
+        }
+        else {
         NSInvocationOperation *operation = [[NSInvocationOperation alloc]
                                             initWithTarget:self
                                             selector:@selector(loadStepImage:)
                                             object:tr];
         [queue addOperation:operation];
-        
+        }
 //        UIImageView *imgView8 = [[UIImageView alloc] initWithFrame:CGRectMake(0, y, 21, 23)];
 //        imgView8.image = [UIImage imageNamed:[NSString stringWithFormat:@"step_%d.png", k++]];
 //        [self.vertScrollView3 addSubview:imgView8];
@@ -397,7 +435,8 @@
     
     NSData* imageData = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:it.ingrid_image]];
     UIImage* image = [[UIImage alloc] initWithData:imageData];
-    [self performSelectorOnMainThread:@selector(displayImage:) withObject:image waitUntilDone:NO];
+//    [self performSelectorOnMainThread:@selector(displayImage:) withObject:image waitUntilDone:NO];
+    [self performSelectorInBackground:@selector(displayImage:) withObject:image];
 }
 
 - (void)displayImage:(UIImage *)image {
@@ -410,7 +449,8 @@
     
     NSData* imageData = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:it.image]];
     UIImage* image = [[UIImage alloc] initWithData:imageData];
-    [self performSelectorOnMainThread:@selector(displayImage1:) withObject:image waitUntilDone:NO];
+//    [self performSelectorOnMainThread:@selector(displayImage1:) withObject:image waitUntilDone:NO];
+    [self performSelectorInBackground:@selector(displayImage1:) withObject:image];
 }
 
 - (void)displayImage1:(UIImage *)image {
@@ -421,18 +461,11 @@
 
 - (void)loadStepImage:(Transit*) tr {
     
-    tr.image = [[Common instance] getImage:tr.url];
-    if(tr.image != nil) {
-        
-        NSLog(@"Step image found %@", tr.url);
-        [self displayStepImage:tr];
-        
-        return;
-    }
-    
     NSData* imageData = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:tr.url]];
     tr.image = [[UIImage alloc] initWithData:imageData];
-    [self performSelectorOnMainThread:@selector(displayStepImage:) withObject:tr waitUntilDone:NO];
+//    [self performSelectorOnMainThread:@selector(displayStepImage:) withObject:tr waitUntilDone:NO];
+    [self performSelectorInBackground:@selector(displayStepImage:) withObject:tr];
+
 }
 
 - (void)displayStepImage:(Transit*)tr {
@@ -493,14 +526,21 @@
 - (void)buttonEvent1:(id)sender {
 
 //    b = !b;
+
+    [self createSteps];
+
     self.vertScrollView2.hidden = YES;
+    
     self.vertScrollView3.hidden = NO;
 }
 
 - (void)buttonEvent2:(id)sender {
     
 //    b = !b;
+    
+    
     self.vertScrollView2.hidden = NO;
+    
     self.vertScrollView3.hidden = YES;
 }
 

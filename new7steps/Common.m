@@ -33,6 +33,8 @@
 	self = [super init];
 	if(self !=nil) {
         
+        self.allImages = [NSMutableArray array];
+
         recipes = [[NSMutableArray alloc] init];
 //        favrecipes = [[NSMutableArray alloc] init];
 
@@ -40,7 +42,7 @@
         
         
         NSArray* sp = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-        NSString* docpath = [sp objectAtIndex: 0];
+        docpath = [sp objectAtIndex: 0];
         NSString* favPath = [docpath stringByAppendingPathComponent:@"favourites.plist"];
         NSString* spsPath = [docpath stringByAppendingPathComponent:@"spisok.plist"];
 
@@ -57,20 +59,11 @@
 //            self.spsingrids = [[NSMutableDictionary alloc] init];
         
 
+//        [self loadAllImages];
+
 	}
 	return self;	
 }
-
-//- (void) saveSpisokIngrids {
-//
-//    NSArray* sp = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-//    NSString* docpath = [sp objectAtIndex: 0];
-//    NSString* spsPath = [docpath stringByAppendingPathComponent:@"spisok.plist"];
-//
-//    BOOL b = [self.spsingrids writeToFile:spsPath atomically:YES];
-//    NSLog(@"Spisok ingrids saved PATH = %@, result = %d", spsPath, b);
-//
-//}
 
 - (void)clearRecipes {
     
@@ -90,8 +83,6 @@
 
 - (void) delFavRecipe: (int) i {
 
-    NSArray* sp = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString* docpath = [sp objectAtIndex: 0];
     NSString* favPath = [docpath stringByAppendingPathComponent:@"favourites.plist"];
 
     NSMutableIndexSet *itemsToRemove = [NSMutableIndexSet new];
@@ -148,8 +139,6 @@
 
 - (void) addFavRecipe: (Item*)item {
 
-    NSArray* sp = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString* docpath = [sp objectAtIndex: 0];
     NSString* favPath = [docpath stringByAppendingPathComponent:@"favourites.plist"];
 
 //    [self.favrecipes addObject:item];
@@ -222,8 +211,6 @@
 
 - (void) delSpsRecipe: (int) i {
     
-    NSArray* sp = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString* docpath = [sp objectAtIndex: 0];
     NSString* spsPath = [docpath stringByAppendingPathComponent:@"spisok.plist"];
     
 //    NSDictionary* obj = [sps objectAtIndex:i];
@@ -284,8 +271,6 @@
 
 - (void) saveSpsRecipes {
 
-    NSArray* sp = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString* docpath = [sp objectAtIndex: 0];
     NSString* spsPath = [docpath stringByAppendingPathComponent:@"spisok.plist"];
 
     BOOL b = [sps writeToFile:spsPath atomically:YES];
@@ -296,8 +281,6 @@
 
 - (void) addSpsRecipe: (Item*)item {
     
-    NSArray* sp = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString* docpath = [sp objectAtIndex: 0];
     NSString* spsPath = [docpath stringByAppendingPathComponent:@"spisok.plist"];
     
     NSMutableArray* name = [[NSMutableArray alloc] init];
@@ -409,9 +392,6 @@
 
 - (BOOL)addRecipes {
     
-    
-    NSArray* sp = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString* docpath = [sp objectAtIndex: 0];
     NSString* filePath = [docpath stringByAppendingPathComponent:@"xml.txt"];
 
     NSData* responseData = [NSData dataWithContentsOfFile:filePath];
@@ -433,7 +413,7 @@
                 UIAlertView* dialog = [[UIAlertView alloc] init];
                 [dialog setTitle:@"Ошибка Интернет-подключения"];
 //                [dialog setMessage:[error localizedDescription]];
-                [dialog setMessage:@"Данные будут загружены из локальной копии"];
+                [dialog setMessage:@"Нет ранее загруженных данных."];
                 [dialog addButtonWithTitle:@"OK"];
                 [dialog show];
     //            [dialog release];
@@ -452,6 +432,10 @@
         
         [responseData writeToFile:filePath atomically:YES];
         [Common instance].langChanged = NO;
+        
+//        [self performSelectorOnMainThread:@selector(loadAllImages) withObject:nil waitUntilDone:NO];
+//        [self performSelectorInBackground:@selector(loadAllImages) withObject:nil];
+
     }
     
     BOOL success = YES;
@@ -493,8 +477,6 @@
     NSString* n = [n1 stringByReplacingOccurrencesOfString:@"/" withString:@"-"];
 //    NSLog(@"url = %@", n);
 
-    NSArray* sp = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString* docpath = [sp objectAtIndex: 0];
     NSString* filePath = [docpath stringByAppendingPathComponent:n];
 //    NSLog(@"filepath for image = %@", filePath);
     UIImage* im = [UIImage imageWithContentsOfFile:filePath];
@@ -511,23 +493,57 @@
 
 }
 
-//- (UIImage*) getImageForStep: (NSString*) name {
+//- (void) loadAllImages {
 //    
-//    NSString* n = [name lastPathComponent];
-//    NSArray* sp = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-//    NSString* docpath = [sp objectAtIndex: 0];
-//    NSString* filePath = [docpath stringByAppendingPathComponent:n];
-//    //    NSLog(@"filepath for image = %@", filePath);
-//    UIImage* im = [UIImage imageWithContentsOfFile:filePath];
-//    if(im == nil) {
+//    for(NSString* name in self.allImages) {
+//        
+//        NSString* n1 = [name stringByReplacingOccurrencesOfString:@":" withString:@"-"];
+//        NSString* n = [n1 stringByReplacingOccurrencesOfString:@"/" withString:@"-"];
+//        NSString* filePath = [docpath stringByAppendingPathComponent:n];
 //
-//        im = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:name]]];
-//        NSData *imgData = UIImagePNGRepresentation(im);
+//        if([[NSFileManager defaultManager] fileExistsAtPath:filePath])
+//            continue;
+//
+//        NSData* imageData = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:name]];
+//        NSData *imgData = UIImagePNGRepresentation([[UIImage alloc] initWithData:imageData]);
 //        [imgData writeToFile:filePath atomically:YES];
+//        NSLog(@"file loaded");
+//
 //    }
-//    return im;
-//    
+//
 //}
 
+//- (void) loadAllImages {
+//    
+//    NSOperationQueue* queue = [NSOperationQueue new];
+//
+//    for(NSString* name in self.allImages) {
+//        
+//        NSInvocationOperation *operation = [[NSInvocationOperation alloc]
+//                                            initWithTarget:self
+//                                            selector:@selector(loadImage:)
+//                                            object:name];
+//        [queue addOperation:operation];
+//    }
+//    
+//}
+//
+//- (void)loadImage:(NSString*) name {
+//    
+//    NSString* n1 = [name stringByReplacingOccurrencesOfString:@":" withString:@"-"];//[tr.url lastPathComponent];
+//    NSString* n = [n1 stringByReplacingOccurrencesOfString:@"/" withString:@"-"];
+//    NSString* filePath = [docpath stringByAppendingPathComponent:n];
+//    
+//    if([[NSFileManager defaultManager] fileExistsAtPath:filePath])
+//        return;
+//
+//    NSData* imageData = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:name]];
+//    NSData *imgData = UIImagePNGRepresentation([[UIImage alloc] initWithData:imageData]);
+//    [imgData writeToFile:filePath atomically:YES];
+//    NSLog(@"file loaded");
+////    sleep(0.5f);
+////    [NSThread sleepForTimeInterval:0.5f];
+//
+//}
 
 @end
