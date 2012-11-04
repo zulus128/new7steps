@@ -9,6 +9,7 @@
 #import "SpsController.h"
 #import "Common.h"
 #import "MSLabel.h"
+#import "Ingridient.h"
 
 #define TAG 42
 
@@ -50,6 +51,7 @@
             break;
     }
     [self.goRecipes setTitle:s forState:UIControlStateNormal];
+    self.goRecipes.titleLabel.font = [UIFont fontWithName:@"Good-Book" size:20.0];
 
     [self setup];
 }
@@ -98,6 +100,8 @@
         
         for (int j = 0; j < it.ingrids.count; j++) {
 
+            Ingridient* ing = [it.ingrids objectAtIndex:j];
+            
             UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(15, y, 293, 25)];
             imgView.image = [UIImage imageNamed:@"table_SPISOK.png"];
             imgView.tag = TAG;
@@ -110,7 +114,7 @@
             sLabel.tag = TAG;
             sLabel.textAlignment = UITextAlignmentLeft;
             [self.vertScrollView addSubview:sLabel];
-            sLabel.text = [it.ingrids.allKeys objectAtIndex:j];
+            sLabel.text = ing.name;//[it.ingrids.allKeys objectAtIndex:j];
 
             UILabel *sLabel1 = [ [UILabel alloc ] initWithFrame:CGRectMake(150, y + 3, 150, 24) ];
             sLabel1.textColor = [UIColor colorWithRed:105/255.0 green:76/255.0 blue:56/255.0 alpha:1.0];
@@ -119,10 +123,10 @@
             sLabel1.tag = TAG;
             sLabel1.textAlignment = UITextAlignmentRight;
             [self.vertScrollView addSubview:sLabel1];
-            sLabel1.text = [it.ingrids.allValues objectAtIndex:j];
+            sLabel1.text = ing.text;//[it.ingrids.allValues objectAtIndex:j];
 
             BOOL b = NO;
-            NSString* key = [it.ingrids.allKeys objectAtIndex:j];
+            NSString* key = ing.name;//[it.ingrids.allKeys objectAtIndex:j];
             NSString* checked = [it.ingrids_checked objectForKey:key];
             if(checked != nil)
                 if([checked isEqualToString:@"YES"]) {
@@ -137,7 +141,7 @@
 
             UIButton *but1 = [UIButton buttonWithType:UIButtonTypeCustom];
             [but1 setImage:[UIImage imageNamed:b?@"off_SPISOK.png":@"on_SPISOK.png"] forState:UIControlStateNormal];
-            but1.tag = i * CAT_MULT + j;
+            but1.tag = i * CAT_MULT + j + 1;
             [but1 addTarget:self action:@selector(buttonCheckEvent:) forControlEvents:UIControlEventTouchUpInside];
             [but1 setFrame: CGRectMake(15, y - 2, 28, 29)];
             [but1 setImageEdgeInsets:UIEdgeInsetsMake(8, 8, 8, 8)];
@@ -155,7 +159,7 @@
 
 - (void)buttonCheckEvent:(id)sender {
     
-    int buttag = ((UIButton*)sender).tag;
+    int buttag = ((UIButton*)sender).tag - 1;
 
     float x = ((UIButton*)sender).frame.origin.x;
     float y = ((UIButton*)sender).frame.origin.y;
@@ -182,7 +186,8 @@
     int j = buttag - i * CAT_MULT;
     
     Item* it = [[Common instance] getSpsRecipe:i];
-    NSString* key = [it.ingrids.allKeys objectAtIndex:j];
+    Ingridient* ing = [it.ingrids objectAtIndex:j];
+    NSString* key = ing.name;//[it.ingrids.allKeys objectAtIndex:j];
     [it.ingrids_checked setObject:@"YES" forKey:key];
     NSLog(@"Checked i = %d, j = %d, key = %@", i, j, key);
     [[Common instance] saveSpsRecipes];
@@ -193,10 +198,13 @@
 
 - (void)buttonDelEvent:(id)sender {
     
-    int buttag = ((UIButton*)sender).tag;
+    int buttag = ((UIButton*)sender).tag - 10000;
     NSLog(@"Spisok DEL button %d clicked!!!", buttag);
     
-    [[Common instance] delSpsRecipe:(buttag - 10000)];
+    Item* it = [[Common instance] getSpsRecipe:buttag];
+    [it.ingrids_checked removeAllObjects];
+
+    [[Common instance] delSpsRecipe:buttag];
     
     [self setup];
     

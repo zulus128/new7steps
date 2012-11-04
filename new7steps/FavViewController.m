@@ -54,7 +54,8 @@
             break;
     }
     [self.goRecipes setTitle:s forState:UIControlStateNormal];
-    
+    self.goRecipes.titleLabel.font = [UIFont fontWithName:@"Good-Book" size:20.0];
+
     [self setup];
 }
 
@@ -146,7 +147,9 @@
     NSLog(@"Fav button %d clicked!!!", (buttag - 1));
     
     [Common instance].curitem = [[Common instance] getFavRecipe:(buttag - 1)];
+//    [self removeFromParentViewController];
     [self performSegueWithIdentifier: @"2ndSegue" sender: self];
+//    [self.parentViewController performSegueWithIdentifier: @"2ndSegue" sender: self.parentViewController];
 
 }
 

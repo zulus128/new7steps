@@ -9,7 +9,7 @@
 #import "Common.h"
 #import "XMLParser.h"
 #import "Step.h"
-
+#import "Ingridient.h"
 
 @implementation Common
 
@@ -118,8 +118,19 @@
     it.proteins = [obj objectForKey:@"Proteins"];
     it.fats = [obj objectForKey:@"Fats"];
     it.carbos = [obj objectForKey:@"Carbos"];
-    it.ingrids = [obj objectForKey:@"Ingrids"];
+//    it.ingrids = [obj objectForKey:@"Ingrids"];
     it.ingrids_checked = [obj objectForKey:@"Ingrids_checked"];
+
+    NSMutableArray* name = [obj objectForKey:@"Ingridients_name"];
+    NSMutableArray* text1 = [obj objectForKey:@"Ingridients_text"];
+    for (int i = 0; i < name.count; i++) {
+        
+        Ingridient* s = [[Ingridient alloc] init];
+        s.name = [name objectAtIndex:i];
+        s.text = [text1 objectAtIndex:i];
+        
+        [it.ingrids addObject:s];
+    }
 
     NSMutableArray* path = [obj objectForKey:@"Steps_path"];
     NSMutableArray* text = [obj objectForKey:@"Steps_text"];
@@ -143,6 +154,14 @@
 
 //    [self.favrecipes addObject:item];
 
+    NSMutableArray* name = [[NSMutableArray alloc] init];
+    NSMutableArray* text1 = [[NSMutableArray alloc] init];
+    for (Ingridient* st in item.ingrids) {
+        
+        [name addObject:st.name];
+        [text1 addObject:st.text];
+    }
+
     NSMutableArray* path = [[NSMutableArray alloc] init];
     NSMutableArray* text = [[NSMutableArray alloc] init];
     for (Step* st in item.steps) {
@@ -163,8 +182,10 @@
                                                             item.proteins == nil?@"":item.proteins,
                                                             item.fats == nil?@"":item.fats,
                                                             item.carbos == nil?@"":item.carbos,
-                                                            item.ingrids,
+//                                                            item.ingrids,
                                                             item.ingrids_checked,
+                                                            name,
+                                                            text1,
                                                             path,
                                                             text,
                                                             nil]
@@ -179,8 +200,10 @@
                                                            @"Proteins",
                                                            @"Fats",
                                                            @"Carbos",
-                                                           @"Ingrids",
+//                                                           @"Ingrids",
                                                            @"Ingrids_checked",
+                                                           @"Ingridients_name",
+                                                           @"Ingridients_text",
                                                            @"Steps_path",
                                                            @"Steps_text",
                                                            nil]];
@@ -202,6 +225,10 @@
     NSArray* sp = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString* docpath = [sp objectAtIndex: 0];
     NSString* spsPath = [docpath stringByAppendingPathComponent:@"spisok.plist"];
+    
+//    NSDictionary* obj = [sps objectAtIndex:i];
+//    [obj setValue:nil forKey:@"Ingrids_checked"];
+//    [self saveSpsRecipes];
     
     NSMutableIndexSet *itemsToRemove = [NSMutableIndexSet new];
     [itemsToRemove addIndex:i];
@@ -227,8 +254,19 @@
     it.proteins = [obj objectForKey:@"Proteins"];
     it.fats = [obj objectForKey:@"Fats"];
     it.carbos = [obj objectForKey:@"Carbos"];
-    it.ingrids = [obj objectForKey:@"Ingrids"];
+//    it.ingrids = [obj objectForKey:@"Ingrids"];
     it.ingrids_checked = [obj objectForKey:@"Ingrids_checked"];
+    
+    NSMutableArray* name = [obj objectForKey:@"Ingridients_name"];
+    NSMutableArray* text1 = [obj objectForKey:@"Ingridients_text"];
+    for (int i = 0; i < name.count; i++) {
+        
+        Ingridient* s = [[Ingridient alloc] init];
+        s.name = [name objectAtIndex:i];
+        s.text = [text1 objectAtIndex:i];
+        
+        [it.ingrids addObject:s];
+    }
     
     NSMutableArray* path = [obj objectForKey:@"Steps_path"];
     NSMutableArray* text = [obj objectForKey:@"Steps_text"];
@@ -262,6 +300,14 @@
     NSString* docpath = [sp objectAtIndex: 0];
     NSString* spsPath = [docpath stringByAppendingPathComponent:@"spisok.plist"];
     
+    NSMutableArray* name = [[NSMutableArray alloc] init];
+    NSMutableArray* text1 = [[NSMutableArray alloc] init];
+    for (Ingridient* st in item.ingrids) {
+        
+        [name addObject:st.name];
+        [text1 addObject:st.text];
+    }
+    
     NSMutableArray* path = [[NSMutableArray alloc] init];
     NSMutableArray* text = [[NSMutableArray alloc] init];
     for (Step* st in item.steps) {
@@ -282,8 +328,10 @@
                                                             item.proteins == nil?@"":item.proteins,
                                                             item.fats == nil?@"":item.fats,
                                                             item.carbos == nil?@"":item.carbos,
-                                                            item.ingrids,
+                                                            //                                                            item.ingrids,
                                                             item.ingrids_checked,
+                                                            name,
+                                                            text1,
                                                             path,
                                                             text,
                                                             nil]
@@ -298,8 +346,10 @@
                                                            @"Proteins",
                                                            @"Fats",
                                                            @"Carbos",
-                                                           @"Ingrids",
+                                                           //                                                           @"Ingrids",
                                                            @"Ingrids_checked",
+                                                           @"Ingridients_name",
+                                                           @"Ingridients_text",
                                                            @"Steps_path",
                                                            @"Steps_text",
                                                            nil]];

@@ -148,4 +148,14 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
+    
+    if (interfaceOrientation == UIInterfaceOrientationLandscapeLeft)
+        return YES;
+    if (interfaceOrientation == UIInterfaceOrientationLandscapeRight)
+        return YES;
+    
+    return NO;
+}
+
 @end

@@ -17,7 +17,8 @@
     
     if( self != nil ) {
     
-        self.ingrids = [NSMutableDictionary dictionary];
+//        self.ingrids = [NSMutableDictionary dictionary];
+        self.ingrids = [NSMutableArray array];
 //        self.steps = [NSMutableDictionary dictionary];
         self.steps = [NSMutableArray array];
         self.ingrids_checked = [NSMutableDictionary dictionary];

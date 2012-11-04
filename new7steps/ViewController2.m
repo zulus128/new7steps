@@ -11,6 +11,8 @@
 #import "Step.h"
 #import "MSLabel.h"
 #import "Common.h"
+#import "ViewController.h"
+#import "Ingridient.h"
 
 @interface ViewController2 ()
 
@@ -38,20 +40,21 @@
     it = [Common instance].curitem;
     
     NSString* s;
-    switch ([Common instance].prev_window) {
-        case WT_NONE:
-        case WT_MAIN:
-        default:
+//    switch ([Common instance].prev_window) {
+//        case WT_NONE:
+//        case WT_MAIN:
+//        default:
             s = NSLocalizedString(@"MAINBUTTON", nil);
-            break;
-        case WT_FAVOURITES:
-            s = NSLocalizedString(@"MAINBUTTONFAV", nil);
-            break;
-        case WT_RECIPE:
-            s = NSLocalizedString(@"MAINBUTTONREC", nil);
-            break;
-    }
+//            break;
+//        case WT_FAVOURITES:
+//            s = NSLocalizedString(@"MAINBUTTONFAV", nil);
+//            break;
+//        case WT_RECIPE:
+//            s = NSLocalizedString(@"MAINBUTTONREC", nil);
+//            break;
+//    }
     [self.goRecipes setTitle:s forState:UIControlStateNormal];
+    self.goRecipes.titleLabel.font = [UIFont fontWithName:@"Good-Book" size:20.0];
 
     int y = 160;
     imgView2 = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, y)];
@@ -143,7 +146,7 @@
     sLabel.adjustsFontSizeToFitWidth = YES;
     sLabel.minimumFontSize = 5.0;
     [self.vertScrollView2 addSubview:sLabel];
-    y1 += 40;
+    y1 += 38;
     
 //    UILabel *sLabel1 = [ [UILabel alloc ] initWithFrame:CGRectMake(0, y1, 150, 20) ];
 //    sLabel1.textAlignment =  UITextAlignmentRight;
@@ -162,7 +165,7 @@
 //
 //    y1 += 10;
     
-    UILabel *sLabel2 = [ [UILabel alloc ] initWithFrame:CGRectMake(0, y1, 150, 20) ];
+    UILabel *sLabel2 = [ [UILabel alloc ] initWithFrame:CGRectMake(5, y1, 145, 20) ];
     sLabel2.textAlignment =  UITextAlignmentRight;
     sLabel2.backgroundColor = [UIColor clearColor];
     sLabel2.font = [UIFont fontWithName:@"Thonburi-Bold" size:14.0];
@@ -179,8 +182,10 @@
     
     y1 += 22;
     
-    UILabel *sLabel3 = [ [UILabel alloc ] initWithFrame:CGRectMake(0, y1, 150, 20) ];
+    MSLabel *sLabel3 = [[MSLabel alloc] initWithFrame:CGRectMake(5, y1, 145, 23) ];
     sLabel3.textAlignment =  UITextAlignmentRight;
+    sLabel3.numberOfLines = 2;
+    sLabel3.lineHeight = 8;
     sLabel3.backgroundColor = [UIColor clearColor];
     sLabel3.font = [UIFont fontWithName:@"Thonburi-Bold" size:14.0];
     sLabel3.textColor = [UIColor colorWithRed:105/255.0 green:76/255.0 blue:56/255.0 alpha:1.0];
@@ -194,9 +199,9 @@
     sLabel31.text = it.calories;
     [self.vertScrollView2 addSubview:sLabel31];
     
-    y1 += 15;
+    y1 += 17;
 
-    UILabel *sLabel4 = [ [UILabel alloc ] initWithFrame:CGRectMake(0, y1, 150, 20) ];
+    UILabel *sLabel4 = [ [UILabel alloc ] initWithFrame:CGRectMake(5, y1, 145, 20) ];
     sLabel4.textAlignment =  UITextAlignmentRight;
     sLabel4.backgroundColor = [UIColor clearColor];
     sLabel4.font = [UIFont fontWithName:@"Thonburi-Bold" size:14.0];
@@ -211,9 +216,9 @@
     sLabel41.text = it.proteins;
     [self.vertScrollView2 addSubview:sLabel41];
     
-    y1 += 15;
+    y1 += 17;
 
-    UILabel *sLabel5 = [ [UILabel alloc ] initWithFrame:CGRectMake(0, y1, 150, 20) ];
+    UILabel *sLabel5 = [ [UILabel alloc ] initWithFrame:CGRectMake(5, y1, 145, 20) ];
     sLabel5.textAlignment =  UITextAlignmentRight;
     sLabel5.backgroundColor = [UIColor clearColor];
     sLabel5.font = [UIFont fontWithName:@"Thonburi-Bold" size:14.0];
@@ -228,9 +233,9 @@
     sLabel51.text = it.fats;
     [self.vertScrollView2 addSubview:sLabel51];
     
-    y1 += 15;
+    y1 += 17;
 
-    UILabel *sLabel6 = [ [UILabel alloc ] initWithFrame:CGRectMake(0, y1, 150, 20) ];
+    UILabel *sLabel6 = [ [UILabel alloc ] initWithFrame:CGRectMake(5, y1, 145, 20) ];
     sLabel6.textAlignment =  UITextAlignmentRight;
     sLabel6.backgroundColor = [UIColor clearColor];
     sLabel6.font = [UIFont fontWithName:@"Thonburi-Bold" size:14.0];
@@ -284,8 +289,9 @@
     [sps addTarget:self action:@selector(buttonSps:) forControlEvents:UIControlEventTouchUpInside];
     [self.vertScrollView2 addSubview:sps];
 
-    for (NSString* i in [it.ingrids allKeys]) {
-        
+//    for (NSString* i in [it.ingrids allKeys]) {
+    for (Ingridient* ing in it.ingrids) {
+    
         MSLabel *sLabel6 = [ [MSLabel alloc ] initWithFrame:CGRectMake(10, y1, 140, 35) ];
         sLabel6.textAlignment =  UITextAlignmentRight;
         sLabel6.backgroundColor = [UIColor clearColor];
@@ -293,14 +299,14 @@
         sLabel6.numberOfLines = 2;
         sLabel6.lineHeight = 10;
         sLabel6.textColor = [UIColor colorWithRed:105/255.0 green:76/255.0 blue:56/255.0 alpha:1.0];
-        sLabel6.text = i;
+        sLabel6.text = ing.name;
         [self.vertScrollView2 addSubview:sLabel6];
         UILabel *sLabel61 = [ [UILabel alloc ] initWithFrame:CGRectMake(170, y1, 150, 35) ];
         sLabel61.textAlignment =  UITextAlignmentLeft;
         sLabel61.backgroundColor = [UIColor clearColor];
         sLabel61.font = [UIFont fontWithName:@"Thonburi-Bold" size:14.0];
         sLabel61.textColor = [UIColor colorWithRed:205/255.0 green:76/255.0 blue:56/255.0 alpha:1.0];
-        sLabel61.text = [it.ingrids objectForKey:i];
+        sLabel61.text = ing.text;//[it.ingrids objectForKey:i];
         [self.vertScrollView2 addSubview:sLabel61];
         
         y1 += 20;
@@ -500,7 +506,20 @@
 
 - (IBAction) exit {
     
-    [self dismissModalViewControllerAnimated:YES];
+//    if(self.parentViewController)
+//        [self.parentViewController dismissModalViewControllerAnimated:YES];
+//    else
+//        [self.presentedViewController dismissModalViewControllerAnimated:YES];
+
+//    [self dismissModalViewControllerAnimated:YES];
+
+//    ViewController *lvc =[self.storyboard instantiateInitialViewController];
+//    [self presentModalViewController:[Common instance].mainController animated:YES];
+    
+//    [self.navigationController popToRootViewControllerAnimated:YES];
+
+    ViewController *ivc = [Common instance].mainController;
+    [ivc dismissModalViewControllerAnimated:YES];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -509,18 +528,6 @@
 
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
-
-//- (NSUInteger)supportedInterfaceOrientations {
-//    NSLog(@"supported called");
-////    return UIInterfaceOrientationMaskAll;//Which is actually a default value
-//    return UIInterfaceOrientationMaskPortrait | UIInterfaceOrientationMaskLandscapeLeft;
-//}
-//
-//- (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation {
-//    NSLog(@" preferred called");//This method is never called. WHY?
-////    return UIInterfaceOrientationLandscapeRight;
-//    return UIInterfaceOrientationLandscapeLeft;
-//}
 
 - (BOOL)shouldAutorotate {
     

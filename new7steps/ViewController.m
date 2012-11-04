@@ -24,7 +24,9 @@
 
 - (void)viewDidLoad {
 
-    NSLog(@"EEEEEEEEEEEE");
+//    NSLog(@"EEEEEEEEEEEE");
+    
+    [Common instance].mainController = self;
     
     sView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, 480)];
     sView.image = [UIImage imageNamed:@"Default.png"];
@@ -98,7 +100,7 @@
         [self.vertScrollView addSubview:imgView1];
         
         //        UILabel *sLabel = [ [UILabel alloc ] initWithFrame:CGRectMake(10, y + 3, 150, 20) ];
-        UILabel *sLabel = [ [UILabel alloc ] initWithFrame:CGRectMake(10, y + 5, 150, 24) ];
+        UILabel *sLabel = [ [UILabel alloc ] initWithFrame:CGRectMake(10, y + 5, 350, 24) ];
         sLabel.textColor = [UIColor colorWithRed:105/255.0 green:76/255.0 blue:56/255.0 alpha:1.0];
         sLabel.backgroundColor = [UIColor clearColor];
         //        sLabel.font = [UIFont fontWithName:@"Arial Rounded MT Bold" size:(14.0)];

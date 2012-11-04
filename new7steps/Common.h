@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "Item.h"
+#import "ViewController.h"
 
 //#define XML_URL @"http://customs.joomsport.com/7steps/index.php?option=com_recipes"
 
@@ -87,6 +88,7 @@ enum window_types {
 @property (readwrite, assign) int prev_window;
 
 @property (nonatomic, retain) Item* curitem;
+@property (nonatomic, retain) ViewController* mainController;
 
 //@property (nonatomic, retain) NSMutableDictionary* spsingrids;
 

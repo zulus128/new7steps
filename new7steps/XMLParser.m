@@ -10,6 +10,7 @@
 #import "XMLParser.h"
 #import "Item.h"
 #import "Step.h"
+#import "Ingridient.h"
 
 @implementation XMLParser
 
@@ -99,7 +100,12 @@
         }
             else
                 if([elementName isEqualToString:QUANTITY_TAG]) {
-                    [item.ingrids setObject:trimedStr forKey:name];
+//                    [item.ingrids setObject:trimedStr forKey:name];
+                    Ingridient* ing = [[Ingridient alloc] init];
+                    ing.name = name;
+                    ing.text = trimedStr;
+                    [item.ingrids addObject:ing];
+
 //                    NSLog(@"ingridient %@ : %@", name, trimedStr);
                 }
                 else
