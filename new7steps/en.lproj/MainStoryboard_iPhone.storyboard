@@ -81,8 +81,20 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <searchBar contentMode="redraw" barStyle="blackTranslucent" id="em7-Nc-OAW">
+                                        <rect key="frame" x="0.0" y="42" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <scopeButtonTitles>
+                                            <string>Title</string>
+                                            <string>Title</string>
+                                        </scopeButtonTitles>
+                                        <connections>
+                                            <outlet property="delegate" destination="2" id="xGh-Lt-hpP"/>
+                                        </connections>
+                                    </searchBar>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" id="tXF-wL-ofH">
-                                        <rect key="frame" x="0.0" y="41" width="320" height="388"/>
+                                        <rect key="frame" x="0.0" y="86" width="320" height="343"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     </scrollView>
                                 </subviews>
@@ -96,12 +108,22 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="panel1" destination="W0Y-iG-ZCI" id="e3R-sc-sU3"/>
+                        <outlet property="searchDisplayController" destination="ChE-05-Sf3" id="BxM-wN-O1c"/>
                         <outlet property="titleLabel" destination="uuB-oX-NRi" id="K5x-Uh-j0A"/>
                         <outlet property="vertScrollView" destination="tXF-wL-ofH" id="2un-hs-mV4"/>
                         <segue destination="BfP-xd-1fy" kind="modal" identifier="2ndSegue" modalTransitionStyle="flipHorizontal" id="3Ty-zP-TgR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="ChE-05-Sf3">
+                    <connections>
+                        <outlet property="delegate" destination="2" id="73Z-DP-E5V"/>
+                        <outlet property="searchBar" destination="em7-Nc-OAW" id="U13-v9-ot2"/>
+                        <outlet property="searchContentsController" destination="2" id="cAl-Lw-Bww"/>
+                        <outlet property="searchResultsDataSource" destination="2" id="5oW-l1-wEv"/>
+                        <outlet property="searchResultsDelegate" destination="2" id="gF0-lC-ifr"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="185" y="235"/>
         </scene>
@@ -462,15 +484,69 @@
         <image name="toolbar_bottom.png" width="640" height="99"/>
         <image name="toolbar_top.png" width="640" height="84"/>
     </resources>
+    <classes>
+        <class className="AboutController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AboutController.h"/>
+            <relationships>
+                <relationship kind="action" name="back"/>
+                <relationship kind="action" name="swich"/>
+                <relationship kind="outlet" name="sleepLab" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="sleepSw" candidateClass="UISwitch"/>
+                <relationship kind="outlet" name="xmlver" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="FavViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FavViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="exit"/>
+                <relationship kind="outlet" name="goRecipes" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="vertScrollView" candidateClass="UIScrollView"/>
+            </relationships>
+        </class>
+        <class className="HorizontalController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/HorizontalController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="horizScrollView" candidateClass="UIScrollView"/>
+            </relationships>
+        </class>
+        <class className="SpsController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SpsController.h"/>
+            <relationships>
+                <relationship kind="action" name="exit"/>
+                <relationship kind="outlet" name="goRecipes" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="vertScrollView" candidateClass="UIScrollView"/>
+            </relationships>
+        </class>
+        <class className="ViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="panelButtonClick:"/>
+                <relationship kind="outlet" name="panel1" candidateClass="UIView"/>
+                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="vertScrollView" candidateClass="UIScrollView"/>
+            </relationships>
+        </class>
+        <class className="ViewController2" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController2.h"/>
+            <relationships>
+                <relationship kind="action" name="exit"/>
+                <relationship kind="outlet" name="goRecipes" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="vertScrollView2" candidateClass="UIScrollView"/>
+                <relationship kind="outlet" name="vertScrollView3" candidateClass="UIScrollView"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="hlI-SH-WbK"/>
+        <segue reference="3Ty-zP-TgR"/>
         <segue reference="Nxa-Rf-fm0"/>
         <segue reference="lDP-OC-w1P"/>
-        <segue reference="3Ty-zP-TgR"/>
-        <segue reference="hlI-SH-WbK"/>
     </inferredMetricsTieBreakers>
 </document>

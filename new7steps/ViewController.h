@@ -24,6 +24,7 @@
 @property (nonatomic, retain) NSString* filePath;
 //@property (nonatomic, retain) IBOutlet UIButton* panelbut;
 @property (nonatomic, retain) IBOutlet UILabel* titleLabel;
+@property (nonatomic, retain) IBOutlet UISearchBar* sbar;
 
 
 - (IBAction)panelButtonClick:(id)sender;
