@@ -11,6 +11,7 @@
 "MAINBUTTON" = "Main menu";
 "MAINBUTTONFAV" = "Favourites";
 "MAINBUTTONREC" = "Recipe";
+"MAINBUTTONSPS" = "List";
 "FAVMESSAGE" = "Saved to Favourites";
 "SPSMESSAGE" = "Saved to List";
 "COURSE" = "Curso";

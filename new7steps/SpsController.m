@@ -28,6 +28,12 @@
     return self;
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    
+    [Common instance].prev_window = WT_SPISOK;
+    
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];

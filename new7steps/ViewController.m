@@ -176,7 +176,10 @@
         scroll.tag = i;
         scroll.delegate = self;
         scroll.scrollEnabled = YES;
-        scroll.contentSize = CGSizeMake([[Common instance] getMaxRecipesForCategory:i] * 160 / 2 + 20, 301);
+        int k = [[Common instance] getMaxRecipesForCategory:i];
+        if((k % 2) != 0)
+            k++;
+        scroll.contentSize = CGSizeMake(k * 160 / 2 + 20, 301);
         scroll.showsHorizontalScrollIndicator = NO;
         scroll.directionalLockEnabled = YES;
         [self.vertScrollView addSubview:scroll];

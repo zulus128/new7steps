@@ -11,6 +11,7 @@
 "MAINBUTTON" = "Главное меню";
 "MAINBUTTONFAV" = "Избранное";
 "MAINBUTTONREC" = "Рецепт";
+"MAINBUTTONSPS" = "Cписoк";
 "FAVMESSAGE" = "Рецепт сохранен в Избранном";
 "SPSMESSAGE" = "Рецепт сохранен в Cписке покупок";
 "COURSE" = "КУРС";

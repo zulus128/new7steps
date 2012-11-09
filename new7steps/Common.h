@@ -44,7 +44,8 @@ enum window_types {
     WT_NONE,
     WT_MAIN,
     WT_RECIPE,
-    WT_FAVOURITES
+    WT_FAVOURITES,
+    WT_SPISOK
 };
 
 @interface Common : NSObject <UITabBarControllerDelegate> {
