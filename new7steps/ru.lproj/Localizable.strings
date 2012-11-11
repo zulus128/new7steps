@@ -8,6 +8,7 @@
 
 "TITLE" = "Barbuto";
 "SLEEPLABEL" = "Не засыпать";
+"SEARCHBUTTON" = "Поиск";
 "MAINBUTTON" = "Главное меню";
 "MAINBUTTONFAV" = "Избранное";
 "MAINBUTTONREC" = "Рецепт";

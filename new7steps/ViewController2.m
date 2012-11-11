@@ -46,19 +46,20 @@
     it = [Common instance].curitem;
     
     NSString* s;
-//    switch ([Common instance].prev_window) {
-//        case WT_NONE:
-//        case WT_MAIN:
-//        default:
+    switch ([Common instance].prev_window) {
+        case WT_NONE:
+        case WT_MAIN:
+        case WT_FAVOURITES:
+        case WT_RECIPE:
+        case WT_SPISOK:
+        case WT_SEARCH:
+        default:
             s = NSLocalizedString(@"MAINBUTTON", nil);
+            break;
+//        case WT_SEARCH:
+//            s = NSLocalizedString(@"SEARCHBUTTON", nil);
 //            break;
-//        case WT_FAVOURITES:
-//            s = NSLocalizedString(@"MAINBUTTONFAV", nil);
-//            break;
-//        case WT_RECIPE:
-//            s = NSLocalizedString(@"MAINBUTTONREC", nil);
-//            break;
-//    }
+    }
     [self.goRecipes setTitle:s forState:UIControlStateNormal];
     self.goRecipes.titleLabel.font = [UIFont fontWithName:@"Good-Book" size:20.0];
 
@@ -546,20 +547,22 @@
 
 - (IBAction) exit {
     
-//    if(self.parentViewController)
-//        [self.parentViewController dismissModalViewControllerAnimated:YES];
-//    else
-//        [self.presentedViewController dismissModalViewControllerAnimated:YES];
-
-//    [self dismissModalViewControllerAnimated:YES];
-
-//    ViewController *lvc =[self.storyboard instantiateInitialViewController];
-//    [self presentModalViewController:[Common instance].mainController animated:YES];
-    
-//    [self.navigationController popToRootViewControllerAnimated:YES];
-
-    ViewController *ivc = [Common instance].mainController;
-    [ivc dismissModalViewControllerAnimated:YES];
+    switch ([Common instance].prev_window) {
+        case WT_NONE:
+        case WT_MAIN:
+        case WT_FAVOURITES:
+        case WT_RECIPE:
+        case WT_SPISOK:
+        case WT_SEARCH:
+        default: {
+            ViewController *ivc = [Common instance].mainController;
+            [ivc dismissModalViewControllerAnimated:YES];
+            break;
+        }
+//        case WT_SEARCH:
+//            [self dismissModalViewControllerAnimated:YES];
+//            break;
+    }
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

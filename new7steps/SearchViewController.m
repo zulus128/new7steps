@@ -1,21 +1,22 @@
 //
-//  FavViewController.m
+//  SearchViewController.m
 //  new7steps
 //
-//  Created by Zul on 10/23/12.
+//  Created by вадим on 11/11/12.
 //
 //
 
-#import "FavViewController.h"
+#import "SearchViewController.h"
 #import "Common.h"
 #import "MSLabel.h"
+
 #define TAG 42
 
-@interface FavViewController ()
+@interface SearchViewController ()
 
 @end
 
-@implementation FavViewController
+@implementation SearchViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -26,9 +27,9 @@
     return self;
 }
 
-- (void)viewDidAppear:(BOOL)animated {
+- (void) viewDidAppear:(BOOL)animated {
     
-    [Common instance].prev_window = WT_FAVOURITES;
+    [Common instance].prev_window = WT_SEARCH;
 }
 
 - (void)viewDidLoad
@@ -36,9 +37,11 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
+    filtered = [NSMutableArray array];
+
     self.titleLabel.text = NSLocalizedString(@"TITLE", nil);
     self.titleLabel.font = [UIFont fontWithName:@"Good-Black" size:22.0];
-
+    
     NSString* s;
     switch ([Common instance].prev_window) {
         case WT_NONE:
@@ -62,11 +65,50 @@
     [self.goRecipes setTitle:s forState:UIControlStateNormal];
     self.goRecipes.titleLabel.font = [UIFont fontWithName:@"Good-Book" size:20.0];
 
+}
+
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
+
+//    NSLog(@"Text for search: %@", searchText);
+    self.text = searchText;
+
     [self setup];
+
+}
+
+//- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
+//
+//    NSLog(@"Text end editing");
+//
+//}
+
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
+    
+    [self.sbar resignFirstResponder];
+}
+
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
+
+    [self.sbar resignFirstResponder];
 }
 
 - (void) setup {
     
+    if(self.text == nil)
+        return;
+    if([self.text isEqualToString:@""])
+        return;
+    
+    [filtered removeAllObjects];
+    NSArray *data = [[Common instance] getRecipes];
+    for(Item* it in data) {
+        NSRange rangeValue = [it.name rangeOfString:self.text options:NSCaseInsensitiveSearch];
+        if (rangeValue.location != NSNotFound) {
+            
+            [filtered addObject:it];
+        }
+    }
+
     for(UIView *v in self.vertScrollView.subviews){
         if(v.tag > 0) {
             
@@ -74,33 +116,32 @@
         }
     }
     
-    int y = 20;
-    
-    for (int i = 0; i < [[Common instance] getFavRecipeCnt]; i++) {
-        
-        Item* it = [[Common instance] getFavRecipe:i];
+    int y = 40;
+
+    int i = 0;
+    for(Item* it in filtered) {
+//    for (int i = 0; i < [[Common instance] getFavRecipeCnt]; i++) {
+//        
+//        Item* it = [[Common instance] getFavRecipe:i];
         
         //        NSLog(@"Fav Item #%d", i);
         
         UIButton *but = [UIButton buttonWithType:UIButtonTypeCustom];
         but.frame = CGRectMake(0, y, 320, 72);
         [but setImage:[UIImage imageNamed:@"back_place_izbrannoe.png"] forState:UIControlStateNormal];
-        but.tag = i + 1;
+        but.tag = ++i;
         [but addTarget:self action:@selector(buttonEvent:) forControlEvents:UIControlEventTouchUpInside];
-//        but.tag = TAG;
+        //        but.tag = TAG;
         [self.vertScrollView addSubview:but];
         
-        UIButton *but1 = [UIButton buttonWithType:UIButtonTypeCustom];
-//        but1.frame = CGRectMake(292, y + 10, 15, 15);
-        [but1 setImage:[UIImage imageNamed:@"krest_IZBRANNOE.png"] forState:UIControlStateNormal];
-        but1.tag = 10000 + i;
-        [but1 addTarget:self action:@selector(buttonDelEvent:) forControlEvents:UIControlEventTouchUpInside];
-        [but1 setFrame: CGRectMake(284, y + 2, 31, 31)];
-        [but1 setImageEdgeInsets:UIEdgeInsetsMake(8, 8, 8, 8)];
-
-
-//        but1.tag = TAG;
-        [self.vertScrollView addSubview:but1];
+//        UIButton *but1 = [UIButton buttonWithType:UIButtonTypeCustom];
+//        //        but1.frame = CGRectMake(292, y + 10, 15, 15);
+//        [but1 setImage:[UIImage imageNamed:@"krest_IZBRANNOE.png"] forState:UIControlStateNormal];
+//        but1.tag = 10000 + i;
+//        [but1 addTarget:self action:@selector(buttonDelEvent:) forControlEvents:UIControlEventTouchUpInside];
+//        [but1 setFrame: CGRectMake(284, y + 2, 31, 31)];
+//        [but1 setImageEdgeInsets:UIEdgeInsetsMake(8, 8, 8, 8)];
+//        [self.vertScrollView addSubview:but1];
         
         UIImage* img = [[Common instance] getImage:it.image];
         
@@ -138,7 +179,19 @@
     }
     
     self.vertScrollView.contentSize = CGSizeMake(320, y);
+    
+}
 
+- (void)buttonEvent:(id)sender {
+    
+    [self.sbar resignFirstResponder];
+
+    int buttag = ((UIButton*)sender).tag - 1;
+    NSLog(@"Search recipe %d clicked!!!", buttag);
+    
+    [Common instance].curitem = [filtered objectAtIndex:buttag];
+    [self performSegueWithIdentifier: @"2ndSegue" sender: self];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -147,31 +200,8 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)buttonEvent:(id)sender {
-    
-    int buttag = ((UIButton*)sender).tag;
-    NSLog(@"Fav button %d clicked!!!", (buttag - 1));
-    
-    [Common instance].curitem = [[Common instance] getFavRecipe:(buttag - 1)];
-//    [self removeFromParentViewController];
-    [self performSegueWithIdentifier: @"2ndSegue" sender: self];
-//    [self.parentViewController performSegueWithIdentifier: @"2ndSegue" sender: self.parentViewController];
-
-}
-
-- (void)buttonDelEvent:(id)sender {
-    
-    int buttag = ((UIButton*)sender).tag;
-    NSLog(@"Fav DEL button %d clicked!!!", buttag);
-    
-    [[Common instance] delFavRecipe:(buttag - 10000)];
-    
-    [self setup];
-    
-}
-
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-
+    
     return NO;
 }
 

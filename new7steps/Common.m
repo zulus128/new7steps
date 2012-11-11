@@ -65,6 +65,11 @@
 	return self;	
 }
 
+- (NSArray*)getRecipes {
+    
+    return recipes;
+}
+
 - (void)clearRecipes {
     
     [recipes removeAllObjects];

@@ -55,6 +55,12 @@
         case WT_RECIPE:
             s = NSLocalizedString(@"MAINBUTTONREC", nil);
             break;
+        case WT_SPISOK:
+            s = NSLocalizedString(@"MAINBUTTONSPS", nil);
+            break;
+        case WT_SEARCH:
+            s = NSLocalizedString(@"SEARCHBUTTON", nil);
+            break;
     }
     [self.goRecipes setTitle:s forState:UIControlStateNormal];
     self.goRecipes.titleLabel.font = [UIFont fontWithName:@"Good-Book" size:20.0];

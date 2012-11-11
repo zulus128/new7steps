@@ -45,7 +45,8 @@ enum window_types {
     WT_MAIN,
     WT_RECIPE,
     WT_FAVOURITES,
-    WT_SPISOK
+    WT_SPISOK,
+    WT_SEARCH
 };
 
 @interface Common : NSObject <UITabBarControllerDelegate> {
@@ -76,6 +77,7 @@ enum window_types {
 - (int) getRecipesCount;
 - (Item*) getRecipeAt: (int)num;
 - (BOOL)addRecipes;
+- (NSArray*)getRecipes;
 - (int) getMaxCategory;
 - (int) getMaxRecipesForCategory:(int) cat;
 - (Item*) getRecipe: (int) num forCategory:(int) cat;

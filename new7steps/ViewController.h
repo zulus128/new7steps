@@ -24,13 +24,14 @@
 @property (nonatomic, retain) NSString* filePath;
 //@property (nonatomic, retain) IBOutlet UIButton* panelbut;
 @property (nonatomic, retain) IBOutlet UILabel* titleLabel;
-@property (nonatomic, retain) IBOutlet UISearchBar* sbar;
+@property (nonatomic, retain) IBOutlet UIButton* goRecipes;
 
+//- (IBAction) search;
 
-- (IBAction)panelButtonClick:(id)sender;
+//- (IBAction)panelButtonClick:(id)sender;
 - (void)refreshImages: (UIView*) scroll cnt1:(int) cnt1 cat:(int)i;
 
-@property (nonatomic, retain) IBOutlet UIView* panel1;
+//@property (nonatomic, retain) IBOutlet UIView* panel1;
 @property (nonatomic, retain) NSMutableDictionary* imgdict;
 
 @end

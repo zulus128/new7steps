@@ -19,8 +19,6 @@
 @implementation ViewController
 @synthesize vertScrollView;
 @synthesize filePath = _filePath;
-//@synthesize panelbut;
-@synthesize panel1;
 
 - (void)viewDidLoad {
 
@@ -58,7 +56,9 @@
 
 //    [self setup];
 
-    
+    NSString* s = NSLocalizedString(@"SEARCHBUTTON", nil);
+    [self.goRecipes setTitle:s forState:UIControlStateNormal];
+    self.goRecipes.titleLabel.font = [UIFont fontWithName:@"Good-Book" size:20.0];
 }
 
 //- (void) loadAllImages {
@@ -380,38 +380,43 @@
     }
 }
 
-- (IBAction)panelButtonClick:(id)sender{
-    
-//    NSLog(@"panel button click");
-    
-    
-    if(!panelhide) {
-        
-    f = self.panel1.frame;
-    [UIView animateWithDuration:0.5 
-                             animations:^{
-                                 [self.panel1 setFrame:CGRectMake(f.origin.x - 250, f.origin.y, f.size.width, f.size.height)];
-                             }
-                             completion:^(BOOL finished){ if(finished) {
-//                [[self ShowHideButton] setTitle:@"Show Panel" forState:UIControlStateNormal];
-//                [self setCurrentState:kHidden];
-            }
-                             }];
-    }
-    else {
-        [UIView animateWithDuration:0.5 
-                         animations:^{
-                             [self.panel1 setFrame:CGRectMake(f.origin.x, f.origin.y, f.size.width, f.size.height)];
-                         }
-                         completion:^(BOOL finished){ if(finished) {
-            //                [[self ShowHideButton] setTitle:@"Show Panel" forState:UIControlStateNormal];
-            //                [self setCurrentState:kHidden];
-        }
-                         }];
-    }
-    
-    panelhide = !panelhide;
-}
+//- (IBAction)panelButtonClick:(id)sender{
+//    
+////    NSLog(@"panel button click");
+//    
+//    
+//    if(!panelhide) {
+//        
+//    f = self.panel1.frame;
+//    [UIView animateWithDuration:0.5 
+//                             animations:^{
+//                                 [self.panel1 setFrame:CGRectMake(f.origin.x - 250, f.origin.y, f.size.width, f.size.height)];
+//                             }
+//                             completion:^(BOOL finished){ if(finished) {
+////                [[self ShowHideButton] setTitle:@"Show Panel" forState:UIControlStateNormal];
+////                [self setCurrentState:kHidden];
+//            }
+//                             }];
+//    }
+//    else {
+//        [UIView animateWithDuration:0.5 
+//                         animations:^{
+//                             [self.panel1 setFrame:CGRectMake(f.origin.x, f.origin.y, f.size.width, f.size.height)];
+//                         }
+//                         completion:^(BOOL finished){ if(finished) {
+//            //                [[self ShowHideButton] setTitle:@"Show Panel" forState:UIControlStateNormal];
+//            //                [self setCurrentState:kHidden];
+//        }
+//                         }];
+//    }
+//    
+//    panelhide = !panelhide;
+//}
+
+//- (IBAction) search {
+//
+//    NSLog(@"Search");
+//}
 
 - (BOOL)shouldAutorotate {
     
