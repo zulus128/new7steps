@@ -18,6 +18,7 @@
     NSOperationQueue *queue;
     UIActivityIndicatorView *sIndicator;
     UIImageView *sView;
+    BOOL memfull;
 }
 
 @property (nonatomic, retain) IBOutlet UIScrollView* vertScrollView;

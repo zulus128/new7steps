@@ -9,7 +9,8 @@
 #import <Foundation/Foundation.h>
 
 @interface Item : NSObject {
-
+    
+    NSOperationQueue *queue;
 }
 
 @property (nonatomic, retain) NSString* name;
@@ -26,5 +27,8 @@
 @property (nonatomic, retain) NSMutableArray* ingrids;
 @property (nonatomic, retain) NSMutableDictionary* ingrids_checked;
 @property (nonatomic, retain) NSMutableArray* steps;
+@property (nonatomic, retain) UIImageView *imgView;
+
+- (void)createImageView ;
 
 @end

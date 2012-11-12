@@ -9,6 +9,7 @@
 #import "SearchViewController.h"
 #import "Common.h"
 #import "MSLabel.h"
+#import "Transit.h"
 
 #define TAG 42
 
@@ -30,6 +31,14 @@
 - (void) viewDidAppear:(BOOL)animated {
     
     [Common instance].prev_window = WT_SEARCH;
+
+}
+
+- (void) viewWillAppear:(BOOL)animated {
+
+    self.text = @"";
+    [self setup];
+
 }
 
 - (void)viewDidLoad
@@ -64,15 +73,27 @@
     }
     [self.goRecipes setTitle:s forState:UIControlStateNormal];
     self.goRecipes.titleLabel.font = [UIFont fontWithName:@"Good-Book" size:20.0];
+    
+    queue = [NSOperationQueue new];
 
+//    for(int c = 20000; c < 20100; c++) {
+//    UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(-500, -500, 81, 55)];
+//    imgView.tag = c;
+//    [self.vertScrollView addSubview:imgView];
+//    }
+
+    self.text = @"s";
+    [self setup];
 }
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
 
-//    NSLog(@"Text for search: %@", searchText);
+    NSLog(@"Text for search: %@", searchText);
     self.text = searchText;
 
     [self setup];
+    
+    NSLog(@"Search end");
 
 }
 
@@ -96,8 +117,8 @@
     
     if(self.text == nil)
         return;
-    if([self.text isEqualToString:@""])
-        return;
+//    if([self.text isEqualToString:@""])
+//        return;
     
     [filtered removeAllObjects];
     NSArray *data = [[Common instance] getRecipes];
@@ -110,6 +131,13 @@
     }
 
     for(UIView *v in self.vertScrollView.subviews){
+        
+//        if(v.tag >= 20000) {
+//        
+//            v.center = CGPointMake(-500, -500);
+//            continue;
+//        }
+        
         if(v.tag > 0) {
             
             [v removeFromSuperview];
@@ -117,7 +145,7 @@
     }
     
     int y = 40;
-
+    int t = 20000;
     int i = 0;
     for(Item* it in filtered) {
 //    for (int i = 0; i < [[Common instance] getFavRecipeCnt]; i++) {
@@ -134,27 +162,52 @@
         //        but.tag = TAG;
         [self.vertScrollView addSubview:but];
         
-//        UIButton *but1 = [UIButton buttonWithType:UIButtonTypeCustom];
-//        //        but1.frame = CGRectMake(292, y + 10, 15, 15);
-//        [but1 setImage:[UIImage imageNamed:@"krest_IZBRANNOE.png"] forState:UIControlStateNormal];
-//        but1.tag = 10000 + i;
-//        [but1 addTarget:self action:@selector(buttonDelEvent:) forControlEvents:UIControlEventTouchUpInside];
-//        [but1 setFrame: CGRectMake(284, y + 2, 31, 31)];
-//        [but1 setImageEdgeInsets:UIEdgeInsetsMake(8, 8, 8, 8)];
-//        [self.vertScrollView addSubview:but1];
+
+        [it createImageView];
+
+        [self.vertScrollView addSubview:it.imgView];
+        it.imgView.center = CGPointMake(10 + 40.5f, y + 8 + 27.5f);
         
-        UIImage* img = [[Common instance] getImage:it.image];
+//        UIImageView* imgView = (UIImageView*) [self.vertScrollView viewWithTag:t++];
+//        if(imgView == nil) {
+//        
+//            NSLog(@"imgView nil");
+//            imgView = [[UIImageView alloc] initWithFrame:CGRectMake(10, y + 8, 81, 55)];
+//            imgView.tag = TAG;
+//        }
+//        else
+//            imgView.center = CGPointMake(10 + 40.5f, y + 8 + 27.5f);
+//
+////        [self.vertScrollView addSubview:imgView];
+//
+//        Transit* tr = [[Transit alloc] init];
+//        tr.view = imgView;
+//        tr.url = it.image;
+//        
+//        tr.image = [[Common instance] getImage:tr.url];
+//        if(tr.image != nil) {
+//            
+////            NSLog(@"Search image found %@", tr.url);
+//            [tr.view setImage:tr.image];
+//        }
+//        else {
+//            NSInvocationOperation *operation = [[NSInvocationOperation alloc]
+//                                                initWithTarget:self
+//                                                selector:@selector(loadSearchImage:)
+//                                                object:tr];
+//            [queue addOperation:operation];
+//        }
         
-        if(img == nil) {
-            
-            NSData* imageData = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:it.image]];
-            img = [[UIImage alloc] initWithData:imageData];
-        }
         
-        UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(10, y + 8, 81, 55)];
-        imgView.image = img;
-        imgView.tag = TAG;
-        [self.vertScrollView addSubview:imgView];
+//        UIImage* img = [[Common instance] getImage:it.image];
+//        if(img == nil) {
+//            
+//            NSLog(@"Search image is nil");
+//            NSData* imageData = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:it.image]];
+//            img = [[UIImage alloc] initWithData:imageData];
+//        }
+        
+//        imgView.image = img;
         
         
         UILabel *sLabel = [ [UILabel alloc ] initWithFrame:CGRectMake(100, y + 5, 150, 24) ];
@@ -180,6 +233,27 @@
     
     self.vertScrollView.contentSize = CGSizeMake(320, y);
     
+}
+- (void)loadSeachImage:(Transit*) tr {
+    
+    NSData* imageData = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:tr.url]];
+    tr.image = [[UIImage alloc] initWithData:imageData];
+    [self performSelectorInBackground:@selector(displaySearchImage:) withObject:tr];
+    
+}
+
+- (void)displaySearchImage:(Transit*)tr {
+    
+    [tr.view setImage:tr.image];
+    
+    //    NSString* n1 = [tr.url stringByReplacingOccurrencesOfString:@":" withString:@"-"];//[tr.url lastPathComponent];
+    //    NSString* n = [n1 stringByReplacingOccurrencesOfString:@"/" withString:@"-"];
+    //
+    //    NSArray* sp = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    //    NSString* docpath = [sp objectAtIndex: 0];
+    //    NSString* filePath = [docpath stringByAppendingPathComponent:n];
+    //    NSData *imgData = UIImagePNGRepresentation(tr.image);
+    //    [imgData writeToFile:filePath atomically:YES];
 }
 
 - (void)buttonEvent:(id)sender {

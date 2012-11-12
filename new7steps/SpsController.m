@@ -222,6 +222,16 @@
     
 }
 
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
+    
+    return NO;
+}
+
+- (BOOL)shouldAutorotate {
+    
+    return NO;
+}
+
 - (IBAction) exit {
     
     [self dismissModalViewControllerAnimated:YES];

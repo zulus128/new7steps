@@ -11,6 +11,8 @@
 @interface SearchViewController : UIViewController <UISearchBarDelegate> {
     
     NSMutableArray *filtered;
+    NSOperationQueue *queue;
+
 }
 
 @property (nonatomic, retain) IBOutlet UILabel* titleLabel;

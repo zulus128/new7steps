@@ -96,6 +96,14 @@
 //
 //}
 
+- (void)didReceiveMemoryWarning {
+    
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+    NSLog(@"didReceiveMemoryWarning11");
+    memfull = YES;
+}
+
 - (void) loadAllImages {
     
     NSArray* sp = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
@@ -113,8 +121,10 @@
         NSData* imageData = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:name]];
         NSData *imgData = UIImagePNGRepresentation([[UIImage alloc] initWithData:imageData]);
         [imgData writeToFile:filePath atomically:YES];
-        NSLog(@"file loaded");
+        NSLog(@"file loaded %@", n);
         
+        if(memfull)
+            break;
     }
     
 }
@@ -287,6 +297,7 @@
             Transit* tr = [[Transit alloc] init];
             tr.view = imgView2;
             tr.url = it.image;
+            tr.item = it;
             
             UIActivityIndicatorView *activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
             activityIndicator.alpha = 1.0;
@@ -302,6 +313,9 @@
                                                 object:tr];
             [queue addOperation:operation];
         }
+        else
+            [it createImageView];
+
         
     }
 
@@ -330,7 +344,7 @@
     NSString* filePath = [docpath stringByAppendingPathComponent:n];
     NSData *imgData = UIImagePNGRepresentation(tr.image);
     [imgData writeToFile:filePath atomically:YES];
-    
+    [tr.item createImageView];
     [tr.activInd stopAnimating];
 }
 
