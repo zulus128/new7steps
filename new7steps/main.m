@@ -17,6 +17,33 @@ int main(int argc, char *argv[])
     BOOL sl = [[NSUserDefaults standardUserDefaults] boolForKey:@"sleep"];
     [UIApplication sharedApplication].idleTimerDisabled = sl;
 
+    BOOL ab = [[NSUserDefaults standardUserDefaults] boolForKey:@"clearcache"];
+    
+    if(ab) {
+        
+        [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"clearcache"];
+        
+        NSArray* sp = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+        NSString* documentsDirectory = [sp objectAtIndex: 0];
+
+        NSFileManager *fileMgr = [[NSFileManager alloc] init];
+        NSError *error = nil;
+        NSArray *directoryContents = [fileMgr contentsOfDirectoryAtPath:documentsDirectory error:&error];
+        if (error == nil) {
+            for (NSString *path in directoryContents) {
+                NSString *fullPath = [documentsDirectory stringByAppendingPathComponent:path];
+                BOOL removeSuccess = [fileMgr removeItemAtPath:fullPath error:&error];
+                if (!removeSuccess) {
+                    // Error handling
+                    NSLog(@"Cache Delete error");
+                }
+            }
+        } else {
+            // Error handling
+            NSLog(@"Cache Delete error 1");
+        }
+    }
+    
     int l = [[NSUserDefaults standardUserDefaults] integerForKey:@"language"];
 
     NSLog(@"lang = %d", l); //

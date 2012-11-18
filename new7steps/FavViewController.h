@@ -8,7 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FavViewController : UIViewController
+@interface FavViewController : UIViewController {
+    
+    int prev_window;
+}
 
 @property (nonatomic, retain) IBOutlet UILabel* titleLabel;
 @property (nonatomic, retain) IBOutlet UIButton* goRecipes;

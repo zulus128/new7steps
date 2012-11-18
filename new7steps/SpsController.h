@@ -10,7 +10,7 @@
 
 @interface SpsController : UIViewController {
     
-//    UIImageView *polosa;
+    int prev_window;
 }
 
 @property (nonatomic, retain) IBOutlet UILabel* titleLabel;

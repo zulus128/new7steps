@@ -7,6 +7,7 @@
 //
 
 #import "FavViewController.h"
+#import "ViewController.h"
 #import "Common.h"
 #import "MSLabel.h"
 #define TAG 42
@@ -36,13 +37,16 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-    self.titleLabel.text = NSLocalizedString(@"TITLE", nil);
+//    self.titleLabel.text = NSLocalizedString(@"TITLE", nil);
+    self.titleLabel.text = NSLocalizedString(@"MAINBUTTONFAV", nil);
     self.titleLabel.font = [UIFont fontWithName:@"Good-Black" size:22.0];
 
+    prev_window = [Common instance].prev_window;
     NSString* s;
     switch ([Common instance].prev_window) {
         case WT_NONE:
         case WT_MAIN:
+        case WT_SPISOK:
         default:
             s = NSLocalizedString(@"MAINBUTTON", nil);
             break;
@@ -52,9 +56,9 @@
         case WT_RECIPE:
             s = NSLocalizedString(@"MAINBUTTONREC", nil);
             break;
-        case WT_SPISOK:
-            s = NSLocalizedString(@"MAINBUTTONSPS", nil);
-            break;
+//        case WT_SPISOK:
+//            s = NSLocalizedString(@"MAINBUTTONSPS", nil);
+//            break;
         case WT_SEARCH:
             s = NSLocalizedString(@"SEARCHBUTTON", nil);
             break;
@@ -182,7 +186,22 @@
 
 - (IBAction) exit {
     
-    [self dismissModalViewControllerAnimated:YES];
+    switch (prev_window) {
+        case WT_NONE:
+        case WT_MAIN:
+        case WT_FAVOURITES:
+        case WT_RECIPE:
+        case WT_SEARCH:
+        default: {
+            [self dismissModalViewControllerAnimated:YES];
+            break;
+        }
+        case WT_SPISOK:{
+            ViewController *ivc = [Common instance].mainController;
+            [ivc dismissModalViewControllerAnimated:YES];
+            break;
+        }
+    }
 }
 
 @end

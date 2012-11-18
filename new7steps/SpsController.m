@@ -40,18 +40,22 @@
 	// Do any additional setup after loading the view.
     
     self.titleLabel.font = [UIFont fontWithName:@"Good-Black" size:22.0];
-    self.titleLabel.text = NSLocalizedString(@"TITLE", nil);
+//    self.titleLabel.text = NSLocalizedString(@"TITLE", nil);
+    self.titleLabel.text = NSLocalizedString(@"MAINBUTTONSPS", nil);
     
+    prev_window = [Common instance].prev_window;
+
     NSString* s;
     switch ([Common instance].prev_window) {
         case WT_NONE:
         case WT_MAIN:
+        case WT_FAVOURITES:
         default:
             s = NSLocalizedString(@"MAINBUTTON", nil);
             break;
-        case WT_FAVOURITES:
-            s = NSLocalizedString(@"MAINBUTTONFAV", nil);
-            break;
+//        case WT_FAVOURITES:
+//            s = NSLocalizedString(@"MAINBUTTONFAV", nil);
+//            break;
         case WT_RECIPE:
             s = NSLocalizedString(@"MAINBUTTONREC", nil);
             break;
@@ -234,7 +238,23 @@
 
 - (IBAction) exit {
     
-    [self dismissModalViewControllerAnimated:YES];
+    switch (prev_window) {
+        case WT_NONE:
+        case WT_MAIN:
+        case WT_RECIPE:
+        case WT_SPISOK:
+        case WT_SEARCH:
+        default: {
+            [self dismissModalViewControllerAnimated:YES];
+            break;
+        }
+        case WT_FAVOURITES:
+        {
+            ViewController *ivc = [Common instance].mainController;
+            [ivc dismissModalViewControllerAnimated:YES];
+            break;
+        }
+    }
 }
 
 - (void)didReceiveMemoryWarning
