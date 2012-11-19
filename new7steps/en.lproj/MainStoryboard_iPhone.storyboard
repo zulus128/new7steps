@@ -590,69 +590,6 @@
         <image name="toolbar_bottom.png" width="640" height="99"/>
         <image name="toolbar_top.png" width="640" height="84"/>
     </resources>
-    <classes>
-        <class className="AboutController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AboutController.h"/>
-            <relationships>
-                <relationship kind="action" name="back"/>
-                <relationship kind="action" name="swich"/>
-                <relationship kind="outlet" name="sleepLab" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="sleepSw" candidateClass="UISwitch"/>
-                <relationship kind="outlet" name="xmlver" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="FavViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FavViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="exit"/>
-                <relationship kind="outlet" name="goRecipes" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="vertScrollView" candidateClass="UIScrollView"/>
-            </relationships>
-        </class>
-        <class className="HorizontalController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/HorizontalController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="horizScrollView" candidateClass="UIScrollView"/>
-            </relationships>
-        </class>
-        <class className="SearchViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SearchViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="exit"/>
-                <relationship kind="outlet" name="goRecipes" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="sbar" candidateClass="UISearchBar"/>
-                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="vertScrollView" candidateClass="UIScrollView"/>
-            </relationships>
-        </class>
-        <class className="SpsController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SpsController.h"/>
-            <relationships>
-                <relationship kind="action" name="exit"/>
-                <relationship kind="outlet" name="goRecipes" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="vertScrollView" candidateClass="UIScrollView"/>
-            </relationships>
-        </class>
-        <class className="ViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="goRecipes" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="vertScrollView" candidateClass="UIScrollView"/>
-            </relationships>
-        </class>
-        <class className="ViewController2" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController2.h"/>
-            <relationships>
-                <relationship kind="action" name="exit"/>
-                <relationship kind="outlet" name="goRecipes" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="vertScrollView2" candidateClass="UIScrollView"/>
-                <relationship kind="outlet" name="vertScrollView3" candidateClass="UIScrollView"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

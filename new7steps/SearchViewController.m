@@ -10,6 +10,7 @@
 #import "Common.h"
 #import "MSLabel.h"
 #import "Transit.h"
+#import "Ingridient.h"
 
 #define TAG 42
 
@@ -127,7 +128,18 @@
         if (rangeValue.location != NSNotFound) {
             
             [filtered addObject:it];
+            continue;
         }
+        for (Ingridient* ing in it.ingrids) {
+
+            NSRange rangeValue = [ing.name rangeOfString:self.text options:NSCaseInsensitiveSearch];
+            if (rangeValue.location != NSNotFound) {
+                
+                [filtered addObject:it];
+                continue;
+            }
+        }
+
     }
 
     for(UIView *v in self.vertScrollView.subviews){

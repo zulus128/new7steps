@@ -280,8 +280,10 @@
     y += 5;
     
     UIButton *fav = [UIButton buttonWithType:UIButtonTypeCustom];
-    fav.frame = CGRectMake(285, y - 90, 23, 31);
+    fav.frame = CGRectMake(274, y - 82, 39, 47);
     [fav setImage:[UIImage imageNamed:@"STAR_Icons.png"] forState:UIControlStateNormal];
+//    [fav setFrame: CGRectMake(282, y + 3, 31, 31)];
+    [fav setImageEdgeInsets:UIEdgeInsetsMake(8, 8, 8, 8)];
     [fav addTarget:self action:@selector(buttonFav:) forControlEvents:UIControlEventTouchUpInside];
     [self.vertScrollView2 addSubview:fav];
     
@@ -311,8 +313,9 @@
     //    y += 140;
     
     UIButton *sps = [UIButton buttonWithType:UIButtonTypeCustom];
-    sps.frame = CGRectMake(285, y1 + 20, 20, 25);
+    sps.frame = CGRectMake(274, y1 + 12, 36, 41);
     [sps setImage:[UIImage imageNamed:@"Spisok_Icons.png"] forState:UIControlStateNormal];
+    [sps setImageEdgeInsets:UIEdgeInsetsMake(8, 8, 8, 8)];
     [sps addTarget:self action:@selector(buttonSps:) forControlEvents:UIControlEventTouchUpInside];
     [self.vertScrollView2 addSubview:sps];
     
