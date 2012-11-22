@@ -483,7 +483,8 @@
     NSArray* sp = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString* docpath = [sp objectAtIndex: 0];
     NSString* filePath = [docpath stringByAppendingPathComponent:n];
-    NSData *imgData = UIImagePNGRepresentation(tr.image);
+//    NSData *imgData = UIImagePNGRepresentation(tr.image);
+    NSData *imgData = UIImageJPEGRepresentation(tr.image, 1.0f);
     [imgData writeToFile:filePath atomically:YES];
 }
 

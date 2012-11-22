@@ -119,10 +119,11 @@
             continue;
         
         NSData* imageData = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:name]];
-        NSData *imgData = UIImagePNGRepresentation([[UIImage alloc] initWithData:imageData]);
+//        NSData *imgData = UIImagePNGRepresentation([[UIImage alloc] initWithData:imageData]);
+        NSData *imgData = UIImageJPEGRepresentation([[UIImage alloc] initWithData:imageData], 1.0f);
         [imgData writeToFile:filePath atomically:YES];
         NSLog(@"file loaded %@", n);
-        
+//        [imageData release];
         if(memfull)
             break;
     }
@@ -342,7 +343,8 @@
     NSArray* sp = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString* docpath = [sp objectAtIndex: 0];
     NSString* filePath = [docpath stringByAppendingPathComponent:n];
-    NSData *imgData = UIImagePNGRepresentation(tr.image);
+//    NSData *imgData = UIImagePNGRepresentation(tr.image);
+    NSData *imgData = UIImageJPEGRepresentation(tr.image, 1.0f);
     [imgData writeToFile:filePath atomically:YES];
     [tr.item createImageView];
     [tr.activInd stopAnimating];
