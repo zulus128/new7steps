@@ -11,6 +11,7 @@
 #import "ViewController2.h"
 #import "Transit.h"
 #import "MSLabel.h"
+#import "CMTwoToneProgressBar.h"
 
 #define GAP 190
 #define SPACE 20
@@ -33,12 +34,15 @@
     sView.image = [UIImage imageNamed:@"Default.png"];
     [self.view addSubview:sView];
     
+    progBar = [[CMTwoToneProgressBar alloc] initWithFrame:CGRectMake(60, 200, 200, 10)];
+    [self.view addSubview:progBar];
+
     sIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
     sIndicator.alpha = 1.0;
     sIndicator.center = CGPointMake(160, 280);
     sIndicator.hidesWhenStopped = YES;
     [sIndicator setColor:[UIColor grayColor]];
-    [self.view addSubview:sIndicator];
+//    [self.view addSubview:sIndicator];
     [sIndicator startAnimating];
 
     [super viewDidLoad];
@@ -62,42 +66,45 @@
     NSString* s = NSLocalizedString(@"SEARCHBUTTON", nil);
     [self.goRecipes setTitle:s forState:UIControlStateNormal];
     self.goRecipes.titleLabel.font = [UIFont fontWithName:@"Good-Book" size:20.0];
+    
+
 }
 
-//- (void) loadAllImages {
-//
+- (void) loadAllImages {
+
 //    NSOperationQueue* queue1 = [NSOperationQueue new];
-//
-//    for(NSString* name in [Common instance].allImages) {
-//
-//        NSInvocationOperation *operation = [[NSInvocationOperation alloc]
-//                                            initWithTarget:self
-//                                            selector:@selector(loadImage5:)
-//                                            object:name];
-//        [queue1 addOperation:operation];
-//    }
-//
-//}
-//
-//- (void)loadImage5:(NSString*) name {
-//
-//    NSArray* sp = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-//    NSString* docpath = [sp objectAtIndex: 0];
-//    NSString* n1 = [name stringByReplacingOccurrencesOfString:@":" withString:@"-"];//[tr.url lastPathComponent];
-//    NSString* n = [n1 stringByReplacingOccurrencesOfString:@"/" withString:@"-"];
-//    NSString* filePath = [docpath stringByAppendingPathComponent:n];
-//
-//    if([[NSFileManager defaultManager] fileExistsAtPath:filePath])
-//        return;
-//
-//    NSData* imageData = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:name]];
+
+    for(NSString* name in [Common instance].allImages) {
+
+        NSInvocationOperation *operation = [[NSInvocationOperation alloc]
+                                            initWithTarget:self
+                                            selector:@selector(loadImage5:)
+                                            object:name];
+        [queue addOperation:operation];
+    }
+
+}
+
+- (void)loadImage5:(NSString*) name {
+
+    NSArray* sp = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString* docpath = [sp objectAtIndex: 0];
+    NSString* n1 = [name stringByReplacingOccurrencesOfString:@":" withString:@"-"];//[tr.url lastPathComponent];
+    NSString* n = [n1 stringByReplacingOccurrencesOfString:@"/" withString:@"-"];
+    NSString* filePath = [docpath stringByAppendingPathComponent:n];
+
+    if([[NSFileManager defaultManager] fileExistsAtPath:filePath])
+        return;
+
+    NSData* imageData = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:name]];
 //    NSData *imgData = UIImagePNGRepresentation([[UIImage alloc] initWithData:imageData]);
-//    [imgData writeToFile:filePath atomically:YES];
-//    NSLog(@"file loaded");
-////    sleep(0.5f);
-////    [NSThread sleepForTimeInterval:0.5f];
-//
-//}
+    NSData *imgData = UIImageJPEGRepresentation([[UIImage alloc] initWithData:imageData], 1);
+    [imgData writeToFile:filePath atomically:YES];
+    NSLog(@"file loaded %@", n);
+//    sleep(0.5f);
+//    [NSThread sleepForTimeInterval:0.5f];
+
+}
 
 - (void)didReceiveMemoryWarning {
     
@@ -107,37 +114,43 @@
     memfull = YES;
 }
 
-- (void) loadAllImages {
-    
-    NSArray* sp = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString* docpath = [sp objectAtIndex: 0];
-
-    for(NSString* name in [Common instance].allImages) {
-        
-        NSString* n1 = [name stringByReplacingOccurrencesOfString:@":" withString:@"-"];
-        NSString* n = [n1 stringByReplacingOccurrencesOfString:@"/" withString:@"-"];
-        NSString* filePath = [docpath stringByAppendingPathComponent:n];
-        
-        if([[NSFileManager defaultManager] fileExistsAtPath:filePath])
-            continue;
-        
-        NSData* imageData = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:name]];
-//        NSData *imgData = UIImagePNGRepresentation([[UIImage alloc] initWithData:imageData]);
-        NSData *imgData = UIImageJPEGRepresentation([[UIImage alloc] initWithData:imageData], 1.0f);
-        [imgData writeToFile:filePath atomically:YES];
-        NSLog(@"file loaded %@", n);
-//        [imageData release];
-        if(memfull)
-            break;
-    }
-    
-}
+//- (void) loadAllImages {
+//    
+//    NSArray* sp = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+//    NSString* docpath = [sp objectAtIndex: 0];
+//
+//    for(NSString* name in [Common instance].allImages) {
+//        
+//        NSString* n1 = [name stringByReplacingOccurrencesOfString:@":" withString:@"-"];
+//        NSString* n = [n1 stringByReplacingOccurrencesOfString:@"/" withString:@"-"];
+//        NSString* filePath = [docpath stringByAppendingPathComponent:n];
+//        
+//        if([[NSFileManager defaultManager] fileExistsAtPath:filePath])
+//            continue;
+//        
+//        NSData* imageData = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:name]];
+////        NSData *imgData = UIImagePNGRepresentation([[UIImage alloc] initWithData:imageData]);
+//        NSData *imgData = UIImageJPEGRepresentation([[UIImage alloc] initWithData:imageData], 1.0f);
+//        [imgData writeToFile:filePath atomically:YES];
+//        NSLog(@"file loaded %@", n);
+////        [imageData release];
+//        if(memfull)
+//            break;
+//    }
+//    
+//}
 
 //- (void)viewWillAppear:(BOOL)animated {
 //
 //    NSLog(@"SSSSSSSSSSSS");
 //    
 //}
+
+- (void) showBar {
+    
+    [progBar setProgress:1 animated:NO];
+
+}
 
 - (void) viewDidAppear:(BOOL)animated {
 
@@ -150,15 +163,48 @@
     
     [[Common instance] addRecipes];
     [self setup];
+//    [self performSelectorOnMainThread:@selector(loadAllImages) withObject:nil waitUntilDone:YES];
+    [self performSelectorInBackground:@selector(loadAllImages) withObject:nil];
 
-    NSLog(@"SSSSSSSSSSSS1");
+//    [progBar setProgress:1 animated:NO];
+
+    
+    BOOL b = YES;
+    int u = queue.operationCount;
+    while (b) {
+        b = NO;
+//        int k = 0;
+//        NSLog(@"queue.operationCount = %d", queue.operationCount);
+        for(NSOperation *op in [queue operations]) {
+            
+            if(op.isExecuting) {
+                
+                b = YES;
+//                k++;
+            }
+        }
+        if(u < 1)
+            u = 1;
+        float ff = (float)(u - queue.operationCount)/u;
+        NSLog(@"f = %f %d %d", ff, u, queue.operationCount);
+        
+//        [queue setSuspended:YES];
+//        [self performSelectorOnMainThread:@selector(showBar) withObject:nil waitUntilDone:YES];
+
+        [progBar setProgress:ff animated:NO];
+        [progBar setNeedsDisplay];
+
+    }
+
+//    NSLog(@"SSSSSSSSSSSS1");
+//    [progBar removeFromSuperview];
     [sIndicator stopAnimating];
     
     [sView removeFromSuperview];
     
 //    [[Common instance] loadAllImages];
 
-    [self performSelectorInBackground:@selector(loadAllImages) withObject:nil];
+//    [self performSelectorInBackground:@selector(loadAllImages) withObject:nil];
 //    [self performSelectorOnMainThread:@selector(loadAllImages) withObject:nil waitUntilDone:YES];
 
 }

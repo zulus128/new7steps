@@ -16,6 +16,7 @@
 		9C02B599162D13EC00FAE4B5 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C02B598162D13EC00FAE4B5 /* Default@2x.png */; };
 		9C02B59C162D13F200FAE4B5 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C02B59B162D13F200FAE4B5 /* Default-568h@2x.png */; };
 		9C02B59F162D1C9F00FAE4B5 /* FlipTopPopToRoot.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C02B59E162D1C9F00FAE4B5 /* FlipTopPopToRoot.m */; };
+		9C1195DE165F7F91001737CE /* CMTwoToneProgressBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C1195DC165F7A84001737CE /* CMTwoToneProgressBar.m */; };
 		9C1490371611CFFB0016A83E /* AboutController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C1490361611CFFB0016A83E /* AboutController.m */; };
 		9C200820163E75D900139A34 /* Spisok_Icons.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C20081B163E75D900139A34 /* Spisok_Icons.png */; };
 		9C200821163E75D900139A34 /* STAR_Icons.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C20081C163E75D900139A34 /* STAR_Icons.png */; };
@@ -109,6 +110,8 @@
 		9C02B59B162D13F200FAE4B5 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		9C02B59D162D1C9F00FAE4B5 /* FlipTopPopToRoot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlipTopPopToRoot.h; sourceTree = "<group>"; };
 		9C02B59E162D1C9F00FAE4B5 /* FlipTopPopToRoot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlipTopPopToRoot.m; sourceTree = "<group>"; };
+		9C1195DB165F7A84001737CE /* CMTwoToneProgressBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMTwoToneProgressBar.h; sourceTree = "<group>"; };
+		9C1195DC165F7A84001737CE /* CMTwoToneProgressBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMTwoToneProgressBar.m; sourceTree = "<group>"; };
 		9C1490351611CFFB0016A83E /* AboutController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutController.h; sourceTree = "<group>"; };
 		9C1490361611CFFB0016A83E /* AboutController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutController.m; sourceTree = "<group>"; };
 		9C20081B163E75D900139A34 /* Spisok_Icons.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Spisok_Icons.png; sourceTree = "<group>"; };
@@ -372,6 +375,8 @@
 				36D50F3115AAA16800D53641 /* Common.m */,
 				3661C75315AAA009007B5C56 /* XMLParser.h */,
 				3661C75415AAA009007B5C56 /* XMLParser.m */,
+				9C1195DB165F7A84001737CE /* CMTwoToneProgressBar.h */,
+				9C1195DC165F7A84001737CE /* CMTwoToneProgressBar.m */,
 				DDCEA85F154E41D20089A98F /* Supporting Files */,
 				9C02B59D162D1C9F00FAE4B5 /* FlipTopPopToRoot.h */,
 				9C02B59E162D1C9F00FAE4B5 /* FlipTopPopToRoot.m */,
@@ -571,6 +576,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9C1195DE165F7F91001737CE /* CMTwoToneProgressBar.m in Sources */,
 				36D50F3A15AAD8F700D53641 /* Item.m in Sources */,
 				DDCEA865154E41D20089A98F /* main.m in Sources */,
 				DDCEA869154E41D20089A98F /* AppDelegate.m in Sources */,

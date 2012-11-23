@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+@class CMTwoToneProgressBar;
+
 @interface ViewController : UIViewController <UIScrollViewDelegate> {
     
 //    NSMutableDictionary* favs;
@@ -19,6 +21,7 @@
     UIActivityIndicatorView *sIndicator;
     UIImageView *sView;
     BOOL memfull;
+    CMTwoToneProgressBar* progBar;
 }
 
 @property (nonatomic, retain) IBOutlet UIScrollView* vertScrollView;
