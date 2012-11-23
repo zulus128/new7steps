@@ -46,6 +46,9 @@ int main(int argc, char *argv[])
     
     int l = [[NSUserDefaults standardUserDefaults] integerForKey:@"language"];
 
+    
+    l = 3;//Russian
+    
     NSLog(@"lang = %d", l); //
 
     switch (l) {

@@ -12,6 +12,9 @@
 #import "Transit.h"
 #import "MSLabel.h"
 
+#define GAP 190
+#define SPACE 20
+
 @interface ViewController ()
 
 @end
@@ -190,7 +193,7 @@
         int k = [[Common instance] getMaxRecipesForCategory:i];
         if((k % 2) != 0)
             k++;
-        scroll.contentSize = CGSizeMake(k * 160 / 2 + 20, 301);
+        scroll.contentSize = CGSizeMake(k * GAP / 2 + 2 * SPACE, 301);
         scroll.showsHorizontalScrollIndicator = NO;
         scroll.directionalLockEnabled = YES;
         [self.vertScrollView addSubview:scroll];
@@ -205,12 +208,12 @@
             if(j%2) {
                 
                 yy = 0;
-                xx = jj * 160 + 10;
+                xx = jj * GAP + SPACE;
             }
             else {
                 
                 yy = 145;
-                xx = jj * 160 + 10;
+                xx = jj * GAP + SPACE;
                 jj++;
             }
             but.frame = CGRectMake(xx, yy, 160, 106);
@@ -265,12 +268,12 @@
         if(j%2) {
             
             yy = 0;
-            xx = jj * 160 + 10;
+            xx = jj * GAP + SPACE;
         }
         else {
             
             yy = 145;
-            xx = jj * 160 + 10;
+            xx = jj * GAP + SPACE;
             jj++;
         }
 

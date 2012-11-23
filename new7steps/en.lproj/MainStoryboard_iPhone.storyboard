@@ -16,12 +16,16 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" id="tXF-wL-ofH">
+                                <rect key="frame" x="0.0" y="41" width="320" height="390"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            </scrollView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="toolbar_top.png" id="h1M-7Z-j4E">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="42"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="52"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="toolbar_bottom.png" id="OYu-jX-O71">
-                                <rect key="frame" x="0.0" y="430" width="320" height="50"/>
+                                <rect key="frame" x="0.0" y="420" width="320" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="KDF-fA-Ug4">
@@ -70,6 +74,21 @@
                                     <segue destination="hTb-VO-hDS" kind="modal" modalTransitionStyle="flipHorizontal" id="lDP-OC-w1P"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Iag-it-SS6">
+                                <rect key="frame" x="15" y="8" width="20" height="26"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" image="icon_medal_for_topbar.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="OR5-YN-AmK" kind="modal" modalTransitionStyle="flipHorizontal" id="MXn-XG-Y8T"/>
+                                </connections>
+                            </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="uuB-oX-NRi">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="42"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -92,10 +111,6 @@
                                     <segue destination="Xlg-wA-NvM" kind="modal" modalTransitionStyle="flipHorizontal" id="iR6-NK-C12"/>
                                 </connections>
                             </button>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" id="tXF-wL-ofH">
-                                <rect key="frame" x="0.0" y="41" width="320" height="389"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -112,6 +127,56 @@
             </objects>
             <point key="canvasLocation" x="-497" y="-229"/>
         </scene>
+        <!--Konkurs View Controller-->
+        <scene sceneID="Iei-8a-tnb">
+            <objects>
+                <viewController id="OR5-YN-AmK" customClass="KonkursViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5JG-dW-4cr">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="background.jpg" id="Ufl-Hy-i7M">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="toolbar_top.png" id="DjU-Oh-VmT">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="52"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Y1y-AZ-TF0">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="42"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="tBK-IY-pgw">
+                                <rect key="frame" x="15" y="8" width="20" height="26"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" image="icon_medal_for_topbar.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="selected" image="spisok_on.png"/>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="back" destination="OR5-YN-AmK" eventType="touchUpInside" id="fao-Rp-Wma"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="titleLabel" destination="Y1y-AZ-TF0" id="SBV-qJ-v0d"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CSP-5P-owV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-135" y="-650"/>
+        </scene>
         <!--Search View Controller-->
         <scene sceneID="JHm-Pc-clI">
             <objects>
@@ -124,12 +189,27 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" id="yB2-PW-XxG">
+                                <rect key="frame" x="0.0" y="41" width="320" height="389"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <subviews>
+                                    <searchBar contentMode="redraw" barStyle="blackTranslucent" showsCancelButton="YES" id="sec-Q5-ezj">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                        <color key="tintColor" red="0.52156865600000002" green="0.231372565" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="Xlg-wA-NvM" id="7aE-Ej-DrH"/>
+                                        </connections>
+                                    </searchBar>
+                                </subviews>
+                            </scrollView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="toolbar_bottom.png" id="d0I-u9-QyK">
-                                <rect key="frame" x="0.0" y="430" width="320" height="50"/>
+                                <rect key="frame" x="0.0" y="420" width="320" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="toolbar_top.png" id="GEp-QY-sq4">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="42"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="52"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1Kw-vM-sQe">
@@ -200,21 +280,6 @@
                                     <segue destination="zF2-UT-wQg" kind="modal" modalTransitionStyle="flipHorizontal" id="O36-O7-05c"/>
                                 </connections>
                             </button>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" id="yB2-PW-XxG">
-                                <rect key="frame" x="0.0" y="41" width="320" height="389"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <subviews>
-                                    <searchBar contentMode="redraw" barStyle="blackTranslucent" showsCancelButton="YES" id="sec-Q5-ezj">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                        <color key="tintColor" red="0.52156865600000002" green="0.231372565" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                        <connections>
-                                            <outlet property="delegate" destination="Xlg-wA-NvM" id="7aE-Ej-DrH"/>
-                                        </connections>
-                                    </searchBar>
-                                </subviews>
-                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -242,12 +307,16 @@
                                 <rect key="frame" x="0.0" y="-10" width="320" height="490"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="mtj-QU-vpA">
+                                <rect key="frame" x="0.0" y="43" width="320" height="388"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            </scrollView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="toolbar_bottom.png" id="RlE-M7-MPj">
-                                <rect key="frame" x="0.0" y="430" width="320" height="50"/>
+                                <rect key="frame" x="0.0" y="420" width="320" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="toolbar_top.png" id="SvC-V9-NZ4">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="42"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="52"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Bbb-q3-N1l">
@@ -303,10 +372,6 @@
                                     <action selector="exit" destination="sQb-yZ-4vU" eventType="touchUpInside" id="xRC-Gm-hOc"/>
                                 </connections>
                             </button>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="mtj-QU-vpA">
-                                <rect key="frame" x="0.0" y="43" width="320" height="386"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -333,8 +398,16 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <scrollView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="Ujs-MC-kqX">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="431"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </scrollView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="GJa-RH-WUq">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="431"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            </scrollView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="toolbar_bottom.png" id="BKy-Al-iKS">
-                                <rect key="frame" x="0.0" y="430" width="320" height="50"/>
+                                <rect key="frame" x="0.0" y="420" width="320" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="NeO-np-yEF">
@@ -367,14 +440,6 @@
                                     <segue destination="zF2-UT-wQg" kind="modal" modalTransitionStyle="flipHorizontal" id="SCq-aC-MHV"/>
                                 </connections>
                             </button>
-                            <scrollView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="Ujs-MC-kqX">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="429"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                            </scrollView>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="GJa-RH-WUq">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="429"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                            </scrollView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="clip" id="C2i-Jj-HPq">
                                 <rect key="frame" x="66" y="435" width="188" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -417,12 +482,16 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="k0J-an-pK1">
+                                <rect key="frame" x="0.0" y="39" width="320" height="392"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            </scrollView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="toolbar_top.png" id="AcN-IZ-680">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="42"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="52"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="toolbar_bottom.png" id="07G-fh-gPe">
-                                <rect key="frame" x="0.0" y="430" width="320" height="50"/>
+                                <rect key="frame" x="0.0" y="420" width="320" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="JsS-yC-yBo">
@@ -478,10 +547,6 @@
                                     <action selector="exit" destination="zF2-UT-wQg" eventType="touchUpInside" id="Mal-M0-miU"/>
                                 </connections>
                             </button>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="k0J-an-pK1">
-                                <rect key="frame" x="0.0" y="39" width="320" height="392"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -510,7 +575,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="toolbar_top.png" id="7b4-E6-6Yo">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="42"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="52"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="2tw-Ug-JBr">
@@ -582,23 +647,94 @@
     </scenes>
     <resources>
         <image name="background.jpg" width="640" height="960"/>
+        <image name="icon_medal_for_topbar.png" width="40" height="52"/>
         <image name="spisok_new.png" width="38" height="39"/>
         <image name="spisok_new_ON.png" width="38" height="39"/>
         <image name="spisok_on.png" width="48" height="63"/>
         <image name="star_off.png" width="56" height="56"/>
         <image name="star_on.png" width="56" height="56"/>
-        <image name="toolbar_bottom.png" width="640" height="99"/>
-        <image name="toolbar_top.png" width="640" height="84"/>
+        <image name="toolbar_bottom.png" width="640" height="121"/>
+        <image name="toolbar_top.png" width="640" height="104"/>
     </resources>
+    <classes>
+        <class className="AboutController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AboutController.h"/>
+            <relationships>
+                <relationship kind="action" name="back"/>
+                <relationship kind="action" name="swich"/>
+                <relationship kind="outlet" name="sleepLab" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="sleepSw" candidateClass="UISwitch"/>
+                <relationship kind="outlet" name="xmlver" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="FavViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FavViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="exit"/>
+                <relationship kind="outlet" name="goRecipes" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="vertScrollView" candidateClass="UIScrollView"/>
+            </relationships>
+        </class>
+        <class className="HorizontalController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/HorizontalController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="horizScrollView" candidateClass="UIScrollView"/>
+            </relationships>
+        </class>
+        <class className="KonkursViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/KonkursViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="back"/>
+                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="SearchViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SearchViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="exit"/>
+                <relationship kind="outlet" name="goRecipes" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="sbar" candidateClass="UISearchBar"/>
+                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="vertScrollView" candidateClass="UIScrollView"/>
+            </relationships>
+        </class>
+        <class className="SpsController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SpsController.h"/>
+            <relationships>
+                <relationship kind="action" name="exit"/>
+                <relationship kind="outlet" name="goRecipes" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="vertScrollView" candidateClass="UIScrollView"/>
+            </relationships>
+        </class>
+        <class className="ViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="goRecipes" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="vertScrollView" candidateClass="UIScrollView"/>
+            </relationships>
+        </class>
+        <class className="ViewController2" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController2.h"/>
+            <relationships>
+                <relationship kind="action" name="exit"/>
+                <relationship kind="outlet" name="goRecipes" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="vertScrollView2" candidateClass="UIScrollView"/>
+                <relationship kind="outlet" name="vertScrollView3" candidateClass="UIScrollView"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="etW-Na-uOH"/>
         <segue reference="4c0-1w-bV4"/>
+        <segue reference="etW-Na-uOH"/>
         <segue reference="J31-lR-RrZ"/>
-        <segue reference="Uc9-wM-GOX"/>
+        <segue reference="O36-O7-05c"/>
     </inferredMetricsTieBreakers>
 </document>
