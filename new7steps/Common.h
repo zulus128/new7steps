@@ -60,12 +60,12 @@ enum window_types {
 
 + (Common*) instance;
 
-- (void)addFavRecipe: (Item*)item;
+- (BOOL)addFavRecipe: (Item*)item;
 - (int) getFavRecipeCnt;
 - (Item*) getFavRecipe: (int) i;
 - (void) delFavRecipe: (int) i;
 
-- (void)addSpsRecipe: (Item*)item;
+- (BOOL)addSpsRecipe: (Item*)item;
 - (int) getSpsRecipeCnt;
 - (Item*) getSpsRecipe: (int) i;
 - (void) delSpsRecipe: (int) i;

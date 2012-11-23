@@ -12,6 +12,7 @@
 #import "Ingridient.h"
 
 #define TAG 42
+#define ZACH 100000
 
 @interface SpsController ()
 
@@ -83,6 +84,7 @@
     
     
     int y = 20;
+//    int cnt = 1;
     
     for (int i = 0; i < [[Common instance] getSpsRecipeCnt]; i++) {
         
@@ -149,7 +151,7 @@
 
                     UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(43, y + 12, 260, 1)];
                     imgView.image = [UIImage imageNamed:@"zacherkivanie_SPISOK.png"];
-                    imgView.tag = TAG;
+                    imgView.tag = ZACH + i * CAT_MULT + j + 1;
                     [self.vertScrollView addSubview:imgView];
                     b = YES;
                     
@@ -182,11 +184,31 @@
 
     NSLog(@"Spisok check button %d clicked!!! x = %f, y = %f", buttag, x, y);
 
+    
+    
+    int i = buttag / CAT_MULT;
+    int j = buttag - i * CAT_MULT;
+    Item* it = [[Common instance] getSpsRecipe:i];
+    Ingridient* ing = [it.ingrids objectAtIndex:j];
+    NSString* key = ing.name;//[it.ingrids.allKeys objectAtIndex:j];
+    
+    if ([@"YES" isEqualToString:[it.ingrids_checked objectForKey:key]]) {
+        
+        [[self.vertScrollView viewWithTag:(buttag + ZACH + 1)] removeFromSuperview];
+        [it.ingrids_checked setObject:@"NO" forKey:key];
+        NSLog(@"UnChecked i = %d, j = %d, buttag = %d, key = %@", i, j, buttag - ZACH + 1, key);
+        [[Common instance] saveSpsRecipes];
+        
+        [((UIButton*)sender) setImage:[UIImage imageNamed:@"on_SPISOK.png"] forState:UIControlStateNormal];
+
+        return;
+    }
+    
     float a = 28;
     float b = 14;
     UIImageView *polosa = [[UIImageView alloc] initWithFrame:CGRectMake(x + a, y + b, /*260*/2, 1)];
     polosa.image = [UIImage imageNamed:@"zacherkivanie_SPISOK.png"];
-    polosa.tag = TAG;
+    polosa.tag = ZACH + i * CAT_MULT + j + 1;
     [self.vertScrollView addSubview:polosa];
 
     [UIView animateWithDuration:0.3f delay:0.0f options:UIViewAnimationOptionBeginFromCurrentState
@@ -198,14 +220,10 @@
                      }
      ];
     
-    int i = buttag / CAT_MULT;
-    int j = buttag - i * CAT_MULT;
     
-    Item* it = [[Common instance] getSpsRecipe:i];
-    Ingridient* ing = [it.ingrids objectAtIndex:j];
-    NSString* key = ing.name;//[it.ingrids.allKeys objectAtIndex:j];
+
     [it.ingrids_checked setObject:@"YES" forKey:key];
-    NSLog(@"Checked i = %d, j = %d, key = %@", i, j, key);
+    NSLog(@"Checked i = %d, j = %d, buttag = %d, key = %@", i, j, ZACH + i * CAT_MULT + j + 1, key);
     [[Common instance] saveSpsRecipes];
     
     [((UIButton*)sender) setImage:[UIImage imageNamed:@"off_SPISOK.png"] forState:UIControlStateNormal];

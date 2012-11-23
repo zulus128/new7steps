@@ -15,7 +15,9 @@
 "MAINBUTTONREC" = "Recipe";
 "MAINBUTTONSPS" = "List";
 "FAVMESSAGE" = "Saved to Favourites";
+"FAVNOMESSAGE" = "Already in Favourites";
 "SPSMESSAGE" = "Saved to List";
+"SPSNOMESSAGE" = "Already in List";
 "COURSE" = "COURSE";
 "RECIPE_TYPE" = "Recipe type";
 "RECIPE_TIME" = "Recipe time";

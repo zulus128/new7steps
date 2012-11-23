@@ -142,8 +142,13 @@
     return it;
 }
 
-- (void) addFavRecipe: (Item*)item {
+- (BOOL) addFavRecipe: (Item*)item {
 
+    for (NSDictionary* dic in favs) {
+        if([item.name isEqualToString: [dic objectForKey:@"Name"]])
+            return NO;
+    }
+    
     NSString* favPath = [docpath stringByAppendingPathComponent:@"favourites.plist"];
 
 //    [self.favrecipes addObject:item];
@@ -207,6 +212,8 @@
 
     BOOL b = [favs writeToFile:favPath atomically:YES];
     NSLog(@"Recipe added to favourites, title: %@, PATH = %@, result = %d", item.name, favPath, b);
+    
+    return YES;
 }
 
 - (int) getSpsRecipeCnt {
@@ -284,8 +291,13 @@
 
 }
 
-- (void) addSpsRecipe: (Item*)item {
+- (BOOL) addSpsRecipe: (Item*)item {
     
+    for (NSDictionary* dic in sps) {
+        if([item.name isEqualToString: [dic objectForKey:@"Name"]])
+            return NO;
+    }
+
     NSString* spsPath = [docpath stringByAppendingPathComponent:@"spisok.plist"];
     
     NSMutableArray* name = [[NSMutableArray alloc] init];
@@ -347,6 +359,8 @@
     
     BOOL b = [sps writeToFile:spsPath atomically:YES];
     NSLog(@"Recipe added to Spisok, title: %@, PATH = %@, result = %d", item.name, spsPath, b);
+    
+    return YES;
 }
 
 - (int) getRecipesCount {

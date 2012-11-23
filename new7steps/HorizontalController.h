@@ -16,6 +16,7 @@
     CGRect screenBounds;
     Item* it;
     int index;
+    BOOL left;
 }
 
 @property (nonatomic, retain) IBOutlet UIScrollView* horizScrollView;

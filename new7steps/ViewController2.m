@@ -501,9 +501,9 @@
 //    [[Common instance].spsingrids addEntriesFromDictionary:it.ingrids];
 //    [[Common instance] saveSpisokIngrids];
     
-    [[Common instance] addSpsRecipe:it];
+    BOOL b = [[Common instance] addSpsRecipe:it];
     
-    NSString* s = NSLocalizedString(@"SPSMESSAGE", nil);
+    NSString* s = b?NSLocalizedString(@"SPSMESSAGE", nil):NSLocalizedString(@"SPSNOMESSAGE", nil);
     UIAlertView* dialog = [[UIAlertView alloc] init];
     [dialog setTitle:@""];
     [dialog setMessage:s];
@@ -516,9 +516,9 @@
 
 //    NSLog(@"addFav");
     
-    [[Common instance] addFavRecipe:it];
+    BOOL b = [[Common instance] addFavRecipe:it];
 
-    NSString* s = NSLocalizedString(@"FAVMESSAGE", nil);
+    NSString* s = b?NSLocalizedString(@"FAVMESSAGE", nil):NSLocalizedString(@"FAVNOMESSAGE", nil);
     UIAlertView* dialog = [[UIAlertView alloc] init];
     [dialog setTitle:@""];
     [dialog setMessage:s];

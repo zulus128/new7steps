@@ -26,6 +26,13 @@
     return self;
 }
 
+- (void)pageViewController:(UIPageViewController *)pageViewController didFinishAnimating:(BOOL)finished previousViewControllers:(NSArray *)previousViewControllers transitionCompleted:(BOOL)completed {
+
+//    NSLog(@"Did %d", completed);
+    if(completed)
+        index += (left?-1:1);
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -91,11 +98,12 @@
     
     if(index < 1)
         return nil;
-    index--;
+//    index--;
+    left = YES;
     
-    NSLog(@"indexBefore = %d", index);
+    NSLog(@"indexBefore = %d", (index - 1));
 
-    Step* s = [it.steps objectAtIndex:index];
+    Step* s = [it.steps objectAtIndex:(index - 1)];
     UIImageView *imgV = [[UIImageView alloc] initWithFrame:screenBounds];
     UIImage* iii = [[Common instance] getImage:s.path];
     if(iii != nil) {
@@ -118,11 +126,12 @@
 
     if(index >= (it.steps.count -1))
         return nil;
-    index++;
+//    index++;
+    left = NO;
     
-    NSLog(@"indexAfter = %d", index);
+    NSLog(@"indexAfter = %d", (index + 1));
     
-    Step* s = [it.steps objectAtIndex:index];
+    Step* s = [it.steps objectAtIndex:(index + 1)];
     UIImageView *imgV = [[UIImageView alloc] initWithFrame:screenBounds];
     UIImage* iii = [[Common instance] getImage:s.path];
     if(iii != nil) {
