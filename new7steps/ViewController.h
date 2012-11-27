@@ -22,6 +22,8 @@
     UIImageView *sView;
     BOOL memfull;
     CMTwoToneProgressBar* progBar;
+    float ff;
+    float u;
 }
 
 @property (nonatomic, retain) IBOutlet UIScrollView* vertScrollView;

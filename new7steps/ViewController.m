@@ -34,7 +34,7 @@
     sView.image = [UIImage imageNamed:@"Default.png"];
     [self.view addSubview:sView];
     
-    progBar = [[CMTwoToneProgressBar alloc] initWithFrame:CGRectMake(60, 200, 200, 10)];
+    progBar = [[CMTwoToneProgressBar alloc] initWithFrame:CGRectMake(80, 280, 160, 10)];
     [self.view addSubview:progBar];
 
     sIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
@@ -74,6 +74,8 @@
 
 //    NSOperationQueue* queue1 = [NSOperationQueue new];
 
+    u = 0;
+    
     for(NSString* name in [Common instance].allImages) {
 
         NSInvocationOperation *operation = [[NSInvocationOperation alloc]
@@ -81,6 +83,8 @@
                                             selector:@selector(loadImage5:)
                                             object:name];
         [queue addOperation:operation];
+        
+        u++;
     }
 
 }
@@ -152,6 +156,34 @@
 
 }
 
+- (void) updateBar {
+    
+    NSLog(@"updateBar");
+
+    if(u < 1)
+        u = 1;
+    ff = (float)(u - queue.operationCount)/u;
+    NSLog(@"f = %f %f %d", ff, u, queue.operationCount);
+
+    [progBar setProgress:ff animated:YES];
+    [progBar setNeedsDisplay];
+
+    if (ff < 0.99f)
+    [NSTimer scheduledTimerWithTimeInterval:1.0
+                                                          target:self
+                                                        selector:@selector(updateBar)
+                                                        userInfo:nil
+                                                         repeats:NO];
+    else {
+        
+        [progBar removeFromSuperview];
+        [sIndicator stopAnimating];
+        [sView removeFromSuperview];
+
+    }
+
+}
+
 - (void) viewDidAppear:(BOOL)animated {
 
    [Common instance].prev_window = WT_MAIN;
@@ -163,50 +195,40 @@
     
     [[Common instance] addRecipes];
     [self setup];
-//    [self performSelectorOnMainThread:@selector(loadAllImages) withObject:nil waitUntilDone:YES];
-    [self performSelectorInBackground:@selector(loadAllImages) withObject:nil];
 
 //    [progBar setProgress:1 animated:NO];
+   
 
+    [self performSelectorInBackground:@selector(loadAllImages) withObject:nil];
+//    u = queue.operationCount;
+//    [self updateBar];
+    [NSTimer scheduledTimerWithTimeInterval:2.0
+                                     target:self
+                                   selector:@selector(updateBar)
+                                   userInfo:nil
+                                    repeats:NO];
     
-    BOOL b = YES;
-    int u = queue.operationCount;
-    while (b) {
-        b = NO;
-//        int k = 0;
-//        NSLog(@"queue.operationCount = %d", queue.operationCount);
-        for(NSOperation *op in [queue operations]) {
-            
-            if(op.isExecuting) {
-                
-                b = YES;
-//                k++;
-            }
-        }
-        if(u < 1)
-            u = 1;
-        float ff = (float)(u - queue.operationCount)/u;
-        NSLog(@"f = %f %d %d", ff, u, queue.operationCount);
-        
-//        [queue setSuspended:YES];
-//        [self performSelectorOnMainThread:@selector(showBar) withObject:nil waitUntilDone:YES];
-
-        [progBar setProgress:ff animated:NO];
-        [progBar setNeedsDisplay];
-
-    }
-
-//    NSLog(@"SSSSSSSSSSSS1");
-//    [progBar removeFromSuperview];
-    [sIndicator stopAnimating];
-    
-    [sView removeFromSuperview];
-    
-//    [[Common instance] loadAllImages];
-
 //    [self performSelectorInBackground:@selector(loadAllImages) withObject:nil];
 //    [self performSelectorOnMainThread:@selector(loadAllImages) withObject:nil waitUntilDone:YES];
+//    
+//    BOOL b = YES;
+//    u = queue.operationCount;
+//    while (b) {
+//        b = NO;
+////        int k = 0;
+////        NSLog(@"queue.operationCount = %d", queue.operationCount);
+//        for(NSOperation *op in [queue operations]) {
+//            
+//            if(op.isExecuting) {
+//                
+//                b = YES;
+////                k++;
+//            }
+//        }
+//
+//    }
 
+    
 }
 
 - (void) setup {
