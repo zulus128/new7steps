@@ -105,13 +105,24 @@
         return;
     }
 
-    NSData* imageData = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:name]];
-//    NSData *imgData = UIImagePNGRepresentation([[UIImage alloc] initWithData:imageData]);
-    NSData *imgData = UIImageJPEGRepresentation([[UIImage alloc] initWithData:imageData], 1);
-    [imgData writeToFile:filePath atomically:YES];
-    NSLog(@"file loaded %@", n);
-//    sleep(0.5f);
-//    [NSThread sleepForTimeInterval:0.5f];
+    int k = 15;
+    while(k) {
+    
+        NSData* imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:name]];
+        
+        if(imageData) {
+            
+            k = 0;
+            NSData *imgData = UIImageJPEGRepresentation([[UIImage alloc] initWithData:imageData], 1);
+            [imgData writeToFile:filePath atomically:YES];
+            NSLog(@"file loaded %@", n);
+        }
+        else {
+            
+            k--;
+            NSLog(@"NIL !!!!!!!!!!!!!!!!!!!!!!!!!! %d %@", k, name);
+        }
+    }
 
 }
 
@@ -181,6 +192,8 @@
                                                          repeats:NO];
     else {
         
+        [self setup];
+
         [progBar removeFromSuperview];
         [sIndicator stopAnimating];
         [sView removeFromSuperview];
@@ -199,7 +212,7 @@
     again = YES;
     
     [[Common instance] addRecipes];
-    [self setup];
+//    [self setup];
 
 //    [progBar setProgress:1 animated:NO];
    
