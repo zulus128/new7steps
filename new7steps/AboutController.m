@@ -55,6 +55,14 @@
     BOOL sl = [[NSUserDefaults standardUserDefaults] boolForKey:@"sleep"];
     [self.sleepSw setOn:sl animated:YES];
 
+    self.vertScrollView.contentSize = CGSizeMake(320, 1100);
+
+    self.link1.frame = CGRectMake(11, 394, 290, 47);
+    self.link2.frame = CGRectMake(11, 466, 290, 47);
+    self.link3.frame = CGRectMake(11, 539, 290, 47);
+    self.link4.frame = CGRectMake(160, 666, 290, 47);
+    self.link5.frame = CGRectMake(11, 717, 290, 47);
+    self.link6.frame = CGRectMake(11, 770, 290, 47);
 
 }
 

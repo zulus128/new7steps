@@ -38,6 +38,9 @@
 		9C73DDB716228551004B42C9 /* button_position2.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C73DDB916228551004B42C9 /* button_position2.png */; };
 		9C73DDC216228E2C004B42C9 /* spisok_new_ON.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C73DDC016228E2B004B42C9 /* spisok_new_ON.png */; };
 		9C73DDC316228E2C004B42C9 /* spisok_new.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C73DDC116228E2C004B42C9 /* spisok_new.png */; };
+		9CCA151C166467B3002D7239 /* Icon_i.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CCA151B166467B3002D7239 /* Icon_i.png */; };
+		9CCA151F166467C0002D7239 /* 7_steps_INFO_back.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CCA151D166467C0002D7239 /* 7_steps_INFO_back.png */; };
+		9CCA1520166467C0002D7239 /* 7_steps_INFO_text-block.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CCA151E166467C0002D7239 /* 7_steps_INFO_text-block.png */; };
 		9CE3E17A16318D5B00325DFB /* StepViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CE3E17916318D5B00325DFB /* StepViewController.m */; };
 		9CFA90E31631623500FC4EA3 /* HorizontalController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CFA90E21631623500FC4EA3 /* HorizontalController.m */; };
 		9CFCFB331631027300F555DD /* Step.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CFCFB321631027300F555DD /* Step.m */; };
@@ -154,6 +157,9 @@
 		9C73DDBF16228577004B42C9 /* es */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = es; path = es.lproj/button_position2.png; sourceTree = "<group>"; };
 		9C73DDC016228E2B004B42C9 /* spisok_new_ON.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spisok_new_ON.png; sourceTree = "<group>"; };
 		9C73DDC116228E2C004B42C9 /* spisok_new.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spisok_new.png; sourceTree = "<group>"; };
+		9CCA151B166467B3002D7239 /* Icon_i.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon_i.png; sourceTree = "<group>"; };
+		9CCA151D166467C0002D7239 /* 7_steps_INFO_back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 7_steps_INFO_back.png; sourceTree = "<group>"; };
+		9CCA151E166467C0002D7239 /* 7_steps_INFO_text-block.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "7_steps_INFO_text-block.png"; sourceTree = "<group>"; };
 		9CE3E17816318D5B00325DFB /* StepViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StepViewController.h; sourceTree = "<group>"; };
 		9CE3E17916318D5B00325DFB /* StepViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StepViewController.m; sourceTree = "<group>"; };
 		9CFA90E11631623500FC4EA3 /* HorizontalController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HorizontalController.h; sourceTree = "<group>"; };
@@ -266,6 +272,16 @@
 				9C4E941E1636EBBD009EB95C /* krest_IZBRANNOE.png */,
 			);
 			name = 4th;
+			sourceTree = "<group>";
+		};
+		9CCA15191664679E002D7239 /* info */ = {
+			isa = PBXGroup;
+			children = (
+				9CCA151B166467B3002D7239 /* Icon_i.png */,
+				9CCA151D166467C0002D7239 /* 7_steps_INFO_back.png */,
+				9CCA151E166467C0002D7239 /* 7_steps_INFO_text-block.png */,
+			);
+			name = info;
 			sourceTree = "<group>";
 		};
 		DD2DA18515BBACB70074493F /* 2nd */ = {
@@ -399,6 +415,7 @@
 		DDCEA878154E41F10089A98F /* Interface */ = {
 			isa = PBXGroup;
 			children = (
+				9CCA15191664679E002D7239 /* info */,
 				9C2FC1151640D54A00A99CD6 /* 5th */,
 				9C4E941B1636EBA0009EB95C /* 4th */,
 				DDF2565315DB8F39001A3177 /* 3d */,
@@ -566,6 +583,9 @@
 				9C2FC1221640D57600A99CD6 /* zacherkivanie_SPISOK.png in Resources */,
 				DD425A70165EF78B00BAC31D /* Settings copy.bundle in Resources */,
 				DD425A76165F036100BAC31D /* icon_medal_for_topbar.png in Resources */,
+				9CCA151C166467B3002D7239 /* Icon_i.png in Resources */,
+				9CCA151F166467C0002D7239 /* 7_steps_INFO_back.png in Resources */,
+				9CCA1520166467C0002D7239 /* 7_steps_INFO_text-block.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

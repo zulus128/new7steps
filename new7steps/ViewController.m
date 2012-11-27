@@ -87,6 +87,7 @@
         u++;
     }
 
+    u = queue.operationCount;
 }
 
 - (void)loadImage5:(NSString*) name {
@@ -97,8 +98,12 @@
     NSString* n = [n1 stringByReplacingOccurrencesOfString:@"/" withString:@"-"];
     NSString* filePath = [docpath stringByAppendingPathComponent:n];
 
-    if([[NSFileManager defaultManager] fileExistsAtPath:filePath])
+    if([[NSFileManager defaultManager] fileExistsAtPath:filePath]) {
+
+        NSLog(@"file exists %@", n);
+
         return;
+    }
 
     NSData* imageData = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:name]];
 //    NSData *imgData = UIImagePNGRepresentation([[UIImage alloc] initWithData:imageData]);
@@ -150,15 +155,15 @@
 //    
 //}
 
-- (void) showBar {
-    
-    [progBar setProgress:1 animated:NO];
-
-}
+//- (void) showBar {
+//    
+//    [progBar setProgress:1 animated:NO];
+//
+//}
 
 - (void) updateBar {
     
-    NSLog(@"updateBar");
+//    NSLog(@"updateBar");
 
     if(u < 1)
         u = 1;
@@ -304,7 +309,8 @@
             [scroll addSubview:sLabel];
         }
         
-        [self refreshImages:scroll cnt1:3 cat:i];
+//        [self refreshImages:scroll cnt1:3 cat:i];
+        [self refreshImages:scroll cnt1:1e5 cat:i];
         
         y+= 340;
     }
