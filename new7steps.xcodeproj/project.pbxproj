@@ -62,6 +62,7 @@
 		DD51459815DDBB4900388BF6 /* step_6.png in Resources */ = {isa = PBXBuildFile; fileRef = DD51459015DDBB4900388BF6 /* step_6.png */; };
 		DD51459915DDBB4900388BF6 /* step_7.png in Resources */ = {isa = PBXBuildFile; fileRef = DD51459115DDBB4900388BF6 /* step_7.png */; };
 		DD51459D15DDD01200388BF6 /* Transit.m in Sources */ = {isa = PBXBuildFile; fileRef = DD51459C15DDD01100388BF6 /* Transit.m */; };
+		DD61B31A166B0C9B00DE40CB /* MainStoryboard_iPhone4.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD61B319166B0C9B00DE40CB /* MainStoryboard_iPhone4.storyboard */; };
 		DD6E856F15D4DCE2008052EC /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DD6E857115D4DCE2008052EC /* Localizable.strings */; };
 		DD7C9D81163AB9B9008BA1AC /* MSLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = DD7C9D80163AB9B9008BA1AC /* MSLabel.m */; };
 		DD7C9D84163ABDF0008BA1AC /* back_100procentov_for_text.png in Resources */ = {isa = PBXBuildFile; fileRef = DD7C9D83163ABDF0008BA1AC /* back_100procentov_for_text.png */; };
@@ -187,6 +188,7 @@
 		DD51459115DDBB4900388BF6 /* step_7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = step_7.png; sourceTree = "<group>"; };
 		DD51459B15DDD01100388BF6 /* Transit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Transit.h; sourceTree = "<group>"; };
 		DD51459C15DDD01100388BF6 /* Transit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Transit.m; sourceTree = "<group>"; };
+		DD61B319166B0C9B00DE40CB /* MainStoryboard_iPhone4.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard_iPhone4.storyboard; sourceTree = "<group>"; };
 		DD6E856915D4D68F008052EC /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		DD6E856A15D4D6A6008052EC /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		DD6E856B15D4D6AE008052EC /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -358,6 +360,7 @@
 				DDCEA867154E41D20089A98F /* AppDelegate.h */,
 				DDCEA868154E41D20089A98F /* AppDelegate.m */,
 				DDCEA86A154E41D20089A98F /* MainStoryboard_iPhone.storyboard */,
+				DD61B319166B0C9B00DE40CB /* MainStoryboard_iPhone4.storyboard */,
 				DDCEA86D154E41D20089A98F /* MainStoryboard_iPad.storyboard */,
 				DDCEA870154E41D20089A98F /* ViewController.h */,
 				DDCEA871154E41D20089A98F /* ViewController.m */,
@@ -586,6 +589,7 @@
 				9CCA151C166467B3002D7239 /* Icon_i.png in Resources */,
 				9CCA151F166467C0002D7239 /* 7_steps_INFO_back.png in Resources */,
 				9CCA1520166467C0002D7239 /* 7_steps_INFO_text-block.png in Resources */,
+				DD61B31A166B0C9B00DE40CB /* MainStoryboard_iPhone4.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -791,8 +795,8 @@
 				GCC_PREFIX_HEADER = "new7steps/new7steps-Prefix.pch";
 				INFOPLIST_FILE = "new7steps/new7steps-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "A7E3A7A2-2738-4A5A-A5DC-2D4AE1046E10";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "A7E3A7A2-2738-4A5A-A5DC-2D4AE1046E10";
+				PROVISIONING_PROFILE = "7FC98DEC-1237-43A1-B15E-73FDE69135AB";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "7FC98DEC-1237-43A1-B15E-73FDE69135AB";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -806,8 +810,8 @@
 				GCC_PREFIX_HEADER = "new7steps/new7steps-Prefix.pch";
 				INFOPLIST_FILE = "new7steps/new7steps-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "A7E3A7A2-2738-4A5A-A5DC-2D4AE1046E10";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "A7E3A7A2-2738-4A5A-A5DC-2D4AE1046E10";
+				PROVISIONING_PROFILE = "7FC98DEC-1237-43A1-B15E-73FDE69135AB";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "7FC98DEC-1237-43A1-B15E-73FDE69135AB";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

@@ -30,11 +30,25 @@
     
     [Common instance].mainController = self;
     
-    sView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, 480)];
-    sView.image = [UIImage imageNamed:@"Default.png"];
+    if([[UIScreen mainScreen]bounds].size.height == 568) {
+        
+        sView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, 568)];
+        sView.image = [UIImage imageNamed:@"Default-568h.png"];
+    
+        progBar = [[CMTwoToneProgressBar alloc] initWithFrame:CGRectMake(80, 350, 160, 10)];
+
+    }
+    else {
+
+        sView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, 480)];
+        sView.image = [UIImage imageNamed:@"Default.png"];
+
+        progBar = [[CMTwoToneProgressBar alloc] initWithFrame:CGRectMake(80, 280, 160, 10)];
+
+    }
+
     [self.view addSubview:sView];
     
-    progBar = [[CMTwoToneProgressBar alloc] initWithFrame:CGRectMake(80, 280, 160, 10)];
     [self.view addSubview:progBar];
 
     sIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
@@ -184,7 +198,7 @@
     [progBar setProgress:ff animated:YES];
     [progBar setNeedsDisplay];
 
-    if (ff < 0.99f)
+    if (ff < 0.98f)
     [NSTimer scheduledTimerWithTimeInterval:1.0
                                                           target:self
                                                         selector:@selector(updateBar)
