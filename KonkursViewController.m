@@ -36,6 +36,8 @@
     self.titleLabel.font = [UIFont fontWithName:@"Good-Black" size:22.0];
     self.titleLabel.text = NSLocalizedString(@"KONKBUTTON", nil);
 
+    self.vertScrollView.contentSize = CGSizeMake(320, 1122);
+
 }
 
 - (void)didReceiveMemoryWarning

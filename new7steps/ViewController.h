@@ -24,6 +24,7 @@
     CMTwoToneProgressBar* progBar;
     float ff;
     float u;
+    bool fullload;
 }
 
 @property (nonatomic, retain) IBOutlet UIScrollView* vertScrollView;

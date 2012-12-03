@@ -12,5 +12,6 @@
 
 - (IBAction) back;
 @property (nonatomic, retain) IBOutlet UILabel* titleLabel;
+@property (nonatomic, retain) IBOutlet UIScrollView* vertScrollView;
 
 @end

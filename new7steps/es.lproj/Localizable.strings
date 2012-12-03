@@ -18,6 +18,8 @@
 "FAVNOMESSAGE" = "Already in Favourites";
 "SPSMESSAGE" = "Saved to List";
 "SPSNOMESSAGE" = "Already in List";
+"LOADMESSAGE" = "Do you want load entire content?";
+"CANCELBUTTON" = "Cancel";
 "COURSE" = "Curso";
 "RECIPE_TYPE" = "Tipo de la receta";
 "RECIPE_TIME" = "Tiempo de la receta";

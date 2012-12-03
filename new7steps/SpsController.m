@@ -125,14 +125,27 @@
             imgView.tag = TAG;
             [self.vertScrollView addSubview:imgView];
 
-            UILabel *sLabel = [ [UILabel alloc ] initWithFrame:CGRectMake(45, y + 3, 150, 24) ];
-            sLabel.textColor = [UIColor colorWithRed:105/255.0 green:76/255.0 blue:56/255.0 alpha:1.0];
-            sLabel.backgroundColor = [UIColor clearColor];
-            sLabel.font = [UIFont fontWithName:@"Good-Book" size:(12.0)];
-            sLabel.tag = TAG;
-            sLabel.textAlignment = UITextAlignmentLeft;
-            [self.vertScrollView addSubview:sLabel];
-            sLabel.text = ing.name;//[it.ingrids.allKeys objectAtIndex:j];
+//            UILabel *sLabel = [ [UILabel alloc ] initWithFrame:CGRectMake(45, y + 3, 150, 24) ];
+//            sLabel.textColor = [UIColor colorWithRed:105/255.0 green:76/255.0 blue:56/255.0 alpha:1.0];
+//            sLabel.backgroundColor = [UIColor clearColor];
+//            sLabel.font = [UIFont fontWithName:@"Good-Book" size:(12.0)];
+//            sLabel.tag = TAG;
+//            sLabel.textAlignment = UITextAlignmentLeft;
+//            [self.vertScrollView addSubview:sLabel];
+//            sLabel.text = ing.name;//[it.ingrids.allKeys objectAtIndex:j];
+
+            UIButton *but = [UIButton buttonWithType:UIButtonTypeCustom];
+            but.tag = 1000000 + i * CAT_MULT + j + 1;
+            [but addTarget:self action:@selector(buttonCheckEvent:) forControlEvents:UIControlEventTouchUpInside];
+            [but setFrame: CGRectMake(45, y + 3, 300, 24)];
+            [but setTitle:ing.name forState:UIControlStateNormal];
+            [but setTitleColor:[UIColor colorWithRed:105/255.0 green:76/255.0 blue:56/255.0 alpha:1.0] forState:UIControlStateNormal];
+            but.titleLabel.backgroundColor = [UIColor clearColor];
+            but.titleLabel.font = [UIFont fontWithName:@"Good-Book" size:(12.0)];
+//            but.titleLabel.textAlignment = UITextAlignmentLeft;
+            [but setContentHorizontalAlignment:UIControlContentHorizontalAlignmentLeft];
+
+            [self.vertScrollView addSubview:but];
 
             UILabel *sLabel1 = [ [UILabel alloc ] initWithFrame:CGRectMake(150, y + 3, 150, 24) ];
             sLabel1.textColor = [UIColor colorWithRed:105/255.0 green:76/255.0 blue:56/255.0 alpha:1.0];
@@ -179,8 +192,15 @@
     
     int buttag = ((UIButton*)sender).tag - 1;
 
-    float x = ((UIButton*)sender).frame.origin.x;
-    float y = ((UIButton*)sender).frame.origin.y;
+    if(buttag > 900000)
+        buttag -= 1000000;
+    
+    UIButton* send = (UIButton*)[self.vertScrollView viewWithTag:(buttag + 1)];
+    
+//    float x = ((UIButton*)sender).frame.origin.x;
+//    float y = ((UIButton*)sender).frame.origin.y;
+    float x = send.frame.origin.x;
+    float y = send.frame.origin.y;
 
     NSLog(@"Spisok check button %d clicked!!! x = %f, y = %f", buttag, x, y);
 
@@ -199,7 +219,8 @@
         NSLog(@"UnChecked i = %d, j = %d, buttag = %d, key = %@", i, j, buttag - ZACH + 1, key);
         [[Common instance] saveSpsRecipes];
         
-        [((UIButton*)sender) setImage:[UIImage imageNamed:@"on_SPISOK.png"] forState:UIControlStateNormal];
+//        [((UIButton*)sender) setImage:[UIImage imageNamed:@"on_SPISOK.png"] forState:UIControlStateNormal];
+        [send setImage:[UIImage imageNamed:@"on_SPISOK.png"] forState:UIControlStateNormal];
 
         return;
     }
@@ -226,7 +247,8 @@
     NSLog(@"Checked i = %d, j = %d, buttag = %d, key = %@", i, j, ZACH + i * CAT_MULT + j + 1, key);
     [[Common instance] saveSpsRecipes];
     
-    [((UIButton*)sender) setImage:[UIImage imageNamed:@"off_SPISOK.png"] forState:UIControlStateNormal];
+//    [((UIButton*)sender) setImage:[UIImage imageNamed:@"off_SPISOK.png"] forState:UIControlStateNormal];
+    [send setImage:[UIImage imageNamed:@"off_SPISOK.png"] forState:UIControlStateNormal];
 
 }
 

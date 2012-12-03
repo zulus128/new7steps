@@ -49,6 +49,7 @@
 
     [self.view addSubview:sView];
     
+    progBar.hidden = YES;
     [self.view addSubview:progBar];
 
     sIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
@@ -129,12 +130,12 @@
             k = 0;
             NSData *imgData = UIImageJPEGRepresentation([[UIImage alloc] initWithData:imageData], 1);
             [imgData writeToFile:filePath atomically:YES];
-            NSLog(@"file loaded %@", n);
+//            NSLog(@"file loaded %@", n);
         }
         else {
             
             k--;
-            NSLog(@"NIL !!!!!!!!!!!!!!!!!!!!!!!!!! %d %@", k, name);
+//            NSLog(@"NIL !!!!!!!!!!!!!!!!!!!!!!!!!! %d %@", k, name);
         }
     }
 
@@ -148,31 +149,31 @@
     memfull = YES;
 }
 
-//- (void) loadAllImages {
-//    
-//    NSArray* sp = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-//    NSString* docpath = [sp objectAtIndex: 0];
-//
-//    for(NSString* name in [Common instance].allImages) {
-//        
-//        NSString* n1 = [name stringByReplacingOccurrencesOfString:@":" withString:@"-"];
-//        NSString* n = [n1 stringByReplacingOccurrencesOfString:@"/" withString:@"-"];
-//        NSString* filePath = [docpath stringByAppendingPathComponent:n];
-//        
-//        if([[NSFileManager defaultManager] fileExistsAtPath:filePath])
-//            continue;
-//        
-//        NSData* imageData = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:name]];
-////        NSData *imgData = UIImagePNGRepresentation([[UIImage alloc] initWithData:imageData]);
-//        NSData *imgData = UIImageJPEGRepresentation([[UIImage alloc] initWithData:imageData], 1.0f);
-//        [imgData writeToFile:filePath atomically:YES];
-//        NSLog(@"file loaded %@", n);
-////        [imageData release];
-//        if(memfull)
-//            break;
-//    }
-//    
-//}
+- (void) loadAllImagesBack {
+    
+    NSArray* sp = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString* docpath = [sp objectAtIndex: 0];
+
+    for(NSString* name in [Common instance].allImages) {
+        
+        NSString* n1 = [name stringByReplacingOccurrencesOfString:@":" withString:@"-"];
+        NSString* n = [n1 stringByReplacingOccurrencesOfString:@"/" withString:@"-"];
+        NSString* filePath = [docpath stringByAppendingPathComponent:n];
+        
+        if([[NSFileManager defaultManager] fileExistsAtPath:filePath])
+            continue;
+        
+        NSData* imageData = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:name]];
+//        NSData *imgData = UIImagePNGRepresentation([[UIImage alloc] initWithData:imageData]);
+        NSData *imgData = UIImageJPEGRepresentation([[UIImage alloc] initWithData:imageData], 1.0f);
+        [imgData writeToFile:filePath atomically:YES];
+        NSLog(@"file loaded %@", n);
+//        [imageData release];
+        if(memfull)
+            break;
+    }
+    
+}
 
 //- (void)viewWillAppear:(BOOL)animated {
 //
@@ -195,6 +196,7 @@
     ff = (float)(u - queue.operationCount)/u;
     NSLog(@"f = %f %f %d", ff, u, queue.operationCount);
 
+    progBar.hidden = NO;
     [progBar setProgress:ff animated:YES];
     [progBar setNeedsDisplay];
 
@@ -206,11 +208,17 @@
                                                          repeats:NO];
     else {
         
+        [[NSUserDefaults standardUserDefaults] setInteger:1 forKey:@"allloaded"];
+
+        int bl = [[NSUserDefaults standardUserDefaults] integerForKey:@"allloaded"];
+        NSLog(@"allloaded = %d", bl);
+
         [self setup];
 
         [progBar removeFromSuperview];
         [sIndicator stopAnimating];
         [sView removeFromSuperview];
+
 
     }
 
@@ -229,38 +237,57 @@
 //    [self setup];
 
 //    [progBar setProgress:1 animated:NO];
-   
-
-    [self performSelectorInBackground:@selector(loadAllImages) withObject:nil];
-//    u = queue.operationCount;
-//    [self updateBar];
-    [NSTimer scheduledTimerWithTimeInterval:2.0
-                                     target:self
-                                   selector:@selector(updateBar)
-                                   userInfo:nil
-                                    repeats:NO];
     
-//    [self performSelectorInBackground:@selector(loadAllImages) withObject:nil];
-//    [self performSelectorOnMainThread:@selector(loadAllImages) withObject:nil waitUntilDone:YES];
-//    
-//    BOOL b = YES;
-//    u = queue.operationCount;
-//    while (b) {
-//        b = NO;
-////        int k = 0;
-////        NSLog(@"queue.operationCount = %d", queue.operationCount);
-//        for(NSOperation *op in [queue operations]) {
-//            
-//            if(op.isExecuting) {
-//                
-//                b = YES;
-////                k++;
-//            }
-//        }
-//
-//    }
+    int bl = [[NSUserDefaults standardUserDefaults] integerForKey:@"allloaded"];
+    NSLog(@"allloaded1 = %d", bl);
+
+    if (!bl) {
+
+        UIAlertView *dialog = [[UIAlertView alloc]
+                                         initWithTitle:nil message:NSLocalizedString(@"LOADMESSAGE", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"CANCELBUTTON", nil) otherButtonTitles:@"OK", nil];
+        [dialog show];
+    }
+    else {
+        
+        [self setup];
+        
+        [progBar removeFromSuperview];
+        [sIndicator stopAnimating];
+        [sView removeFromSuperview];
+        [self performSelectorInBackground:@selector(loadAllImagesBack) withObject:nil];
+
+    }
 
     
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    
+//    NSLog(@"index = %d", buttonIndex);
+
+    fullload = buttonIndex;
+
+    if(buttonIndex) {
+
+        [self performSelectorInBackground:@selector(loadAllImages) withObject:nil];
+        [NSTimer scheduledTimerWithTimeInterval:2.0
+                                         target:self
+                                       selector:@selector(updateBar)
+                                       userInfo:nil
+                                        repeats:NO];
+
+    }
+    else {
+
+        [self setup];
+        
+        [progBar removeFromSuperview];
+        [sIndicator stopAnimating];
+        [sView removeFromSuperview];
+
+        [self performSelectorInBackground:@selector(loadAllImagesBack) withObject:nil];
+
+    }
 }
 
 - (void) setup {
@@ -336,8 +363,11 @@
             [scroll addSubview:sLabel];
         }
         
+        BOOL bl = [[NSUserDefaults standardUserDefaults] boolForKey:@"allloaded"];
+
+        
 //        [self refreshImages:scroll cnt1:3 cat:i];
-        [self refreshImages:scroll cnt1:1e5 cat:i];
+        [self refreshImages:scroll cnt1:bl?1e5:3 cat:i];
         
         y+= 340;
     }

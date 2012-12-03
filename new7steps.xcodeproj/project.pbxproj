@@ -69,6 +69,7 @@
 		DD7C9D86163AC163008BA1AC /* back_1px_for_text.png in Resources */ = {isa = PBXBuildFile; fileRef = DD7C9D85163AC163008BA1AC /* back_1px_for_text.png */; };
 		DD84C90816462F0300A94C9A /* Ingridient.m in Sources */ = {isa = PBXBuildFile; fileRef = DD84C90716462F0300A94C9A /* Ingridient.m */; };
 		DD9D659315D511D0004B6EA7 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = DD9D659215D511D0004B6EA7 /* Settings.bundle */; };
+		DDC00625166B296D001D6DE7 /* 7_steps_konkurs_1.png in Resources */ = {isa = PBXBuildFile; fileRef = DDC00624166B296D001D6DE7 /* 7_steps_konkurs_1.png */; };
 		DDCABA371628FDBD001DEBA1 /* Good-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = DDCABA341628FDBD001DEBA1 /* Good-Black.otf */; };
 		DDCABA381628FDBD001DEBA1 /* Good-Book.otf in Resources */ = {isa = PBXBuildFile; fileRef = DDCABA351628FDBD001DEBA1 /* Good-Book.otf */; };
 		DDCABA391628FDBD001DEBA1 /* Good-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = DDCABA361628FDBD001DEBA1 /* Good-Light.otf */; };
@@ -203,6 +204,7 @@
 		DD84C90616462F0300A94C9A /* Ingridient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ingridient.h; sourceTree = "<group>"; };
 		DD84C90716462F0300A94C9A /* Ingridient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Ingridient.m; sourceTree = "<group>"; };
 		DD9D659215D511D0004B6EA7 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		DDC00624166B296D001D6DE7 /* 7_steps_konkurs_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 7_steps_konkurs_1.png; sourceTree = "<group>"; };
 		DDCABA341628FDBD001DEBA1 /* Good-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Good-Black.otf"; sourceTree = "<group>"; };
 		DDCABA351628FDBD001DEBA1 /* Good-Book.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Good-Book.otf"; sourceTree = "<group>"; };
 		DDCABA361628FDBD001DEBA1 /* Good-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Good-Light.otf"; sourceTree = "<group>"; };
@@ -305,6 +307,14 @@
 				DDD9FA4E15D3342900680C79 /* top_place.png */,
 			);
 			name = 2nd;
+			sourceTree = "<group>";
+		};
+		DDC00622166B2858001D6DE7 /* konkurs */ = {
+			isa = PBXGroup;
+			children = (
+				DDC00624166B296D001D6DE7 /* 7_steps_konkurs_1.png */,
+			);
+			name = konkurs;
 			sourceTree = "<group>";
 		};
 		DDCABA331628FDBC001DEBA1 /* fwdgoodfont */ = {
@@ -418,6 +428,7 @@
 		DDCEA878154E41F10089A98F /* Interface */ = {
 			isa = PBXGroup;
 			children = (
+				DDC00622166B2858001D6DE7 /* konkurs */,
 				9CCA15191664679E002D7239 /* info */,
 				9C2FC1151640D54A00A99CD6 /* 5th */,
 				9C4E941B1636EBA0009EB95C /* 4th */,
@@ -590,6 +601,7 @@
 				9CCA151F166467C0002D7239 /* 7_steps_INFO_back.png in Resources */,
 				9CCA1520166467C0002D7239 /* 7_steps_INFO_text-block.png in Resources */,
 				DD61B31A166B0C9B00DE40CB /* MainStoryboard_iPhone4.storyboard in Resources */,
+				DDC00625166B296D001D6DE7 /* 7_steps_konkurs_1.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
