@@ -13,5 +13,7 @@
 - (IBAction) back;
 @property (nonatomic, retain) IBOutlet UILabel* titleLabel;
 @property (nonatomic, retain) IBOutlet UIScrollView* vertScrollView;
+@property (nonatomic, retain) IBOutlet UIButton* goRecipes;
+
 
 @end

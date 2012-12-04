@@ -43,7 +43,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-    self.xmlver.text = [NSString stringWithFormat:@"XML version = %.1f", [Common instance].versionXML];
+    self.xmlver.text = [NSString stringWithFormat:@"Номер версии: %.0f", [Common instance].versionXML];
     
     NSString* s = NSLocalizedString(@"SLEEPLABEL", nil);
     self.sleepLab.text = s;
@@ -67,7 +67,30 @@
     self.link4.frame = CGRectMake(160, 666, 290, 47);
     self.link5.frame = CGRectMake(11, 717, 290, 47);
     self.link6.frame = CGRectMake(11, 770, 290, 47);
-
+    
+//    NSString* s1;
+    switch ([Common instance].prev_window) {
+        case WT_NONE:
+        case WT_MAIN:
+        case WT_SPISOK:
+        default:
+            s = NSLocalizedString(@"MAINBUTTON", nil);
+            break;
+        case WT_FAVOURITES:
+            s = NSLocalizedString(@"MAINBUTTONFAV", nil);
+            break;
+        case WT_RECIPE:
+            s = NSLocalizedString(@"MAINBUTTONREC", nil);
+            break;
+            //        case WT_SPISOK:
+            //            s = NSLocalizedString(@"MAINBUTTONSPS", nil);
+            //            break;
+        case WT_SEARCH:
+            s = NSLocalizedString(@"SEARCHBUTTON", nil);
+            break;
+    }
+    [self.goRecipes setTitle:s forState:UIControlStateNormal];
+    self.goRecipes.titleLabel.font = [UIFont fontWithName:@"Good-Book" size:20.0];
 }
 
 - (void)didReceiveMemoryWarning

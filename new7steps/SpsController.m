@@ -280,7 +280,6 @@
     
     switch (prev_window) {
         case WT_NONE:
-        case WT_MAIN:
         case WT_RECIPE:
         case WT_SPISOK:
         case WT_SEARCH:
@@ -288,6 +287,7 @@
             [self dismissModalViewControllerAnimated:YES];
             break;
         }
+        case WT_MAIN:
         case WT_FAVOURITES:
         {
             ViewController *ivc = [Common instance].mainController;

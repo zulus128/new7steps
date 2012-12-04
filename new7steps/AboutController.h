@@ -20,6 +20,7 @@
 @property (nonatomic, retain) IBOutlet UITextView* link4;
 @property (nonatomic, retain) IBOutlet UITextView* link5;
 @property (nonatomic, retain) IBOutlet UITextView* link6;
+@property (nonatomic, retain) IBOutlet UIButton* goRecipes;
 
 - (IBAction) swich;
 
