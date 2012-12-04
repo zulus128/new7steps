@@ -16,4 +16,5 @@
 @property (nonatomic, retain) UIImage* image;
 @property (nonatomic, retain) Item* item;
 @property (nonatomic, retain) UIActivityIndicatorView* activInd;
+@property (nonatomic, retain) UIView* scroll;
 @end

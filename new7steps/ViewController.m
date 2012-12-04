@@ -344,8 +344,9 @@
                 jj++;
             }
             but.frame = CGRectMake(xx, yy, 160, 106);
-            [but setImage:[UIImage imageNamed:@"background_for_photo.png"] forState:UIControlStateNormal];
-            but.tag = i * CAT_MULT + j;
+//            [but setImage:[UIImage imageNamed:@"background_for_photo.png"] forState:UIControlStateNormal];
+            [but setImage:[UIImage imageNamed:@"1screen.jpg"] forState:UIControlStateNormal];
+            but.tag = 2000000 + i * CAT_MULT + j;
             [but addTarget:self action:@selector(buttonEvent:) forControlEvents:UIControlEventTouchUpInside];
             [scroll addSubview:but];
             
@@ -433,6 +434,7 @@
             tr.view = imgView2;
             tr.url = it.image;
             tr.item = it;
+            tr.scroll = scroll;
             
             UIActivityIndicatorView *activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
             activityIndicator.alpha = 1.0;
@@ -448,8 +450,14 @@
                                                 object:tr];
             [queue addOperation:operation];
         }
-        else
+        else {
+        
             [it createImageView];
+            
+            UIButton* bbb = (UIButton*)[scroll viewWithTag:(2000000 + t)];
+            [bbb setImage:[UIImage imageNamed:@"background_for_photo.png"] forState:UIControlStateNormal];
+
+        }
 
         
     }
@@ -470,7 +478,10 @@
 - (void)displayImage:(Transit*)tr {
     
     [tr.view setImage:tr.image];
-    
+
+    UIButton* bbb = (UIButton*)[tr.scroll viewWithTag:(2000000 + tr.view.tag)];
+    [bbb setImage:[UIImage imageNamed:@"background_for_photo.png"] forState:UIControlStateNormal];
+
     NSString* n1 = [tr.url stringByReplacingOccurrencesOfString:@":" withString:@"-"];//[tr.url lastPathComponent];
     NSString* n = [n1 stringByReplacingOccurrencesOfString:@"/" withString:@"-"];
 //    NSLog(@"url = %@", n);
@@ -506,7 +517,7 @@
 
 - (void)buttonEvent:(id)sender {
     
-    buttag = ((UIButton*)sender).tag;
+    buttag = ((UIButton*)sender).tag - 2000000;
     NSLog(@" button %d clicked!!!", buttag);
     
     [self performSegueWithIdentifier: @"2ndSegue" sender: self];

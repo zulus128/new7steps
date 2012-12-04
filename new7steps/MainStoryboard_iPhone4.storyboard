@@ -171,7 +171,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="7_steps_konkurs_1.png" id="V8S-El-AEC">
-                                        <rect key="frame" x="0.0" y="0.0" width="263" height="1122"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="1041"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     </imageView>
                                 </subviews>
@@ -736,7 +736,7 @@
     <resources>
         <image name="7_steps_INFO_back.png" width="640" height="149"/>
         <image name="7_steps_INFO_text-block.png" width="640" height="2120"/>
-        <image name="7_steps_konkurs_1.png" width="526" height="2244"/>
+        <image name="7_steps_konkurs_1.png" width="640" height="2082"/>
         <image name="Icon_i.png" width="38" height="51"/>
         <image name="background.jpg" width="640" height="960"/>
         <image name="icon_medal_for_topbar.png" width="40" height="52"/>

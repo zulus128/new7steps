@@ -120,7 +120,7 @@
 
             Ingridient* ing = [it.ingrids objectAtIndex:j];
             
-            UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(15, y, 293, 25)];
+            UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(15, y, 293, 33)];
             imgView.image = [UIImage imageNamed:@"table_SPISOK.png"];
             imgView.tag = TAG;
             [self.vertScrollView addSubview:imgView];
@@ -137,7 +137,7 @@
             UIButton *but = [UIButton buttonWithType:UIButtonTypeCustom];
             but.tag = 1000000 + i * CAT_MULT + j + 1;
             [but addTarget:self action:@selector(buttonCheckEvent:) forControlEvents:UIControlEventTouchUpInside];
-            [but setFrame: CGRectMake(45, y + 3, 300, 24)];
+            [but setFrame: CGRectMake(52, y + 5, 300, 24)];
             [but setTitle:ing.name forState:UIControlStateNormal];
             [but setTitleColor:[UIColor colorWithRed:105/255.0 green:76/255.0 blue:56/255.0 alpha:1.0] forState:UIControlStateNormal];
             but.titleLabel.backgroundColor = [UIColor clearColor];
@@ -162,7 +162,7 @@
             if(checked != nil)
                 if([checked isEqualToString:@"YES"]) {
 
-                    UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(43, y + 12, 260, 1)];
+                    UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(48, y + 15, 260, 1)];
                     imgView.image = [UIImage imageNamed:@"zacherkivanie_SPISOK.png"];
                     imgView.tag = ZACH + i * CAT_MULT + j + 1;
                     [self.vertScrollView addSubview:imgView];
@@ -174,11 +174,11 @@
             [but1 setImage:[UIImage imageNamed:b?@"off_SPISOK.png":@"on_SPISOK.png"] forState:UIControlStateNormal];
             but1.tag = i * CAT_MULT + j + 1;
             [but1 addTarget:self action:@selector(buttonCheckEvent:) forControlEvents:UIControlEventTouchUpInside];
-            [but1 setFrame: CGRectMake(15, y - 2, 28, 29)];
+            [but1 setFrame: CGRectMake(12, y - 6, 44, 42)];
             [but1 setImageEdgeInsets:UIEdgeInsetsMake(8, 8, 8, 8)];
             [self.vertScrollView addSubview:but1];
 
-            y += 25;
+            y += 33;
         }
         
         y += 25;
@@ -225,8 +225,8 @@
         return;
     }
     
-    float a = 28;
-    float b = 14;
+    float a = 36;
+    float b = 21;
     UIImageView *polosa = [[UIImageView alloc] initWithFrame:CGRectMake(x + a, y + b, /*260*/2, 1)];
     polosa.image = [UIImage imageNamed:@"zacherkivanie_SPISOK.png"];
     polosa.tag = ZACH + i * CAT_MULT + j + 1;

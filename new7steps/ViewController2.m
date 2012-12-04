@@ -83,6 +83,9 @@
     if(img1 != nil)
         [imgView2 setImage:img1];
     else {
+
+        [imgView2 setImage:[UIImage imageNamed:@"640-ingredients.png"]];
+
         NSInvocationOperation *operation = [[NSInvocationOperation alloc]
                                             initWithTarget:self
                                             selector:@selector(loadImage)
@@ -94,7 +97,9 @@
     if(img != nil)
         [imgView2_1 setImage:img];
     else {
-        
+
+        [imgView2_1 setImage:[UIImage imageNamed:@"640-ingredients.png"]];
+
         NSInvocationOperation *operation1 = [[NSInvocationOperation alloc]
                                              initWithTarget:self
                                              selector:@selector(loadImage1)
@@ -383,7 +388,8 @@
     for (Step* st in it.steps) {
     
         UIImageView *imgView1 = [[UIImageView alloc] initWithFrame:CGRectMake(19, y, 282, 190)];
-        imgView1.image = [UIImage imageNamed:@"bottom_pict_place1.png"];
+//        imgView1.image = [UIImage imageNamed:@"bottom_pict_place1.png"];
+        imgView1.image = [UIImage imageNamed:@"steps.jpg"];
         [self.vertScrollView3 addSubview:imgView1];
 
         UIImageView *imgV = [[UIImageView alloc] initWithFrame:CGRectMake(24, y + 5, 272, 180)];
@@ -406,6 +412,7 @@
         tr.view = imgV;
 //        tr.url = [it.steps objectForKey:i];
         tr.url = st.path;
+        tr.scroll = imgView1;
 
         tr.image = [[Common instance] getImage:tr.url];
         if(tr.image != nil) {
@@ -413,7 +420,8 @@
             NSLog(@"Step image found %@", tr.url);
             //        [self displayStepImage:tr];
             [tr.view setImage:tr.image];
-            
+            ((UIImageView*)tr.scroll).image = [UIImage imageNamed:@"bottom_pict_place1.png"];
+
 //            return;
         }
         else {
@@ -475,7 +483,8 @@
 - (void)displayStepImage:(Transit*)tr {
 
     [tr.view setImage:tr.image];
-    
+    ((UIImageView*)tr.scroll).image = [UIImage imageNamed:@"bottom_pict_place1.png"];
+
 //    NSString* n = [tr.url lastPathComponent];
     NSString* n1 = [tr.url stringByReplacingOccurrencesOfString:@":" withString:@"-"];//[tr.url lastPathComponent];
     NSString* n = [n1 stringByReplacingOccurrencesOfString:@"/" withString:@"-"];
