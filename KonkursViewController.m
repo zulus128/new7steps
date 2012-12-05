@@ -57,6 +57,8 @@
     [self.goRecipes setTitle:s forState:UIControlStateNormal];
     self.goRecipes.titleLabel.font = [UIFont fontWithName:@"Good-Book" size:20.0];
 
+    self.link1.frame = CGRectMake(2, 620, 290, 47);
+
 
 }
 

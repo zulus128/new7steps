@@ -14,6 +14,7 @@
 @property (nonatomic, retain) IBOutlet UILabel* titleLabel;
 @property (nonatomic, retain) IBOutlet UIScrollView* vertScrollView;
 @property (nonatomic, retain) IBOutlet UIButton* goRecipes;
+@property (nonatomic, retain) IBOutlet UITextView* link1;
 
 
 @end
