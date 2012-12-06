@@ -233,7 +233,7 @@
     
     again = YES;
     
-    [[Common instance] addRecipes];
+//    [[Common instance] addRecipes];
 //    [self setup];
 
 //    [progBar setProgress:1 animated:NO];
@@ -246,9 +246,12 @@
         UIAlertView *dialog = [[UIAlertView alloc]
                                          initWithTitle:nil message:NSLocalizedString(@"LOADMESSAGE", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"CANCELBUTTON", nil) otherButtonTitles:@"OK", nil];
         [dialog show];
+
     }
     else {
         
+        [[Common instance] addRecipes];
+
         [self setup];
         
         [progBar removeFromSuperview];
@@ -266,6 +269,7 @@
 //    NSLog(@"index = %d", buttonIndex);
 
     fullload = buttonIndex;
+    [[Common instance] addRecipes];
 
     if(buttonIndex) {
 
