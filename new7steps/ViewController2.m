@@ -84,7 +84,7 @@
         [imgView2 setImage:img1];
     else {
 
-        [imgView2 setImage:[UIImage imageNamed:@"640-ingredients.png"]];
+        [imgView2 setImage:[UIImage imageNamed:@"640-ingredients.jpg"]];
 
         NSInvocationOperation *operation = [[NSInvocationOperation alloc]
                                             initWithTarget:self
@@ -98,7 +98,7 @@
         [imgView2_1 setImage:img];
     else {
 
-        [imgView2_1 setImage:[UIImage imageNamed:@"640-ingredients.png"]];
+        [imgView2_1 setImage:[UIImage imageNamed:@"640-ingredients.jpg"]];
 
         NSInvocationOperation *operation1 = [[NSInvocationOperation alloc]
                                              initWithTarget:self
