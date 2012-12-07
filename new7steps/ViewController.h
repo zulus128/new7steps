@@ -32,6 +32,10 @@
 //@property (nonatomic, retain) IBOutlet UIButton* panelbut;
 @property (nonatomic, retain) IBOutlet UILabel* titleLabel;
 @property (nonatomic, retain) IBOutlet UIButton* goRecipes;
+@property (nonatomic, retain) IBOutlet UIButton* but1;
+@property (nonatomic, retain) IBOutlet UIButton* but2;
+@property (nonatomic, retain) IBOutlet UIButton* but3;
+@property (nonatomic, retain) IBOutlet UIButton* but4;
 
 //- (IBAction) search;
 

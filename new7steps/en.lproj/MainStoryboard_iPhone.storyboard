@@ -117,6 +117,10 @@
                     <nil key="simulatedStatusBarMetrics"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
+                        <outlet property="but1" destination="KDF-fA-Ug4" id="K2c-Vz-vYw"/>
+                        <outlet property="but2" destination="U87-ox-rGA" id="rXx-EA-fIP"/>
+                        <outlet property="but3" destination="0KE-AR-67R" id="MSX-Em-MHF"/>
+                        <outlet property="but4" destination="Iag-it-SS6" id="OSD-u2-5rz"/>
                         <outlet property="goRecipes" destination="3qO-lK-FLx" id="gB8-ZG-AaF"/>
                         <outlet property="titleLabel" destination="uuB-oX-NRi" id="K5x-Uh-j0A"/>
                         <outlet property="vertScrollView" destination="tXF-wL-ofH" id="2un-hs-mV4"/>
@@ -856,96 +860,15 @@
         <image name="toolbar_bottom.png" width="640" height="121"/>
         <image name="toolbar_top.png" width="640" height="104"/>
     </resources>
-    <classes>
-        <class className="AboutController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AboutController.h"/>
-            <relationships>
-                <relationship kind="action" name="back"/>
-                <relationship kind="action" name="swich"/>
-                <relationship kind="outlet" name="goRecipes" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="link1" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="link2" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="link3" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="link4" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="link5" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="link6" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="sleepLab" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="sleepSw" candidateClass="UISwitch"/>
-                <relationship kind="outlet" name="vertScrollView" candidateClass="UIScrollView"/>
-                <relationship kind="outlet" name="xmlver" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="FavViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FavViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="exit"/>
-                <relationship kind="outlet" name="goRecipes" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="vertScrollView" candidateClass="UIScrollView"/>
-            </relationships>
-        </class>
-        <class className="HorizontalController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/HorizontalController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="horizScrollView" candidateClass="UIScrollView"/>
-            </relationships>
-        </class>
-        <class className="KonkursViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/KonkursViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="back"/>
-                <relationship kind="outlet" name="goRecipes" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="link1" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="vertScrollView" candidateClass="UIScrollView"/>
-            </relationships>
-        </class>
-        <class className="SearchViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SearchViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="exit"/>
-                <relationship kind="outlet" name="goRecipes" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="sbar" candidateClass="UISearchBar"/>
-                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="vertScrollView" candidateClass="UIScrollView"/>
-            </relationships>
-        </class>
-        <class className="SpsController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SpsController.h"/>
-            <relationships>
-                <relationship kind="action" name="exit"/>
-                <relationship kind="outlet" name="goRecipes" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="vertScrollView" candidateClass="UIScrollView"/>
-            </relationships>
-        </class>
-        <class className="ViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="goRecipes" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="vertScrollView" candidateClass="UIScrollView"/>
-            </relationships>
-        </class>
-        <class className="ViewController2" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController2.h"/>
-            <relationships>
-                <relationship kind="action" name="exit"/>
-                <relationship kind="outlet" name="goRecipes" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="vertScrollView2" candidateClass="UIScrollView"/>
-                <relationship kind="outlet" name="vertScrollView3" candidateClass="UIScrollView"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="eFU-qO-ZXA"/>
+        <segue reference="hlI-SH-WbK"/>
+        <segue reference="3Ty-zP-TgR"/>
+        <segue reference="Nxa-Rf-fm0"/>
         <segue reference="lDP-OC-w1P"/>
-        <segue reference="CJX-bH-WXJ"/>
-        <segue reference="dYY-pp-VSR"/>
     </inferredMetricsTieBreakers>
 </document>

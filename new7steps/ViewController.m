@@ -30,6 +30,12 @@
     
     [Common instance].mainController = self;
     
+    [self.goRecipes setEnabled:NO];
+    [self.but1 setEnabled:NO];
+    [self.but2 setEnabled:NO];
+    [self.but3 setEnabled:NO];
+    [self.but4 setEnabled:NO];
+
     if([[UIScreen mainScreen]bounds].size.height == 568) {
         
         sView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, 568)];
@@ -194,7 +200,7 @@
     if(u < 1)
         u = 1;
     ff = (float)(u - queue.operationCount)/u;
-    NSLog(@"f = %f %f %d", ff, u, queue.operationCount);
+//    NSLog(@"f = %f %f %d", ff, u, queue.operationCount);
 
     progBar.hidden = NO;
     [progBar setProgress:ff animated:YES];
@@ -219,6 +225,11 @@
         [sIndicator stopAnimating];
         [sView removeFromSuperview];
 
+        [self.goRecipes setEnabled:YES];
+        [self.but1 setEnabled:YES];
+        [self.but2 setEnabled:YES];
+        [self.but3 setEnabled:YES];
+        [self.but4 setEnabled:YES];
 
     }
 
@@ -258,6 +269,12 @@
         [sIndicator stopAnimating];
         [sView removeFromSuperview];
         [self performSelectorInBackground:@selector(loadAllImagesBack) withObject:nil];
+
+        [self.goRecipes setEnabled:YES];
+        [self.but1 setEnabled:YES];
+        [self.but2 setEnabled:YES];
+        [self.but3 setEnabled:YES];
+        [self.but4 setEnabled:YES];
 
     }
 
