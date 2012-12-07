@@ -41,7 +41,7 @@
         sView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, 568)];
         sView.image = [UIImage imageNamed:@"Default-568h.png"];
     
-        progBar = [[CMTwoToneProgressBar alloc] initWithFrame:CGRectMake(80, 350, 160, 10)];
+        progBar = [[CMTwoToneProgressBar alloc] initWithFrame:CGRectMake(80, 510, 160, 10)];
 
     }
     else {
@@ -49,7 +49,7 @@
         sView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, 480)];
         sView.image = [UIImage imageNamed:@"Default.png"];
 
-        progBar = [[CMTwoToneProgressBar alloc] initWithFrame:CGRectMake(80, 280, 160, 10)];
+        progBar = [[CMTwoToneProgressBar alloc] initWithFrame:CGRectMake(80, 410, 160, 10)];
 
     }
 
@@ -296,6 +296,9 @@
                                        selector:@selector(updateBar)
                                        userInfo:nil
                                         repeats:NO];
+        
+
+
 
     }
     else {
@@ -307,6 +310,12 @@
         [sView removeFromSuperview];
 
         [self performSelectorInBackground:@selector(loadAllImagesBack) withObject:nil];
+
+        [self.goRecipes setEnabled:YES];
+        [self.but1 setEnabled:YES];
+        [self.but2 setEnabled:YES];
+        [self.but3 setEnabled:YES];
+        [self.but4 setEnabled:YES];
 
     }
 }

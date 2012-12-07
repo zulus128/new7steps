@@ -69,7 +69,7 @@
 
 - (void)setup {
 
-    int y = 160;
+    int y = 213;//160;
     imgView2 = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, y)];
     [self.vertScrollView2 addSubview:imgView2];
     imgView2_1 = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, y)];
@@ -355,7 +355,7 @@
 
 - (void)createSteps {
     
-    int y = 160;
+    int y = 213;//160;
     
 //    [self.vertScrollView3 addSubview:imgView2];
     

@@ -227,7 +227,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="992"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     </imageView>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="info@7stepsmeal.com" id="bl8-tG-SX4">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="info@7stepsmeal.ru" id="bl8-tG-SX4">
                                         <rect key="frame" x="15" y="215" width="289" height="47"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="textColor" red="0.51428753400000005" green="0.20809868919999999" blue="0.068578597480000003" alpha="1" colorSpace="calibratedRGB"/>
@@ -748,7 +748,7 @@
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                         <dataDetectorType key="dataDetectorTypes" link="YES"/>
                                     </textView>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="info@7stepsmeal.com" id="Jo1-dM-CIb">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="info@7stepsmeal.ru" id="Jo1-dM-CIb">
                                         <rect key="frame" x="26" y="69" width="289" height="47"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="textColor" red="0.51428753400000005" green="0.20809868919999999" blue="0.068578597480000003" alpha="1" colorSpace="calibratedRGB"/>
